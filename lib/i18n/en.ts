@@ -80,13 +80,13 @@ const en: Dictionary = {
   },
   newsletter: {
     eyebrow: 'Newsletter',
-    heading: 'Stay in the loop',
-    body: "If you've ever been talked over, treated as less senior than you are, or need tools to step into leadership positions, this site is for you.\nI'm still defining my offering (mentoring, group sessions, or newsletter). Sign up here and I'll let you know as soon as I have something concrete.",
+    heading: "Don't miss what's coming",
+    body: "I work with women in engineering who want to lead without losing themselves in the process.\nI'm defining the format — mentoring, group sessions, newsletter. Sign up and I'll let you know when there's something concrete.",
     placeholder: 'Your email',
     submit: 'Subscribe',
-    success: "Thanks for subscribing! I'll be in touch soon.",
+    success: "You're in. I'll be in touch.",
     error: 'Something went wrong. Please try again.',
-    duplicate: "You're already subscribed. Thank you!",
+    duplicate: "You're already on the list.",
   },
   footer: {
     rights: 'All rights reserved.',

@@ -76,7 +76,7 @@ export default function Header({ locale, dict }: Props) {
 
         <Link
           href={`/${locale}/newsletter`}
-          className="no-underline font-semibold text-anchor hover:text-rose transition-colors duration-200"
+          className="no-underline font-medium text-slate hover:text-rose transition-colors duration-200 relative pb-1.5"
         >
           {dict.book}
         </Link>

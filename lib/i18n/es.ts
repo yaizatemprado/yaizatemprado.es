@@ -80,13 +80,13 @@ const es: Dictionary = {
   },
   newsletter: {
     eyebrow: 'Newsletter',
-    heading: 'Mantente al día',
-    body: 'Si alguna vez te han interrumpido, te han tratado como si fueras menos senior de lo que eres, o necesitas herramientas para acceder a posiciones de liderazgo, este sitio es para ti.\nAún estoy definiendo mi oferta (mentoría, grupo o newsletter). Si te apuntas aquí, te aviso en cuanto tenga algo concreto.',
+    heading: 'No te lo pierdas',
+    body: 'Trabajo con mujeres en ingeniería que quieren liderar sin dejar de ser ellas mismas.\nEstoy definiendo el formato — mentoría, grupo, newsletter. Apúntate y te aviso cuando tenga algo concreto.',
     placeholder: 'Tu email',
     submit: 'Suscríbete',
-    success: '¡Gracias por suscribirte! Te escribiré pronto.',
+    success: 'Apuntada. Te escribo pronto.',
     error: 'Algo salió mal. Inténtalo de nuevo.',
-    duplicate: 'Ya estás suscrita. ¡Gracias!',
+    duplicate: 'Ya estás en la lista.',
   },
   footer: {
     rights: 'Todos los derechos reservados.',

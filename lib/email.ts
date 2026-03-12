@@ -76,8 +76,8 @@ export async function sendSubscriberConfirmation(to: string, locale: string) {
 <p>Un abrazo y te escribo pronto,<br>Yaiza.</p>`
     : `<p>Hi,</p>
 <p>Thanks for subscribing. I'm glad to have you here.</p>
-<p>Right now I'm defining the format (newsletter, group mentoring, 1:1 mentoring...) and I'll write to you when I have something concrete to share.</p>
-<p>A warm hello and talk soon,<br>Yaiza.</p>`
+<p>I'm still figuring out the format — newsletter, group mentoring, 1:1 sessions. I'll write to you when there's something concrete to share.</p>
+<p>Talk soon,<br>Yaiza.</p>`
 
   await resend.emails.send({
     from: FROM,
