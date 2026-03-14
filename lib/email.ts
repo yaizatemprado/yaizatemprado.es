@@ -1,5 +1,6 @@
 import { Resend } from 'resend'
 import type { SessionType } from './types'
+import { generateIcs } from './ics'
 
 const resend = new Resend(process.env.RESEND_SECRET_KEY)
 const FROM = 'Yaiza Temprado <yaiza@temprado.es>'
@@ -20,6 +21,15 @@ function formatSlot(startsAt: string): string {
 }
 
 export async function sendIntroConfirmation(to: string, name: string, startsAt: string) {
+  const ics = generateIcs({
+    startsAt,
+    durationMinutes: 15,
+    summary: 'Intro call with Yaiza Temprado',
+    organizerName: 'Yaiza Temprado',
+    organizerEmail: MENTOR_EMAIL,
+    attendeeEmail: to,
+  })
+
   await resend.emails.send({
     from: FROM,
     to,
@@ -28,10 +38,20 @@ export async function sendIntroConfirmation(to: string, name: string, startsAt: 
 <p>Your 15-minute intro call is booked for <strong>${formatSlot(startsAt)}</strong>.</p>
 <p>I'll send you a video call link closer to the date.</p>
 <p>Looking forward to speaking with you,<br>Yaiza</p>`,
+    attachments: [{ filename: 'session.ics', content: Buffer.from(ics) }],
   })
 }
 
 export async function sendSessionConfirmation(to: string, name: string, startsAt: string) {
+  const ics = generateIcs({
+    startsAt,
+    durationMinutes: 60,
+    summary: 'Mentoring session with Yaiza Temprado',
+    organizerName: 'Yaiza Temprado',
+    organizerEmail: MENTOR_EMAIL,
+    attendeeEmail: to,
+  })
+
   await resend.emails.send({
     from: FROM,
     to,
@@ -40,6 +60,7 @@ export async function sendSessionConfirmation(to: string, name: string, startsAt
 <p>Your 60-minute mentoring session is booked for <strong>${formatSlot(startsAt)}</strong>.</p>
 <p>I'll send you a video call link closer to the date.</p>
 <p>Looking forward to our session,<br>Yaiza</p>`,
+    attachments: [{ filename: 'session.ics', content: Buffer.from(ics) }],
   })
 }
 
