@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Manrope, Playfair_Display } from 'next/font/google'
-import { headers } from 'next/headers'
 import './globals.css'
 
 const manrope = Manrope({
@@ -32,10 +31,8 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const locale = headers().get('x-locale') ?? 'en'
-
   return (
-    <html lang={locale} className={`${manrope.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${manrope.variable} ${playfair.variable}`}>
       <head>
         <link rel="icon" type="image/png" href="/assets/favicon.png" />
         <link rel="apple-touch-icon" href="/assets/favicon.png" />

@@ -8,9 +8,11 @@ type Props = {
   locale: string
 }
 
-type Status = 'idle' | 'loading' | 'success' | 'error' | 'duplicate'
+type Status = 'idle' | 'loading' | 'success' | 'error'
 
-export default function SubscribeForm({ dict, locale }: Props) {
+const KIT_FORM_URL = 'https://app.kit.com/forms/9195993/subscriptions'
+
+export default function SubscribeForm({ dict }: Props) {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<Status>('idle')
 
@@ -19,21 +21,17 @@ export default function SubscribeForm({ dict, locale }: Props) {
     setStatus('loading')
 
     try {
-      const res = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, locale }),
-      })
-      const data = await res.json()
+      const body = new FormData()
+      body.append('email_address', email)
 
-      if (data.status === 'duplicate') {
-        setStatus('duplicate')
-      } else if (data.status === 'ok') {
-        setStatus('success')
-        setEmail('')
-      } else {
-        setStatus('error')
-      }
+      const res = await fetch(KIT_FORM_URL, {
+        method: 'POST',
+        body,
+        mode: 'no-cors',
+      })
+
+      setStatus('success')
+      setEmail('')
     } catch {
       setStatus('error')
     }
@@ -71,11 +69,6 @@ export default function SubscribeForm({ dict, locale }: Props) {
       {status === 'error' && (
         <p className="text-sm text-rose border border-[#ead9d3] bg-[#fff5f2] rounded-full px-5 py-2.5 text-center">
           {dict.error}
-        </p>
-      )}
-      {status === 'duplicate' && (
-        <p className="text-sm text-plum bg-[#f4ece8] border border-[#ead9d3] rounded-full px-5 py-2.5 text-center">
-          {dict.duplicate}
         </p>
       )}
     </div>

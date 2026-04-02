@@ -1,5 +1,11 @@
-import { redirect } from 'next/navigation'
+'use client'
+
+import { useEffect } from 'react'
 
 export default function Root() {
-  redirect('/en')
+  useEffect(() => {
+    window.location.replace('/en')
+  }, [])
+
+  return null
 }
