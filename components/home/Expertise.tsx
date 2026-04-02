@@ -19,7 +19,7 @@ export default function Expertise({ dict }: Props) {
 
       <div
         className="grid gap-6 max-w-[1080px] mx-auto"
-        style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}
+        style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))' }}
       >
         {dict.cards.map(({ title, body }) => (
           <article

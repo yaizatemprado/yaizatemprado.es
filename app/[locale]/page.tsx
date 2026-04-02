@@ -6,6 +6,7 @@ import Hero from '@/components/home/Hero'
 import About from '@/components/home/About'
 import Expertise from '@/components/home/Expertise'
 import Proof from '@/components/home/Proof'
+import Services from '@/components/home/Services'
 import Connect from '@/components/home/Connect'
 
 type Props = { params: { locale: string } }
@@ -55,7 +56,7 @@ export default async function LocalePage({ params: { locale } }: Props) {
 
       <main className="max-w-[1200px] mx-auto px-6 pt-24 pb-[120px]" id="main">
         <Header locale={locale} dict={dict.nav} />
-        <Hero dict={dict.hero} locale={locale} />
+        <Hero dict={dict.hero} />
         <Divider />
         <About dict={dict.about} />
         <Divider />
@@ -63,7 +64,9 @@ export default async function LocalePage({ params: { locale } }: Props) {
         <Divider />
         <Proof dict={dict.proof} />
         <Divider />
-        <Connect dict={dict.connect} locale={locale} />
+        <Services dict={dict.services} />
+        <Divider />
+        <Connect dict={dict.connect} newsletterDict={dict.newsletter} />
         <Footer dict={dict.footer} />
       </main>
     </>

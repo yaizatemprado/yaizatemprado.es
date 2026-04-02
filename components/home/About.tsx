@@ -14,7 +14,7 @@ export default function About({ dict }: Props) {
     <section id="about" className="grid gap-8">
       <div
         className="grid gap-9 items-start max-w-[980px]"
-        style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}
+        style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))' }}
       >
         <div className="grid gap-4">
           <span className="text-[0.78rem] font-extrabold tracking-[0.22em] uppercase text-rose">
@@ -36,7 +36,7 @@ export default function About({ dict }: Props) {
           <div
             aria-label="Experience highlights"
             className="grid gap-5 mt-2.5"
-            style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}
+            style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))' }}
           >
             {metrics.map(({ value, label }) => (
               <div key={value}>

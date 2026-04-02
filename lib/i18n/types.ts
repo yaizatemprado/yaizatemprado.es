@@ -6,8 +6,8 @@ export type Dictionary = {
   nav: {
     about: string
     expertise: string
+    services: string
     contact: string
-    book: string
   }
   hero: {
     eyebrow: string
@@ -39,11 +39,23 @@ export type Dictionary = {
     heading: string
     cards: Array<{ label: string; body: string }>
   }
+  services: {
+    eyebrow: string
+    heading: string
+    lead: string
+    cards: Array<{
+      tag: string
+      title: string
+      description: string
+      detail: string
+      href: string
+      cta: string
+    }>
+  }
   connect: {
     eyebrow: string
     heading: string
     lead: string
-    book: string
   }
   newsletter: {
     eyebrow: string

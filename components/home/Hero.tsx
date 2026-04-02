@@ -1,15 +1,14 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import type { Dictionary } from '@/lib/i18n/types'
 
-type Props = { dict: Dictionary['hero']; locale: string }
+type Props = { dict: Dictionary['hero'] }
 
-export default function Hero({ dict, locale }: Props) {
+export default function Hero({ dict }: Props) {
   return (
     <section
       className="relative grid gap-9 items-center py-6"
       style={{
-        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
       }}
     >
       <div
@@ -38,8 +37,8 @@ export default function Hero({ dict, locale }: Props) {
         </p>
 
         <div className="flex flex-wrap gap-4">
-          <Link
-            href={`/${locale}/newsletter`}
+          <a
+            href="#services"
             className="rounded-full px-[26px] py-3 text-[0.95rem] font-semibold text-white no-underline transition-transform duration-200 hover:-translate-y-px"
             style={{
               background: 'linear-gradient(135deg, #cc6c4e, #b45b41)',
@@ -47,9 +46,9 @@ export default function Hero({ dict, locale }: Props) {
             }}
           >
             {dict.ctaPrimary}
-          </Link>
+          </a>
           <a
-            href="#about"
+            href="#contact"
             className="rounded-full px-[26px] py-3 text-[0.95rem] font-semibold text-plum bg-white border border-[#e6d5cf] no-underline transition-transform duration-200 hover:-translate-y-px"
           >
             {dict.ctaSecondary}
@@ -59,7 +58,7 @@ export default function Hero({ dict, locale }: Props) {
 
       <div className="grid gap-6 justify-items-center">
         <div
-          className="w-[260px] h-[260px] rounded-full p-2.5"
+          className="w-[min(260px,70vw)] h-[min(260px,70vw)] rounded-full p-2.5"
           style={{
             background: 'linear-gradient(135deg, #f5b8a6, #f7d8cc, #e6c7f4)',
             boxShadow: '0 25px 40px rgba(93, 70, 72, 0.2)',

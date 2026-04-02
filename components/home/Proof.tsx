@@ -20,7 +20,7 @@ export default function Proof({ dict }: Props) {
       <div
         aria-label="Selected outcomes"
         className="grid gap-[18px] max-w-[1080px] mx-auto"
-        style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}
+        style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))' }}
       >
         {dict.cards.map(({ label, body }) => (
           <article

@@ -5,7 +5,6 @@ import type { Dictionary } from '@/lib/i18n/types'
 
 type Props = {
   dict: Dictionary['newsletter']
-  locale: string
 }
 
 type Status = 'idle' | 'loading' | 'success' | 'error'

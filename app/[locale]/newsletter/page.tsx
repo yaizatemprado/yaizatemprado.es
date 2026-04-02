@@ -50,7 +50,7 @@ export default async function NewsletterPage({ params: { locale } }: Props) {
           ))}
 
           <div className="w-full mt-4">
-            <SubscribeForm dict={dict.newsletter} locale={locale} />
+            <SubscribeForm dict={dict.newsletter} />
           </div>
         </section>
 
