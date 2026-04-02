@@ -6,10 +6,10 @@ const dictionaries: Record<string, () => Promise<Dictionary>> = {
 }
 
 export async function getDictionary(locale: string): Promise<Dictionary> {
-  const loader = dictionaries[locale] ?? dictionaries.en
+  const loader = dictionaries[locale] ?? dictionaries.es
   return loader()
 }
 
-export const locales = ['en', 'es'] as const
-export const defaultLocale = 'en'
+export const locales = ['es', 'en'] as const
+export const defaultLocale = 'es'
 export type Locale = (typeof locales)[number]

@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 
 export default function Root() {
   useEffect(() => {
-    window.location.replace('/en')
+    window.location.replace('/es')
   }, [])
 
   return null

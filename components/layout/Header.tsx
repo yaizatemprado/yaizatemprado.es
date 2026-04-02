@@ -118,19 +118,19 @@ export default function Header({ locale, dict }: Props) {
 function LanguageSwitcher({ locale }: { locale: string }) {
   return (
     <div className="flex items-center gap-1.5 text-[0.82rem] font-semibold tracking-wide">
-      {locale === 'en' ? (
-        <span className="text-anchor">EN</span>
-      ) : (
-        <Link href="/en" className="text-slate hover:text-rose transition-colors duration-200 no-underline">
-          EN
-        </Link>
-      )}
-      <span className="text-slate opacity-40" aria-hidden="true">|</span>
       {locale === 'es' ? (
         <span className="text-anchor">ES</span>
       ) : (
         <Link href="/es" className="text-slate hover:text-rose transition-colors duration-200 no-underline">
           ES
+        </Link>
+      )}
+      <span className="text-slate opacity-40" aria-hidden="true">|</span>
+      {locale === 'en' ? (
+        <span className="text-anchor">EN</span>
+      ) : (
+        <Link href="/en" className="text-slate hover:text-rose transition-colors duration-200 no-underline">
+          EN
         </Link>
       )}
     </div>
