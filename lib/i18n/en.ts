@@ -82,7 +82,8 @@ const en: Dictionary = {
         title: 'Diagnostic session',
         description: "Tell me what you're dealing with and I'll give you my honest read. No strings attached.",
         detail: '15 min',
-        href: 'https://www.mentoring-club.com/profiles/yaiza-temprado/intro-session',
+        href: 'https://cal.com/yaiza-temprado/diagnostico',
+        external: true,
         cta: 'Book free session',
       },
       {
@@ -90,7 +91,7 @@ const en: Dictionary = {
         title: 'Stop asking for permission to lead',
         description: "For you if you've been leading for a while but feel your voice doesn't carry the weight it should. Communication, positioning, organisational navigation.",
         detail: '6 sessions · €650',
-        href: 'https://www.mentoring-club.com/profiles/yaiza-temprado/deja-de-pedir-permiso-para-liderar',
+        href: '/en/programas/deja-de-pedir-permiso',
         cta: 'Learn more',
       },
       {
@@ -98,7 +99,7 @@ const en: Dictionary = {
         title: 'Your first 90 days leading',
         description: "For you if you've just landed your first leadership role and nobody gave you the manual.",
         detail: '6 sessions · €650',
-        href: 'https://www.mentoring-club.com/profiles/yaiza-temprado/los-primeros-90-das-liderando',
+        href: '/en/programas/primeros-90-dias',
         cta: 'Learn more',
       },
       {
@@ -106,8 +107,99 @@ const en: Dictionary = {
         title: 'Working session',
         description: 'One real problem. One hour. You leave with concrete actions to execute the next day.',
         detail: '60 min · €150',
-        href: 'https://www.mentoring-club.com/profiles/yaiza-temprado/leadership-coaching',
-        cta: 'Learn more',
+        href: 'https://cal.com/yaiza-temprado/sesion',
+        external: true,
+        cta: 'Book a session',
+      },
+    ],
+  },
+  programs: {
+    forWhoLabel: "Who it's for",
+    sessionsHeading: 'Sessions included',
+    backToServices: '← Back to services',
+    items: [
+      {
+        slug: 'deja-de-pedir-permiso',
+        tag: 'Programme',
+        title: 'Stop asking for permission to lead',
+        forWho:
+          "For you if you've been leading for a while but feel you're not taken seriously, that your voice doesn't carry, or that you're doing the work of leading without the real authority.",
+        detail: '6 sessions · €650',
+        cadence: 'Every two weeks or monthly',
+        sessions: [
+          {
+            title: 'Authority audit',
+            description:
+              "Where you're giving away power without noticing: in meetings, in emails, in decisions.",
+          },
+          {
+            title: 'Communication and positioning',
+            description:
+              'The phrases, the patterns, the tics that undercut you. What to say instead.',
+          },
+          {
+            title: 'Political navigation',
+            description:
+              'Who decides what in your organisation, how alliances work, how to have influence without flinching at the word «influence».',
+          },
+          {
+            title: "The conversations you're avoiding",
+            description: 'Spotting them, preparing them, having them.',
+          },
+          {
+            title: 'Visibility and authorship',
+            description:
+              'How to stop giving your work away and make sure your impact is seen.',
+          },
+          {
+            title: 'A 6-month positioning plan',
+            description: 'What you want to achieve, what you need to change, and how to measure it.',
+          },
+        ],
+        buyHref: 'https://buy.stripe.com/bJe9AS1WS3wYcsG5iDg7e01',
+        cta: 'Book your spot',
+      },
+      {
+        slug: 'primeros-90-dias',
+        tag: 'Programme',
+        title: 'Your first 90 days leading',
+        forWho:
+          "For you if you've just been promoted into your first leadership role (or you're less than 6 months in and already drowning).",
+        detail: '6 sessions · €650',
+        cadence: 'Every two weeks (3 months)',
+        sessions: [
+          {
+            title: 'Situation diagnosis',
+            description: "What you've inherited, what's expected of you, what nobody told you.",
+          },
+          {
+            title: 'Positioning',
+            description:
+              "How you want your team, your peers and your boss to see you, and what signals you're sending right now.",
+          },
+          {
+            title: 'Foundational conversations',
+            description:
+              'The first 1:1s, how to set expectations, how to listen without promising.',
+          },
+          {
+            title: 'Your first conflict',
+            description:
+              'Feedback, underperformance, or the first unpopular decision. How to handle it without destroying trust.',
+          },
+          {
+            title: 'Managing up',
+            description:
+              "How to communicate with your manager, ask for resources, say no, give visibility without looking like you're overselling.",
+          },
+          {
+            title: 'Review and flight plan',
+            description:
+              "What's changed, which patterns you've broken, what's left for you to work on alone.",
+          },
+        ],
+        buyHref: 'https://buy.stripe.com/cNieVcbxs0kM50e8uPg7e00',
+        cta: 'Book your spot',
       },
     ],
   },

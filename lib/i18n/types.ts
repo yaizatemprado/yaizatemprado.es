@@ -50,6 +50,23 @@ export type Dictionary = {
       detail: string
       href: string
       cta: string
+      external?: boolean
+    }>
+  }
+  programs: {
+    forWhoLabel: string
+    sessionsHeading: string
+    backToServices: string
+    items: Array<{
+      slug: string
+      tag: string
+      title: string
+      forWho: string
+      detail: string
+      cadence: string
+      sessions: Array<{ title: string; description: string }>
+      buyHref: string
+      cta: string
     }>
   }
   connect: {

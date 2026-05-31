@@ -82,7 +82,8 @@ const es: Dictionary = {
         title: 'Sesión de diagnóstico',
         description: 'Me cuentas qué tienes encima y te doy mi lectura honesta. Sin compromiso.',
         detail: '15 min',
-        href: 'https://www.mentoring-club.com/profiles/yaiza-temprado/intro-session',
+        href: 'https://cal.com/yaiza-temprado/diagnostico',
+        external: true,
         cta: 'Reservar sesión gratis',
       },
       {
@@ -90,7 +91,7 @@ const es: Dictionary = {
         title: 'Deja de pedir permiso para liderar',
         description: 'Para ti si llevas tiempo liderando pero sientes que tu voz no pesa lo que debería. Comunicación, posicionamiento, navegación organizacional.',
         detail: '6 sesiones · 650 €',
-        href: 'https://www.mentoring-club.com/profiles/yaiza-temprado/deja-de-pedir-permiso-para-liderar',
+        href: '/es/programas/deja-de-pedir-permiso',
         cta: 'Saber más',
       },
       {
@@ -98,7 +99,7 @@ const es: Dictionary = {
         title: 'Los primeros 90 días liderando',
         description: 'Para ti si acabas de aterrizar en tu primer rol de liderazgo y nadie te ha dado el manual.',
         detail: '6 sesiones · 650 €',
-        href: 'https://www.mentoring-club.com/profiles/yaiza-temprado/los-primeros-90-das-liderando',
+        href: '/es/programas/primeros-90-dias',
         cta: 'Saber más',
       },
       {
@@ -106,8 +107,98 @@ const es: Dictionary = {
         title: 'Sesión de trabajo',
         description: 'Un problema real. Una hora. Sales con acciones concretas para ejecutar al día siguiente.',
         detail: '60 min · 150 €',
-        href: 'https://www.mentoring-club.com/profiles/yaiza-temprado/leadership-coaching',
-        cta: 'Saber más',
+        href: 'https://cal.com/yaiza-temprado/sesion',
+        external: true,
+        cta: 'Reservar sesión',
+      },
+    ],
+  },
+  programs: {
+    forWhoLabel: 'Para quién',
+    sessionsHeading: 'Sesiones incluidas',
+    backToServices: '← Volver a servicios',
+    items: [
+      {
+        slug: 'deja-de-pedir-permiso',
+        tag: 'Programa',
+        title: 'Deja de pedir permiso para liderar',
+        forWho:
+          'Para ti si llevas tiempo en un rol de liderazgo pero sientes que no te toman en serio, que tu voz no pesa, o que estás haciendo el trabajo de liderar sin la autoridad real.',
+        detail: '6 sesiones · 650 €',
+        cadence: 'Cadencia quincenal o mensual',
+        sessions: [
+          {
+            title: 'Auditoría de autoridad',
+            description:
+              'Dónde estás cediendo poder sin darte cuenta: en reuniones, en emails, en decisiones.',
+          },
+          {
+            title: 'Comunicación y posicionamiento',
+            description:
+              'Las frases, los patrones, los tics que te están restando. Qué decir en su lugar.',
+          },
+          {
+            title: 'Navegación política',
+            description:
+              'Quién decide qué en tu organización, cómo funcionan las alianzas, cómo influir sin que te dé alergia la palabra «influir».',
+          },
+          {
+            title: 'Conversaciones que estás evitando',
+            description: 'Identificarlas, prepararlas, ejecutarlas.',
+          },
+          {
+            title: 'Visibilidad y autoría',
+            description:
+              'Cómo dejar de regalar tu trabajo y asegurarte de que tu impacto se ve.',
+          },
+          {
+            title: 'Plan de posicionamiento a 6 meses',
+            description: 'Qué quieres conseguir, qué necesitas cambiar, y cómo medirlo.',
+          },
+        ],
+        buyHref: 'https://buy.stripe.com/bJe9AS1WS3wYcsG5iDg7e01',
+        cta: 'Reservar plaza',
+      },
+      {
+        slug: 'primeros-90-dias',
+        tag: 'Programa',
+        title: 'Los primeros 90 días liderando',
+        forWho:
+          'Para ti si acabas de ser promocionada a tu primer rol de liderazgo (o llevas menos de 6 meses y ya estás ahogándote).',
+        detail: '6 sesiones · 650 €',
+        cadence: 'Cadencia quincenal (3 meses)',
+        sessions: [
+          {
+            title: 'Diagnóstico de situación',
+            description: 'Qué has heredado, qué se espera de ti, qué no te han dicho.',
+          },
+          {
+            title: 'Posicionamiento',
+            description:
+              'Cómo quieres que te perciba tu equipo, tus peers y tu jefe, y qué señales estás mandando ahora mismo.',
+          },
+          {
+            title: 'Conversaciones fundacionales',
+            description:
+              'Los 1:1 iniciales, cómo establecer expectativas, cómo escuchar sin prometer.',
+          },
+          {
+            title: 'Tu primer conflicto',
+            description:
+              'Feedback, underperformance, o la primera decisión impopular. Cómo gestionarla sin destruir confianza.',
+          },
+          {
+            title: 'Gestionar hacia arriba',
+            description:
+              'Cómo comunicarte con tu manager, pedir recursos, decir que no, dar visibilidad sin parecer que estás vendiendo humo.',
+          },
+          {
+            title: 'Revisión y plan de vuelo',
+            description: 'Qué ha cambiado, qué patrones has roto, qué te queda por trabajar sola.',
+          },
+        ],
+        buyHref: 'https://buy.stripe.com/cNieVcbxs0kM50e8uPg7e00',
+        cta: 'Reservar plaza',
       },
     ],
   },

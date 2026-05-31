@@ -1,6 +1,14 @@
+import Link from 'next/link'
 import type { Dictionary } from '@/lib/i18n/types'
 
 type Props = { dict: Dictionary['services'] }
+
+const buttonClass =
+  'inline-block rounded-full px-5 py-2.5 text-[0.85rem] font-semibold text-white no-underline transition-transform duration-200 hover:-translate-y-px text-center'
+const buttonStyle = {
+  background: 'linear-gradient(135deg, #cc6c4e, #b45b41)',
+  boxShadow: '0 10px 20px rgba(204, 108, 78, 0.2)',
+}
 
 export default function Services({ dict }: Props) {
   return (
@@ -24,7 +32,7 @@ export default function Services({ dict }: Props) {
         className="grid gap-6 max-w-[1080px] mx-auto"
         style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))' }}
       >
-        {dict.cards.map(({ tag, title, description, detail, href, cta }) => (
+        {dict.cards.map(({ tag, title, description, detail, href, cta, external }) => (
           <article
             key={title}
             className="bg-card rounded-[20px] px-[22px] pt-[22px] pb-6 border border-[#f0e5e1] flex flex-col gap-3.5 transition-transform duration-200 hover:-translate-y-1"
@@ -41,18 +49,21 @@ export default function Services({ dict }: Props) {
             </p>
             <div className="mt-auto flex flex-col gap-3.5">
               <p className="text-[0.85rem] font-semibold text-plum">{detail}</p>
-              <a
-                href={href}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-block rounded-full px-5 py-2.5 text-[0.85rem] font-semibold text-white no-underline transition-transform duration-200 hover:-translate-y-px text-center"
-                style={{
-                  background: 'linear-gradient(135deg, #cc6c4e, #b45b41)',
-                  boxShadow: '0 10px 20px rgba(204, 108, 78, 0.2)',
-                }}
-              >
-                {cta}
-              </a>
+              {external ? (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={buttonClass}
+                  style={buttonStyle}
+                >
+                  {cta}
+                </a>
+              ) : (
+                <Link href={href} className={buttonClass} style={buttonStyle}>
+                  {cta}
+                </Link>
+              )}
             </div>
           </article>
         ))}
