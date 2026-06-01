@@ -10,6 +10,7 @@ const en: Dictionary = {
     about: 'About',
     expertise: 'Expertise',
     services: 'Services',
+    resources: 'Resources',
     contact: 'Stay in touch',
   },
   hero: {
@@ -200,6 +201,89 @@ const en: Dictionary = {
         ],
         buyHref: 'https://buy.stripe.com/cNieVcbxs0kM50e8uPg7e00',
         cta: 'Book your spot',
+      },
+    ],
+  },
+  resources: {
+    eyebrow: 'Resources',
+    heading: 'Guides to download',
+    lead: 'Practical guides on leadership, communication, and meetings. Yours to keep and use whenever you need them.',
+    cardCta: 'View guide',
+    backLabel: '← Back to resources',
+    insideHeading: "What's inside",
+    forWhoLabel: "Who it's for",
+    formHeading: 'Download it free',
+    formNote:
+      "I'll send it to your email. And you'll join my newsletter on engineering leadership and influence — one email every few days, no filler. Unsubscribe anytime, one click.",
+    placeholder: 'Your email',
+    submit: 'Send me the guide',
+    sending: 'Sending...',
+    success: 'Check your email: confirm with one click and the guide is yours.',
+    error: 'Something went wrong. Please try again.',
+    items: [
+      {
+        slug: 'reuniones-productivas',
+        tag: 'Guide',
+        title: 'How to make your meetings count',
+        summary:
+          "Productive meetings don't happen by accident: they need intention, preparation, and positioning. This guide gives you the system so every conversation moves something forward.",
+        forWho:
+          "For you if you lead, align teams, or try to get your ideas through, and half your week disappears into meetings that decide nothing.",
+        highlights: [
+          {
+            title: 'Before the room',
+            description:
+              'How to prep a meeting in 10 minutes so it arrives ready to decide, not to start the debate from scratch.',
+          },
+          {
+            title: 'The CPS pattern',
+            description:
+              'Coalition, positioning, follow-through: why your ideas land "orphaned" in the meeting, and how to give them allies before you walk in.',
+          },
+          {
+            title: 'Position without raising your voice',
+            description:
+              'The concrete phrases that make your input land, without having to be the one who talks the most.',
+          },
+          {
+            title: "Don't let it die in \"we'll look into it\"",
+            description:
+              'How to close with owners, dates, and next steps so the decision survives the meeting.',
+          },
+        ],
+        kitFormId: '9509093',
+      },
+      {
+        slug: 'manager-era-ia',
+        tag: 'Guide',
+        title: "How you'll be measured as a manager in the age of AI",
+        summary:
+          "The 4 questions they'll use to evaluate you as a manager now that AI is changing the work, the 5 levels to place yourself honestly, and the signs you're ending up on the wrong side.",
+        forWho:
+          "For you if you lead a team and you can feel the rules changing with AI — and you're not entirely sure what's expected of you now.",
+        highlights: [
+          {
+            title: 'The 4 questions',
+            description:
+              "The four criteria they'll use to measure you as a manager in the age of AI. So you know where they're looking before they do.",
+          },
+          {
+            title: 'The 5 levels',
+            description:
+              'A scale to assess yourself with no spin and see which one you’re actually at today.',
+          },
+          {
+            title: 'The red flags',
+            description:
+              "The warning signs that you're ending up on the redundant side, and what to do when you spot them.",
+          },
+          {
+            title: "The 20% that doesn't get automated",
+            description:
+              'Where the manager work that gains value —not loses it— lives once AI enters the picture.',
+          },
+        ],
+        kitFormId: '9509223',
       },
     ],
   },

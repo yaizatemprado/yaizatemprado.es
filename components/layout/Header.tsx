@@ -43,6 +43,7 @@ export default function Header({ locale, dict }: Props) {
     { href: `/${locale}#about`, label: dict.about },
     { href: `/${locale}#expertise`, label: dict.expertise },
     { href: `/${locale}#services`, label: dict.services },
+    { href: `/${locale}/recursos`, label: dict.resources },
     { href: `/${locale}#contact`, label: dict.contact },
   ]
 

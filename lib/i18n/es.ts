@@ -10,6 +10,7 @@ const es: Dictionary = {
     about: 'Sobre mí',
     expertise: 'Especialidades',
     services: 'Servicios',
+    resources: 'Recursos',
     contact: 'Contacto',
   },
   hero: {
@@ -199,6 +200,89 @@ const es: Dictionary = {
         ],
         buyHref: 'https://buy.stripe.com/cNieVcbxs0kM50e8uPg7e00',
         cta: 'Reservar plaza',
+      },
+    ],
+  },
+  resources: {
+    eyebrow: 'Recursos',
+    heading: 'Guías para descargar',
+    lead: 'Guías prácticas sobre liderazgo, comunicación y reuniones. Te las quedas y las usas cuando las necesites.',
+    cardCta: 'Ver guía',
+    backLabel: '← Volver a recursos',
+    insideHeading: 'Qué hay dentro',
+    forWhoLabel: 'Para quién',
+    formHeading: 'Descárgala gratis',
+    formNote:
+      'Te la envío al email. Y de paso te suscribes a mi newsletter sobre liderazgo en ingeniería e influencia — un email cada pocos días, sin relleno. Te puedes dar de baja cuando quieras, en un clic.',
+    placeholder: 'Tu email',
+    submit: 'Enviarme la guía',
+    sending: 'Enviando...',
+    success: 'Revisa tu email: dale a confirmar con un clic y la guía es tuya.',
+    error: 'Algo salió mal. Inténtalo de nuevo.',
+    items: [
+      {
+        slug: 'reuniones-productivas',
+        tag: 'Guía',
+        title: 'Cómo hacer que tus reuniones cuenten',
+        summary:
+          'Las reuniones productivas no pasan por casualidad: necesitan intención, preparación y posicionamiento. Esta guía te da el sistema para que cada conversación mueva algo.',
+        forWho:
+          'Para ti si lideras, alineas equipos o intentas que tus ideas avancen, y sientes que se te va media semana en reuniones que no deciden nada.',
+        highlights: [
+          {
+            title: 'Antes de la sala',
+            description:
+              'Cómo preparar una reunión en 10 minutos para que llegue decidida, no para abrir el debate desde cero.',
+          },
+          {
+            title: 'El patrón CPS',
+            description:
+              'Coalición, posicionamiento y seguimiento: por qué tus ideas llegan «huérfanas» a la reunión y cómo darles aliados antes de entrar.',
+          },
+          {
+            title: 'Posicionar sin levantar la voz',
+            description:
+              'Las frases concretas para que tu aportación pese, sin tener que ser la que más habla.',
+          },
+          {
+            title: 'Que no muera en «lo miramos»',
+            description:
+              'Cómo cerrar con dueños, fechas y siguiente paso para que la decisión sobreviva a la reunión.',
+          },
+        ],
+        kitFormId: '9509093',
+      },
+      {
+        slug: 'manager-era-ia',
+        tag: 'Guía',
+        title: 'Cómo te van a medir como manager en la era de la IA',
+        summary:
+          'Las 4 preguntas con las que te van a evaluar como manager ahora que la IA cambia el trabajo, los 5 niveles para situarte con honestidad, y las señales de que te estás quedando en el lado equivocado.',
+        forWho:
+          'Para ti si lideras un equipo y notas que las reglas del juego están cambiando con la IA — y no tienes del todo claro qué se espera ahora de ti.',
+        highlights: [
+          {
+            title: 'Las 4 preguntas',
+            description:
+              'Los cuatro criterios con los que te van a medir como manager en la era de la IA. Para que sepas dónde miran antes de que lo hagan.',
+          },
+          {
+            title: 'Los 5 niveles',
+            description:
+              'Una escala para autoevaluarte sin humo y ver en cuál estás hoy de verdad.',
+          },
+          {
+            title: 'Las señales rojas',
+            description:
+              'Los avisos de que te estás quedando en el lado que sobra, y qué hacer cuando los detectas.',
+          },
+          {
+            title: 'El 20% que no se automatiza',
+            description:
+              'Dónde está el trabajo de manager que gana valor —no que lo pierde— cuando la IA entra en escena.',
+          },
+        ],
+        kitFormId: '9509223',
       },
     ],
   },

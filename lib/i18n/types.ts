@@ -7,6 +7,7 @@ export type Dictionary = {
     about: string
     expertise: string
     services: string
+    resources: string
     contact: string
   }
   hero: {
@@ -67,6 +68,33 @@ export type Dictionary = {
       sessions: Array<{ title: string; description: string }>
       buyHref: string
       cta: string
+    }>
+  }
+  resources: {
+    eyebrow: string
+    heading: string
+    lead: string
+    cardCta: string
+    backLabel: string
+    insideHeading: string
+    forWhoLabel: string
+    formHeading: string
+    formNote: string
+    placeholder: string
+    submit: string
+    sending: string
+    success: string
+    error: string
+    items: Array<{
+      slug: string
+      tag: string
+      title: string
+      summary: string
+      forWho: string
+      highlights: Array<{ title: string; description: string }>
+      // Kit form dedicated to THIS guide: its incentive email delivers the PDF
+      // and it subscribes the person to the single newsletter sequence.
+      kitFormId: string
     }>
   }
   connect: {
