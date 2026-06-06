@@ -14,7 +14,7 @@ const en: Dictionary = {
     contact: 'Stay in touch',
   },
   hero: {
-    eyebrow: 'Senior Director of Engineering · still in the room',
+    eyebrow: 'Senior Director of Engineering',
     heading: 'Lead engineering and actually get heard. Especially for us.',
     lead: "I'm a Senior Director of Engineering and I deal with the same things you do, every week: meetings that decide nothing, good ideas that go nowhere, rooms where it's hard to be taken seriously. I give you the concrete frameworks to change that.",
     ctaPrimary: 'Work with me',
@@ -22,10 +22,10 @@ const en: Dictionary = {
   },
   about: {
     eyebrow: 'About',
-    heading: 'I tell you from the inside, not from the stands',
+    heading: 'From the inside, not the sidelines',
     p1: "I'm not a coach who left the corporate world ten years ago and tells you what it was like back then. I've spent more than 20 years in engineering and right now I run it, as a Senior Director. I'm still inside: what I tell you about meetings, influence or presence isn't theory from a book — I use it in my own rooms every week.",
-    p2: "And there's something I live from the inside that almost nobody is telling you: how AI is changing what's expected of whoever leads engineering. I see it in my decisions, in my team, in what now adds value from a manager and what stops adding it. I'm not watching it from outside. I'm the one deciding it.",
-    p3: "And there's a part only I can tell you. Most of the challenges of leading are the same for everyone. But there are a couple you only live when you're one of the few women in your layer. I've lived them, and I've learned to navigate them over more than 20 years in mostly male environments. I teach you to do the same.",
+    p2: "And there's something I'm watching happen from the inside that almost nobody's talking about: how AI is changing what's expected of anyone leading engineering. I see it in my decisions, in my team, in what now makes a manager valuable and what no longer does. I'm not watching it from outside. I'm the one deciding it.",
+    p3: "And there's a part only I can tell you. Most of the challenges of leading are the same for everyone. But there are a couple you only face when you're one of the few women in your layer. I've been through them, and I've learned to navigate them over more than 20 years in mostly male environments. I teach you to do the same.",
     metrics: {
       years: { value: '20+', label: 'Years in engineering and leadership' },
       engineers: { value: '100+', label: "Engineers I've led over my career" },
@@ -39,11 +39,11 @@ const en: Dictionary = {
     cards: [
       {
         title: 'Get heard and get your ideas through',
-        body: "Your ideas pass without a trace and never quite move forward, especially in meetings that decide nothing. I give you the frameworks to position them, steer the conversation to the point, and walk out with a decision, owners and a date.",
+        body: "Your ideas go unnoticed and never quite move forward, especially in meetings that decide nothing. I give you the frameworks to position them, steer the conversation to the point, and walk out with a decision, owners and a date.",
       },
       {
         title: 'Be taken seriously, especially as a woman',
-        body: "When you're assertive, you're “intense”; when you give way, you “lack presence”. And on top of that you're one of the few women in your layer. I help you earn presence without turning into someone you're not.",
+        body: "When you're assertive, you're “intense”; when you ease off, you “lack presence”. And on top of that you're one of the few women in your layer. I help you earn presence without turning into someone you're not.",
       },
       {
         title: 'Delegate and deliver without burning out',
@@ -51,7 +51,7 @@ const en: Dictionary = {
       },
       {
         title: 'Lead when AI moves everything',
-        body: "Your team already works with AI and you're not entirely sure what's expected of you now. I help you place yourself: which parts of your work gain value, which stop having it, and how not to fall behind your own people.",
+        body: "Your team already works with AI and you're not entirely sure what's expected of you now. I help you get your bearings: which parts of your work gain value, which lose it, and how not to fall behind your own people.",
       },
     ],
   },
@@ -83,7 +83,7 @@ const en: Dictionary = {
         title: 'Diagnostic session',
         description: "Tell me what you're dealing with and I'll give you my honest read. No strings attached.",
         detail: '15 min',
-        href: 'https://cal.com/yaiza-temprado/diagnostico',
+        href: 'https://cal.com/yaiza-temprado/diagnostic-session',
         external: true,
         cta: 'Book free session',
       },
@@ -108,7 +108,7 @@ const en: Dictionary = {
         title: 'Working session',
         description: 'One real problem. One hour. You leave with concrete actions to execute the next day.',
         detail: '60 min · €150',
-        href: 'https://cal.com/yaiza-temprado/sesion',
+        href: 'https://cal.com/yaiza-temprado/working-session',
         external: true,
         cta: 'Book a session',
       },
@@ -207,14 +207,14 @@ const en: Dictionary = {
   resources: {
     eyebrow: 'Resources',
     heading: 'Guides to download',
-    lead: 'Practical guides on leadership, communication, and meetings. Yours to keep and use whenever you need them.',
+    lead: "Practical guides on leadership, communication, and meetings. Yours to keep and use whenever you need them. For now, they're available in Spanish.",
     cardCta: 'View guide',
     backLabel: '← Back to resources',
     insideHeading: "What's inside",
     forWhoLabel: "Who it's for",
     formHeading: 'Download it free',
     formNote:
-      "I'll send it to your email. And you'll join my newsletter on engineering leadership and influence — one email every few days, no filler. Unsubscribe anytime, one click.",
+      "The guide is in Spanish. I'll send it to your email, and you'll join my newsletter on engineering leadership and influence — one email every few days, no filler. Unsubscribe anytime, one click.",
     placeholder: 'Your email',
     submit: 'Send me the guide',
     sending: 'Sending...',
@@ -295,7 +295,7 @@ const en: Dictionary = {
   newsletter: {
     eyebrow: 'Newsletter',
     heading: "Don't miss what's coming",
-    body: "I write about communication, influence, meetings, presence and how to lead in the age of AI: getting heard without leaving yourself behind. I send 2-3 emails a month, no more, so when one lands it's worth your time.",
+    body: "I write about communication, influence, meetings, presence and how to lead in the age of AI: getting heard without leaving yourself behind. I send 2-3 emails a month, no more, so when one lands it's worth your time. The newsletter is in Spanish.",
     placeholder: 'Your email',
     submit: 'Subscribe',
     success: "You're in. I'll be in touch.",

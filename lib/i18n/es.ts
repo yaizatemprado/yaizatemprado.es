@@ -14,7 +14,7 @@ const es: Dictionary = {
     contact: 'Contacto',
   },
   hero: {
-    eyebrow: 'Directora Senior de Ingeniería · en activo',
+    eyebrow: 'Directora Senior de Ingeniería',
     heading: 'Liderar ingeniería y que de verdad te escuchen. Especialmente para nosotras.',
     lead: 'Soy Directora Senior de Ingeniería y lidio cada semana con lo mismo que tú: reuniones que no deciden nada, ideas buenas que no salen adelante, salas donde cuesta que te tomen en serio. Te doy los marcos concretos para cambiarlo.',
     ctaPrimary: 'Trabaja conmigo',
