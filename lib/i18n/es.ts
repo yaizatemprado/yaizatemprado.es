@@ -2,9 +2,9 @@ import type { Dictionary } from './types'
 
 const es: Dictionary = {
   meta: {
-    title: 'Yaiza Temprado — Liderazgo en Ingeniería para Mujeres',
+    title: 'Yaiza Temprado — Comunicación, influencia y liderazgo en ingeniería, para mujeres',
     description:
-      'Yaiza Temprado ayuda a las mujeres en liderazgo de ingeniería a hacerse escuchar en los foros de decisión sénior — con un enfoque más claro, mayor influencia y una entrega sostenible.',
+      'Soy Directora Senior de Ingeniería y sigo dentro. Ayudo a mujeres que lideran equipos técnicos a comunicar con peso, hacerse escuchar, sacar reuniones que decidan y ganar presencia en las salas donde se decide.',
   },
   nav: {
     about: 'Sobre mí',
@@ -14,69 +14,69 @@ const es: Dictionary = {
     contact: 'Contacto',
   },
   hero: {
-    eyebrow: 'Directora Sénior de Ingeniería',
-    heading: 'Ayudando a las mujeres a liderar ingeniería con confianza',
-    lead: 'Trabajo con ingenieras y líderes sénior para navegar las realidades del liderazgo técnico — visibilidad, influencia, entrega y poder — sin perderse a sí mismas en el proceso.',
+    eyebrow: 'Directora Senior de Ingeniería · en activo',
+    heading: 'Liderar ingeniería y que de verdad te escuchen. Especialmente para nosotras.',
+    lead: 'Soy Directora Senior de Ingeniería y lidio cada semana con lo mismo que tú: reuniones que no deciden nada, ideas buenas que no salen adelante, salas donde cuesta que te tomen en serio. Te doy los marcos concretos para cambiarlo.',
     ctaPrimary: 'Trabaja conmigo',
     ctaSecondary: 'Suscríbete',
   },
   about: {
     eyebrow: 'Sobre mí',
-    heading: 'Cómo entiendo el liderazgo en ingeniería',
-    p1: 'He pasado la mayor parte de mi carrera trabajando dentro de organizaciones de ingeniería — construyendo equipos, escalando plataformas y entregando bajo restricciones reales. Lo que eso me enseñó es que los fallos de liderazgo rara vez vienen de falta de inteligencia o esfuerzo. Vienen de expectativas poco claras, incentivos inadecuados y sistemas que recompensan los comportamientos equivocados.',
-    p2: 'Me importa profundamente la credibilidad técnica, no porque los líderes tengan que ser los mejores ingenieros de la sala, sino porque la confianza se construye cuando las decisiones están ancladas en la realidad. He visto lo que ocurre cuando el liderazgo se aleja demasiado del trabajo — la entrega sufre, las personas se desconectan y los mismos problemas se repiten con distintos nombres.',
-    p3: 'Gran parte de mi enfoque hoy está en apoyar a las mujeres en ingeniería a medida que acceden a roles de liderazgo. No enseñándoles a ser más ruidosas o más seguras, sino ayudándolas a navegar el poder, la visibilidad y la toma de decisiones sin comprometer sus valores ni su criterio técnico.',
+    heading: 'Te lo cuento desde dentro, no desde la grada',
+    p1: 'No soy una coach que dejó el mundo corporativo hace diez años y te cuenta cómo era aquello. Llevo más de 20 años en ingeniería y ahora mismo la dirijo como Directora Senior. Sigo dentro: lo que te cuento sobre reuniones, influencia o presencia no es teoría de un libro, lo uso en mis propias salas cada semana.',
+    p2: 'Y hay algo que vivo desde dentro y que casi nadie te cuenta en español: cómo la IA está cambiando lo que se espera de quien lidera ingeniería. Lo veo en mis decisiones, en mi equipo, en lo que ahora suma de un manager y lo que deja de sumar. No lo veo desde fuera. Lo estoy decidiendo yo.',
+    p3: 'Y hay una parte que solo te puedo contar yo. La mayoría de los retos de liderar son iguales para todos. Pero hay un par que solo vives cuando eres de las pocas mujeres en tu capa. Los he vivido, y he aprendido a navegarlos en más de 20 años en entornos mayoritariamente masculinos. Te enseño a hacerlo a ti.',
     metrics: {
-      years: { value: '15+', label: 'Años trabajando dentro de organizaciones de ingeniería' },
-      engineers: { value: '100+', label: 'Ingenieras e ingenieros a cuyo trabajo he apoyado y revisado' },
-      companies: { value: '7', label: 'Empresas en distintos países y etapas de crecimiento' },
-      transitions: { value: '20+', label: 'Transiciones de liderazgo acompañadas' },
+      years: { value: '20+', label: 'Años en ingeniería y liderazgo' },
+      engineers: { value: '100+', label: 'Ingenieros a los que he liderado a lo largo de mi carrera' },
+      companies: { value: '7', label: 'Empresas, en distintos países y etapas' },
+      transitions: { value: '20+', label: 'Personas a las que he acompañado a dar el salto a liderazgo' },
     },
   },
   expertise: {
     eyebrow: 'Especialidades',
-    heading: 'Áreas de enfoque',
+    heading: 'En qué te ayudo de verdad',
     cards: [
       {
-        title: 'Acompañando a ingenieras en su transición al liderazgo',
-        body: 'Muchas de las personas con las que trabajo son ingenieras excelentes que de repente se encuentran liderando equipos. Les ayudo a entender esa transición, a construir autoridad de una manera que se sienta auténtica y a mantenerse conectadas al trabajo sin intentar hacerlo todo ellas solas.',
+        title: 'Que te escuchen y tus ideas salgan adelante',
+        body: 'Tus ideas pasan sin pena ni gloria y no acaban de salir adelante, sobre todo en reuniones que no deciden nada. Te doy los marcos para posicionarlas, llevar la conversación al punto y salir con decisión, dueños y fecha.',
       },
       {
-        title: 'Hacerse escuchar en los foros de decisión sénior',
-        body: 'Trabajo con mujeres que hacen un trabajo sólido pero que no siempre son escuchadas en las salas de dirección. Nos centramos en cómo se enmarcan las decisiones, cuándo intervenir y cómo comunicar de maneras que tengan peso — sin fingir seguridad ni convertirse en alguien que no son.',
+        title: 'Que te tomen en serio, sobre todo siendo mujer',
+        body: 'Cuando eres asertiva, «intensa»; cuando cedes, «sin presencia». Y encima eres de las pocas mujeres en tu capa. Te ayudo a ganar presencia sin volverte alguien que no eres.',
       },
       {
-        title: 'Entregar de forma consistente sin agotar al equipo',
-        body: 'He visto demasiados equipos depender de la buena voluntad, los heroísmos y las noches largas para mantener el ritmo. Me centro en crear formas de trabajo predecibles y sostenibles, donde la entrega no dependa de quién esté dispuesta a sacrificarse más.',
+        title: 'Delegar y ejecutar sin quemarte',
+        body: 'Delegas y luego lo rehaces porque no sale como tú lo harías, y sostener el ritmo entre reorg y reorg te cuesta. Vemos cómo soltar de verdad y entregar sin depender de quién esté dispuesta a quemarse más.',
       },
       {
-        title: 'Colaborar con producto sin perder el criterio de ingeniería',
-        body: 'Trabajar estrechamente con producto y diseño importa, pero solo funciona cuando los roles y las expectativas están claros. Ayudo a los equipos de ingeniería a mantenerse implicados en las decisiones de producto protegiendo al mismo tiempo el criterio técnico y la salud a largo plazo.',
+        title: 'Liderar cuando la IA lo mueve todo',
+        body: 'Tu equipo ya va con IA y no tienes del todo claro qué se espera ahora de ti. Te ayudo a situarte: qué de tu trabajo gana valor, qué deja de tenerlo, y cómo no quedarte por detrás de tu propia gente.',
       },
     ],
   },
   proof: {
-    eyebrow: 'Resultados',
-    heading: 'Resultados seleccionados',
+    eyebrow: 'Por qué yo',
+    heading: 'Por qué te sirve que siga dentro',
     cards: [
       {
-        label: 'Entrega',
-        body: 'Lideré la entrega de ingeniería en toda la organización, reduciendo significativamente el tiempo de ciclo al centrarse en el flujo, la claridad de responsabilidad y menos prioridades en competencia.',
+        label: 'En activo',
+        body: 'No te hablo de cómo era liderar ingeniería. Te hablo de cómo es hoy, esta semana, en una organización que dirijo de verdad. Los marcos que te doy los estoy usando yo en real.',
       },
       {
-        label: 'Cultura',
-        body: 'Establecí una cultura de ingeniería alineada con los valores de la empresa, con un fuerte énfasis en la experiencia del desarrollador, la previsibilidad y la mejora continua — alejándose de los heroísmos y la extinción de incendios.',
+        label: 'Mentoría',
+        body: 'Lo que veo en mis equipos lo cruzo con lo que me cuentan las mujeres a las que mentorizo: los mismos atascos, las mismas reuniones, los mismos miedos. Por eso lo que te doy no es teoría, son patrones que se repiten.',
       },
       {
-        label: 'Formas de trabajo',
-        body: 'Lideré la transformación ágil en mi organización actual, cambiando las formas de trabajo para mejorar la fiabilidad de la entrega, la toma de decisiones y la confianza entre ingeniería y producto.',
+        label: 'Los dos lados',
+        body: 'He estado en tu silla y sigo en una parecida. Conozco el lado de quien decide promociones y el de quien pelea por que la escuchen. Te ayudo desde los dos a la vez.',
       },
     ],
   },
   services: {
     eyebrow: 'Servicios',
     heading: 'Trabaja conmigo',
-    lead: 'Mentoría directa para mujeres en posiciones de liderazgo en ingeniería — o a punto de estarlo. Situaciones reales, planes concretos, feedback honesto.',
+    lead: 'Mentoría directa para mujeres que lideran ingeniería, o están a punto. Situaciones reales, planes concretos, feedback honesto.',
     cards: [
       {
         tag: 'Gratis',
@@ -294,7 +294,7 @@ const es: Dictionary = {
   newsletter: {
     eyebrow: 'Newsletter',
     heading: 'No te lo pierdas',
-    body: 'Escribo sobre liderazgo en ingeniería, influencia y lo que implica liderar sin dejar de ser tú misma. Suscríbete para estar al día.',
+    body: 'Escribo sobre comunicación, influencia, reuniones, presencia y cómo liderar en la era de la IA: hacerte escuchar y no dejarte por el camino. Te mando 2-3 emails al mes, no más, para que cuando te llegue uno tenga chicha.',
     placeholder: 'Tu email',
     submit: 'Suscríbete',
     success: 'Apuntada. Te escribo pronto.',

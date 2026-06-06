@@ -26,13 +26,13 @@ export default function Hero({ dict }: Props) {
         </span>
 
         <h1
-          className="font-serif text-anchor leading-[1.05] tracking-[-0.01em]"
-          style={{ fontSize: 'clamp(3rem, 4.4vw, 4.35rem)' }}
+          className="font-serif text-anchor leading-[1.08] sm:leading-[1.05] tracking-[-0.01em]"
+          style={{ fontSize: 'clamp(2.05rem, 7vw, 4.35rem)' }}
         >
           {dict.heading}
         </h1>
 
-        <p className="text-slate text-[1.05rem] leading-[1.7] max-w-[520px]">
+        <p className="text-slate text-[0.98rem] sm:text-[1.05rem] leading-[1.7] max-w-[520px]">
           {dict.lead}
         </p>
 

@@ -10,17 +10,14 @@ export default function Expertise({ dict }: Props) {
           {dict.eyebrow}
         </span>
         <h2
-          className="font-serif text-anchor leading-[1.1] tracking-[-0.005em]"
-          style={{ fontSize: 'clamp(2.3rem, 3.2vw, 3.35rem)' }}
+          className="font-serif text-anchor leading-[1.15] sm:leading-[1.1] tracking-[-0.005em]"
+          style={{ fontSize: 'clamp(1.7rem, 5.5vw, 3.35rem)' }}
         >
           {dict.heading}
         </h2>
       </div>
 
-      <div
-        className="grid gap-6 max-w-[1080px] mx-auto"
-        style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))' }}
-      >
+      <div className="grid gap-6 max-w-[860px] mx-auto grid-cols-1 sm:grid-cols-2">
         {dict.cards.map(({ title, body }) => (
           <article
             key={title}

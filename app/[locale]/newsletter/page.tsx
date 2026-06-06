@@ -28,7 +28,7 @@ export default async function NewsletterPage({ params: { locale } }: Props) {
 
   return (
     <>
-      <main className="max-w-[1200px] mx-auto px-6 pt-24 pb-[120px]" id="main">
+      <main className="max-w-[1200px] mx-auto px-5 sm:px-6 pt-20 pb-20 sm:pt-24 sm:pb-[120px]" id="main">
         <Header locale={locale} dict={dict.nav} />
 
         <section className="grid gap-6 justify-items-center text-center max-w-[640px] mx-auto py-20">
@@ -37,8 +37,8 @@ export default async function NewsletterPage({ params: { locale } }: Props) {
           </span>
 
           <h1
-            className="font-serif text-anchor leading-[1.1] tracking-[-0.005em]"
-            style={{ fontSize: 'clamp(2.3rem, 3.2vw, 3.35rem)' }}
+            className="font-serif text-anchor leading-[1.15] sm:leading-[1.1] tracking-[-0.005em]"
+            style={{ fontSize: 'clamp(1.7rem, 5.5vw, 3.35rem)' }}
           >
             {dict.newsletter.heading}
           </h1>
@@ -54,7 +54,7 @@ export default async function NewsletterPage({ params: { locale } }: Props) {
           </div>
         </section>
 
-        <Footer dict={dict.footer} />
+        <Footer dict={dict.footer} nav={dict.nav} locale={locale} />
       </main>
     </>
   )

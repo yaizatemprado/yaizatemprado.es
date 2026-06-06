@@ -18,20 +18,17 @@ export default function Services({ dict }: Props) {
           {dict.eyebrow}
         </span>
         <h2
-          className="font-serif text-anchor leading-[1.1] tracking-[-0.005em]"
-          style={{ fontSize: 'clamp(2.3rem, 3.2vw, 3.35rem)' }}
+          className="font-serif text-anchor leading-[1.15] sm:leading-[1.1] tracking-[-0.005em]"
+          style={{ fontSize: 'clamp(1.7rem, 5.5vw, 3.35rem)' }}
         >
           {dict.heading}
         </h2>
-        <p className="text-slate max-w-[600px] leading-[1.7] text-[1rem]">
+        <p className="text-slate max-w-[600px] leading-[1.7] text-[0.95rem] sm:text-[1rem]">
           {dict.lead}
         </p>
       </div>
 
-      <div
-        className="grid gap-6 max-w-[1080px] mx-auto"
-        style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))' }}
-      >
+      <div className="grid gap-6 max-w-[1080px] mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         {dict.cards.map(({ tag, title, description, detail, href, cta, external }) => (
           <article
             key={title}

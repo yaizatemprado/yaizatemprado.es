@@ -26,7 +26,7 @@ export default async function ResourcesPage({ params: { locale } }: Props) {
   const dict = await getDictionary(locale)
 
   return (
-    <main className="max-w-[1200px] mx-auto px-6 pt-24 pb-[120px]" id="main">
+    <main className="max-w-[1200px] mx-auto px-5 sm:px-6 pt-20 pb-20 sm:pt-24 sm:pb-[120px]" id="main">
       <Header locale={locale} dict={dict.nav} />
 
       <section className="max-w-[820px] mx-auto py-12 grid gap-10">
@@ -35,12 +35,12 @@ export default async function ResourcesPage({ params: { locale } }: Props) {
             {dict.resources.eyebrow}
           </span>
           <h1
-            className="font-serif text-anchor leading-[1.1] tracking-[-0.005em]"
-            style={{ fontSize: 'clamp(2.1rem, 3.2vw, 3rem)' }}
+            className="font-serif text-anchor leading-[1.15] sm:leading-[1.1] tracking-[-0.005em]"
+            style={{ fontSize: 'clamp(1.8rem, 5vw, 3rem)' }}
           >
             {dict.resources.heading}
           </h1>
-          <p className="text-slate leading-[1.7] text-[1.05rem] max-w-[620px]">
+          <p className="text-slate leading-[1.7] text-[0.98rem] sm:text-[1.05rem] max-w-[620px]">
             {dict.resources.lead}
           </p>
         </header>
@@ -69,7 +69,7 @@ export default async function ResourcesPage({ params: { locale } }: Props) {
         </ul>
       </section>
 
-      <Footer dict={dict.footer} />
+      <Footer dict={dict.footer} nav={dict.nav} locale={locale} />
     </main>
   )
 }

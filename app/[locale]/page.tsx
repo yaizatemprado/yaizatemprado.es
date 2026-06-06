@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer'
 import Hero from '@/components/home/Hero'
 import About from '@/components/home/About'
 import Expertise from '@/components/home/Expertise'
-import Proof from '@/components/home/Proof'
+import Resources from '@/components/home/Resources'
 import Services from '@/components/home/Services'
 import Connect from '@/components/home/Connect'
 
@@ -36,7 +36,7 @@ function Divider() {
   return (
     <div
       aria-hidden="true"
-      className="h-px my-[72px]"
+      className="h-px my-12 sm:my-[72px]"
       style={{ background: 'linear-gradient(90deg, transparent, #e3d2cc, transparent)' }}
     />
   )
@@ -54,7 +54,7 @@ export default async function LocalePage({ params: { locale } }: Props) {
         Skip to content
       </a>
 
-      <main className="max-w-[1200px] mx-auto px-6 pt-24 pb-[120px]" id="main">
+      <main className="max-w-[1200px] mx-auto px-5 sm:px-6 pt-20 pb-20 sm:pt-24 sm:pb-[120px]" id="main">
         <Header locale={locale} dict={dict.nav} />
         <Hero dict={dict.hero} />
         <Divider />
@@ -62,12 +62,12 @@ export default async function LocalePage({ params: { locale } }: Props) {
         <Divider />
         <Expertise dict={dict.expertise} />
         <Divider />
-        <Proof dict={dict.proof} />
+        <Resources dict={dict.resources} locale={locale} />
         <Divider />
         <Services dict={dict.services} />
         <Divider />
         <Connect dict={dict.connect} newsletterDict={dict.newsletter} />
-        <Footer dict={dict.footer} />
+        <Footer dict={dict.footer} nav={dict.nav} locale={locale} />
       </main>
     </>
   )

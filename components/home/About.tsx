@@ -21,22 +21,21 @@ export default function About({ dict }: Props) {
             {dict.eyebrow}
           </span>
           <h2
-            className="font-serif text-anchor leading-[1.1] tracking-[-0.005em]"
-            style={{ fontSize: 'clamp(2.3rem, 3.2vw, 3.35rem)' }}
+            className="font-serif text-anchor leading-[1.15] sm:leading-[1.1] tracking-[-0.005em]"
+            style={{ fontSize: 'clamp(1.7rem, 5.5vw, 3.35rem)' }}
           >
             {dict.heading}
           </h2>
         </div>
 
-        <div className="grid gap-[18px] text-slate text-[1rem] leading-[1.7]">
+        <div className="grid gap-[18px] text-slate text-[0.95rem] sm:text-[1rem] leading-[1.7]">
           <p>{dict.p1}</p>
           <p>{dict.p2}</p>
           <p>{dict.p3}</p>
 
           <div
             aria-label="Experience highlights"
-            className="grid gap-5 mt-2.5"
-            style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))' }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-2.5"
           >
             {metrics.map(({ value, label }) => (
               <div key={value}>

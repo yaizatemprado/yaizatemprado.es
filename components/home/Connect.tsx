@@ -52,8 +52,8 @@ export default function Connect({ dict, newsletterDict }: Props) {
           {dict.eyebrow}
         </span>
         <h2
-          className="font-serif text-anchor leading-[1.1] tracking-[-0.005em]"
-          style={{ fontSize: 'clamp(2.3rem, 3.2vw, 3.35rem)' }}
+          className="font-serif text-anchor leading-[1.15] sm:leading-[1.1] tracking-[-0.005em]"
+          style={{ fontSize: 'clamp(1.7rem, 5.5vw, 3.35rem)' }}
         >
           {dict.heading}
         </h2>
@@ -68,7 +68,7 @@ export default function Connect({ dict, newsletterDict }: Props) {
       {/* Social — secondary */}
       <div className="grid gap-3 justify-items-center">
         <p className="text-slate text-[0.85rem]">{dict.lead}</p>
-        <div className="flex gap-3">
+        <div className="flex flex-wrap justify-center gap-3">
           {socialLinks.map(({ href, label, icon }) => (
             <a
               key={label}

@@ -58,7 +58,7 @@ export default function Header({ locale, dict }: Props) {
   }
 
   return (
-    <header className="flex items-center justify-between gap-6 mb-10">
+    <header className="relative flex items-center justify-between gap-6 mb-10">
       <Link
         href={`/${locale}`}
         className="font-serif text-2xl tracking-[0.08em] uppercase text-anchor no-underline"
@@ -97,7 +97,7 @@ export default function Header({ locale, dict }: Props) {
       {menuOpen && (
         <nav
           aria-label="Primary"
-          className="absolute top-20 left-0 right-0 z-50 bg-cream border-b border-[#ead9d3] px-6 py-6 flex flex-col gap-5 text-[1rem] md:hidden"
+          className="absolute top-full mt-3 left-0 right-0 z-50 bg-cream border border-[#ead9d3] rounded-2xl shadow-lg px-6 py-6 flex flex-col gap-5 text-[1rem] md:hidden"
         >
           {navLinks.map(({ href, label }) => (
             <a
