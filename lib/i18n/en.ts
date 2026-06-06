@@ -157,7 +157,7 @@ const en: Dictionary = {
             description: 'What you want to achieve, what you need to change, and how to measure it.',
           },
         ],
-        buyHref: 'https://buy.stripe.com/bJe9AS1WS3wYcsG5iDg7e01',
+        buyHref: 'https://buy.stripe.com/3cI3cuato2sU2S65iDg7e02',
         cta: 'Book your spot',
       },
       {
@@ -199,7 +199,7 @@ const en: Dictionary = {
               "What's changed, which patterns you've broken, what's left for you to work on alone.",
           },
         ],
-        buyHref: 'https://buy.stripe.com/cNieVcbxs0kM50e8uPg7e00',
+        buyHref: 'https://buy.stripe.com/cNieVceJEaZqgIWh1lg7e03',
         cta: 'Book your spot',
       },
     ],
