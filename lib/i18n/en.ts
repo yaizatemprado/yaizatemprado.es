@@ -2,9 +2,9 @@ import type { Dictionary } from './types'
 
 const en: Dictionary = {
   meta: {
-    title: 'Yaiza Temprado — Engineering Leadership for Women',
+    title: 'Yaiza Temprado — Communication, influence and leadership in engineering, for women',
     description:
-      'Yaiza Temprado helps women in engineering leadership be heard in senior decision forums — with clearer framing, stronger influence, and sustainable delivery.',
+      "I'm a Senior Director of Engineering, still in the room. I help women who lead technical teams communicate with weight, get heard, run meetings that actually decide, and earn presence where the decisions get made.",
   },
   nav: {
     about: 'About',
@@ -14,69 +14,69 @@ const en: Dictionary = {
     contact: 'Stay in touch',
   },
   hero: {
-    eyebrow: 'Senior Director of Engineering',
-    heading: 'Helping women lead engineering with confidence',
-    lead: 'I work with senior engineers and leaders to navigate the realities of technical leadership — visibility, influence, delivery, and power — without losing themselves in the process.',
-    ctaPrimary: 'Explore mentoring',
+    eyebrow: 'Senior Director of Engineering · still in the room',
+    heading: 'Lead engineering and actually get heard. Especially for us.',
+    lead: "I'm a Senior Director of Engineering and I deal with the same things you do, every week: meetings that decide nothing, good ideas that go nowhere, rooms where it's hard to be taken seriously. I give you the concrete frameworks to change that.",
+    ctaPrimary: 'Work with me',
     ctaSecondary: 'Subscribe',
   },
   about: {
     eyebrow: 'About',
-    heading: 'How I think about engineering leadership',
-    p1: "I've spent most of my career working inside engineering organisations — building teams, scaling platforms, and delivering under real constraints. What that taught me is that leadership failures rarely come from lack of intelligence or effort. They come from unclear expectations, poor incentives, and systems that reward the wrong behaviour.",
-    p2: "I care deeply about technical credibility, not because leaders need to be the best engineers in the room, but because trust is built when decisions are grounded in reality. I've seen what happens when leadership drifts too far from the work — delivery suffers, people disengage, and the same problems repeat under different names.",
-    p3: "Much of my focus today is on supporting women in engineering as they move into leadership roles. Not by teaching them to be louder or more confident, but by helping them navigate power, visibility, and decision-making without compromising their values or their technical judgement.",
+    heading: 'I tell you from the inside, not from the stands',
+    p1: "I'm not a coach who left the corporate world ten years ago and tells you what it was like back then. I've spent more than 20 years in engineering and right now I run it, as a Senior Director. I'm still inside: what I tell you about meetings, influence or presence isn't theory from a book — I use it in my own rooms every week.",
+    p2: "And there's something I live from the inside that almost nobody is telling you: how AI is changing what's expected of whoever leads engineering. I see it in my decisions, in my team, in what now adds value from a manager and what stops adding it. I'm not watching it from outside. I'm the one deciding it.",
+    p3: "And there's a part only I can tell you. Most of the challenges of leading are the same for everyone. But there are a couple you only live when you're one of the few women in your layer. I've lived them, and I've learned to navigate them over more than 20 years in mostly male environments. I teach you to do the same.",
     metrics: {
-      years: { value: '15+', label: 'Years working inside engineering organisations' },
-      engineers: { value: '100+', label: "Engineers whose work I've supported and reviewed" },
-      companies: { value: '7', label: 'Companies across different countries and stages of scale' },
-      transitions: { value: '20+', label: 'Leadership transitions supported' },
+      years: { value: '20+', label: 'Years in engineering and leadership' },
+      engineers: { value: '100+', label: "Engineers I've led over my career" },
+      companies: { value: '7', label: 'Companies, across different countries and stages' },
+      transitions: { value: '20+', label: "People I've helped step into leadership" },
     },
   },
   expertise: {
     eyebrow: 'Expertise',
-    heading: 'Areas of focus',
+    heading: 'Where I actually help you',
     cards: [
       {
-        title: 'Supporting engineers as they step into leadership',
-        body: "Many of the people I work with are excellent engineers who suddenly find themselves leading others. I help them make sense of that transition, build authority in a way that feels authentic, and stay connected to the work without trying to do everything themselves.",
+        title: 'Get heard and get your ideas through',
+        body: "Your ideas pass without a trace and never quite move forward, especially in meetings that decide nothing. I give you the frameworks to position them, steer the conversation to the point, and walk out with a decision, owners and a date.",
       },
       {
-        title: 'Being heard in senior decision-making forums',
-        body: "I work with women who are doing solid work but aren't always heard in senior rooms. We focus on how decisions are framed, when to speak, and how to communicate in ways that carry weight — without performing confidence or becoming someone they're not.",
+        title: 'Be taken seriously, especially as a woman',
+        body: "When you're assertive, you're “intense”; when you give way, you “lack presence”. And on top of that you're one of the few women in your layer. I help you earn presence without turning into someone you're not.",
       },
       {
-        title: 'Delivering consistently without burning people out',
-        body: "I've seen too many teams rely on goodwill, heroics, and late nights to keep things moving. I focus on creating ways of working that are predictable and sustainable, where delivery doesn't depend on who is willing to sacrifice the most.",
+        title: 'Delegate and deliver without burning out',
+        body: "You delegate and then redo it because it didn't come out the way you would have, and holding the pace between one reorg and the next wears you down. We look at how to truly let go and deliver without depending on whoever's willing to burn themselves out the most.",
       },
       {
-        title: 'Working with product without losing engineering judgement',
-        body: 'Working closely with product and design matters, but it only works when roles and expectations are clear. I help engineering teams stay engaged in product decisions while protecting technical judgement and long-term health.',
+        title: 'Lead when AI moves everything',
+        body: "Your team already works with AI and you're not entirely sure what's expected of you now. I help you place yourself: which parts of your work gain value, which stop having it, and how not to fall behind your own people.",
       },
     ],
   },
   proof: {
-    eyebrow: 'Proof',
-    heading: 'Selected outcomes',
+    eyebrow: 'Why me',
+    heading: "Why it helps that I'm still inside",
     cards: [
       {
-        label: 'Delivery',
-        body: 'Led engineering delivery across the organisation, significantly reducing cycle time by focusing on flow, clarity of ownership, and fewer competing priorities.',
+        label: 'Still in it',
+        body: "I don't tell you what leading engineering used to be like. I tell you what it's like today, this week, in an organisation I actually run. The frameworks I give you are ones I'm using for real.",
       },
       {
-        label: 'Culture',
-        body: 'Established an engineering culture aligned with company values, with a strong emphasis on developer experience, predictability, and continuous improvement — moving away from heroics and fire-fighting.',
+        label: 'Mentoring',
+        body: "What I see in my teams I cross with what the women I mentor tell me: the same blocks, the same meetings, the same fears. That's why what I give you isn't theory — they're patterns that repeat.",
       },
       {
-        label: 'Ways of working',
-        body: 'Led the agile transformation at my current organisation, shifting ways of working to improve delivery reliability, decision-making, and trust between engineering and product.',
+        label: 'Both sides',
+        body: "I've sat in your chair and I'm still in a similar one. I know the side of whoever decides promotions and the side of whoever fights to be heard. I help you from both at once.",
       },
     ],
   },
   services: {
     eyebrow: 'Services',
     heading: 'Work with me',
-    lead: 'Direct mentoring for women in engineering leadership — or about to be. Real situations, concrete plans, honest feedback.',
+    lead: 'Direct mentoring for women who lead engineering, or are about to. Real situations, concrete plans, honest feedback.',
     cards: [
       {
         tag: 'Free',
@@ -141,7 +141,7 @@ const en: Dictionary = {
           {
             title: 'Political navigation',
             description:
-              'Who decides what in your organisation, how alliances work, how to have influence without flinching at the word «influence».',
+              'Who decides what in your organisation, how alliances work, how to have influence without flinching at the word “influence”.',
           },
           {
             title: "The conversations you're avoiding",
@@ -295,7 +295,7 @@ const en: Dictionary = {
   newsletter: {
     eyebrow: 'Newsletter',
     heading: "Don't miss what's coming",
-    body: "I write about engineering leadership, influence, and what it takes to lead without losing yourself in the process. Subscribe to stay in the loop.",
+    body: "I write about communication, influence, meetings, presence and how to lead in the age of AI: getting heard without leaving yourself behind. I send 2-3 emails a month, no more, so when one lands it's worth your time.",
     placeholder: 'Your email',
     submit: 'Subscribe',
     success: "You're in. I'll be in touch.",
