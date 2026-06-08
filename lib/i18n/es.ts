@@ -213,12 +213,21 @@ const es: Dictionary = {
     forWhoLabel: 'Para quién',
     formHeading: 'Descárgala gratis',
     formNote:
-      'Te la envío al email. Y de paso te suscribes a mi newsletter sobre liderazgo en ingeniería e influencia — un email cada pocos días, sin relleno. Te puedes dar de baja cuando quieras, en un clic.',
+      'Te la mando al email y te suscribes a mi newsletter. Te das de baja cuando quieras, en un clic.',
     placeholder: 'Tu email',
-    submit: 'Enviarme la guía',
+    submit: 'Descárgala gratis',
     sending: 'Enviando...',
     success: 'Revisa tu email: dale a confirmar con un clic y la guía es tuya.',
     error: 'Algo salió mal. Inténtalo de nuevo.',
+    chooseHeading: 'Elige tu versión',
+    freePlanName: 'Gratis',
+    freePlanPrice: '0 €',
+    freePlanDesc: 'Los primeros capítulos para empezar.',
+    paidPlanName: 'Completa',
+    paidPlanDesc: 'Todos los capítulos más el plan de acción y el workbook editable.',
+    paidReassurance: 'Descarga inmediata',
+    paidCta: 'Consíguela completa',
+    paidNote: 'Pago único. La versión completa incluye todos los capítulos gratuitos más el plan de acción, el PDF completo y el workbook editable.',
     items: [
       {
         slug: 'reuniones-productivas',
@@ -251,6 +260,32 @@ const es: Dictionary = {
           },
         ],
         kitFormId: '9509093',
+        paid: {
+          price: '29 €',
+          buyHref: 'https://yaizatemprado.kit.com/products/haz-tuya-tu-proxima-reunion',
+          highlights: [
+            {
+              title: 'Cuando lideras tú la sala',
+              description:
+                'Cómo cortar las ramas que descarrilan la reunión: el parking lot y las 3 frases asertivas para reconducir sin quedar mal.',
+            },
+            {
+              title: 'Coalición y lectura de sala',
+              description:
+                'El mapa de stakeholders, la conversación previa que te ahorra la pelea, y lo único que la IA no puede hacer por ti.',
+            },
+            {
+              title: 'Tus 7 prompts de IA',
+              description:
+                'PREP, ESPEJO, INICIO, POST-MORTEM, COALICIÓN, PRE-MORTEM y SOMBRA. Listos para copiar y adaptar a tu caso.',
+            },
+            {
+              title: 'El workbook',
+              description:
+                'Agendas por tipo de reunión, plantilla del email de seguimiento, las 8 preguntas para cerrar bien, y el diario semanal de 5 minutos.',
+            },
+          ],
+        },
       },
       {
         slug: 'manager-era-ia',
@@ -283,6 +318,32 @@ const es: Dictionary = {
           },
         ],
         kitFormId: '9509223',
+        paid: {
+          price: '29 €',
+          buyHref: 'https://yaizatemprado.kit.com/products/guia-completa-liderazgo-ai',
+          highlights: [
+            {
+              title: 'Diagnóstico de tu equipo',
+              description:
+                'El framework aptitud × skill × willingness para clasificar a tu gente, la plantilla de la conversación difícil, y qué hacer con el sénior que no quiere adoptar.',
+            },
+            {
+              title: 'Rediseñar el trabajo',
+              description:
+                'La diferencia entre «usamos IA» y «somos AI-first», y el método de 3 pasos para rediseñar un proceso de verdad.',
+            },
+            {
+              title: 'Narrativa hacia arriba',
+              description:
+                'Cómo contar tu transformación al CEO sin sonar a humo, con la plantilla de 1 página para tu próximo exec review.',
+            },
+            {
+              title: 'El workbook',
+              description:
+                'Seis plantillas: autoeval con scoring, matriz de equipo, guion de conversación, mapeo de workflow, exec review y tracker de 12 semanas.',
+            },
+          ],
+        },
       },
     ],
   },

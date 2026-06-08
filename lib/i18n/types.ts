@@ -85,6 +85,16 @@ export type Dictionary = {
     sending: string
     success: string
     error: string
+    // Labels for the optional comparison table + plan cards (when item.paid exists)
+    chooseHeading: string
+    freePlanName: string
+    freePlanPrice: string
+    freePlanDesc: string
+    paidPlanName: string
+    paidPlanDesc: string
+    paidReassurance: string
+    paidCta: string
+    paidNote: string
     items: Array<{
       slug: string
       tag: string
@@ -95,6 +105,14 @@ export type Dictionary = {
       // Kit form dedicated to THIS guide: its incentive email delivers the PDF
       // and it subscribes the person to the single newsletter sequence.
       kitFormId: string
+      // Optional paid upgrade: a superset of the free guide. When present, the
+      // page renders a second tier (what the paid version adds) under the free
+      // download, with a checkout CTA to the Kit product.
+      paid?: {
+        price: string
+        buyHref: string
+        highlights: Array<{ title: string; description: string }>
+      }
     }>
   }
   connect: {

@@ -214,12 +214,21 @@ const en: Dictionary = {
     forWhoLabel: "Who it's for",
     formHeading: 'Download it free',
     formNote:
-      "The guide is in Spanish. I'll send it to your email, and you'll join my newsletter on engineering leadership and influence — one email every few days, no filler. Unsubscribe anytime, one click.",
+      "The guide is in Spanish. I'll email it to you and you'll join my newsletter — unsubscribe anytime, one click.",
     placeholder: 'Your email',
-    submit: 'Send me the guide',
+    submit: 'Download it free',
     sending: 'Sending...',
     success: 'Check your email: confirm with one click and the guide is yours.',
     error: 'Something went wrong. Please try again.',
+    chooseHeading: 'Choose your version',
+    freePlanName: 'Free',
+    freePlanPrice: '€0',
+    freePlanDesc: 'The first chapters to get you started.',
+    paidPlanName: 'Complete',
+    paidPlanDesc: 'Every chapter plus the action plan and the editable workbook.',
+    paidReassurance: 'Instant download',
+    paidCta: 'Get the full version',
+    paidNote: 'One-time payment. The complete version includes all the free chapters plus the action plan, the complete PDF, and the editable workbook.',
     items: [
       {
         slug: 'reuniones-productivas',
@@ -252,6 +261,32 @@ const en: Dictionary = {
           },
         ],
         kitFormId: '9509093',
+        paid: {
+          price: '€29',
+          buyHref: 'https://yaizatemprado.kit.com/products/haz-tuya-tu-proxima-reunion',
+          highlights: [
+            {
+              title: 'When you run the room',
+              description:
+                'How to cut the branches that derail a meeting: the parking lot and the 3 assertive phrases to steer it back without looking bad.',
+            },
+            {
+              title: 'Coalition and reading the room',
+              description:
+                'The stakeholder map, the prior conversation that saves you the fight, and the one thing AI can\'t do for you.',
+            },
+            {
+              title: 'Your 7 AI prompts',
+              description:
+                'PREP, MIRROR, KICKOFF, POST-MORTEM, COALITION, PRE-MORTEM and SHADOW. Ready to copy and adapt to your case.',
+            },
+            {
+              title: 'The workbook',
+              description:
+                'Agendas by meeting type, the follow-up email template, the 8 questions to close well, and the 5-minute weekly journal.',
+            },
+          ],
+        },
       },
       {
         slug: 'manager-era-ia',
@@ -284,6 +319,32 @@ const en: Dictionary = {
           },
         ],
         kitFormId: '9509223',
+        paid: {
+          price: '€29',
+          buyHref: 'https://yaizatemprado.kit.com/products/guia-completa-liderazgo-ai',
+          highlights: [
+            {
+              title: 'Diagnose your team',
+              description:
+                'The aptitude × skill × willingness framework to classify your people, the difficult-conversation template, and what to do with the senior who won\'t adopt.',
+            },
+            {
+              title: 'Redesign the work',
+              description:
+                'The difference between "we use AI" and "we\'re AI-first", and the 3-step method to genuinely redesign a process.',
+            },
+            {
+              title: 'The narrative upward',
+              description:
+                'How to tell your transformation to the CEO without sounding like spin, with the 1-page template for your next exec review.',
+            },
+            {
+              title: 'The workbook',
+              description:
+                'Six templates: self-assessment with scoring, team matrix, conversation script, workflow mapping, exec review, and a 12-week tracker.',
+            },
+          ],
+        },
       },
     ],
   },
