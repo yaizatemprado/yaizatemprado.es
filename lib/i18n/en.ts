@@ -11,7 +11,7 @@ const en: Dictionary = {
     expertise: 'Expertise',
     services: 'Services',
     resources: 'Resources',
-    contact: 'Stay in touch',
+    contact: 'Newsletter',
   },
   hero: {
     eyebrow: 'Senior Director of Engineering',
