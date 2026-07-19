@@ -170,6 +170,34 @@ mark {
 .cta-box p { color: #d9c9c3; font-size: 15px; margin: 10px auto 0; max-width: 460px; }
 .cta-box .cta-kit { max-width: 380px; margin: 18px auto 0; }
 
+/* Captura del lead magnet — misma forma que el bloque "Mantente al día" de la web:
+   input y botón en pastilla, uno al lado del otro, y apilados en móvil. */
+.lm-form { margin-top: 20px; }
+.lm-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.lm-row input[type="email"] {
+  flex: 1 1 260px; max-width: 340px; padding: 15px 22px; font: inherit; font-size: 16px;
+  color: var(--plum); background: var(--white); border: 1px solid var(--border);
+  border-radius: 999px; transition: border-color .15s;
+}
+.lm-row input[type="email"]::placeholder { color: #a8938d; }
+.lm-row input[type="email"]:focus { outline: none; border-color: var(--rose); }
+.lm-row button {
+  flex: 0 0 auto; padding: 15px 30px; font: inherit; font-size: 16px; font-weight: 700;
+  color: var(--white); background: var(--rose); border: none; border-radius: 999px;
+  cursor: pointer; transition: background .15s;
+}
+.lm-row button:hover { background: #b85e42; }
+.lm-row button:disabled { opacity: .6; cursor: default; }
+.lm-consent {
+  display: flex; gap: 9px; align-items: flex-start; justify-content: center;
+  max-width: 460px; margin: 14px auto 0; font-size: 12.5px; color: #d9c9c3;
+  line-height: 1.5; text-align: left; cursor: pointer;
+}
+.lm-consent input { margin-top: 3px; flex: 0 0 auto; accent-color: var(--rose); }
+.lm-status { display: none; margin-top: 14px; font-size: 15px; font-weight: 700; }
+.lm-status.ok { display: block; color: var(--white); }
+.lm-status.ko { display: block; color: var(--peach); }
+
 /* ===== Navegación de modos ===== */
 .mode-tabs { display: flex; gap: 10px; margin-top: 26px; }
 .mode-tab {
@@ -285,10 +313,21 @@ Si pegas un transcript con nombres (Teams, Zoom, Meet o líneas tipo «María: �
 <div class="cta-box">
   <h2>¿Quieres la lista completa?</h2>
   <p>Las 30 frases que más autoridad restan en reuniones y emails — con la reescritura exacta de cada una, para tenerla a mano antes de tu próxima reunión.</p>
-  <!-- Form "Detector · 30 frases" (id 9701438) en Kit: su confirmation email entrega
-       el PDF y auto-confirma, así que llega en el momento. La automation "Any form →
-       Sequence" mete además a la persona en la newsletter. -->
-  <a class="cta-kit" href="https://yaizatemprado.kit.com/7edfd48077" target="_blank" rel="noopener">Quiero las 30 frases</a>
+  <!-- Captura INLINE: antes esto era un enlace a yaizatemprado.kit.com/7edfd48077, que
+       sacaba a la landing por defecto de Kit — sin marca y con el "Built with Kit". Ahora
+       se suscribe por API al mismo form (9701438) sin salir de la página, igual que hace
+       el gate del diagnóstico. Kit manda su confirmation email con el PDF. -->
+  <form class="lm-form" id="lmForm" onsubmit="submitLeadMagnet(event)" novalidate>
+    <div class="lm-row">
+      <input type="email" id="lmEmail" placeholder="Tu email" autocomplete="email" aria-label="Tu email">
+      <button type="submit" id="lmBtn">Quiero las 30 frases</button>
+    </div>
+    <label class="lm-consent">
+      <input type="checkbox" id="lmConsent">
+      <span>Al dejar mi email me apunto a la lista de Yaiza (comunicación y presencia ejecutiva; baja cuando quieras, en un clic).</span>
+    </label>
+    <div class="lm-status" id="lmStatus" role="status"></div>
+  </form>
 </div>
 </section>
 
@@ -1235,6 +1274,38 @@ function renderDiagResult() {
   document.getElementById('diagApp').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+/* ---------- Captura del lead magnet (30 frases), inline en la página ---------- */
+const LEAD_MAGNET_FORM_ID = 9701438; /* Detector · 30 frases */
+
+function submitLeadMagnet(ev) {
+  ev.preventDefault();
+  const email = document.getElementById('lmEmail').value.trim();
+  const consent = document.getElementById('lmConsent').checked;
+  const btn = document.getElementById('lmBtn');
+  const status = document.getElementById('lmStatus');
+  const fail = msg => { status.className = 'lm-status ko'; status.textContent = msg; };
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail('Ese email no parece completo — revísalo.');
+  if (!consent) return fail('Marca la casilla para poder mandártelas.');
+  if (!KIT_PUBLIC_KEY) return fail('Ahora mismo no puedo apuntarte. Inténtalo en un rato.');
+
+  btn.disabled = true;
+  btn.textContent = 'Enviando…';
+  status.className = 'lm-status ok';
+  status.textContent = 'Enviando…';
+
+  subscribeToKit(email, LEAD_MAGNET_FORM_ID)
+    .then(() => {
+      document.getElementById('lmForm').innerHTML =
+        '<div class="lm-status ok" style="display:block">Hecho. Mira tu correo — te acabo de mandar las 30 frases.</div>';
+    })
+    .catch(() => {
+      btn.disabled = false;
+      btn.textContent = 'Quiero las 30 frases';
+      fail('No he podido apuntarte — inténtalo otra vez en un rato.');
+    });
+}
+
 /* ---------- Gate de email → Kit (client-side) ---------- */
 function subscribeToKit(email, formId, perfilNombre) {
   return fetch(`https://api.convertkit.com/v3/forms/${formId}/subscribe`, {
@@ -1243,7 +1314,8 @@ function subscribeToKit(email, formId, perfilNombre) {
     body: JSON.stringify({
       api_key: KIT_PUBLIC_KEY,
       email: email,
-      fields: { perfil_detector: perfilNombre }
+      /* el gate del diagnóstico manda el perfil; la captura del lead magnet no tiene */
+      ...(perfilNombre ? { fields: { perfil_detector: perfilNombre } } : {})
     })
   }).then(r => {
     if (!r.ok) throw new Error('Kit HTTP ' + r.status);
