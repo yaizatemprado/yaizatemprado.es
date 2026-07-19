@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El detector de autoridad — Yaiza Temprado</title>
+<meta name="description" content="Diagnóstico exprés de 12 preguntas o análisis de tu email/transcript: descubre dónde estás regalando autoridad. Todo el análisis ocurre en tu navegador.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FFF8F4;
+  --plum: #3A2B2C;
+  --rose: #CC6C4E;
+  --anchor: #2E2324;
+  --peach: #F4CBBF;
+  --slate: #5E4B4C;
+  --white: #FFFFFF;
+  --stone: #f4ece8;
+  --stone-soft: #faf5f1;
+  --border: #eadbd6;
+  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--font-sans);
+  background: var(--cream);
+  color: var(--plum);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+
+/* Header */
+header { text-align: center; padding: 24px 0 8px; }
+.kicker {
+  display: inline-block; background: var(--peach); color: var(--anchor);
+  font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 999px; margin-bottom: 18px;
+}
+h1 { font-size: clamp(28px, 6vw, 42px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
+h1 .accent { color: var(--rose); }
+.sub { color: var(--slate); font-size: 17px; margin: 14px auto 0; max-width: 540px; }
+
+/* Privacy */
+.privacy {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: var(--stone-soft); border: 1px solid var(--border);
+  border-radius: 14px; padding: 14px 16px; margin: 26px 0 22px;
+  font-size: 14px; color: var(--slate);
+}
+.privacy svg { flex: 0 0 18px; margin-top: 2px; }
+.privacy strong { color: var(--plum); }
+
+/* Input */
+textarea {
+  width: 100%; min-height: 200px; resize: vertical;
+  font-family: var(--font-sans); font-size: 15px; line-height: 1.55; color: var(--plum);
+  background: var(--white); border: 1.5px solid var(--border); border-radius: 14px;
+  padding: 16px;
+}
+textarea:focus { outline: none; border-color: var(--rose); }
+textarea::placeholder { color: #a08a85; }
+.examples { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+.chip {
+  font-family: var(--font-sans); font-size: 13px; font-weight: 600; color: var(--slate);
+  background: var(--stone); border: 1px solid var(--border); border-radius: 999px;
+  padding: 6px 14px; cursor: pointer;
+}
+.chip:hover { border-color: var(--rose); color: var(--rose); }
+.cta-analyze {
+  display: block; width: 100%; margin-top: 16px;
+  font-family: var(--font-sans); font-size: 17px; font-weight: 700; color: var(--white);
+  background: var(--rose); border: none; border-radius: 14px; padding: 16px;
+  cursor: pointer;
+}
+.cta-analyze:hover { background: #b85e42; }
+
+/* Results */
+#results { display: none; margin-top: 36px; }
+.section-title { font-size: 20px; font-weight: 800; margin: 34px 0 14px; letter-spacing: -0.01em; }
+.card {
+  background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+  padding: 22px; margin-bottom: 14px;
+}
+
+/* Who are you picker */
+.who { text-align: center; padding: 26px 22px; }
+.who p { font-weight: 700; font-size: 17px; margin-bottom: 14px; }
+.who-chips { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.who-chip {
+  font-family: var(--font-sans); font-size: 15px; font-weight: 700; color: var(--plum);
+  background: var(--stone); border: 1.5px solid var(--border); border-radius: 999px;
+  padding: 10px 20px; cursor: pointer;
+}
+.who-chip.sel { background: var(--rose); border-color: var(--rose); color: var(--white); }
+
+/* Hero stats */
+.hero-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+.stat { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 18px; }
+.stat .big { font-size: 40px; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; }
+.stat .big.rose { color: var(--rose); }
+.stat .lbl { font-size: 13px; color: var(--slate); font-weight: 600; margin-top: 4px; }
+.stat .cmp { font-size: 13px; color: var(--plum); margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--border); }
+
+/* Score dial (text mode) */
+.score-wrap { text-align: center; padding: 28px 22px; }
+.score-num { font-size: 72px; font-weight: 800; letter-spacing: -0.03em; color: var(--rose); line-height: 1; }
+.score-den { font-size: 22px; color: var(--slate); font-weight: 600; }
+.score-verdict { font-size: 16px; font-weight: 700; margin-top: 10px; }
+.score-sub { font-size: 14px; color: var(--slate); margin-top: 4px; }
+
+/* Bars */
+.bar-row { display: grid; grid-template-columns: minmax(80px, 130px) 1fr 52px; gap: 10px; align-items: center; margin-bottom: 10px; }
+.bar-name { font-size: 14px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bar-track { background: var(--stone); border-radius: 6px; height: 22px; position: relative; }
+.bar-fill { height: 100%; border-radius: 4px; background: var(--slate); min-width: 3px; }
+.bar-fill.me { background: var(--rose); }
+.bar-val { font-size: 14px; font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+
+/* Comparison table */
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--slate); padding: 8px 10px; border-bottom: 1.5px solid var(--border); }
+th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+td { padding: 9px 10px; border-bottom: 1px solid var(--stone); }
+tr.me td { background: #fdf0ec; font-weight: 700; }
+tr.me td:first-child { border-left: 3px solid var(--rose); }
+.table-scroll { overflow-x: auto; }
+
+/* Highlighted text */
+.annotated { white-space: pre-wrap; font-size: 15px; line-height: 1.75; }
+.annotated .spk { font-weight: 800; color: var(--slate); }
+.annotated .spk.me { color: var(--rose); }
+mark {
+  background: var(--peach); color: var(--anchor); border-radius: 4px; padding: 1px 3px;
+  border-bottom: 2px solid var(--rose); cursor: help; position: relative;
+}
+/* Findings list */
+.finding { border-left: 3px solid var(--rose); background: var(--stone-soft); border-radius: 0 12px 12px 0; padding: 14px 16px; margin-bottom: 10px; }
+.finding .cat { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--rose); }
+.finding .phrase { font-weight: 700; margin: 4px 0 2px; }
+.finding .why { font-size: 14px; color: var(--slate); }
+.finding .fix { font-size: 14px; margin-top: 6px; }
+.finding .fix strong { color: var(--rose); }
+.count-badge { display: inline-block; background: var(--peach); border-radius: 999px; font-size: 12px; font-weight: 800; padding: 1px 9px; margin-left: 6px; }
+
+/* Share + CTA */
+.share-btn, .cta-kit {
+  display: block; width: 100%; text-align: center; text-decoration: none;
+  font-family: var(--font-sans); font-size: 16px; font-weight: 700;
+  border-radius: 14px; padding: 15px; cursor: pointer; margin-top: 12px;
+}
+.share-btn { background: var(--anchor); color: var(--white); border: none; }
+.share-btn:hover { background: #493a3b; }
+.cta-kit { background: var(--rose); color: var(--white); }
+.cta-kit:hover { background: #b85e42; }
+#shareImgWrap { display: none; margin-top: 14px; text-align: center; }
+#shareImgWrap img { max-width: 100%; border-radius: 14px; border: 1px solid var(--border); }
+#shareImgWrap .hint { font-size: 13px; color: var(--slate); margin-top: 8px; }
+
+.honest {
+  font-size: 14px; color: var(--slate); background: var(--stone-soft);
+  border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; margin-top: 26px;
+}
+.honest strong { color: var(--plum); }
+
+.cta-box { background: var(--anchor); color: var(--white); border-radius: 18px; padding: 28px 24px; margin-top: 36px; text-align: center; }
+.cta-box h2 { font-size: 22px; font-weight: 800; letter-spacing: -0.01em; }
+.cta-box p { color: #d9c9c3; font-size: 15px; margin: 10px auto 0; max-width: 460px; }
+.cta-box .cta-kit { max-width: 380px; margin: 18px auto 0; }
+
+/* ===== Navegación de modos ===== */
+.mode-tabs { display: flex; gap: 10px; margin-top: 26px; }
+.mode-tab {
+  flex: 1; font-family: var(--font-sans); font-size: 16px; font-weight: 800; color: var(--plum);
+  background: var(--white); border: 1.5px solid var(--border); border-radius: 14px;
+  padding: 14px 12px; cursor: pointer; text-align: center; line-height: 1.3;
+}
+.mode-tab:hover { border-color: var(--rose); }
+.mode-tab small { display: block; font-size: 12.5px; font-weight: 600; color: var(--slate); margin-top: 3px; }
+.mode-tab.sel { background: var(--rose); border-color: var(--rose); color: var(--white); }
+.mode-tab.sel small { color: #f7ddd4; }
+.mode-badge {
+  display: inline-block; background: var(--peach); color: var(--anchor);
+  font-size: 11px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase;
+  border-radius: 999px; padding: 2px 8px; margin-left: 8px; vertical-align: 2px;
+}
+@media (max-width: 480px) { .mode-tabs { flex-direction: column; } }
+
+/* ===== Diagnóstico exprés ===== */
+.diag-progress { display: flex; align-items: center; gap: 12px; margin: 4px 0 14px; }
+.diag-progress .track { flex: 1; height: 8px; background: var(--stone); border-radius: 999px; overflow: hidden; }
+.diag-progress .fill { height: 100%; background: var(--rose); border-radius: 999px; transition: width 0.25s ease; }
+.diag-progress .steps { font-size: 13px; font-weight: 700; color: var(--slate); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.q-text { font-size: 19px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.4; margin-bottom: 16px; }
+.opt-btn {
+  display: block; width: 100%; text-align: left;
+  font-family: var(--font-sans); font-size: 15px; font-weight: 600; color: var(--plum); line-height: 1.45;
+  background: var(--stone-soft); border: 1.5px solid var(--border); border-radius: 12px;
+  padding: 13px 16px; margin-bottom: 10px; cursor: pointer;
+}
+.opt-btn:hover { border-color: var(--rose); background: var(--white); }
+.q-back { background: none; border: none; font-family: var(--font-sans); font-size: 14px; font-weight: 700; color: var(--slate); cursor: pointer; padding: 6px 0; }
+.q-back:hover { color: var(--rose); }
+
+/* Resultado + gate de email */
+.profile-name { font-size: clamp(26px, 6vw, 34px); font-weight: 800; letter-spacing: -0.02em; color: var(--rose); line-height: 1.2; }
+.profile-tagline { font-size: 16px; color: var(--slate); margin-top: 6px; }
+.gate { background: var(--anchor); color: var(--white); border-radius: 18px; padding: 26px 22px; margin-top: 22px; }
+.gate h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
+.gate p { color: #d9c9c3; font-size: 14.5px; margin-top: 8px; }
+.gate ul { color: #d9c9c3; font-size: 14.5px; margin: 10px 0 0 20px; }
+.gate input[type="email"] {
+  width: 100%; margin-top: 16px; font-family: var(--font-sans); font-size: 16px; color: var(--plum);
+  background: var(--white); border: 1.5px solid var(--border); border-radius: 12px; padding: 13px 14px;
+}
+.gate input[type="email"]:focus { outline: none; border-color: var(--rose); }
+.gate .consent { display: flex; gap: 9px; align-items: flex-start; font-size: 12.5px; color: #d9c9c3; margin-top: 10px; line-height: 1.5; }
+.gate .consent input { margin-top: 3px; flex: 0 0 auto; accent-color: var(--rose); }
+.gate button[type="submit"] {
+  display: block; width: 100%; margin-top: 12px; font-family: var(--font-sans); font-size: 16px; font-weight: 700;
+  color: var(--white); background: var(--rose); border: none; border-radius: 12px; padding: 14px; cursor: pointer;
+}
+.gate button[type="submit"]:hover { background: #b85e42; }
+.gate button[type="submit"]:disabled { opacity: 0.6; cursor: default; }
+.gate-status { display: none; font-size: 14px; font-weight: 700; margin-top: 10px; }
+.gate-status.ok { color: #a7dcb5; }
+.gate-status.ko { color: var(--peach); }
+.frase-tipo {
+  border-left: 3px solid var(--rose); background: var(--stone-soft); border-radius: 0 12px 12px 0;
+  padding: 14px 16px; font-size: 15px; font-style: italic;
+}
+.acciones { margin-left: 20px; }
+.acciones li { margin-bottom: 10px; }
+.acciones li:last-child { margin-bottom: 0; }
+.diag-restart { display: block; text-align: center; margin-top: 18px; background: none; border: none; font-family: var(--font-sans); font-size: 14px; font-weight: 700; color: var(--slate); cursor: pointer; text-decoration: underline; }
+.diag-restart:hover { color: var(--rose); }
+
+footer { text-align: center; margin-top: 44px; font-size: 14px; color: var(--slate); }
+footer a { color: var(--rose); font-weight: 700; text-decoration: none; }
+.err { display:none; color: var(--rose); font-weight: 600; font-size: 14px; margin-top: 10px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">El código de las reuniones</div>
+  <h1>¿Cuánta autoridad estás <span class="accent">regalando</span> sin darte cuenta?</h1>
+  <p class="sub">Dos caminos: un diagnóstico exprés de 12 situaciones reales (2 minutos, sales con tu perfil) — o pega un email o el transcript de tu última reunión y te lo enseño frase a frase.</p>
+</header>
+
+<nav class="mode-tabs" aria-label="Elige cómo quieres empezar">
+  <button class="mode-tab sel" id="tabDiag" onclick="switchMode('diag')">Diagnóstico exprés<span class="mode-badge">Nuevo</span><small>12 preguntas · 2 minutos · tu perfil de autoridad</small></button>
+  <button class="mode-tab" id="tabTexto" onclick="switchMode('texto')">Analiza tu texto<small>Pega un email o el transcript de una reunión</small></button>
+</nav>
+
+<div class="privacy">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#CC6C4E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+  <div><strong>Tus respuestas y lo que pegues no salen de tu navegador.</strong> El análisis ocurre entero en tu dispositivo — sin servidores, sin guardar nada. Única excepción, y la decides tú: si al terminar el diagnóstico dejas tu email para recibir el informe, se envía tu email y el nombre de tu perfil. Nada más — nunca tus respuestas ni tus textos.</div>
+</div>
+
+<section id="modeDiag">
+  <div id="diagApp"></div>
+</section>
+
+<section id="modeTexto" hidden>
+<textarea id="input" placeholder="Pega aquí tu texto…
+
+Si pegas un transcript con nombres (Teams, Zoom, Meet o líneas tipo «María: …»), se activa el modo reunión: comparo cuánto habla cada persona y quién pide perdón en esa sala."></textarea>
+<div class="examples">
+  <button class="chip" onclick="loadExample('email')">Probar con un email de ejemplo</button>
+  <button class="chip" onclick="loadExample('meeting')">Probar con una reunión de ejemplo</button>
+</div>
+<button class="cta-analyze" onclick="analyze()">Analizar</button>
+<div class="err" id="err"></div>
+
+<div id="results"></div>
+
+<div class="honest">
+  <strong>Ojo, un matiz importante:</strong> ninguna de estas frases es mala en sí. Un «perdona» suelto no te hunde. El problema es la acumulación — cuando cada idea tuya sale al mundo con tres escudos delante y las de los demás salen desnudas. Eso es lo que este detector hace visible.
+</div>
+
+<div class="cta-box">
+  <h2>¿Quieres la lista completa?</h2>
+  <p>Las 30 frases que más autoridad restan en reuniones y emails — con la reescritura exacta de cada una, para tenerla a mano antes de tu próxima reunión.</p>
+  <!-- Form "Detector · 30 frases" (id 9701438) en Kit: su confirmation email entrega
+       el PDF y auto-confirma, así que llega en el momento. La automation "Any form →
+       Sequence" mete además a la persona en la newsletter. -->
+  <a class="cta-kit" href="https://yaizatemprado.kit.com/7edfd48077" target="_blank" rel="noopener">Quiero las 30 frases</a>
+</div>
+</section>
+
+<footer>
+  Hecho por <a href="https://www.instagram.com/yaizatemprado/" target="_blank" rel="noopener">@yaizatemprado</a> · comunicación y presencia ejecutiva para mujeres que lideran en tech
+</footer>
+
+</div>
+
+<script>
+/* ============================================================
+   DIAGNÓSTICO 10+2 — CONFIGURACIÓN DE CONTENIDO
+   ------------------------------------------------------------
+   TODO el contenido del diagnóstico vive en este bloque. Para
+   sustituirlo tras el OK de la "biblia del método 10+2", cambiar
+   SOLO estas constantes — el motor (sección "MOTOR DEL
+   DIAGNÓSTICO", al final del script) no se toca:
+
+   - ASSESSMENT_QUESTIONS: 12 items
+       { id, componente, pregunta, opciones: [{ texto, puntos 0–3 }] }
+     · `componente` debe existir en `componentes` de exactamente
+       UN perfil de PROFILES.
+     · 4 opciones por pregunta; variar el orden de los puntos
+       entre preguntas para que no se adivine el patrón.
+   - PROFILES: 4 perfiles
+       { id, nombre, tagline, familia, componentes: [ids], kitTagId }
+     · El perfil se asigna a la FAMILIA (= perfil) con PEOR % de
+       puntos; en empate gana el primero del array.
+     · `familia` es la etiqueta visible del gráfico de barras.
+     · kitTagId: un tag de Kit por perfil (los crea la PA vía
+       Kit API v4). Mientras sea null no se llama a Kit.
+   - PROFILE_REPORTS: por id de perfil
+       { diagnostico, queHacer: [3 acciones], fraseTipo }
+   - KIT_PUBLIC_KEY: api_key PÚBLICA de la API **v3** de Kit
+     (Kit → Settings → Advanced). OJO: NO es la KIT_API_KEY del
+     .env del vault — esa es de la v4 y la v3 la rechaza con
+     "API Key not valid". En el .env está como KIT_PUBLIC_KEY_V3.
+
+   validateAssessmentConfig() avisa por consola si la config
+   queda incoherente tras la sustitución.
+   ============================================================ */
+
+/* api_key PÚBLICA de la API v3 de Kit. Es pública por diseño: este fichero se publica
+   tal cual, así que la clave se ve con ver-código-fuente igual que en cualquier form
+   embebido de Kit. Lo que NUNCA va aquí es el API Secret. Copia en el .env del vault
+   como KIT_PUBLIC_KEY_V3. Verificada contra v3 el 19/07/2026. */
+const KIT_PUBLIC_KEY = 'l7aY0hnokJ4t5Xy11oEsKg';
+
+/* Quien deja el email en el gate del diagnóstico entra por el form de SU perfil
+   (`kitFormId` en PROFILES). Cada form de Kit lleva su propio confirmation email —el
+   resultado de ese perfil— y su propia descarga, el PDF de las 30 frases. Todos con
+   auto-confirm, así que llega en el momento; y la automation "Any form → Sequence"
+   la mete además en la newsletter.
+
+   Por qué forms y no tags: los tags `detector_perfil_*` NO existen en Kit (verificado
+   19/07 vía API) — con el flujo de tags el email se descartaba en silencio aunque la
+   usuaria hubiera marcado el consentimiento. Y sequences no se pueden crear en el plan
+   free, que era el diseño original.
+
+   El perfil viaja además como custom field `perfil_detector`; mientras ese campo no
+   exista en Kit se ignora sin romper el alta. */
+
+/* Contenido reconciliado contra la biblia canónica del método 10+2 (vault context/metodo-10-2.md, Gate 1 aprobado 06/07).
+   Nota de cobertura (ver email Gate 2): el detector diagnostica FUGAS DE SUPERFICIE, no el método 10+2 completo — no evalúa el componente 1 (tipo de reunión), coalición/seguimiento del CPS, no verbal ni F2 (carga doméstica). Es deliberado: el free tease no regala la corona.
+   Dos ítems de la familia "Límites" (q10 c_no, q11 c_carga) son net-new: relatable pero sin fuente directa en el corpus → pendientes de OK de Yaiza en Gate 2. */
+const ASSESSMENT_QUESTIONS = [
+  /* ---- Familia placeholder: Palabra y presencia ---- */
+  {
+    id: 'q1', componente: 'c_disculpas',
+    pregunta: 'Llegas dos minutos tarde a una reunión que además convocaste tú. ¿Qué dices al entrar?',
+    opciones: [
+      { texto: '«Perdonad, perdonad, lo siento muchísimo — soy un desastre con la agenda últimamente.»', puntos: 0 },
+      { texto: '«Gracias por esperar. Empezamos.»', puntos: 3 },
+      { texto: '«Perdón por el retraso. Vamos al primer punto.»', puntos: 1 },
+      { texto: 'No menciono el retraso y arranco directa con la agenda.', puntos: 2 }
+    ]
+  },
+  {
+    id: 'q2', componente: 'c_amortiguadores',
+    pregunta: 'Lo tienes claro: ese proyecto necesita 6 semanas, no las 4 que propone el plan. En la reunión de planificación dices…',
+    opciones: [
+      { texto: '«Yo creo que igual quizá se nos queda corto, ¿no? No sé, es una sensación que tengo.»', puntos: 0 },
+      { texto: '«Diría que a lo mejor nos vendría bien algo más de margen, si os parece.»', puntos: 1 },
+      { texto: '«Mi estimación es 6 semanas. Con 4 recortamos pruebas, y eso ya nos pasó factura en marzo.»', puntos: 3 },
+      { texto: '«Creo que necesitamos 6 semanas, aunque no estoy segura del todo.»', puntos: 2 }
+    ]
+  },
+  {
+    id: 'q3', componente: 'c_permiso',
+    pregunta: 'La discusión se está yendo por las ramas y tú tienes el dato que la resuelve. ¿Cómo entras?',
+    opciones: [
+      { texto: 'Espero a que alguien me dé paso; si no llega, lo mando luego por escrito.', puntos: 0 },
+      { texto: '«Perdonad, ¿puedo comentar una cosa rapidito?»', puntos: 1 },
+      { texto: '«Antes de seguir, quiero aportar un dato.» — y espero medio segundo a que me miren.', puntos: 2 },
+      { texto: '«Tengo el dato que resuelve esto.» — y lo suelto.', puntos: 3 }
+    ]
+  },
+  /* ---- Familia placeholder: Visibilidad ---- */
+  {
+    id: 'q4', componente: 'c_logros',
+    pregunta: 'Un cambio de proceso que diseñaste tú acaba de ahorrarle al equipo un 20% de tiempo. En la reunión mensual con dirección…',
+    opciones: [
+      { texto: 'No lo menciono; si es importante, ya lo verán en los números.', puntos: 0 },
+      { texto: '«Diseñé un cambio de proceso que nos ahorra un 20% de tiempo. Os cuento cómo en dos minutos.»', puntos: 3 },
+      { texto: 'Se lo cuento a mi responsable en el 1:1, por si quiere subirlo él.', puntos: 2 },
+      { texto: '«El equipo ha mejorado los tiempos un 20%.» — sin decir que el cambio fue idea mía.', puntos: 1 }
+    ]
+  },
+  {
+    id: 'q5', componente: 'c_credito',
+    pregunta: 'En la reunión, un compañero presenta como suya la propuesta que tú le contaste hace dos semanas. Tú…',
+    opciones: [
+      { texto: 'No digo nada; reclamar quedaría fatal.', puntos: 0 },
+      { texto: 'Se lo digo a él en privado después, para que lo aclare la próxima vez.', puntos: 1 },
+      { texto: '«Me alegra que retomes la propuesta que te comenté — la desarrollo: …» — en el momento, sin drama.', puntos: 3 },
+      { texto: 'Añado en la reunión: «De cuando lo trabajamos juntos, hay dos matices más…» — marcando el origen sin choque.', puntos: 2 }
+    ]
+  },
+  {
+    id: 'q6', componente: 'c_exposicion',
+    pregunta: 'Se busca a alguien para presentar los resultados ante el comité de dirección. Nadie conoce el tema como tú.',
+    opciones: [
+      { texto: '«Lo presento yo. Es mi área y tengo los datos frescos.»', puntos: 3 },
+      { texto: 'Espero a ver si alguien dice mi nombre.', puntos: 0 },
+      { texto: 'Digo que puedo hacerlo yo «si nadie más quiere».', puntos: 2 },
+      { texto: 'Propongo que lo presente mi jefa y me ofrezco a prepararle el material.', puntos: 1 }
+    ]
+  },
+  /* ---- Familia placeholder: Influencia ---- */
+  {
+    id: 'q7', componente: 'c_propuestas',
+    pregunta: 'Tienes una propuesta que cambiaría cómo trabaja el equipo. La llevas a la reunión así…',
+    opciones: [
+      { texto: '«Es solo una idea, seguramente ya lo habéis pensado, pero…»', puntos: 0 },
+      { texto: 'La comento antes con un par de personas y solo la llevo si veo apoyo claro.', puntos: 1 },
+      { texto: '«Propongo cambiar X, por estas dos razones: … ¿Qué haría falta para probarlo un sprint?»', puntos: 2 },
+      { texto: 'Antes de la reunión hablo el tema con quien decide para llegar con apoyo; y en la sala la presento yo, con posición: «Propongo X, por estas dos razones…».', puntos: 3 }
+    ]
+  },
+  {
+    id: 'q8', componente: 'c_desacuerdo',
+    pregunta: 'Tu jefe presenta un plan que, con los datos que tú manejas, va a fallar. En la sala hay más gente.',
+    opciones: [
+      { texto: 'No digo nada; corregir al jefe en público no es una opción.', puntos: 0 },
+      { texto: '«¿Habéis contemplado el escenario X? Con los datos del último trimestre, el plan se cae ahí. Propongo revisarlo antes de comprometer fechas.»', puntos: 3 },
+      { texto: 'Le escribo después en privado con los datos.', puntos: 2 },
+      { texto: '«Igual es una tontería, pero ¿no habría algún riesgo con X?»', puntos: 1 }
+    ]
+  },
+  {
+    id: 'q9', componente: 'c_decision',
+    pregunta: 'Hace una semana tomaste una decisión con criterio. Hoy alguien la cuestiona en público con tono de «esto fue un error».',
+    opciones: [
+      { texto: 'Me disculpo y digo que la revisamos.', puntos: 0 },
+      { texto: 'Defiendo la decisión, pero acabo con un «…pero bueno, lo que veáis».', puntos: 1 },
+      { texto: '«La decisión se tomó con estos datos y este criterio: … Si hay datos nuevos, los vemos; si no, seguimos.»', puntos: 3 },
+      { texto: '«Buena pregunta — te cuento el razonamiento y me dices qué ves tú.»', puntos: 2 }
+    ]
+  },
+  /* ---- Familia placeholder: Límites ---- */
+  {
+    id: 'q10', componente: 'c_no',
+    pregunta: 'Te piden llevar otro proyecto más. No te cabe sin sacrificar lo que ya llevas. Respondes…',
+    opciones: [
+      { texto: '«Claro, sin problema.» — y ya sacaré horas de donde sea.', puntos: 0 },
+      { texto: '«Es que voy fatal… bueno, déjame ver si puedo encajarlo.»', puntos: 1 },
+      { texto: '«Puedo cogerlo si soltamos Y o movemos la fecha de Z. Dime qué prefieres.»', puntos: 3 },
+      { texto: '«Ahora mismo no puedo asumirlo.» — sin más explicación.', puntos: 2 }
+    ]
+  },
+  {
+    /* c_carga aquí = trabajo invisible de EQUIPO (actas, logística). OJO: NO es la F2 de la biblia (esa es la carga DOMÉSTICA/familiar). Net-new pendiente de OK Gate 2. */
+    id: 'q11', componente: 'c_carga',
+    pregunta: 'Otra vez eres tú la que acaba tomando las notas y organizando la logística en las reuniones de tu equipo (entre iguales).',
+    opciones: [
+      { texto: 'Lo sigo haciendo; alguien tiene que hacerlo y se me da bien.', puntos: 0 },
+      { texto: 'Propongo en la siguiente reunión: «Rotamos actas y logística. Esta semana me toca a mí y sigue X.»', puntos: 3 },
+      { texto: 'Dejo de hacerlo sin decir nada, a ver si alguien lo nota.', puntos: 1 },
+      { texto: 'Se lo comento a mi responsable para que lo reparta.', puntos: 2 }
+    ]
+  },
+  {
+    id: 'q12', componente: 'c_interrupciones',
+    pregunta: 'Estás explicando tu propuesta y te interrumpen a mitad. La conversación se va por otro lado.',
+    opciones: [
+      { texto: 'Lo dejo estar; si interesa, ya volverán a preguntarme.', puntos: 0 },
+      { texto: 'Espero un hueco y vuelvo a empezar desde el principio, con un «como decía antes, perdón…».', puntos: 1 },
+      { texto: 'Retomo en cuanto puedo: «Vuelvo al punto que estaba cerrando: …»', puntos: 2 },
+      { texto: '«Termino mi punto en 30 segundos y seguimos con lo tuyo.» — y lo termino.', puntos: 3 }
+    ]
+  }
+];
+
+/* Perfiles = 4 familias-de-fuga (segmentación de síntomas). El perfil se asigna a la
+   familia con PEOR % de puntos.
+
+   kitFormId: el form de Kit de ese perfil. NO es un tag: el plan de Kit es free y no
+   admite sequences nuevas, así que la entrega del email de resultado se hace con el
+   *confirmation email* de un form por perfil (auto-confirm activado → llega en el
+   momento). La automation "Any form → Sequence" que ya existe mete además a la persona
+   en la newsletter. Mientras sea null no se llama a Kit. */
+const PROFILES = [
+  {
+    id: 'diplomatica',
+    nombre: 'La Diplomática',
+    tagline: 'Tu criterio es sólido; el envoltorio lo rebaja antes de que llegue a la mesa.',
+    familia: 'Palabra y presencia', /* etiqueta visible en el gráfico de barras */
+    componentes: ['c_disculpas', 'c_amortiguadores', 'c_permiso'],
+    kitFormId: 9701534 /* Detector · La Diplomática */
+  },
+  {
+    id: 'motor_invisible',
+    nombre: 'El Motor Invisible',
+    tagline: 'Sostienes resultados que presentan otros. Trabajas mucho; se te ve poco.',
+    familia: 'Visibilidad',
+    componentes: ['c_logros', 'c_credito', 'c_exposicion'],
+    kitFormId: 9701560 /* Detector · El Motor Invisible */
+  },
+  {
+    id: 'consejera_sombra',
+    nombre: 'La Consejera en la Sombra',
+    tagline: 'Tus ideas mueven decisiones… cuando las firma otra persona.',
+    familia: 'Influencia',
+    componentes: ['c_propuestas', 'c_desacuerdo', 'c_decision'],
+    kitFormId: 9701569 /* Detector · La Consejera en la Sombra */
+  },
+  {
+    id: 'todoterreno',
+    nombre: 'La Todoterreno',
+    tagline: 'Dices que sí a todo — y tu agenda paga la factura de la autoridad que no ejerces.',
+    familia: 'Límites',
+    componentes: ['c_no', 'c_carga', 'c_interrupciones'],
+    kitFormId: 9701577 /* Detector · La Todoterreno */
+  }
+];
+
+const PROFILE_REPORTS = {
+  diplomatica: {
+    diagnostico: 'Tu fuga principal está en la palabra: disculpas de entrada, amortiguadores y permisos que envuelven ideas que eran buenas. La sala no evalúa tu criterio — evalúa el envoltorio, y el envoltorio dice «esto vale poco». La buena noticia: es la fuga más rápida de cerrar, porque se arregla frase a frase.',
+    queHacer: [
+      'Esta semana, cambia cada «perdona» de entrada por un «gracias»: «gracias por esperar» en vez de «perdón por el retraso».',
+      'Antes de tu próxima reunión, escribe tu idea principal en una frase sin escudos («Propongo X porque Y») y dila así, tal cual.',
+      'Graba (o relee) una intervención tuya y cuenta los amortiguadores. Solo contar ya cambia el patrón.'
+    ],
+    fraseTipo: '«Perdona, ¿puedo comentar una cosa? Igual es una tontería, pero…»'
+  },
+  motor_invisible: {
+    diagnostico: 'Tu fuga principal es la visibilidad: produces resultados que la organización ve — pero no ve que son tuyos. No es modestia, es un impuesto: cada logro sin nombre financia la autoridad de otra persona. Nadie va a repartir el crédito por ti.',
+    queHacer: [
+      'Esta semana, cuenta UN logro tuyo en primera persona en un foro donde esté tu responsable: «diseñé», «decidí», «lideré».',
+      'Cuando alguien presente trabajo tuyo, marca el origen en el momento, sin drama: «de cuando lo trabajamos juntos, añado…».',
+      'Apunta cada viernes 3 resultados tuyos de la semana. Es tu material para el siguiente 1:1 — no para el cajón.'
+    ],
+    fraseTipo: '«Bueno, ha sido cosa de todo el equipo…»'
+  },
+  consejera_sombra: {
+    diagnostico: 'Tu fuga principal es la influencia: tus ideas son buenas y acaban ejecutándose — firmadas por otros. Preparar el terreno antes (hablar con quien decide, sembrar apoyo) es de senior; tu fuga no es esa. Es que cuando llega la sala tu idea entra sin tu nombre, o tu voz llega en diferido. La autoridad se ejerce donde se decide, no solo en el pasillo.',
+    queHacer: [
+      'Tu próxima propuesta la presentas TÚ en la reunión, con posición tomada: «Propongo X por estas dos razones».',
+      'Cuando no estés de acuerdo, dilo en la sala con un dato — no por privado después. Una vez esta semana.',
+      'Cuando cuestionen una decisión tuya, defiende el criterio con el que la tomaste antes de abrir la puerta a revisarla.'
+    ],
+    fraseTipo: '«Yo se lo dije a él antes de la reunión, pero bueno…»'
+  },
+  todoterreno: {
+    diagnostico: 'Tu fuga principal son los límites: dices que sí a todo, absorbes la carga invisible y cedes la palabra cuando te la quitan. El resultado es una agenda que no te deja ejercer la autoridad que ya tienes — estás demasiado ocupada sosteniendo la de los demás.',
+    queHacer: [
+      'La próxima petición que no te quepa: «Puedo cogerlo si soltamos Y o movemos Z. Dime qué prefieres.» Ni una hora extra silenciosa.',
+      'Propón rotación para las tareas invisibles (actas, logística) en tu próxima reunión de equipo.',
+      'Cuando te interrumpan: «Termino mi punto en 30 segundos.» — y lo terminas. Practícalo esta semana una vez.'
+    ],
+    fraseTipo: '«Sí, claro, yo lo hago — no te preocupes.»'
+  }
+};
+/* ============ FIN de la configuración del diagnóstico ============ */
+
+/* ================= Diccionario ================= */
+/* Patrones escritos en forma normalizada: minúsculas y sin acentos. */
+const CATS = {
+  disculpa: {
+    name: 'Disculpas de entrada',
+    why: 'Pides perdón antes de decir nada. La sala aprende que tu turno vale menos que los demás.',
+    fix: 'Cambia el perdón por un gracias: «gracias por esperar» en vez de «perdón por el retraso». Y si no hay nada que agradecer, entra directa.'
+  },
+  permiso: {
+    name: 'Pedir permiso para hablar',
+    why: 'Pedir permiso le da a otra persona el poder de dártelo. O de no dártelo.',
+    fix: 'Afirma la entrada: «Quiero añadir una cosa antes de cerrar este punto.»'
+  },
+  rebaja: {
+    name: 'Rebajar la idea antes de decirla',
+    why: 'Le estás diciendo a la sala cuánto vale tu idea: poco. Y la sala te hace caso.',
+    fix: 'La idea sin envoltorio: «Propongo X. Lo digo porque Y.» Que la valoren por lo que es.'
+  },
+  minimizador: {
+    name: 'Encoger lo que pides',
+    why: '«Un minutito cuando puedas» es facilísimo de ignorar. Lo que se pide pequeño, se pospone.',
+    fix: 'Pide con fecha: «¿Me lo confirmas hoy antes de las 17:00?»'
+  },
+  colchon: {
+    name: 'Colchones al final («¿no?», «¿vale?»)',
+    why: 'Terminas cada afirmación pidiendo aprobación. La frase pierde su punto final.',
+    fix: 'Termina en punto. La pregunta, resérvala para cuando de verdad preguntas.'
+  },
+  hedge: {
+    name: 'Amortiguadores',
+    why: '«Creo que igual quizá…» — tres escudos delante de una idea que era buena.',
+    fix: 'Un verbo de opinión como mucho: «Mi lectura es X.»'
+  }
+};
+
+const PATTERNS = [
+  // permiso (antes que rebaja: "no se si puedo" vs "no se si tiene sentido")
+  { cat: 'permiso', re: /\b(?:puedo|podria)\s+(?:decir|comentar|anadir|apuntar|preguntar)\s+(?:una cosa|algo|un momento)/g },
+  { cat: 'permiso', re: /\bsi me permit(?:es|is|e|en)\b/g },
+  { cat: 'permiso', re: /\bsi (?:os|te|le|les) parece(?: bien)?\b/g },
+  { cat: 'permiso', re: /\bno se si (?:puedo|es el momento|toca ahora)/g },
+  { cat: 'permiso', re: /\buna pregunta,? si se puede\b/g },
+  { cat: 'permiso', re: /\bme dejais (?:comentar|decir|anadir)/g },
+
+  // disculpa
+  { cat: 'disculpa', re: /\bperdon(?:a|ad|adme|ame)?\b/g },
+  { cat: 'disculpa', re: /\bdisculpa(?:d|s|dme)?\b/g },
+  { cat: 'disculpa', re: /\bmil disculpas\b/g },
+  { cat: 'disculpa', re: /\bsiento (?:mucho )?(?:molestar|interrumpir|insistir|la chapa|el ladrillo|ser (?:tan )?pesad[ao])/g },
+  { cat: 'disculpa', re: /\blo siento(?: mucho)?\b/g },
+  { cat: 'disculpa', re: /\bsiento si\b/g },
+
+  // rebaja
+  { cat: 'rebaja', re: /\bigual (?:es|digo|estoy diciendo) una (?:tonteria|bobada|chorrada)/g },
+  { cat: 'rebaja', re: /\ba lo mejor (?:es|digo) una (?:tonteria|bobada|chorrada)/g },
+  { cat: 'rebaja', re: /\bigual no viene a cuento\b/g },
+  { cat: 'rebaja', re: /\bno se si (?:tiene sentido|esto aporta|aporta algo|me explico|se entiende|es una tonteria)/g },
+  { cat: 'rebaja', re: /\b(?:puede que|quiza[s]?|a lo mejor) me equivo(?:co|que)\b/g },
+  { cat: 'rebaja', re: /\bseguramente ya lo (?:habeis|han|habran|habias) pensado\b/g },
+  { cat: 'rebaja', re: /\bno soy (?:ninguna )?experta\b/g },
+  { cat: 'rebaja', re: /\bno soy (?:la mas indicada|quien) para\b/g },
+  { cat: 'rebaja', re: /\bes solo (?:una idea|una sugerencia|mi opinion|una propuesta|un apunte)\b/g },
+  { cat: 'rebaja', re: /\ben mi humilde opinion\b/g },
+  { cat: 'rebaja', re: /\bcorrigeme si me equivoco\b/g },
+
+  // minimizador
+  { cat: 'minimizador', re: /\bsolo (?:queria|quiero|era|es) (?:un|una|comentar|preguntar|decir|saber|apuntar|anadir|pedir)/g },
+  { cat: 'minimizador', re: /\buna cosita\b/g },
+  { cat: 'minimizador', re: /\bun (?:segundito|momentito|minutito|huequito|ratito)\b/g },
+  { cat: 'minimizador', re: /\brapidito\b/g },
+  { cat: 'minimizador', re: /\bcuando (?:tengas un hueco|te venga bien|puedas|tengas un momento|saques un rato)\b/g },
+  { cat: 'minimizador', re: /\bno te (?:quito|robo) mas tiempo\b/g },
+  { cat: 'minimizador', re: /\bte robo (?:un minuto|dos minutos|un segundo|un momento)\b/g },
+  { cat: 'minimizador', re: /\bsin prisa\b/g },
+
+  // colchon — tag questions tras coma o al final de frase
+  { cat: 'colchon', re: /,\s*¿?(?:no|vale|verdad|eh|si)\?/g },
+  { cat: 'colchon', re: /\b(?:tiene sentido|me explico)\?/g },
+
+  // hedge
+  { cat: 'hedge', re: /\b(?:yo )?creo que (?:igual|quiza[s]?|a lo mejor)\b/g },
+  { cat: 'hedge', re: /\bme da la (?:sensacion|impresion) de que\b/g },
+  { cat: 'hedge', re: /\bno estoy (?:del todo )?segur[ao](?: del todo)?\b/g },
+  { cat: 'hedge', re: /\bdiria que quiza[s]?\b/g },
+  { cat: 'hedge', re: /\bsupongo que\b/g },
+  { cat: 'hedge', re: /\ben principio yo\b/g }
+];
+
+/* ================= Normalización (misma longitud que el original) ================= */
+function normalize(s) {
+  let out = '';
+  for (const ch of s) {
+    const d = ch.normalize('NFD');
+    out += d[0].toLowerCase();
+  }
+  return out;
+}
+
+/* ================= Matching ================= */
+function findMatches(text) {
+  const norm = normalize(text);
+  let all = [];
+  for (const p of PATTERNS) {
+    p.re.lastIndex = 0;
+    let m;
+    while ((m = p.re.exec(norm)) !== null) {
+      all.push({ start: m.index, end: m.index + m[0].length, cat: p.cat, phrase: text.slice(m.index, m.index + m[0].length) });
+      if (m.index === p.re.lastIndex) p.re.lastIndex++;
+    }
+  }
+  all.sort((a, b) => a.start - b.start || b.end - a.end);
+  const kept = [];
+  let lastEnd = -1;
+  for (const m of all) {
+    if (m.start >= lastEnd) { kept.push(m); lastEnd = m.end; }
+  }
+  return kept;
+}
+
+function wordCount(t) { return (t.trim().match(/\S+/g) || []).length; }
+
+/* ================= Parsing de transcripts ================= */
+function parseTranscript(raw) {
+  let text = raw;
+  const turns = [];
+
+  // 1. WebVTT: <v Nombre>texto</v>
+  if (/<v\s+[^>]+>/i.test(text)) {
+    const re = /<v\s+([^>]+)>([\s\S]*?)(?:<\/v>|$)/gi;
+    let m;
+    while ((m = re.exec(text)) !== null) {
+      turns.push({ speaker: m[1].trim(), text: m[2].trim() });
+    }
+    if (turns.length) return mergeTurns(turns);
+  }
+
+  // Quitar cabeceras/timestamps VTT si vienen sin <v>
+  const lines = text.split('\n').filter(l => {
+    const t = l.trim();
+    if (t === 'WEBVTT' || t === '') return t === '' ? true : false;
+    if (/-->/.test(t)) return false;
+    if (/^\d+$/.test(t)) return false;
+    return true;
+  });
+
+  // 2. Formato Teams: "Nombre Apellido   0:12" y el texto en las líneas siguientes
+  const teamsHeader = /^([A-ZÁÉÍÓÚÑ][\wáéíóúñüÁÉÍÓÚÑÜ.'-]*(?:\s+[A-ZÁÉÍÓÚÑ(][\wáéíóúñüÁÉÍÓÚÑÜ.'()-]*){0,3})\s+\d{1,2}:\d{2}(?::\d{2})?\s*$/;
+  let current = null;
+  const teamsTurns = [];
+  for (const l of lines) {
+    const t = l.trim();
+    const h = t.match(teamsHeader);
+    if (h) { current = { speaker: h[1].trim(), text: '' }; teamsTurns.push(current); }
+    else if (current && t) { current.text += (current.text ? ' ' : '') + t; }
+  }
+  if (new Set(teamsTurns.map(t => t.speaker)).size >= 2 && teamsTurns.length >= 4) return mergeTurns(teamsTurns);
+
+  // 3. Genérico "Nombre: texto" (también Zoom chat "12:00 From Nombre: texto")
+  const genRe = /^(?:\d{1,2}:\d{2}(?::\d{2})?\s+(?:From|De)\s+)?([A-ZÁÉÍÓÚÑ][^:\n]{0,38}?)\s*:\s+(.+)$/;
+  const genTurns = [];
+  for (const l of lines) {
+    const t = l.trim();
+    if (!t) continue;
+    const m = t.match(genRe);
+    if (m) {
+      const name = m[1].trim();
+      const words = name.split(/\s+/);
+      const nameLike = words.length <= 4 && words.every(w => /^[A-ZÁÉÍÓÚÑ]/.test(w) || /^(de|del|la|los|van|von)$/i.test(w));
+      if (nameLike) { genTurns.push({ speaker: name, text: m[2].trim() }); continue; }
+    }
+    if (genTurns.length) genTurns[genTurns.length - 1].text += ' ' + t;
+  }
+  if (new Set(genTurns.map(t => t.speaker)).size >= 2 && genTurns.length >= 4) return mergeTurns(genTurns);
+
+  return null; // no es transcript → modo texto
+}
+
+function mergeTurns(turns) {
+  const out = [];
+  for (const t of turns) {
+    if (!t.text) continue;
+    if (out.length && out[out.length - 1].speaker === t.speaker) out[out.length - 1].text += ' ' + t.text;
+    else out.push({ speaker: t.speaker, text: t.text });
+  }
+  return out.length ? out : null;
+}
+
+/* ================= Análisis ================= */
+let state = null;
+
+function analyze() {
+  const raw = document.getElementById('input').value;
+  const err = document.getElementById('err');
+  err.style.display = 'none';
+  if (wordCount(raw) < 15) {
+    err.textContent = 'Necesito un poco más de texto para que el análisis diga algo con sentido (mínimo ~15 palabras).';
+    err.style.display = 'block';
+    return;
+  }
+  const turns = parseTranscript(raw);
+  if (turns) {
+    state = { mode: 'meeting', turns, me: null };
+    renderWhoPicker();
+  } else {
+    state = { mode: 'text', text: raw };
+    renderTextMode();
+  }
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ---------- Modo texto ---------- */
+function renderTextMode() {
+  const text = state.text;
+  const matches = findMatches(text);
+  const words = wordCount(text);
+  const rate = matches.length / words * 100;
+  const score = Math.max(5, Math.min(100, Math.round(100 - rate * 15)));
+  let verdict, sub;
+  if (matches.length === 0) { verdict = 'Este texto entra con la espalda recta.'; sub = 'Ni una auto-rebaja detectada. Envíalo tal cual.'; }
+  else if (score >= 80) { verdict = 'Casi limpio — un par de escudos que sobran.'; sub = 'Quita lo marcado y el mensaje gana peso sin perder amabilidad.'; }
+  else if (score >= 55) { verdict = 'Tu idea es buena. Tu envoltorio la está rebajando.'; sub = 'Cada frase marcada le dice al lector cuánto vale tu mensaje: menos.'; }
+  else { verdict = 'Este texto pide perdón por existir.'; sub = 'La buena noticia: se arregla frase a frase. Mira la lista de abajo.'; }
+
+  const grouped = groupFindings(matches);
+  document.getElementById('results').innerHTML = `
+    <div class="card score-wrap">
+      <div><span class="score-num">${score}</span><span class="score-den">/100</span></div>
+      <div class="score-verdict">${verdict}</div>
+      <div class="score-sub">${sub} · ${matches.length} ${matches.length === 1 ? 'frase detectada' : 'frases detectadas'} en ${words} palabras</div>
+      <button class="share-btn" onclick="makeCard()">Descargar mi resultado (imagen)</button>
+      <div id="shareImgWrap"></div>
+    </div>
+    ${matches.length ? `
+    <div class="section-title">Tu texto, con las fugas marcadas</div>
+    <div class="card annotated">${annotateText(text, matches)}</div>
+    <div class="section-title">Qué decir en su lugar</div>
+    ${renderFindings(grouped)}` : ''}
+  `;
+}
+
+/* ---------- Modo reunión ---------- */
+function renderWhoPicker() {
+  const speakers = [...new Set(state.turns.map(t => t.speaker))];
+  document.getElementById('results').innerHTML = `
+    <div class="card who">
+      <p>He detectado una reunión con ${speakers.length} voces. ¿Cuál eres tú?</p>
+      <div class="who-chips">
+        ${speakers.map(s => `<button class="who-chip" onclick="pickMe(this)" data-s="${escapeAttr(s)}">${escapeHtml(s)}</button>`).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function pickMe(btn) {
+  state.me = btn.dataset.s;
+  renderMeetingMode();
+}
+
+function renderMeetingMode() {
+  const speakers = {};
+  for (const t of state.turns) {
+    if (!speakers[t.speaker]) speakers[t.speaker] = { text: '', words: 0 };
+    speakers[t.speaker].text += ' ' + t.text;
+  }
+  const names = Object.keys(speakers);
+  let totalWords = 0;
+  for (const n of names) {
+    speakers[n].words = wordCount(speakers[n].text);
+    totalWords += speakers[n].words;
+    speakers[n].matches = findMatches(speakers[n].text);
+    speakers[n].byCat = {};
+    for (const m of speakers[n].matches) speakers[n].byCat[m.cat] = (speakers[n].byCat[m.cat] || 0) + 1;
+  }
+  const me = state.me;
+  const others = names.filter(n => n !== me);
+  const my = speakers[me];
+  const myShare = totalWords ? Math.round(my.words / totalWords * 100) : 0;
+  const fairShare = Math.round(100 / names.length);
+  const myApologies = (my.byCat.disculpa || 0);
+  const othersApologies = others.reduce((s, n) => s + (speakers[n].byCat.disculpa || 0), 0);
+  const myTags = (my.byCat.colchon || 0) + (my.byCat.rebaja || 0);
+  const othersTags = others.reduce((s, n) => s + (speakers[n].byCat.colchon || 0) + (speakers[n].byCat.rebaja || 0), 0);
+  const myTotal = my.matches.length;
+  const othersTotal = others.reduce((s, n) => s + speakers[n].matches.length, 0);
+
+  state.summary = { myShare, fairShare, myApologies, othersApologies, myTotal, othersTotal, n: names.length };
+
+  const sorted = [...names].sort((a, b) => speakers[b].words - speakers[a].words);
+  const maxWords = Math.max(...names.map(n => speakers[n].words), 1);
+
+  const grouped = groupFindings(my.matches);
+
+  document.getElementById('results').innerHTML = `
+    <div class="section-title">La foto de tu sala</div>
+    <div class="hero-grid">
+      <div class="stat">
+        <div class="big rose">${myShare}%</div>
+        <div class="lbl">de las palabras de la reunión fueron tuyas</div>
+        <div class="cmp">Reparto equitativo entre ${state.summary.n}: ~${fairShare}%</div>
+      </div>
+      <div class="stat">
+        <div class="big rose">${myApologies}</div>
+        <div class="lbl">disculpas tuyas («perdona», «siento…»)</div>
+        <div class="cmp">Resto de la sala junta: ${othersApologies}</div>
+      </div>
+      <div class="stat">
+        <div class="big rose">${myTotal}</div>
+        <div class="lbl">auto-rebajas tuyas en total</div>
+        <div class="cmp">Resto de la sala junta: ${othersTotal}</div>
+      </div>
+    </div>
+    <button class="share-btn" onclick="makeCard()">Descargar la foto de mi sala (imagen)</button>
+    <div id="shareImgWrap"></div>
+
+    <div class="section-title">Cuota de palabra</div>
+    <div class="card">
+      ${sorted.map(n => `
+        <div class="bar-row">
+          <div class="bar-name" title="${escapeAttr(n)}">${escapeHtml(shortName(n))}${n === me ? ' (tú)' : ''}</div>
+          <div class="bar-track"><div class="bar-fill${n === me ? ' me' : ''}" style="width:${Math.round(speakers[n].words / maxWords * 100)}%"></div></div>
+          <div class="bar-val">${totalWords ? Math.round(speakers[n].words / totalWords * 100) : 0}%</div>
+        </div>`).join('')}
+    </div>
+
+    <div class="section-title">Quién se rebaja en esta sala</div>
+    <div class="card table-scroll">
+      <table>
+        <thead><tr><th>Persona</th><th class="num">Palabras</th><th class="num">Disculpas</th><th class="num">Rebajas</th><th class="num">Colchones</th><th class="num">Total /100 palabras</th></tr></thead>
+        <tbody>
+          ${sorted.map(n => {
+            const s = speakers[n];
+            const r = s.words ? (s.matches.length / s.words * 100).toFixed(1) : '0.0';
+            return `<tr${n === me ? ' class="me"' : ''}><td>${escapeHtml(shortName(n))}${n === me ? ' (tú)' : ''}</td><td class="num">${s.words}</td><td class="num">${s.byCat.disculpa || 0}</td><td class="num">${(s.byCat.rebaja || 0) + (s.byCat.hedge || 0) + (s.byCat.minimizador || 0) + (s.byCat.permiso || 0)}</td><td class="num">${s.byCat.colchon || 0}</td><td class="num">${r}</td></tr>`;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    ${myTotal ? `
+    <div class="section-title">Tus frases, con la reescritura</div>
+    ${renderFindings(grouped)}
+    <div class="section-title">Tus intervenciones, marcadas</div>
+    <div class="card annotated">${state.turns.filter(t => t.speaker === me).map(t => `<span class="spk me">${escapeHtml(shortName(me))}:</span> ${annotateText(t.text, findMatches(t.text))}`).join('\n\n')}</div>
+    ` : `<div class="card" style="text-align:center"><strong>Ni una auto-rebaja tuya en toda la reunión.</strong><br><span style="color:var(--slate);font-size:14px">Guarda esta foto — es tu línea base.</span></div>`}
+  `;
+}
+
+/* ---------- Compartido ---------- */
+function groupFindings(matches) {
+  const g = {};
+  for (const m of matches) {
+    if (!g[m.cat]) g[m.cat] = { count: 0, examples: [] };
+    g[m.cat].count++;
+    if (g[m.cat].examples.length < 3 && !g[m.cat].examples.includes(m.phrase)) g[m.cat].examples.push(m.phrase);
+  }
+  return g;
+}
+
+function renderFindings(grouped) {
+  return Object.entries(grouped)
+    .sort((a, b) => b[1].count - a[1].count)
+    .map(([cat, g]) => `
+      <div class="finding">
+        <span class="cat">${CATS[cat].name}</span><span class="count-badge">×${g.count}</span>
+        <div class="phrase">${g.examples.map(e => `«${escapeHtml(e.trim())}»`).join(' · ')}</div>
+        <div class="why">${CATS[cat].why}</div>
+        <div class="fix"><strong>En su lugar →</strong> ${CATS[cat].fix}</div>
+      </div>`).join('');
+}
+
+function annotateText(text, matches) {
+  let html = '';
+  let pos = 0;
+  for (const m of matches) {
+    html += escapeHtml(text.slice(pos, m.start));
+    html += `<mark title="${escapeAttr(CATS[m.cat].name + ' — ' + CATS[m.cat].fix)}">${escapeHtml(text.slice(m.start, m.end))}</mark>`;
+    pos = m.end;
+  }
+  html += escapeHtml(text.slice(pos));
+  return html;
+}
+
+function shortName(n) { const w = n.split(/\s+/); return w.length > 2 ? w[0] + ' ' + w[1] : n; }
+function escapeHtml(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+function escapeAttr(s) { return escapeHtml(s).replace(/"/g, '&quot;'); }
+
+/* ================= Tarjeta compartible (1080×1350) ================= */
+function makeCard() {
+  const c = document.createElement('canvas');
+  c.width = 1080; c.height = 1350;
+  const x = c.getContext('2d');
+  const F = (w, px) => `${w} ${px}px Manrope, -apple-system, sans-serif`;
+
+  x.fillStyle = '#FFF8F4'; x.fillRect(0, 0, 1080, 1350);
+  x.fillStyle = '#CC6C4E'; x.fillRect(0, 0, 1080, 14);
+
+  // kicker
+  x.fillStyle = '#F4CBBF';
+  roundRect(x, 90, 90, 460, 56, 28); x.fill();
+  x.fillStyle = '#2E2324'; x.font = F(700, 24); x.textBaseline = 'middle';
+  x.fillText('EL CÓDIGO DE LAS REUNIONES', 122, 120);
+
+  x.textBaseline = 'alphabetic';
+  if (state.mode === 'text') {
+    const score = document.querySelector('.score-num') ? document.querySelector('.score-num').textContent : '';
+    x.fillStyle = '#3A2B2C'; x.font = F(800, 64);
+    wrapText(x, 'Pasé mi texto por el detector de autoridad', 90, 260, 900, 76);
+    x.fillStyle = '#CC6C4E'; x.font = F(800, 290);
+    x.fillText(score, 90, 720);
+    x.fillStyle = '#5E4B4C'; x.font = F(700, 60);
+    x.fillText('/ 100 de autoridad', 90 + x.measureText(' ').width + measure(x, score, F(800, 290)), 720);
+    x.fillStyle = '#3A2B2C'; x.font = F(600, 44);
+    wrapText(x, 'Cada «perdona que insista», cada «igual es una tontería», cada «¿no?» al final — cuenta.', 90, 830, 900, 60);
+  } else {
+    const s = state.summary;
+    x.fillStyle = '#3A2B2C'; x.font = F(800, 64);
+    wrapText(x, 'La foto de mi sala, según el detector de autoridad', 90, 250, 900, 76);
+    const rows = [
+      [String(s.myShare) + '%', 'de las palabras fueron mías (equitativo: ~' + s.fairShare + '%)'],
+      [String(s.myApologies) + ' vs ' + s.othersApologies, 'mis disculpas vs el resto de la sala junta'],
+      [String(s.myTotal) + ' vs ' + s.othersTotal, 'mis auto-rebajas vs el resto de la sala junta']
+    ];
+    let y = 460;
+    for (const [big, lbl] of rows) {
+      x.fillStyle = '#CC6C4E'; x.font = F(800, 120);
+      x.fillText(big, 90, y);
+      x.fillStyle = '#5E4B4C'; x.font = F(600, 40);
+      wrapText(x, lbl, 90, y + 58, 900, 50);
+      y += 260;
+    }
+  }
+
+  x.strokeStyle = '#eadbd6'; x.lineWidth = 2;
+  x.beginPath(); x.moveTo(90, 1180); x.lineTo(990, 1180); x.stroke();
+  x.fillStyle = '#3A2B2C'; x.font = F(800, 40);
+  x.fillText('@yaizatemprado', 90, 1250);
+  x.fillStyle = '#5E4B4C'; x.font = F(600, 32);
+  x.fillText('El detector, gratis, en el enlace de mi bio', 90, 1300);
+
+  const wrap = document.getElementById('shareImgWrap');
+  const url = c.toDataURL('image/png');
+  wrap.innerHTML = `<img src="${url}" alt="Tarjeta de resultado"><div class="hint">En el móvil: mantén pulsada la imagen para guardarla. En ordenador: <a href="${url}" download="detector-autoridad.png" style="color:var(--rose);font-weight:700">descárgala aquí</a>.</div>`;
+  wrap.style.display = 'block';
+}
+
+function measure(x, text, font) { const prev = x.font; x.font = font; const w = x.measureText(text).width; x.font = prev; return w; }
+function roundRect(x, a, b, w, h, r) { x.beginPath(); x.moveTo(a + r, b); x.arcTo(a + w, b, a + w, b + h, r); x.arcTo(a + w, b + h, a, b + h, r); x.arcTo(a, b + h, a, b, r); x.arcTo(a, b, a + w, b, r); x.closePath(); }
+function wrapText(x, text, a, b, maxW, lh) {
+  const words = text.split(' ');
+  let line = '', y = b;
+  for (const w of words) {
+    const test = line ? line + ' ' + w : w;
+    if (x.measureText(test).width > maxW && line) { x.fillText(line, a, y); line = w; y += lh; }
+    else line = test;
+  }
+  if (line) x.fillText(line, a, y);
+}
+
+/* ================= Ejemplos ================= */
+const EXAMPLES = {
+  email: `Hola Carlos:
+
+Perdona que insista con esto, sé que estás hasta arriba. Solo quería preguntarte, cuando tengas un huequito, si pudiste mirar la propuesta de reorganizar los sprints que te pasé la semana pasada.
+
+Igual es una tontería, pero creo que igual nos ahorraría los bloqueos de final de sprint que comentamos en la retro, ¿no? No sé si tiene sentido para ti.
+
+Es solo una sugerencia, tú decides. Sin prisa, ¿eh? No te quito más tiempo.
+
+¡Gracias!
+Paula`,
+  meeting: `Jorge: Bueno, empezamos. El tema de hoy es el plan de la migración. Yo lo tengo claro: la hacemos en dos fases y la primera arranca este trimestre. El presupuesto ya está aprobado, el equipo de plataforma tiene hueco y si esperamos al año que viene nos pilla la renovación de contratos. Así que mi propuesta es cerrar hoy el plan, asignar responsables y arrancar la semana que viene con el inventario de servicios.
+Paula: Perdona, ¿puedo comentar una cosa? Igual es una tontería, pero no sé si tiene sentido arrancar sin haber cerrado el tema de los datos históricos, ¿no?
+Jorge: Los datos históricos los vemos después. No es bloqueo.
+David: Estoy con Jorge. Además el equipo de plataforma ya está listo.
+Paula: Vale, perdona. Es solo una sugerencia, ¿eh? Yo creo que igual nos encontramos el problema en la fase dos, pero seguramente ya lo habéis pensado vosotros.
+Jorge: Bien. Entonces cerramos: dos fases, arrancamos ya. David, ¿lo lideras tú?
+David: Sí, sin problema. Propongo revisión quincenal y decisión de corte en octubre.
+Paula: Solo quería añadir una cosita rapidito, cuando tengas un hueco te paso el análisis que hice de los datos, sin prisa.
+Jorge: Perfecto, pásalo. Siguiente punto.`
+};
+function loadExample(k) {
+  document.getElementById('input').value = EXAMPLES[k];
+  analyze();
+}
+
+/* ============================================================
+   MOTOR DEL DIAGNÓSTICO 10+2
+   ------------------------------------------------------------
+   Todo lo de aquí abajo es motor: lee ASSESSMENT_QUESTIONS /
+   PROFILES / PROFILE_REPORTS y no contiene contenido. Para
+   cambiar preguntas, perfiles o informes, tocar SOLO el bloque
+   de configuración del principio del script.
+   ============================================================ */
+
+/* ---------- Navegación de modos ---------- */
+function switchMode(mode) {
+  document.getElementById('modeDiag').hidden = mode !== 'diag';
+  document.getElementById('modeTexto').hidden = mode !== 'texto';
+  document.getElementById('tabDiag').classList.toggle('sel', mode === 'diag');
+  document.getElementById('tabTexto').classList.toggle('sel', mode === 'texto');
+}
+
+function goToAnalyzer() {
+  switchMode('texto');
+  const input = document.getElementById('input');
+  input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  input.focus({ preventScroll: true });
+}
+
+/* ---------- Validación de la config (aviso por consola) ---------- */
+function validateAssessmentConfig() {
+  const problems = [];
+  if (ASSESSMENT_QUESTIONS.length !== 12) problems.push(`ASSESSMENT_QUESTIONS tiene ${ASSESSMENT_QUESTIONS.length} preguntas (se esperan 12).`);
+  const compOwner = {};
+  for (const p of PROFILES) {
+    for (const c of p.componentes) {
+      if (compOwner[c]) problems.push(`El componente «${c}» está en dos perfiles: ${compOwner[c]} y ${p.id}.`);
+      compOwner[c] = p.id;
+    }
+    if (!PROFILE_REPORTS[p.id]) problems.push(`Falta PROFILE_REPORTS.${p.id}.`);
+  }
+  const seenIds = {};
+  for (const q of ASSESSMENT_QUESTIONS) {
+    if (seenIds[q.id]) problems.push(`Id de pregunta duplicado: ${q.id}.`);
+    seenIds[q.id] = true;
+    if (!compOwner[q.componente]) problems.push(`La pregunta ${q.id} usa el componente «${q.componente}», que no está en ningún perfil.`);
+    if (!q.opciones || q.opciones.length !== 4) problems.push(`La pregunta ${q.id} no tiene 4 opciones.`);
+    for (const o of (q.opciones || [])) {
+      if (typeof o.puntos !== 'number' || o.puntos < 0 || o.puntos > 3) problems.push(`La pregunta ${q.id} tiene una opción con puntos fuera de 0–3.`);
+    }
+  }
+  for (const rid of Object.keys(PROFILE_REPORTS)) {
+    if (!PROFILES.some(p => p.id === rid)) problems.push(`PROFILE_REPORTS.${rid} no corresponde a ningún perfil.`);
+    const r = PROFILE_REPORTS[rid];
+    if (!r.queHacer || r.queHacer.length !== 3) problems.push(`PROFILE_REPORTS.${rid}.queHacer no tiene 3 acciones.`);
+  }
+  if (problems.length) console.warn('[diagnóstico 10+2] Config incoherente:\n- ' + problems.join('\n- '));
+  return problems.length === 0;
+}
+
+/* ---------- Estado del diagnóstico ---------- */
+const diag = { idx: 0, answers: [] };
+let diagResult = null;
+
+function diagStart() {
+  diag.idx = 0;
+  diag.answers = [];
+  diagResult = null;
+  renderDiagQuestion();
+}
+
+function diagRestart() {
+  diag.idx = 0;
+  diag.answers = [];
+  diagResult = null;
+  renderDiagIntro();
+  document.getElementById('diagApp').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ---------- Pantallas: intro y pregunta ---------- */
+function renderDiagIntro() {
+  document.getElementById('diagApp').innerHTML = `
+    <div class="card" style="padding:28px 24px">
+      <div class="q-text">12 situaciones reales de reunión y de email. En cada una, elige lo que harías tú de verdad — no lo que sabes que «habría que» hacer.</div>
+      <p style="color:var(--slate);font-size:15px">2 minutos. Al final: tu perfil de autoridad, tu puntuación sobre 100 y por dónde se te está escapando.</p>
+      <button class="cta-analyze" onclick="diagStart()">Empezar el diagnóstico</button>
+    </div>
+  `;
+}
+
+function renderDiagQuestion() {
+  const total = ASSESSMENT_QUESTIONS.length;
+  const q = ASSESSMENT_QUESTIONS[diag.idx];
+  const pct = Math.round(diag.idx / total * 100);
+  document.getElementById('diagApp').innerHTML = `
+    <div class="diag-progress">
+      <div class="track"><div class="fill" style="width:${pct}%"></div></div>
+      <div class="steps">${diag.idx + 1} / ${total}</div>
+    </div>
+    <div class="card" style="padding:24px 22px">
+      <div class="q-text">${escapeHtml(q.pregunta)}</div>
+      ${q.opciones.map((o, i) => `<button class="opt-btn" onclick="diagAnswer(${i})">${escapeHtml(o.texto)}</button>`).join('')}
+      ${diag.idx > 0 ? `<button class="q-back" onclick="diagBack()">← Volver a la anterior</button>` : ''}
+    </div>
+  `;
+  document.getElementById('diagApp').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function diagAnswer(optIdx) {
+  const q = ASSESSMENT_QUESTIONS[diag.idx];
+  diag.answers[diag.idx] = q.opciones[optIdx].puntos;
+  if (diag.idx < ASSESSMENT_QUESTIONS.length - 1) {
+    diag.idx++;
+    renderDiagQuestion();
+  } else {
+    computeDiagResult();
+    renderDiagResult();
+  }
+}
+
+function diagBack() {
+  if (diag.idx > 0) { diag.idx--; renderDiagQuestion(); }
+}
+
+/* ---------- Puntuación y asignación de perfil ---------- */
+function computeDiagResult() {
+  const qMax = q => Math.max(...q.opciones.map(o => o.puntos));
+  let total = 0, maxTotal = 0;
+  ASSESSMENT_QUESTIONS.forEach((q, i) => { total += diag.answers[i] || 0; maxTotal += qMax(q); });
+  const familias = PROFILES.map(p => {
+    let pts = 0, max = 0;
+    ASSESSMENT_QUESTIONS.forEach((q, i) => {
+      if (p.componentes.includes(q.componente)) { pts += diag.answers[i] || 0; max += qMax(q); }
+    });
+    return { profile: p, pts, max, pct: max ? Math.round(pts / max * 100) : 100 };
+  });
+  // Perfil = familia con PEOR %; en empate gana la primera del array PROFILES.
+  let worst = familias[0];
+  for (const f of familias) if (f.pct < worst.pct) worst = f;
+  diagResult = { score: maxTotal ? Math.round(total / maxTotal * 100) : 0, familias, profile: worst.profile };
+}
+
+/* ---------- Resultado: perfil + barras + teaser + gate ---------- */
+function familyBars() {
+  const sorted = [...diagResult.familias].sort((a, b) => a.pct - b.pct);
+  return sorted.map(f => `
+    <div class="bar-row">
+      <div class="bar-name" title="${escapeAttr(f.profile.familia)}">${escapeHtml(f.profile.familia)}</div>
+      <div class="bar-track"><div class="bar-fill${f.profile.id === diagResult.profile.id ? ' me' : ''}" style="width:${Math.max(3, f.pct)}%"></div></div>
+      <div class="bar-val">${f.pct}%</div>
+    </div>`).join('');
+}
+
+function renderDiagResult() {
+  const p = diagResult.profile;
+  const rep = PROFILE_REPORTS[p.id];
+  const teaser = rep ? rep.diagnostico.split('. ')[0] + '.' : '';
+  document.getElementById('diagApp').innerHTML = `
+    <div class="card score-wrap">
+      <div style="font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--slate)">Tu perfil de autoridad</div>
+      <div class="profile-name">${escapeHtml(p.nombre)}</div>
+      <div class="profile-tagline">${escapeHtml(p.tagline)}</div>
+      <div style="margin-top:18px"><span class="score-num" style="font-size:56px">${diagResult.score}</span><span class="score-den">/100</span></div>
+      <div class="score-sub">de autoridad ejercida en las 12 situaciones</div>
+    </div>
+    <div class="section-title">Por dónde se te escapa</div>
+    <div class="card">${familyBars()}</div>
+    <div class="section-title">Tu diagnóstico (avance)</div>
+    <div class="card"><p>${escapeHtml(teaser)}</p><p style="color:var(--slate);font-size:14px;margin-top:10px">El informe completo — el diagnóstico entero, las 3 acciones para esta semana y la frase que te delata — te lo desbloqueo aquí abajo.</p></div>
+    <div class="gate">
+      <h3>Tu informe completo, gratis</h3>
+      <p>Déjame tu email y lo desbloqueas ahora mismo:</p>
+      <ul>
+        <li>El diagnóstico completo de tu perfil «${escapeHtml(p.nombre)}»</li>
+        <li>3 acciones concretas para esta semana</li>
+        <li>La frase típica que te está delatando</li>
+      </ul>
+      <form onsubmit="submitGate(event)" novalidate>
+        <input type="email" id="gateEmail" placeholder="tu@email.com" autocomplete="email" required>
+        <label class="consent"><input type="checkbox" id="gateConsent" required><span>Al dejar mi email me apunto a la lista de Yaiza (comunicación y presencia ejecutiva; baja cuando quieras, en un clic). Solo se envían mi email y el nombre de mi perfil — nunca mis respuestas.</span></label>
+        <button type="submit" id="gateBtn">Desbloquear mi informe</button>
+        <div class="gate-status" id="gateStatus"></div>
+      </form>
+    </div>
+    <button class="diag-restart" onclick="diagRestart()">Repetir el diagnóstico</button>
+  `;
+  document.getElementById('diagApp').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ---------- Gate de email → Kit (client-side) ---------- */
+function subscribeToKit(email, formId, perfilNombre) {
+  return fetch(`https://api.convertkit.com/v3/forms/${formId}/subscribe`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      api_key: KIT_PUBLIC_KEY,
+      email: email,
+      fields: { perfil_detector: perfilNombre }
+    })
+  }).then(r => {
+    if (!r.ok) throw new Error('Kit HTTP ' + r.status);
+    return r.json();
+  });
+}
+
+function submitGate(ev) {
+  ev.preventDefault();
+  const email = document.getElementById('gateEmail').value.trim();
+  const consent = document.getElementById('gateConsent').checked;
+  const btn = document.getElementById('gateBtn');
+  const status = document.getElementById('gateStatus');
+  status.className = 'gate-status ko';
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    status.textContent = 'Ese email no parece completo — revísalo.';
+    status.style.display = 'block';
+    return;
+  }
+  if (!consent) {
+    status.textContent = 'Marca la casilla de consentimiento para poder apuntarte.';
+    status.style.display = 'block';
+    return;
+  }
+  btn.disabled = true;
+  btn.textContent = 'Enviando…';
+  status.className = 'gate-status ok';
+  status.textContent = 'Enviando…';
+  status.style.display = 'block';
+
+  const formId = diagResult.profile.kitFormId;
+  const canSubscribe = Boolean(KIT_PUBLIC_KEY && formId);
+  const done = kitOk => renderDiagReport(kitOk);
+  if (canSubscribe) {
+    subscribeToKit(email, formId, diagResult.profile.nombre)
+      .then(() => done(true)).catch(() => done(false));
+  } else {
+    /* Kit sin configurar: NO se dice que está apuntada. Antes esta rama hacía done(true)
+       y pintaba "Hecho — estás en la lista" sin haber llamado a nadie. El informe se
+       desbloquea igual (es client-side), pero el estado se cuenta como es. */
+    done(null);
+  }
+}
+
+/* ---------- Informe completo (client-side) ---------- */
+function renderDiagReport(kitOk) {
+  const p = diagResult.profile;
+  const rep = PROFILE_REPORTS[p.id] || { diagnostico: '', queHacer: [], fraseTipo: '' };
+  let statusLine = '';
+  if (kitOk === true) statusLine = `<div class="gate-status ok" style="display:block;margin:0 0 14px">Hecho — estás en la lista. Aquí tienes tu informe completo.</div>`;
+  else if (kitOk === false) statusLine = `<div class="gate-status ko" style="display:block;margin:0 0 14px;color:var(--rose)">No he podido apuntarte a la lista — inténtalo otra vez en un rato. Tu informe está aquí igualmente, no lo pierdes.</div>`;
+  document.getElementById('diagApp').innerHTML = `
+    ${statusLine}
+    <div class="card score-wrap">
+      <div style="font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--slate)">Tu perfil de autoridad</div>
+      <div class="profile-name">${escapeHtml(p.nombre)}</div>
+      <div class="profile-tagline">${escapeHtml(p.tagline)}</div>
+      <div style="margin-top:18px"><span class="score-num" style="font-size:56px">${diagResult.score}</span><span class="score-den">/100</span></div>
+      <div class="score-sub">de autoridad ejercida en las 12 situaciones</div>
+      <button class="share-btn" onclick="makeProfileCard()">Descargar mi perfil (imagen)</button>
+      <div id="diagShareImgWrap" style="display:none;margin-top:14px;text-align:center"></div>
+    </div>
+    <div class="section-title">Por dónde se te escapa</div>
+    <div class="card">${familyBars()}</div>
+    <div class="section-title">Tu diagnóstico</div>
+    <div class="card"><p>${escapeHtml(rep.diagnostico)}</p></div>
+    <div class="section-title">La frase que te delata</div>
+    <div class="frase-tipo">${escapeHtml(rep.fraseTipo)}</div>
+    <div class="section-title">Qué hacer esta semana</div>
+    <div class="card"><ol class="acciones">${rep.queHacer.map(a => `<li>${escapeHtml(a)}</li>`).join('')}</ol></div>
+    <div class="cta-box">
+      <h2>¿Quieres verlo en tu texto real?</h2>
+      <p>El diagnóstico te ha dado el patrón. Ahora pega un email tuyo o el transcript de tu última reunión y te enseño, frase a frase, dónde se te escapa.</p>
+      <button class="cta-kit" style="border:none;width:100%;max-width:380px;margin:18px auto 0" onclick="goToAnalyzer()">Pruébalo con tu texto real</button>
+    </div>
+    <button class="diag-restart" onclick="diagRestart()">Repetir el diagnóstico</button>
+  `;
+  document.getElementById('diagApp').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ---------- Tarjeta compartible del perfil (adapta makeCard) ---------- */
+function makeProfileCard() {
+  const p = diagResult.profile;
+  const c = document.createElement('canvas');
+  c.width = 1080; c.height = 1350;
+  const x = c.getContext('2d');
+  const F = (w, px) => `${w} ${px}px Manrope, -apple-system, sans-serif`;
+
+  x.fillStyle = '#FFF8F4'; x.fillRect(0, 0, 1080, 1350);
+  x.fillStyle = '#CC6C4E'; x.fillRect(0, 0, 1080, 14);
+
+  // kicker
+  x.fillStyle = '#F4CBBF';
+  roundRect(x, 90, 90, 460, 56, 28); x.fill();
+  x.fillStyle = '#2E2324'; x.font = F(700, 24); x.textBaseline = 'middle';
+  x.fillText('EL CÓDIGO DE LAS REUNIONES', 122, 120);
+  x.textBaseline = 'alphabetic';
+
+  x.fillStyle = '#3A2B2C'; x.font = F(800, 60);
+  wrapText(x, 'Mi perfil de autoridad, según el diagnóstico exprés', 90, 250, 900, 72);
+
+  x.fillStyle = '#CC6C4E'; x.font = F(800, 84);
+  wrapText(x, p.nombre, 90, 450, 900, 94);
+  x.fillStyle = '#5E4B4C'; x.font = F(600, 38);
+  wrapText(x, p.tagline, 90, 570, 900, 50);
+
+  x.fillStyle = '#CC6C4E'; x.font = F(800, 130);
+  x.fillText(String(diagResult.score), 90, 790);
+  x.fillStyle = '#5E4B4C'; x.font = F(700, 42);
+  x.fillText('/ 100 de autoridad ejercida', 100 + measure(x, String(diagResult.score), F(800, 130)), 790);
+
+  // barras por familia (peor primero)
+  const sorted = [...diagResult.familias].sort((a, b) => a.pct - b.pct);
+  let y = 880;
+  for (const f of sorted) {
+    x.fillStyle = '#3A2B2C'; x.font = F(700, 32);
+    x.fillText(f.profile.familia, 90, y);
+    x.font = F(700, 32); x.fillStyle = '#5E4B4C';
+    const pctTxt = f.pct + '%';
+    x.fillText(pctTxt, 990 - x.measureText(pctTxt).width, y);
+    x.fillStyle = '#f4ece8'; roundRect(x, 90, y + 14, 900, 26, 13); x.fill();
+    x.fillStyle = f.profile.id === p.id ? '#CC6C4E' : '#5E4B4C';
+    roundRect(x, 90, y + 14, Math.max(26, 900 * f.pct / 100), 26, 13); x.fill();
+    y += 84;
+  }
+
+  x.strokeStyle = '#eadbd6'; x.lineWidth = 2;
+  x.beginPath(); x.moveTo(90, 1200); x.lineTo(990, 1200); x.stroke();
+  x.fillStyle = '#3A2B2C'; x.font = F(800, 40);
+  x.fillText('@yaizatemprado', 90, 1262);
+  x.fillStyle = '#5E4B4C'; x.font = F(600, 32);
+  x.fillText('Hazte el diagnóstico gratis — enlace en mi bio', 90, 1310);
+
+  const wrap = document.getElementById('diagShareImgWrap');
+  const url = c.toDataURL('image/png');
+  wrap.innerHTML = `<img src="${url}" alt="Tarjeta de mi perfil de autoridad" style="max-width:100%;border-radius:14px;border:1px solid var(--border)"><div class="hint" style="font-size:13px;color:var(--slate);margin-top:8px">En el móvil: mantén pulsada la imagen para guardarla. En ordenador: <a href="${url}" download="perfil-autoridad.png" style="color:var(--rose);font-weight:700">descárgala aquí</a>.</div>`;
+  wrap.style.display = 'block';
+}
+
+/* ---------- Init ---------- */
+validateAssessmentConfig();
+renderDiagIntro();
+</script>
+</body>
+</html>
