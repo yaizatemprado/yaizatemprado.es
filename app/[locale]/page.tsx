@@ -21,8 +21,8 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
     title: dict.meta.title,
     description: dict.meta.description,
     alternates: {
-      canonical: `/${locale}`,
-      languages: { en: '/en', es: '/es' },
+      canonical: `/${locale}/`,
+      languages: { en: '/en/', es: '/es/' },
     },
     openGraph: {
       title: dict.meta.title,
