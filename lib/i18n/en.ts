@@ -91,7 +91,7 @@ const en: Dictionary = {
         tag: 'Programme',
         title: 'Stop asking for permission to lead',
         description: "For you if you've been leading for a while but feel your voice doesn't carry the weight it should. Communication, positioning, organisational navigation.",
-        detail: '6 sessions · €650',
+        detail: '6 sessions · €790 (VAT included)',
         href: '/en/programas/deja-de-pedir-permiso',
         cta: 'Learn more',
       },
@@ -99,7 +99,7 @@ const en: Dictionary = {
         tag: 'Programme',
         title: 'Your first 90 days leading',
         description: "For you if you've just landed your first leadership role and nobody gave you the manual.",
-        detail: '6 sessions · €650',
+        detail: '6 sessions · €790 (VAT included)',
         href: '/en/programas/primeros-90-dias',
         cta: 'Learn more',
       },
@@ -107,7 +107,7 @@ const en: Dictionary = {
         tag: 'Session',
         title: 'Working session',
         description: 'One real problem. One hour. You leave with concrete actions to execute the next day.',
-        detail: '60 min · €150',
+        detail: '60 min · €180 (VAT included)',
         href: 'https://cal.com/yaiza-temprado/working-session',
         external: true,
         cta: 'Book a session',
@@ -125,7 +125,7 @@ const en: Dictionary = {
         title: 'Stop asking for permission to lead',
         forWho:
           "For you if you've been leading for a while but feel you're not taken seriously, that your voice doesn't carry, or that you're doing the work of leading without the real authority.",
-        detail: '6 sessions · €650',
+        detail: '6 sessions · €790 (VAT included)',
         cadence: 'Every two weeks or monthly',
         sessions: [
           {
@@ -166,7 +166,7 @@ const en: Dictionary = {
         title: 'Your first 90 days leading',
         forWho:
           "For you if you've just been promoted into your first leadership role (or you're less than 6 months in and already drowning).",
-        detail: '6 sessions · €650',
+        detail: '6 sessions · €790 (VAT included)',
         cadence: 'Every two weeks (3 months)',
         sessions: [
           {

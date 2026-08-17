@@ -91,7 +91,7 @@ const es: Dictionary = {
         tag: 'Programa',
         title: 'Deja de pedir permiso para liderar',
         description: 'Para ti si llevas tiempo liderando pero sientes que tu voz no pesa lo que debería. Comunicación, posicionamiento, navegación organizacional.',
-        detail: '6 sesiones · 650 €',
+        detail: '6 sesiones · 790 € (IVA incluido)',
         href: '/es/programas/deja-de-pedir-permiso',
         cta: 'Saber más',
       },
@@ -99,7 +99,7 @@ const es: Dictionary = {
         tag: 'Programa',
         title: 'Los primeros 90 días liderando',
         description: 'Para ti si acabas de aterrizar en tu primer rol de liderazgo y nadie te ha dado el manual.',
-        detail: '6 sesiones · 650 €',
+        detail: '6 sesiones · 790 € (IVA incluido)',
         href: '/es/programas/primeros-90-dias',
         cta: 'Saber más',
       },
@@ -107,7 +107,7 @@ const es: Dictionary = {
         tag: 'Sesión',
         title: 'Sesión de trabajo',
         description: 'Un problema real. Una hora. Sales con acciones concretas para ejecutar al día siguiente.',
-        detail: '60 min · 150 €',
+        detail: '60 min · 180 € (IVA incluido)',
         href: 'https://cal.com/yaiza-temprado/sesion',
         external: true,
         cta: 'Reservar sesión',
@@ -125,7 +125,7 @@ const es: Dictionary = {
         title: 'Deja de pedir permiso para liderar',
         forWho:
           'Para ti si llevas tiempo en un rol de liderazgo pero sientes que no te toman en serio, que tu voz no pesa, o que estás haciendo el trabajo de liderar sin la autoridad real.',
-        detail: '6 sesiones · 650 €',
+        detail: '6 sesiones · 790 € (IVA incluido)',
         cadence: 'Cadencia quincenal o mensual',
         sessions: [
           {
@@ -166,7 +166,7 @@ const es: Dictionary = {
         title: 'Los primeros 90 días liderando',
         forWho:
           'Para ti si acabas de ser promocionada a tu primer rol de liderazgo (o llevas menos de 6 meses y ya estás ahogándote).',
-        detail: '6 sesiones · 650 €',
+        detail: '6 sesiones · 790 € (IVA incluido)',
         cadence: 'Cadencia quincenal (3 meses)',
         sessions: [
           {
