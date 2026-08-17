@@ -16,8 +16,8 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
     title: `${dict.newsletter.heading} — Yaiza Temprado`,
     description: dict.newsletter.body.split('\n')[0],
     alternates: {
-      canonical: `/${locale}/newsletter`,
-      languages: { en: '/en/newsletter', es: '/es/newsletter' },
+      canonical: `/${locale}/newsletter/`,
+      languages: { en: '/en/newsletter/', es: '/es/newsletter/' },
     },
   }
 }

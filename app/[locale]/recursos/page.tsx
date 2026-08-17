@@ -16,8 +16,8 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
     title: `${dict.resources.heading} — Yaiza Temprado`,
     description: dict.resources.lead,
     alternates: {
-      canonical: `/${locale}/recursos`,
-      languages: { en: '/en/recursos', es: '/es/recursos' },
+      canonical: `/${locale}/recursos/`,
+      languages: { en: '/en/recursos/', es: '/es/recursos/' },
     },
   }
 }

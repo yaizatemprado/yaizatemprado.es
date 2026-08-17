@@ -28,10 +28,10 @@ export async function generateMetadata({
     title: `${item.title} — Yaiza Temprado`,
     description: item.forWho,
     alternates: {
-      canonical: `/${locale}/programas/${slug}`,
+      canonical: `/${locale}/programas/${slug}/`,
       languages: {
-        en: `/en/programas/${slug}`,
-        es: `/es/programas/${slug}`,
+        en: `/en/programas/${slug}/`,
+        es: `/es/programas/${slug}/`,
       },
     },
   }
