@@ -4,7 +4,7 @@ const es: Dictionary = {
   meta: {
     title: 'Yaiza Temprado — Comunicación, influencia y liderazgo en tech',
     description:
-      'Directora Senior de Ingeniería en activo. Mentoría 1:1 para managers y directivos de entornos técnicos: comunicar con peso, hacerse escuchar, sacar reuniones que decidan y ganar presencia donde se decide. También pagada por la empresa.',
+      'Directora Senior de Ingeniería. 20 años en corporate, siete empresas de sectores distintos y toda la cadena de mando recorrida. Mentoría 1:1 para managers y directivos de entornos técnicos: comunicar con peso, hacerse escuchar, sacar reuniones que decidan y ganar presencia donde se decide. También pagada por la empresa.',
   },
   nav: {
     about: 'Sobre mí',
@@ -17,15 +17,15 @@ const es: Dictionary = {
   hero: {
     eyebrow: 'Directora Senior de Ingeniería',
     heading: 'Liderar en tech y que de verdad te escuchen.',
-    lead: 'Soy Directora Senior de Ingeniería y lidio cada semana con lo mismo que tú: reuniones que no deciden nada, ideas buenas que no salen adelante, salas donde cuesta que te tomen en serio. Te doy los marcos concretos para cambiarlo.',
+    lead: 'Llevo 20 años en corporate, en todo tipo de empresas y sectores, y he pasado por toda la cadena de mando: de ingeniera a Directora Senior. Las reuniones que no deciden nada, las ideas buenas que no salen adelante, las salas donde cuesta que te tomen en serio: las conozco porque han sido las mías. Te doy los marcos concretos para cambiarlo.',
     ctaPrimary: 'Trabaja conmigo',
     ctaSecondary: 'Suscríbete',
   },
   about: {
     eyebrow: 'Sobre mí',
-    heading: 'Te lo cuento desde dentro, no desde la grada',
-    p1: 'No soy una coach que dejó el mundo corporativo hace diez años y te cuenta cómo era aquello. Llevo más de 20 años en ingeniería y ahora mismo la dirijo como Directora Senior. Sigo dentro: lo que te cuento sobre reuniones, influencia o presencia no es teoría de un libro, lo uso en mis propias salas cada semana.',
-    p2: 'Y hay algo que vivo desde dentro y que casi nadie te cuenta en español: cómo la IA está cambiando lo que se espera de quien lidera. Lo veo en mis decisiones, en mi equipo, en lo que ahora suma de un manager y lo que deja de sumar. No lo veo desde fuera. Lo estoy decidiendo yo.',
+    heading: 'He pasado por toda la cadena de mando',
+    p1: 'No te lo cuento de oídas. Llevo más de 20 años en corporate, en siete empresas de sectores y tamaños distintos, y he recorrido cada escalón: ingeniera, manager, directora, Directora Senior de Ingeniería. Lo que te cuento sobre reuniones, influencia o presencia no es teoría de un libro: son las salas por las que he pasado y las que he dirigido.',
+    p2: 'Y hay algo que casi nadie te cuenta en español: cómo la IA está cambiando lo que se espera de quien lidera. Lo he visto en mis equipos y en mis propias decisiones: qué suma ahora de un manager y qué deja de sumar. No es una predicción, es lo que ya está pasando.',
     p3: 'Y una cosa más, porque explica cómo trabajo. Llevo 20 años siendo de las pocas mujeres en la sala. Sé lo que es entrar donde no encajas del todo, que te cuestionen más de la cuenta y ganarte el sitio igual. Eso le sirve a cualquiera que se sienta fuera de la conversación: por venir de la parte técnica, por ser la persona nueva o la más joven, o simplemente porque nadie te enseñó a jugar esa partida.',
     metrics: {
       years: { value: '20+', label: 'Años en ingeniería y liderazgo' },
@@ -43,8 +43,8 @@ const es: Dictionary = {
         body: 'Tus ideas pasan sin pena ni gloria y no acaban de salir adelante, sobre todo en reuniones que no deciden nada. Te doy los marcos para posicionarlas, llevar la conversación al punto y salir con decisión, dueños y fecha.',
       },
       {
-        title: 'Que te tomen en serio donde se decide',
-        body: 'Si empujas, «intensidad»; si cedes, «falta de presencia». Y en la sala de dirección sigues siendo «la parte técnica» y no alguien que lidera. Te ayudo a ganar presencia sin convertirte en alguien que no eres.',
+        title: 'Posicionamiento y presencia ejecutiva',
+        body: 'Haces el trabajo de liderar, pero la etiqueta que llevas puesta sigue siendo «la parte técnica». Vemos qué señales mandas en cada reunión, email y decisión, y cómo cambiar cómo te perciben arriba sin convertirte en alguien que no eres.',
       },
       {
         title: 'Delegar y ejecutar sin quemarte',
@@ -58,11 +58,11 @@ const es: Dictionary = {
   },
   proof: {
     eyebrow: 'Por qué yo',
-    heading: 'Por qué te sirve que siga dentro',
+    heading: 'Por qué te sirve que haya pasado por todo',
     cards: [
       {
-        label: 'En activo',
-        body: 'No te hablo de cómo era liderar ingeniería. Te hablo de cómo es hoy, esta semana, en una organización que dirijo de verdad. Los marcos que te doy los estoy usando yo en real.',
+        label: 'Toda la cadena de mando',
+        body: 'Ingeniera, manager, directora, Directora Senior. No te hablo de cómo es liderar desde un libro: te hablo desde cada escalón por el que he pasado y de las salas que he dirigido.',
       },
       {
         label: 'Mentoría',
@@ -224,7 +224,7 @@ const es: Dictionary = {
     lead: 'Esta página es para dos personas: quien quiere hacer el programa y quien lo aprueba. Si apruebas tú, en dos minutos sabes qué es, qué gana tu equipo y cuánto cuesta.',
     whatHeading: 'Qué es',
     whatBody:
-      'Seis sesiones de una hora, a solas conmigo, online, repartidas en tres a seis meses. Cada sesión trabaja una situación real de esa semana (una reunión, una decisión, una conversación pendiente) y termina con una acción concreta para la siguiente. Lo doy yo: Directora Senior de Ingeniería en activo, con más de 20 años liderando equipos técnicos.',
+      'Seis sesiones de una hora, a solas conmigo, online, repartidas en tres a seis meses. Cada sesión trabaja una situación real de esa semana (una reunión, una decisión, una conversación pendiente) y termina con una acción concreta para la siguiente. Lo doy yo: Directora Senior de Ingeniería, 20 años en corporate y toda la cadena de mando recorrida, de ingeniera a dirección.',
     programsHeading: 'Dos programas, según el momento',
     programs: [
       {
@@ -290,7 +290,7 @@ const es: Dictionary = {
     teamsBody: 'Si quieres esto para más de una persona de tu equipo, escríbeme y lo montamos a medida.',
     whoHeading: 'Quién lo da',
     whoBody:
-      'Yaiza Temprado. Directora Senior de Ingeniería en activo, más de 20 años en ingeniería, más de 100 personas a mi cargo a lo largo de mi carrera en 7 empresas. Lo que enseño lo uso cada semana en mis propias salas.',
+      'Yaiza Temprado. Directora Senior de Ingeniería. Más de 20 años en corporate en siete empresas de sectores y tamaños distintos, toda la cadena de mando recorrida (ingeniera, manager, directora, dirección senior) y más de 100 personas a mi cargo a lo largo de mi carrera. Lo que enseño lo he usado en mis propias salas.',
     ctaPrimary: 'Reservar el diagnóstico gratis',
     ctaSecondary: 'Escríbeme',
     ctaMailSubject: 'Mentoría pagada por la empresa',

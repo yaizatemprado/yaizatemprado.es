@@ -4,7 +4,7 @@ const en: Dictionary = {
   meta: {
     title: 'Yaiza Temprado — Communication, influence and leadership in tech',
     description:
-      'Senior Director of Engineering, still in the room. 1:1 mentoring for managers and directors in technical organisations: communicate with weight, get heard, run meetings that decide, and earn presence where the decisions get made. Company-funded too.',
+      'Senior Director of Engineering. 20 years in corporate, seven companies across sectors, every rung of the chain of command. 1:1 mentoring for managers and directors in technical organisations: communicate with weight, get heard, run meetings that decide, and earn presence where the decisions get made. Company-funded too.',
   },
   nav: {
     about: 'About',
@@ -17,15 +17,15 @@ const en: Dictionary = {
   hero: {
     eyebrow: 'Senior Director of Engineering',
     heading: 'Lead in tech and actually get heard.',
-    lead: "I'm a Senior Director of Engineering and I deal with the same things you do, every week: meetings that decide nothing, good ideas that go nowhere, rooms where it's hard to be taken seriously. I give you the concrete frameworks to change that.",
+    lead: "I've spent 20 years in corporate, across all kinds of companies and sectors, and climbed every rung of the chain of command: from engineer to Senior Director. Meetings that decide nothing, good ideas that go nowhere, rooms where it's hard to be taken seriously: I know them because they were mine. I give you the concrete frameworks to change that.",
     ctaPrimary: 'Work with me',
     ctaSecondary: 'Subscribe',
   },
   about: {
     eyebrow: 'About',
-    heading: 'From the inside, not the sidelines',
-    p1: "I'm not a coach who left the corporate world ten years ago and tells you what it was like back then. I've spent more than 20 years in engineering and right now I run it, as a Senior Director. I'm still inside: what I tell you about meetings, influence or presence isn't theory from a book. I use it in my own rooms every week.",
-    p2: "And there's something I'm watching happen from the inside that almost nobody's talking about: how AI is changing what's expected of anyone who leads. I see it in my decisions, in my team, in what now makes a manager valuable and what no longer does. I'm not watching it from outside. I'm the one deciding it.",
+    heading: "I've climbed every rung of the chain of command",
+    p1: "I'm not telling you this second-hand. I've spent more than 20 years in corporate, in seven companies of different sectors and sizes, and I've held every rung: engineer, manager, director, Senior Director of Engineering. What I tell you about meetings, influence or presence isn't theory from a book: it's the rooms I've sat in and the rooms I've run.",
+    p2: "And there's something almost nobody's telling you: how AI is changing what's expected of anyone who leads. I've seen it in my teams and in my own decisions: what now makes a manager valuable and what no longer does. It's not a prediction, it's already happening.",
     p3: "One more thing, because it explains how I work. For 20 years I've been one of the few women in the room. I know what it's like to walk in where you don't quite fit, get questioned more than you should, and earn your seat anyway. That serves anyone who feels outside the conversation: because you come from the technical side, because you're the new or the youngest person, or simply because nobody taught you how that game is played.",
     metrics: {
       years: { value: '20+', label: 'Years in engineering and leadership' },
@@ -43,8 +43,8 @@ const en: Dictionary = {
         body: "Your ideas go unnoticed and never quite move forward, especially in meetings that decide nothing. I give you the frameworks to position them, steer the conversation to the point, and walk out with a decision, owners and a date.",
       },
       {
-        title: 'Be taken seriously where decisions get made',
-        body: "Push and you're “intense”; ease off and you “lack presence”. And in the leadership room you're still “the technical side”, not someone who leads. I help you earn presence without turning into someone you're not.",
+        title: 'Positioning and executive presence',
+        body: "You do the work of leading, but the label you carry is still “the technical side”. We look at what signals you send in every meeting, email and decision, and how to change the way you're seen upstairs without turning into someone you're not.",
       },
       {
         title: 'Delegate and deliver without burning out',
@@ -58,11 +58,11 @@ const en: Dictionary = {
   },
   proof: {
     eyebrow: 'Why me',
-    heading: "Why it helps that I'm still inside",
+    heading: "Why it helps that I've been through all of it",
     cards: [
       {
-        label: 'Still in it',
-        body: "I don't tell you what leading engineering used to be like. I tell you what it's like today, this week, in an organisation I actually run. The frameworks I give you are ones I'm using for real.",
+        label: 'Every rung',
+        body: "Engineer, manager, director, Senior Director. I don't tell you what leading is like from a book: I tell you from every rung I've held and every room I've run.",
       },
       {
         label: 'Mentoring',
@@ -225,7 +225,7 @@ const en: Dictionary = {
     lead: "This page is for two people: the one who wants to do the programme and the one who approves it. If you're the approver, in two minutes you know what it is, what your team gets and what it costs.",
     whatHeading: 'What it is',
     whatBody:
-      "Six one-hour sessions, one on one with me, online, spread over three to six months. Each session works on a real situation from that week (a meeting, a decision, a pending conversation) and ends with one concrete action for the next. I deliver it myself: Senior Director of Engineering, still in the role, with more than 20 years leading technical teams.",
+      "Six one-hour sessions, one on one with me, online, spread over three to six months. Each session works on a real situation from that week (a meeting, a decision, a pending conversation) and ends with one concrete action for the next. I deliver it myself: Senior Director of Engineering, 20 years in corporate and every rung of the chain of command, from engineer to leadership.",
     programsHeading: 'Two programmes, depending on the moment',
     programs: [
       {
@@ -291,7 +291,7 @@ const en: Dictionary = {
     teamsBody: 'If you want this for more than one person on your team, write to me and we shape it to your case.',
     whoHeading: 'Who delivers it',
     whoBody:
-      'Yaiza Temprado. Senior Director of Engineering, still in the role, more than 20 years in engineering, more than 100 people led over my career across 7 companies. What I teach, I use every week in my own rooms.',
+      "Yaiza Temprado. Senior Director of Engineering. More than 20 years in corporate across seven companies of different sectors and sizes, every rung of the chain of command (engineer, manager, director, senior leadership) and more than 100 people led over my career. What I teach, I've used in my own rooms.",
     ctaPrimary: 'Book the free diagnostic',
     ctaSecondary: 'Write to me',
     ctaMailSubject: 'Company-funded mentoring',
