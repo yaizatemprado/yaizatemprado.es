@@ -70,7 +70,7 @@ const en: Dictionary = {
       },
       {
         label: 'Both sides',
-        body: "I've sat in your chair and I'm still in a similar one. I know the side of whoever decides promotions and the side of whoever fights to be heard. I help you from both at once.",
+        body: "I've sat in your chair and in the chair of whoever decides. I know the side of whoever decides promotions and the side of whoever fights to be heard. I help you from both at once.",
       },
     ],
   },

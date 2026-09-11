@@ -70,7 +70,7 @@ const es: Dictionary = {
       },
       {
         label: 'Los dos lados',
-        body: 'He estado en tu silla y sigo en una parecida. Conozco el lado de quien decide promociones y el de quien pelea por que le escuchen. Te ayudo desde los dos a la vez.',
+        body: 'He estado en tu silla y en la de quien decide. Conozco el lado de quien decide promociones y el de quien pelea por que le escuchen. Te ayudo desde los dos a la vez.',
       },
     ],
   },
