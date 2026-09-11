@@ -24,12 +24,6 @@ export type Dictionary = {
     p1: string
     p2: string
     p3: string
-    metrics: {
-      years: { value: string; label: string }
-      engineers: { value: string; label: string }
-      companies: { value: string; label: string }
-      transitions: { value: string; label: string }
-    }
   }
   expertise: {
     eyebrow: string

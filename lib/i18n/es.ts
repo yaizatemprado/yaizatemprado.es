@@ -27,12 +27,6 @@ const es: Dictionary = {
     p1: 'No te lo cuento de oídas. Llevo más de 20 años en corporate, en siete empresas de sectores y tamaños distintos, y he recorrido cada escalón: ingeniera, manager, directora, Directora Senior de Ingeniería. Lo que te cuento sobre reuniones, influencia o presencia no es teoría de un libro: son las salas por las que he pasado y las que he dirigido.',
     p2: 'Y hay algo que casi nadie te cuenta en español: cómo la IA está cambiando lo que se espera de quien lidera. Lo he visto en mis equipos y en mis propias decisiones: qué suma ahora de un manager y qué deja de sumar. No es una predicción, es lo que ya está pasando.',
     p3: 'Y una cosa más, porque explica cómo trabajo. Llevo 20 años siendo de las pocas mujeres en la sala. Sé lo que es entrar donde no encajas del todo, que te cuestionen más de la cuenta y ganarte el sitio igual. Eso le sirve a cualquiera que se sienta fuera de la conversación: por venir de la parte técnica, por ser la persona nueva o la más joven, o simplemente porque nadie te enseñó a jugar esa partida.',
-    metrics: {
-      years: { value: '20+', label: 'Años en ingeniería y liderazgo' },
-      engineers: { value: '100+', label: 'Personas a mi cargo en equipos de ingeniería' },
-      companies: { value: '7', label: 'Empresas, en distintos países y etapas' },
-      transitions: { value: '20+', label: 'Personas a las que he acompañado a dar el salto a liderar' },
-    },
   },
   expertise: {
     eyebrow: 'Especialidades',

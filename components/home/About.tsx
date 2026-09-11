@@ -3,13 +3,6 @@ import type { Dictionary } from '@/lib/i18n/types'
 type Props = { dict: Dictionary['about'] }
 
 export default function About({ dict }: Props) {
-  const metrics = [
-    dict.metrics.years,
-    dict.metrics.engineers,
-    dict.metrics.companies,
-    dict.metrics.transitions,
-  ]
-
   return (
     <section id="about" className="grid gap-8">
       <div
@@ -32,18 +25,6 @@ export default function About({ dict }: Props) {
           <p>{dict.p1}</p>
           <p>{dict.p2}</p>
           <p>{dict.p3}</p>
-
-          <div
-            aria-label="Experience highlights"
-            className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-2.5"
-          >
-            {metrics.map(({ value, label }) => (
-              <div key={value}>
-                <strong className="block text-[1.6rem] text-plum font-bold">{value}</strong>
-                <span className="text-[0.9rem] leading-[1.4] text-[#7a6160]">{label}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

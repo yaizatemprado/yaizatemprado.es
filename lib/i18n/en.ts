@@ -27,12 +27,6 @@ const en: Dictionary = {
     p1: "I'm not telling you this second-hand. I've spent more than 20 years in corporate, in seven companies of different sectors and sizes, and I've held every rung: engineer, manager, director, Senior Director of Engineering. What I tell you about meetings, influence or presence isn't theory from a book: it's the rooms I've sat in and the rooms I've run.",
     p2: "And there's something almost nobody's telling you: how AI is changing what's expected of anyone who leads. I've seen it in my teams and in my own decisions: what now makes a manager valuable and what no longer does. It's not a prediction, it's already happening.",
     p3: "One more thing, because it explains how I work. For 20 years I've been one of the few women in the room. I know what it's like to walk in where you don't quite fit, get questioned more than you should, and earn your seat anyway. That serves anyone who feels outside the conversation: because you come from the technical side, because you're the new or the youngest person, or simply because nobody taught you how that game is played.",
-    metrics: {
-      years: { value: '20+', label: 'Years in engineering and leadership' },
-      engineers: { value: '100+', label: 'People I have led in engineering teams' },
-      companies: { value: '7', label: 'Companies, across different countries and stages' },
-      transitions: { value: '20+', label: "People I've helped step into leadership" },
-    },
   },
   expertise: {
     eyebrow: 'Expertise',
