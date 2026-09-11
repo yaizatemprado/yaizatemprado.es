@@ -7,6 +7,7 @@ export type Dictionary = {
     about: string
     expertise: string
     services: string
+    companies: string
     resources: string
     contact: string
   }
@@ -44,11 +45,16 @@ export type Dictionary = {
     eyebrow: string
     heading: string
     lead: string
+    // Banner under the cards: the company-paid route, one line + link to /empresas.
+    companyNote: string
+    companyCta: string
     cards: Array<{
       tag: string
       title: string
       description: string
       detail: string
+      // Optional second price line: what it costs when the company pays.
+      companyDetail?: string
       href: string
       cta: string
       external?: boolean
@@ -58,17 +64,50 @@ export type Dictionary = {
     forWhoLabel: string
     sessionsHeading: string
     backToServices: string
+    // "Does your company pay for it?" block on every programme page.
+    companyHeading: string
+    companyBody: string
+    companyCta: string
     items: Array<{
       slug: string
       tag: string
       title: string
+      subtitle?: string
       forWho: string
       detail: string
+      companyDetail?: string
       cadence: string
       sessions: Array<{ title: string; description: string }>
       buyHref: string
       cta: string
     }>
+  }
+  // /empresas — the page written for the person who approves the budget.
+  companies: {
+    eyebrow: string
+    heading: string
+    lead: string
+    whatHeading: string
+    whatBody: string
+    programsHeading: string
+    programs: Array<{ title: string; forWho: string; href: string }>
+    gainsHeading: string
+    gains: Array<{ title: string; body: string }>
+    howHeading: string
+    steps: Array<{ title: string; body: string }>
+    priceHeading: string
+    priceValue: string
+    priceNote: string
+    priceBullets: string[]
+    selfPayNote: string
+    selfPayCta: string
+    teamsHeading: string
+    teamsBody: string
+    whoHeading: string
+    whoBody: string
+    ctaPrimary: string
+    ctaSecondary: string
+    ctaMailSubject: string
   }
   resources: {
     eyebrow: string

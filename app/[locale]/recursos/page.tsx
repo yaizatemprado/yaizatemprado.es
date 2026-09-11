@@ -50,10 +50,10 @@ export default async function ResourcesPage({ params: { locale } }: Props) {
             <li key={item.slug}>
               <Link
                 href={`/${locale}/recursos/${item.slug}`}
-                className="group grid gap-3 h-full bg-card rounded-[20px] px-6 py-7 border border-[#f0e5e1] no-underline transition-transform duration-200 hover:-translate-y-px"
+                className="group grid gap-3 h-full bg-card rounded-[14px] px-6 py-7 border border-line no-underline transition-transform duration-200 hover:-translate-y-px"
                 style={{ boxShadow: '0 8px 16px rgba(60, 40, 42, 0.05)' }}
               >
-                <span className="text-[0.72rem] font-bold tracking-[0.15em] uppercase text-rose bg-[#fdf0ec] rounded-full px-3 py-1 self-start">
+                <span className="text-[0.72rem] font-bold tracking-[0.15em] uppercase text-rose bg-stone rounded-full px-3 py-1 self-start">
                   {item.tag}
                 </span>
                 <h2 className="font-serif text-[1.3rem] text-anchor leading-[1.2]">

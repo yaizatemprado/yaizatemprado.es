@@ -21,7 +21,7 @@ export default function Expertise({ dict }: Props) {
         {dict.cards.map(({ title, body }) => (
           <article
             key={title}
-            className="bg-card rounded-[20px] px-[22px] pt-[22px] pb-6 border border-[#f0e5e1] grid gap-3.5 transition-transform duration-200 hover:-translate-y-1"
+            className="bg-card rounded-[14px] px-[22px] pt-[22px] pb-6 border border-line grid gap-3.5 transition-transform duration-200 hover:-translate-y-1"
             style={{ boxShadow: '0 12px 20px rgba(60, 40, 42, 0.06)' }}
           >
             <h3 className="text-[1.25rem] font-bold text-anchor mt-0.5">{title}</h3>

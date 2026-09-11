@@ -16,6 +16,12 @@ export default function Header({ locale, dict }: Props) {
   const [menuOpen, setMenuOpen] = useState(false)
   const observerRef = useRef<IntersectionObserver | null>(null)
 
+  // The root layout is shared by both locales, so the <html lang> is set here
+  // once the page is on the client. Static HTML ships lang="es" (the default).
+  useEffect(() => {
+    document.documentElement.lang = locale
+  }, [locale])
+
   useEffect(() => {
     const hash = window.location.hash
     if (hash) setActiveHash(hash)
@@ -43,6 +49,7 @@ export default function Header({ locale, dict }: Props) {
     { href: `/${locale}#about`, label: dict.about },
     { href: `/${locale}#expertise`, label: dict.expertise },
     { href: `/${locale}#services`, label: dict.services },
+    { href: `/${locale}/empresas`, label: dict.companies },
     { href: `/${locale}/recursos`, label: dict.resources },
     { href: `/${locale}#contact`, label: dict.contact },
   ]
@@ -97,7 +104,7 @@ export default function Header({ locale, dict }: Props) {
       {menuOpen && (
         <nav
           aria-label="Primary"
-          className="absolute top-full mt-3 left-0 right-0 z-50 bg-cream border border-[#ead9d3] rounded-2xl shadow-lg px-6 py-6 flex flex-col gap-5 text-[1rem] md:hidden"
+          className="absolute top-full mt-3 left-0 right-0 z-50 bg-cream border border-line rounded-2xl shadow-lg px-6 py-6 flex flex-col gap-5 text-[1rem] md:hidden"
         >
           {navLinks.map(({ href, label }) => (
             <a

@@ -45,15 +45,15 @@ export default function SubscribeForm({ dict }: Props) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder={dict.placeholder}
-          className="flex-1 bg-white border border-[#ead9d3] rounded-full px-6 py-3 font-sans text-plum placeholder:text-slate/50 focus:outline-none focus:border-rose transition-colors duration-200"
+          className="flex-1 bg-white border border-line rounded-xl px-5 py-3 font-sans text-plum placeholder:text-slate/50 focus:outline-none focus:border-rose transition-colors duration-200"
         />
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="rounded-full px-8 py-3 text-[0.95rem] font-semibold text-white no-underline transition-transform duration-200 hover:-translate-y-px disabled:opacity-60 disabled:cursor-not-allowed"
+          className="rounded-xl px-8 py-3 text-[0.95rem] font-semibold text-white no-underline transition-transform duration-200 hover:-translate-y-px disabled:opacity-60 disabled:cursor-not-allowed"
           style={{
-            background: 'linear-gradient(135deg, #cc6c4e, #b45b41)',
-            boxShadow: '0 16px 30px rgba(204, 108, 78, 0.25)',
+            background: '#cc6c4e',
+            boxShadow: '0 6px 14px rgba(46, 35, 36, 0.12)',
           }}
         >
           {status === 'loading' ? '...' : dict.submit}
@@ -61,12 +61,12 @@ export default function SubscribeForm({ dict }: Props) {
       </form>
 
       {status === 'success' && (
-        <p className="text-sm text-emerald-700 bg-emerald-50/60 border border-emerald-200 rounded-full px-5 py-2.5 text-center">
+        <p className="text-sm text-emerald-700 bg-emerald-50/60 border border-emerald-200 rounded-xl px-5 py-2.5 text-center">
           {dict.success}
         </p>
       )}
       {status === 'error' && (
-        <p className="text-sm text-rose border border-[#ead9d3] bg-[#fff5f2] rounded-full px-5 py-2.5 text-center">
+        <p className="text-sm text-rose border border-line bg-stone rounded-xl px-5 py-2.5 text-center">
           {dict.error}
         </p>
       )}
