@@ -24,7 +24,7 @@ export default function Proof({ dict }: Props) {
         {dict.cards.map(({ label, body }) => (
           <article
             key={label}
-            className="bg-card rounded-[20px] px-5 pt-5 pb-[22px] border border-[#f0e5e1] grid gap-3"
+            className="bg-card rounded-[14px] px-5 pt-5 pb-[22px] border border-line grid gap-3"
             style={{ boxShadow: '0 10px 18px rgba(60, 40, 42, 0.05)' }}
           >
             <span className="text-[0.76rem] font-extrabold tracking-[0.18em] uppercase text-rose">

@@ -55,7 +55,7 @@ export default async function ProgramPage({ params: { locale, slug } }: Props) {
         </Link>
 
         <header className="grid gap-4">
-          <span className="text-[0.72rem] font-bold tracking-[0.15em] uppercase text-rose bg-[#fdf0ec] rounded-full px-3 py-1 self-start">
+          <span className="text-[0.72rem] font-bold tracking-[0.15em] uppercase text-rose bg-stone rounded-full px-3 py-1 self-start">
             {item.tag}
           </span>
           <h1
@@ -64,16 +64,26 @@ export default async function ProgramPage({ params: { locale, slug } }: Props) {
           >
             {item.title}
           </h1>
+          {item.subtitle && (
+            <p className="font-serif text-slate leading-[1.3] text-[1.2rem] sm:text-[1.45rem]">
+              {item.subtitle}
+            </p>
+          )}
           <p className="text-slate leading-[1.7] text-[0.98rem] sm:text-[1.05rem]">
             <span className="font-semibold text-anchor">{dict.programs.forWhoLabel}: </span>
             {item.forWho}
           </p>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[0.9rem] font-semibold text-plum">
-            <span>{item.detail}</span>
-            <span className="text-slate opacity-40" aria-hidden="true">
-              ·
-            </span>
-            <span>{item.cadence}</span>
+          <div className="grid gap-1">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[0.9rem] font-semibold text-plum">
+              <span>{item.detail}</span>
+              <span className="text-slate opacity-40" aria-hidden="true">
+                ·
+              </span>
+              <span>{item.cadence}</span>
+            </div>
+            {item.companyDetail && (
+              <p className="text-[0.88rem] text-slate">{item.companyDetail}</p>
+            )}
           </div>
         </header>
 
@@ -85,13 +95,10 @@ export default async function ProgramPage({ params: { locale, slug } }: Props) {
             {item.sessions.map((session, i) => (
               <li
                 key={session.title}
-                className="bg-card rounded-[16px] px-5 py-4 border border-[#f0e5e1] flex gap-4 items-start"
+                className="bg-card rounded-[12px] px-5 py-4 border border-line flex gap-4 items-start"
                 style={{ boxShadow: '0 8px 16px rgba(60, 40, 42, 0.05)' }}
               >
-                <span
-                  className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-[0.85rem] font-bold text-white"
-                  style={{ background: 'linear-gradient(135deg, #cc6c4e, #b45b41)' }}
-                >
+                <span className="shrink-0 w-7 h-7 rounded-full bg-anchor text-white flex items-center justify-center text-[0.85rem] font-bold">
                   {i + 1}
                 </span>
                 <div className="grid gap-1">
@@ -105,21 +112,31 @@ export default async function ProgramPage({ params: { locale, slug } }: Props) {
           </ol>
         </section>
 
-        <div className="grid gap-3 justify-items-center text-center bg-card rounded-[20px] px-6 py-8 border border-[#f0e5e1]">
+        <div className="grid gap-3 justify-items-center text-center bg-card rounded-[14px] px-6 py-8 border border-line">
           <p className="text-[1.05rem] font-bold text-anchor">{item.detail}</p>
           <a
             href={item.buyHref}
             target="_blank"
             rel="noreferrer"
-            className="inline-block rounded-full px-7 py-3 text-[0.9rem] font-semibold text-white no-underline transition-transform duration-200 hover:-translate-y-px"
-            style={{
-              background: 'linear-gradient(135deg, #cc6c4e, #b45b41)',
-              boxShadow: '0 10px 20px rgba(204, 108, 78, 0.2)',
-            }}
+            className="btn-primary px-7 py-3 text-[0.9rem]"
           >
             {item.cta}
           </a>
+          {item.companyDetail && (
+            <p className="text-[0.85rem] text-slate">{item.companyDetail}</p>
+          )}
         </div>
+
+        <aside className="bg-stone rounded-[14px] border border-line px-6 py-6 grid gap-3">
+          <h2 className="text-[1.1rem] font-bold text-anchor">{dict.programs.companyHeading}</h2>
+          <p className="text-slate leading-[1.65] text-[0.95rem]">{dict.programs.companyBody}</p>
+          <Link
+            href={`/${locale}/empresas`}
+            className="text-[0.9rem] font-semibold text-rose hover:text-anchor no-underline transition-colors duration-200"
+          >
+            {dict.programs.companyCta} →
+          </Link>
+        </aside>
       </article>
 
       <Footer dict={dict.footer} nav={dict.nav} locale={locale} />

@@ -8,7 +8,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        cream: '#fff8f4',
+        // Fondo principal: blanco cálido neutro (antes tiraba a rosa).
+        cream: '#faf8f5',
+        // Superficies secundarias (etiquetas, cajas) y bordes.
+        stone: '#f3eee9',
+        line: '#e8e0da',
         blush: '#f7e5de',
         peach: '#f4cbbf',
         anchor: '#2e2324',
@@ -17,7 +21,6 @@ const config: Config = {
           DEFAULT: '#cc6c4e',
           dark: '#b45b41',
         },
-        lavender: '#e7d7f6',
         slate: '#5e4b4c',
         card: '#ffffff',
       },

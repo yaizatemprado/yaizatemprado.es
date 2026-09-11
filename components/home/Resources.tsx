@@ -26,10 +26,10 @@ export default function Resources({ dict, locale }: Props) {
           <Link
             key={item.slug}
             href={`/${locale}/recursos/${item.slug}`}
-            className="group grid gap-3 bg-card rounded-[20px] px-[22px] pt-[22px] pb-6 border border-[#f0e5e1] no-underline transition-transform duration-200 hover:-translate-y-1"
+            className="group grid gap-3 bg-card rounded-[14px] px-[22px] pt-[22px] pb-6 border border-line no-underline transition-transform duration-200 hover:-translate-y-1"
             style={{ boxShadow: '0 12px 20px rgba(60, 40, 42, 0.06)' }}
           >
-            <span className="text-[0.72rem] font-bold tracking-[0.15em] uppercase text-rose bg-[#fdf0ec] rounded-full px-3 py-1 self-start">
+            <span className="text-[0.72rem] font-bold tracking-[0.15em] uppercase text-rose bg-stone rounded-full px-3 py-1 self-start">
               {item.tag}
             </span>
             <h3 className="font-serif text-[1.25rem] text-anchor leading-[1.2]">{item.title}</h3>

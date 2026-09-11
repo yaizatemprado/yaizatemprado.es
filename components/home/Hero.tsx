@@ -6,20 +6,11 @@ type Props = { dict: Dictionary['hero'] }
 export default function Hero({ dict }: Props) {
   return (
     <section
-      className="relative grid gap-9 items-center py-6"
+      className="grid gap-9 items-center py-6"
       style={{
         gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
       }}
     >
-      <div
-        aria-hidden="true"
-        className="absolute -inset-10 -z-10 opacity-90"
-        style={{
-          background:
-            'radial-gradient(circle at 15% 20%, #f7dcd4, transparent 55%), radial-gradient(circle at 75% 15%, #ead7f5, transparent 50%)',
-        }}
-      />
-
       <div className="flex flex-col gap-5 max-w-[640px]">
         <span className="text-[0.78rem] font-extrabold tracking-[0.22em] uppercase text-rose">
           {dict.eyebrow}
@@ -37,46 +28,28 @@ export default function Hero({ dict }: Props) {
         </p>
 
         <div className="flex flex-wrap gap-4">
-          <a
-            href="#services"
-            className="rounded-full px-[26px] py-3 text-[0.95rem] font-semibold text-white no-underline transition-transform duration-200 hover:-translate-y-px"
-            style={{
-              background: 'linear-gradient(135deg, #cc6c4e, #b45b41)',
-              boxShadow: '0 16px 30px rgba(204, 108, 78, 0.25)',
-            }}
-          >
+          <a href="#services" className="btn-primary px-[26px] py-3 text-[0.95rem]">
             {dict.ctaPrimary}
           </a>
-          <a
-            href="#contact"
-            className="rounded-full px-[26px] py-3 text-[0.95rem] font-semibold text-plum bg-white border border-[#e6d5cf] no-underline transition-transform duration-200 hover:-translate-y-px"
-          >
+          <a href="#contact" className="btn-secondary px-[26px] py-3 text-[0.95rem]">
             {dict.ctaSecondary}
           </a>
         </div>
       </div>
 
-      <div className="grid gap-6 justify-items-center">
+      <div className="grid justify-items-center">
         <div
-          className="w-[min(260px,70vw)] h-[min(260px,70vw)] rounded-full p-2.5"
-          style={{
-            background: 'linear-gradient(135deg, #f5b8a6, #f7d8cc, #e6c7f4)',
-            boxShadow: '0 25px 40px rgba(93, 70, 72, 0.2)',
-          }}
+          className="w-[min(300px,72vw)] h-[min(300px,72vw)] rounded-[24px] overflow-hidden border border-line bg-white"
+          style={{ boxShadow: '0 20px 40px rgba(46, 35, 36, 0.12)' }}
         >
-          <div
-            className="w-full h-full rounded-full overflow-hidden grid place-items-center"
-            style={{ background: 'linear-gradient(180deg, #fff, #f6ebe7)' }}
-          >
-            <Image
-              src="/assets/yaiza.png"
-              alt="Portrait of Yaiza Temprado"
-              width={800}
-              height={1000}
-              priority
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <Image
+            src="/assets/yaiza.png"
+            alt="Yaiza Temprado"
+            width={1000}
+            height={1000}
+            priority
+            className="w-full h-full object-cover"
+          />
         </div>
       </div>
     </section>

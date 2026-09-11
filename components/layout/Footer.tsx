@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import type { Dictionary } from '@/lib/i18n/types'
 
 type Props = {
@@ -11,12 +10,13 @@ export default function Footer({ dict, nav, locale }: Props) {
   const links = [
     { href: `/${locale}#about`, label: nav.about },
     { href: `/${locale}#services`, label: nav.services },
+    { href: `/${locale}/empresas`, label: nav.companies },
     { href: `/${locale}/recursos`, label: nav.resources },
     { href: `/${locale}#contact`, label: nav.contact },
   ]
 
   return (
-    <footer className="mt-24 py-8 border-t border-blush text-center text-[0.85rem] text-slate">
+    <footer className="mt-24 py-8 border-t border-line text-center text-[0.85rem] text-slate">
       <nav
         aria-label="Footer"
         className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-4"

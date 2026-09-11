@@ -37,7 +37,7 @@ function Divider() {
     <div
       aria-hidden="true"
       className="h-px my-12 sm:my-[72px]"
-      style={{ background: 'linear-gradient(90deg, transparent, #e3d2cc, transparent)' }}
+      style={{ background: 'linear-gradient(90deg, transparent, #e6ded7, transparent)' }}
     />
   )
 }
@@ -49,7 +49,7 @@ export default async function LocalePage({ params: { locale } }: Props) {
     <>
       <a
         href="#main"
-        className="absolute left-4 top-4 px-3.5 py-2.5 rounded-full bg-white border border-[#eadbd6] text-anchor font-semibold no-underline z-[999] -translate-y-[150%] focus-visible:translate-y-0 transition-transform duration-200"
+        className="absolute left-4 top-4 px-3.5 py-2.5 rounded-xl bg-white border border-line text-anchor font-semibold no-underline z-[999] -translate-y-[150%] focus-visible:translate-y-0 transition-transform duration-200"
       >
         Skip to content
       </a>
@@ -64,7 +64,7 @@ export default async function LocalePage({ params: { locale } }: Props) {
         <Divider />
         <Resources dict={dict.resources} locale={locale} />
         <Divider />
-        <Services dict={dict.services} />
+        <Services dict={dict.services} locale={locale} />
         <Divider />
         <Connect dict={dict.connect} newsletterDict={dict.newsletter} />
         <Footer dict={dict.footer} nav={dict.nav} locale={locale} />

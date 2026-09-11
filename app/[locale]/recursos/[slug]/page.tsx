@@ -63,7 +63,7 @@ export default async function ResourcePage({ params: { locale, slug } }: Props) 
         </Link>
 
         <header className="grid gap-4">
-          <span className="text-[0.72rem] font-bold tracking-[0.15em] uppercase text-rose bg-[#fdf0ec] rounded-full px-3 py-1 self-start">
+          <span className="text-[0.72rem] font-bold tracking-[0.15em] uppercase text-rose bg-stone rounded-full px-3 py-1 self-start">
             {item.tag}
           </span>
           <h1
@@ -87,14 +87,14 @@ export default async function ResourcePage({ params: { locale, slug } }: Props) 
               </h2>
 
               {/* Comparison table: chapters listed once, two tick columns */}
-              <div className="min-w-0 rounded-[20px] border border-[#f0e5e1] overflow-hidden bg-card grid grid-cols-[minmax(0,1fr)_3rem_3.75rem] sm:grid-cols-[minmax(0,1fr)_6.5rem_7.5rem]">
+              <div className="min-w-0 rounded-[14px] border border-line overflow-hidden bg-card grid grid-cols-[minmax(0,1fr)_3rem_3.75rem] sm:grid-cols-[minmax(0,1fr)_6.5rem_7.5rem]">
                 {/* Header */}
                 <div className="px-5 py-4 flex items-end">
                   <span className="text-[0.72rem] font-bold uppercase tracking-[0.12em] text-slate/60">
                     {dict.resources.insideHeading}
                   </span>
                 </div>
-                <div className="px-1 py-4 border-l border-[#f0e5e1] flex flex-col items-center justify-end text-center">
+                <div className="px-1 py-4 border-l border-line flex flex-col items-center justify-end text-center">
                   <span className="text-[0.8rem] font-bold text-anchor leading-tight">
                     {dict.resources.freePlanName}
                   </span>
@@ -102,7 +102,7 @@ export default async function ResourcePage({ params: { locale, slug } }: Props) 
                     {dict.resources.freePlanPrice}
                   </span>
                 </div>
-                <div className="px-1 py-4 bg-[#fdf0ec] flex flex-col items-center justify-end text-center">
+                <div className="px-1 py-4 bg-stone flex flex-col items-center justify-end text-center">
                   <span className="text-[0.8rem] font-bold text-rose leading-tight">
                     {dict.resources.paidPlanName}
                   </span>
@@ -116,7 +116,7 @@ export default async function ResourcePage({ params: { locale, slug } }: Props) 
                   const included = i < freeCount
                   return (
                     <Fragment key={c.title}>
-                      <div className="px-4 sm:px-5 py-3.5 border-t border-[#f0e5e1] grid gap-0.5">
+                      <div className="px-4 sm:px-5 py-3.5 border-t border-line grid gap-0.5">
                         <span className="text-[0.9rem] sm:text-[0.92rem] font-semibold text-anchor leading-[1.35]">
                           {c.title}
                         </span>
@@ -124,7 +124,7 @@ export default async function ResourcePage({ params: { locale, slug } }: Props) 
                           {c.description}
                         </span>
                       </div>
-                      <div className="border-t border-l border-[#f0e5e1] flex items-center justify-center">
+                      <div className="border-t border-l border-line flex items-center justify-center">
                         {included ? (
                           <span className="w-5 h-5 rounded-full bg-[#e7f4ec] text-emerald-700 flex items-center justify-center text-[0.72rem] font-bold">
                             ✓
@@ -135,7 +135,7 @@ export default async function ResourcePage({ params: { locale, slug } }: Props) 
                           </span>
                         )}
                       </div>
-                      <div className="border-t border-[#f0e5e1] bg-[#fdf0ec] flex items-center justify-center">
+                      <div className="border-t border-line bg-stone flex items-center justify-center">
                         <span className="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[0.72rem] font-bold">
                           ✓
                         </span>
@@ -149,7 +149,7 @@ export default async function ResourcePage({ params: { locale, slug } }: Props) 
               <div className="grid gap-5 sm:grid-cols-2 items-stretch">
                 {/* Free */}
                 <div
-                  className="flex flex-col gap-4 bg-card rounded-[20px] px-6 py-6 border border-[#f0e5e1]"
+                  className="flex flex-col gap-4 bg-card rounded-[14px] px-6 py-6 border border-line"
                   style={{ boxShadow: '0 8px 16px rgba(60, 40, 42, 0.05)' }}
                 >
                   <div className="grid gap-1">
@@ -167,8 +167,8 @@ export default async function ResourcePage({ params: { locale, slug } }: Props) 
 
                 {/* Paid */}
                 <div
-                  className="flex flex-col gap-4 bg-[#fdf0ec] rounded-[20px] px-6 py-6 border-2 border-rose"
-                  style={{ boxShadow: '0 16px 30px rgba(204, 108, 78, 0.12)' }}
+                  className="flex flex-col gap-4 bg-stone rounded-[14px] px-6 py-6 border-2 border-rose"
+                  style={{ boxShadow: '0 8px 16px rgba(60, 40, 42, 0.06)' }}
                 >
                   <div className="grid gap-1">
                     <h3 className="font-serif text-[1.25rem] text-anchor leading-tight">
@@ -183,10 +183,10 @@ export default async function ResourcePage({ params: { locale, slug } }: Props) 
                       href={item.paid.buyHref}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full text-center rounded-full px-6 py-3 text-[0.95rem] font-semibold text-white no-underline transition-transform duration-200 hover:-translate-y-px"
+                      className="w-full text-center rounded-xl px-6 py-3 text-[0.95rem] font-semibold text-white no-underline transition-transform duration-200 hover:-translate-y-px"
                       style={{
-                        background: 'linear-gradient(135deg, #cc6c4e, #b45b41)',
-                        boxShadow: '0 16px 30px rgba(204, 108, 78, 0.25)',
+                        background: '#cc6c4e',
+                        boxShadow: '0 6px 14px rgba(46, 35, 36, 0.12)',
                       }}
                     >
                       {dict.resources.paidCta} · {item.paid.price} →
@@ -209,7 +209,7 @@ export default async function ResourcePage({ params: { locale, slug } }: Props) 
                 {item.highlights.map((h) => (
                   <li
                     key={h.title}
-                    className="bg-card rounded-[16px] px-5 py-4 border border-[#f0e5e1] grid gap-1"
+                    className="bg-card rounded-[12px] px-5 py-4 border border-line grid gap-1"
                     style={{ boxShadow: '0 8px 16px rgba(60, 40, 42, 0.05)' }}
                   >
                     <h3 className="text-[1rem] font-bold text-anchor">{h.title}</h3>

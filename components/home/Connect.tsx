@@ -38,7 +38,7 @@ const socialLinks = [
 ]
 
 const iconClass =
-  'w-10 h-10 rounded-full bg-[#f4ece8] border border-[#ead9d3] grid place-items-center text-plum transition-transform duration-200 hover:-translate-y-px hover:bg-peach hover:border-rose'
+  'w-10 h-10 rounded-full bg-stone border border-line grid place-items-center text-plum transition-transform duration-200 hover:-translate-y-px hover:bg-white hover:border-rose'
 
 export default function Connect({ dict, newsletterDict }: Props) {
   return (
