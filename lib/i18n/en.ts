@@ -38,7 +38,7 @@ const en: Dictionary = {
       },
       {
         title: 'Positioning and executive presence',
-        body: "You do the work of leading, but the label you carry is still “the technical side”. We look at what signals you send in every meeting, email and decision, and how to change the way you're seen upstairs without turning into someone you're not.",
+        body: "You're already doing the next level's job, but when promotion comes up you're told “not yet”, that you lack executive presence. We look at what signals you send in every meeting, email and decision, and what has to change so leadership already sees you on the next rung, without turning into someone you're not.",
       },
       {
         title: 'Delegate and deliver without burning out',
@@ -173,7 +173,7 @@ const en: Dictionary = {
         title: 'Executive presence',
         subtitle: 'Make your voice carry where decisions get made.',
         forWho:
-          "For you if you've been leading for years (a team, an area, a project you defend in front of a committee) and you notice that where decisions get made your voice doesn't carry the weight it should: you get questioned more than you should, you hear about what matters late, or you do the work of leading without the real authority.",
+          "For you if you've been leading for years (a team, an area, a project you defend in front of a committee) and you notice that where decisions get made your voice doesn't carry the weight it should: you get questioned more than you should, you hear about what matters late, you do the work of leading without the real authority, or for the next rung you keep hearing “not yet”.",
         detail: '6 sessions · €790 (VAT included)',
         companyDetail: 'If your company pays: €1,200 + VAT',
         cadence: 'Every two weeks or monthly',

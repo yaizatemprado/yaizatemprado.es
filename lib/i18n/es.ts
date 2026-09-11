@@ -38,7 +38,7 @@ const es: Dictionary = {
       },
       {
         title: 'Posicionamiento y presencia ejecutiva',
-        body: 'Haces el trabajo de liderar, pero la etiqueta que llevas puesta sigue siendo «la parte técnica». Vemos qué señales mandas en cada reunión, email y decisión, y cómo cambiar cómo te perciben arriba sin convertirte en alguien que no eres.',
+        body: 'Ya haces el trabajo del siguiente nivel, pero cuando toca hablar de ascenso te dicen que «todavía no», que te falta presencia ejecutiva. Vemos qué señales mandas en cada reunión, email y decisión, y qué tiene que cambiar para que arriba te vean ya en el escalón siguiente, sin convertirte en alguien que no eres.',
       },
       {
         title: 'Delegar y ejecutar sin quemarte',
@@ -172,7 +172,7 @@ const es: Dictionary = {
         title: 'Presencia ejecutiva',
         subtitle: 'Que tu voz pese donde se decide.',
         forWho:
-          'Para ti si llevas años liderando (un equipo, un área, un proyecto que defiendes en comité) y notas que donde se decide tu voz no pesa lo que debería: te cuestionan más de la cuenta, te enteras tarde de lo que importa, o haces el trabajo de liderar sin la autoridad real.',
+          'Para ti si llevas años liderando (un equipo, un área, un proyecto que defiendes en comité) y notas que donde se decide tu voz no pesa lo que debería: te cuestionan más de la cuenta, te enteras tarde de lo que importa, haces el trabajo de liderar sin la autoridad real, o para el siguiente escalón llevas tiempo oyendo «todavía no».',
         detail: '6 sesiones · 790 € (IVA incluido)',
         companyDetail: 'Si lo paga tu empresa: 1.200 € + IVA',
         cadence: 'Cadencia quincenal o mensual',
