@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getDictionary, locales } from '@/lib/i18n'
+import { alternates, openGraph } from '@/lib/seo'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 
@@ -15,10 +16,13 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
   return {
     title: `${dict.resources.heading} — Yaiza Temprado`,
     description: dict.resources.lead,
-    alternates: {
-      canonical: `/${locale}/recursos/`,
-      languages: { en: '/en/recursos/', es: '/es/recursos/' },
-    },
+    alternates: alternates(locale, 'recursos'),
+    openGraph: openGraph(
+      locale,
+      `${dict.resources.heading} — Yaiza Temprado`,
+      dict.resources.lead,
+      'recursos',
+    ),
   }
 }
 

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getDictionary, locales } from '@/lib/i18n'
+import { alternates, openGraph, SITE_URL } from '@/lib/seo'
+import JsonLd from '@/components/seo/JsonLd'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 
@@ -21,11 +23,36 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
   return {
     title: `${dict.companies.heading} — Yaiza Temprado`,
     description: dict.companies.lead,
-    alternates: {
-      canonical: `/${locale}/empresas/`,
-      languages: { en: '/en/empresas/', es: '/es/empresas/' },
-    },
+    alternates: alternates(locale, 'empresas'),
+    openGraph: openGraph(
+      locale,
+      `${dict.companies.heading} — Yaiza Temprado`,
+      dict.companies.lead,
+      'empresas',
+    ),
   }
+}
+
+// The page's headings are topics ("Qué es"), and a FAQ rich result needs actual
+// questions. Only the wording of the question lives here. Every answer is the
+// page's own copy, which is the rule: schema has to match what a reader sees.
+const FAQ_QUESTIONS: Record<string, string[]> = {
+  es: [
+    '¿Qué es exactamente el programa de mentoría 1:1?',
+    '¿Qué gana la empresa que lo paga?',
+    '¿Cómo funciona y cuánto dura?',
+    '¿Cuánto cuesta y cómo se factura?',
+    '¿Se puede hacer para varios managers a la vez?',
+    '¿Quién imparte el programa?',
+  ],
+  en: [
+    'What exactly is the 1:1 mentoring programme?',
+    'What does the company paying for it get?',
+    'How does it work and how long does it take?',
+    'How much does it cost and how is it invoiced?',
+    'Can it be run for several managers at once?',
+    'Who delivers the programme?',
+  ],
 }
 
 const h2Class = 'font-serif text-anchor leading-[1.2] text-[1.5rem] sm:text-[1.8rem]'
@@ -38,9 +65,53 @@ export default async function CompaniesPage({ params: { locale } }: Props) {
   const c = dict.companies
   const diagnosticHref = DIAGNOSTIC[locale] ?? DIAGNOSTIC.es
   const mailto = `mailto:yaiza@temprado.es?subject=${encodeURIComponent(c.ctaMailSubject)}`
+  const pageUrl = `${SITE_URL}/${locale}/empresas/`
+
+  const answers = [
+    c.whatBody,
+    c.gains.map((g) => `${g.title}: ${g.body}`).join(' '),
+    c.steps.map((s) => `${s.title}: ${s.body}`).join(' '),
+    `${c.priceValue} ${c.priceNote}. ${c.priceBullets.join(' ')} ${c.selfPayNote}`,
+    c.teamsBody,
+    c.whoBody,
+  ]
+
+  const faq = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    inLanguage: locale === 'en' ? 'en-GB' : 'es-ES',
+    mainEntity: (FAQ_QUESTIONS[locale] ?? FAQ_QUESTIONS.es).map((q, i) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: { '@type': 'Answer', text: answers[i] },
+    })),
+  }
+
+  const service = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: c.heading,
+    serviceType: locale === 'en' ? 'Executive mentoring' : 'Mentoría ejecutiva',
+    description: c.lead,
+    url: pageUrl,
+    areaServed: 'ES',
+    provider: { '@type': 'Person', '@id': `${SITE_URL}/#yaiza`, name: 'Yaiza Temprado' },
+    offers: {
+      '@type': 'Offer',
+      url: pageUrl,
+      availability: 'https://schema.org/InStock',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        price: '1200',
+        priceCurrency: 'EUR',
+        valueAddedTaxIncluded: false,
+      },
+    },
+  }
 
   return (
     <main className="max-w-[1200px] mx-auto px-5 sm:px-6 pt-20 pb-20 sm:pt-24 sm:pb-[120px]" id="main">
+      <JsonLd data={[faq, service]} />
       <Header locale={locale} dict={dict.nav} />
 
       <article className="max-w-[820px] mx-auto py-12 grid gap-12">

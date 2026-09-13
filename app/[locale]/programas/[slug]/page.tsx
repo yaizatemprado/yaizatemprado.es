@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getDictionary, locales } from '@/lib/i18n'
+import { alternates, euroAmount, openGraph, SITE_URL } from '@/lib/seo'
+import JsonLd from '@/components/seo/JsonLd'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 
@@ -27,13 +29,13 @@ export async function generateMetadata({
   return {
     title: `${item.title} — Yaiza Temprado`,
     description: item.forWho,
-    alternates: {
-      canonical: `/${locale}/programas/${slug}/`,
-      languages: {
-        en: `/en/programas/${slug}/`,
-        es: `/es/programas/${slug}/`,
-      },
-    },
+    alternates: alternates(locale, `programas/${slug}`),
+    openGraph: openGraph(
+      locale,
+      `${item.title} — Yaiza Temprado`,
+      item.forWho,
+      `programas/${slug}`,
+    ),
   }
 }
 
@@ -42,8 +44,54 @@ export default async function ProgramPage({ params: { locale, slug } }: Props) {
   const item = dict.programs.items.find((i) => i.slug === slug)
   if (!item) notFound()
 
+  const pageUrl = `${SITE_URL}/${locale}/programas/${slug}/`
+  // Two ways to buy the same programme: the person pays (VAT included) or the
+  // company does (VAT on top). Both are on the page, so both are in the schema.
+  const selfPaid = euroAmount(item.detail)
+  const companyPaid = item.companyDetail ? euroAmount(item.companyDetail) : null
+  const offers = [
+    selfPaid && {
+      '@type': 'Offer',
+      url: pageUrl,
+      category: locale === 'en' ? 'Paid by the individual' : 'Lo paga la persona',
+      availability: 'https://schema.org/InStock',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        price: selfPaid,
+        priceCurrency: 'EUR',
+        valueAddedTaxIncluded: true,
+      },
+    },
+    companyPaid && {
+      '@type': 'Offer',
+      url: `${SITE_URL}/${locale}/empresas/`,
+      category: locale === 'en' ? 'Paid by the company' : 'Lo paga la empresa',
+      availability: 'https://schema.org/InStock',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        price: companyPaid,
+        priceCurrency: 'EUR',
+        valueAddedTaxIncluded: false,
+      },
+    },
+  ].filter(Boolean)
+
+  const service = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: item.title,
+    serviceType: locale === 'en' ? 'Executive mentoring' : 'Mentoría ejecutiva',
+    description: item.forWho,
+    url: pageUrl,
+    areaServed: 'ES',
+    inLanguage: locale === 'en' ? 'en-GB' : 'es-ES',
+    provider: { '@type': 'Person', '@id': `${SITE_URL}/#yaiza`, name: 'Yaiza Temprado' },
+    ...(offers.length ? { offers } : {}),
+  }
+
   return (
     <main className="max-w-[1200px] mx-auto px-5 sm:px-6 pt-20 pb-20 sm:pt-24 sm:pb-[120px]" id="main">
+      <JsonLd data={service} />
       <Header locale={locale} dict={dict.nav} />
 
       <article className="max-w-[820px] mx-auto py-12 grid gap-10">

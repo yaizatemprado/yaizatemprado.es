@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { getDictionary, locales } from '@/lib/i18n'
+import { alternates, openGraph } from '@/lib/seo'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import SubscribeForm from '@/components/newsletter/SubscribeForm'
@@ -15,10 +16,13 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
   return {
     title: `${dict.newsletter.heading} — Yaiza Temprado`,
     description: dict.newsletter.body.split('\n')[0],
-    alternates: {
-      canonical: `/${locale}/newsletter/`,
-      languages: { en: '/en/newsletter/', es: '/es/newsletter/' },
-    },
+    alternates: alternates(locale, 'newsletter'),
+    openGraph: openGraph(
+      locale,
+      `${dict.newsletter.heading} — Yaiza Temprado`,
+      dict.newsletter.body.split('\n')[0],
+      'newsletter',
+    ),
   }
 }
 

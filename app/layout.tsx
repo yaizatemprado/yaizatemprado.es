@@ -35,23 +35,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" className={`${manrope.variable} ${playfair.variable}`}>
       <head>
+        {/* Many aggregators ask for /favicon.ico by name and read a 404 as "no icon". */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" type="image/png" href="/assets/favicon.png" />
         <link rel="apple-touch-icon" href="/assets/favicon.png" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Person',
-              name: 'Yaiza Temprado',
-              jobTitle: 'Senior Director of Engineering',
-              description:
-                'Yaiza Temprado helps managers and directors in technical organisations get heard where decisions are made: clearer framing, stronger influence, sustainable delivery. 1:1 executive mentoring, individual or company-funded.',
-              url: 'https://yaizatemprado.es',
-              sameAs: ['https://www.linkedin.com/in/yaiza/'],
-            }),
-          }}
-        />
       </head>
       <body className="font-sans text-plum">{children}</body>
     </html>

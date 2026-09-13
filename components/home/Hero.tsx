@@ -43,7 +43,7 @@ export default function Hero({ dict }: Props) {
           style={{ boxShadow: '0 20px 40px rgba(46, 35, 36, 0.12)' }}
         >
           <Image
-            src="/assets/yaiza.png"
+            src="/assets/yaiza.webp"
             alt="Yaiza Temprado"
             width={1000}
             height={1000}

@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { getDictionary, locales } from '@/lib/i18n'
+import { alternates, openGraph, SAME_AS, SITE_URL } from '@/lib/seo'
+import JsonLd from '@/components/seo/JsonLd'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import Hero from '@/components/home/Hero'
@@ -20,15 +22,8 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
   return {
     title: dict.meta.title,
     description: dict.meta.description,
-    alternates: {
-      canonical: `/${locale}/`,
-      languages: { en: '/en/', es: '/es/' },
-    },
-    openGraph: {
-      title: dict.meta.title,
-      description: dict.meta.description,
-      url: `https://yaizatemprado.es/${locale}`,
-    },
+    alternates: alternates(locale),
+    openGraph: openGraph(locale, dict.meta.title, dict.meta.description),
   }
 }
 
@@ -45,8 +40,32 @@ function Divider() {
 export default async function LocalePage({ params: { locale } }: Props) {
   const dict = await getDictionary(locale)
 
+  const person = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${SITE_URL}/#yaiza`,
+    name: 'Yaiza Temprado',
+    jobTitle: dict.hero.eyebrow,
+    description: dict.meta.description,
+    url: `${SITE_URL}/${locale}/`,
+    image: `${SITE_URL}/assets/yaiza.webp`,
+    knowsLanguage: ['es', 'en'],
+    sameAs: SAME_AS,
+  }
+
+  const website = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE_URL}/#website`,
+    name: 'Yaiza Temprado',
+    url: `${SITE_URL}/${locale}/`,
+    inLanguage: locale === 'en' ? 'en-GB' : 'es-ES',
+    publisher: { '@id': `${SITE_URL}/#yaiza` },
+  }
+
   return (
     <>
+      <JsonLd data={[person, website]} />
       <a
         href="#main"
         className="absolute left-4 top-4 px-3.5 py-2.5 rounded-xl bg-white border border-line text-anchor font-semibold no-underline z-[999] -translate-y-[150%] focus-visible:translate-y-0 transition-transform duration-200"
