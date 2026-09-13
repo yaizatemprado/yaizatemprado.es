@@ -122,6 +122,7 @@ const en: Dictionary = {
     companyBody:
       'Many companies cover this programme as training. When the company pays it is €1,200 + VAT, invoiced to the company, with a three-way kickoff with your manager and a closing summary. There is a page written for whoever approves it.',
     companyCta: 'See the page for companies',
+    companyGuideCta: 'How to ask your company',
     items: [
       {
         slug: 'primeros-90-dias',
@@ -292,6 +293,10 @@ const en: Dictionary = {
     ctaPrimary: 'Book the free diagnostic',
     ctaSecondary: 'Write to me',
     ctaMailSubject: 'Company-funded mentoring',
+    askGuide: {
+      text: 'Are you the one who wants the programme and not sure how to ask for it?',
+      cta: "Here's how to put it to your company",
+    },
   },
   resources: {
     eyebrow: 'Resources',

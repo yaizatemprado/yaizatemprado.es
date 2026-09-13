@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { defaultLocale, getDictionary, locales } from '@/lib/i18n'
 import { SITE_URL } from '@/lib/seo'
-import { articles } from '@/lib/articles'
+import { articleSlugs, localesOf } from '@/lib/articles'
 
 export const dynamic = 'force-static'
 
@@ -10,8 +10,8 @@ export const dynamic = 'force-static'
  * alternate. Slugs are the same in both dictionaries, so the Spanish one is
  * enough to enumerate them.
  *
- * Articles are written in one locale only, so they get one entry and no
- * alternate in the other language.
+ * Articles can exist in one locale or both, so each lists only the languages
+ * it really has.
  *
  * Deliberately out: /detector (a closed campaign landing living in public/) and
  * the deja-de-pedir-permiso stubs, which are noindex redirects to the renamed
@@ -31,7 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       path: `recursos/${i.slug}`,
       priority: 0.7,
     })),
-    ...articles.map((a) => ({ path: `recursos/${a.slug}`, priority: 0.7, only: [a.locale] })),
+    ...articleSlugs().map((slug) => ({ path: `recursos/${slug}`, priority: 0.7, only: localesOf(slug) })),
     { path: 'recursos', priority: 0.6 },
     { path: 'newsletter', priority: 0.5 },
   ]

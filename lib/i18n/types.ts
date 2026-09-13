@@ -62,7 +62,7 @@ export type Dictionary = {
     companyHeading: string
     companyBody: string
     companyCta: string
-    // Link to the article on asking the company to pay. Spanish only, so optional.
+    // Link to the article on asking the company to pay. Optional per locale.
     companyGuideCta?: string
     items: Array<{
       slug: string
