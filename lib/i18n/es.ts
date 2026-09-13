@@ -280,6 +280,9 @@ const es: Dictionary = {
     ],
     selfPayNote: '¿Lo pagas tú? Son 790 € con IVA incluido.',
     selfPayCta: 'Ver los programas',
+    fundaeHeading: '¿Es bonificable por FUNDAE?',
+    fundaeBody:
+      'Sí. El programa es bonificable a través de FUNDAE, así que la empresa puede cubrir parte del coste con el crédito de formación que ya tiene asignado y casi nunca gasta entero. La gestión la lleva la empresa desde su plataforma de FUNDAE, y hay que comunicarlo antes de que empiece el programa. Si te hace falta la documentación para tramitarlo, pídemela y te la paso.',
     teamsHeading: 'Para varios managers a la vez',
     teamsBody: 'Si quieres esto para más de una persona de tu equipo, escríbeme y lo montamos a medida.',
     whoHeading: 'Quién lo da',

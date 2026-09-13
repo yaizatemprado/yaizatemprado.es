@@ -67,23 +67,25 @@ export default async function CompaniesPage({ params: { locale } }: Props) {
   const mailto = `mailto:yaiza@temprado.es?subject=${encodeURIComponent(c.ctaMailSubject)}`
   const pageUrl = `${SITE_URL}/${locale}/empresas/`
 
-  const answers = [
-    c.whatBody,
-    c.gains.map((g) => `${g.title}: ${g.body}`).join(' '),
-    c.steps.map((s) => `${s.title}: ${s.body}`).join(' '),
-    `${c.priceValue} ${c.priceNote}. ${c.priceBullets.join(' ')} ${c.selfPayNote}`,
-    c.teamsBody,
-    c.whoBody,
+  const q = FAQ_QUESTIONS[locale] ?? FAQ_QUESTIONS.es
+  const faqPairs: Array<[string, string]> = [
+    [q[0], c.whatBody],
+    [q[1], c.gains.map((g) => `${g.title}: ${g.body}`).join(' ')],
+    [q[2], c.steps.map((s) => `${s.title}: ${s.body}`).join(' ')],
+    [q[3], `${c.priceValue} ${c.priceNote}. ${c.priceBullets.join(' ')} ${c.selfPayNote}`],
+    [c.fundaeHeading, c.fundaeBody],
+    [q[4], c.teamsBody],
+    [q[5], c.whoBody],
   ]
 
   const faq = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: locale === 'en' ? 'en-GB' : 'es-ES',
-    mainEntity: (FAQ_QUESTIONS[locale] ?? FAQ_QUESTIONS.es).map((q, i) => ({
+    mainEntity: faqPairs.map(([question, answer]) => ({
       '@type': 'Question',
-      name: q,
-      acceptedAnswer: { '@type': 'Answer', text: answers[i] },
+      name: question,
+      acceptedAnswer: { '@type': 'Answer', text: answer },
     })),
   }
 
@@ -220,6 +222,11 @@ export default async function CompaniesPage({ params: { locale } }: Props) {
               {c.selfPayCta} →
             </Link>
           </p>
+        </section>
+
+        <section className="grid gap-2">
+          <h2 className={h2Class}>{c.fundaeHeading}</h2>
+          <p className={bodyClass}>{c.fundaeBody}</p>
         </section>
 
         <section className="grid gap-2">

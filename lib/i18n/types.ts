@@ -95,6 +95,9 @@ export type Dictionary = {
     priceBullets: string[]
     selfPayNote: string
     selfPayCta: string
+    // FUNDAE: la primera pregunta de quien tiene que aprobar una factura de 1.200 €.
+    fundaeHeading: string
+    fundaeBody: string
     teamsHeading: string
     teamsBody: string
     whoHeading: string

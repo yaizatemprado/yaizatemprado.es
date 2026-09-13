@@ -281,6 +281,9 @@ const en: Dictionary = {
     ],
     selfPayNote: 'Paying yourself? It is €790, VAT included.',
     selfPayCta: 'See the programmes',
+    fundaeHeading: 'Can it be funded through FUNDAE?',
+    fundaeBody:
+      "Yes. The programme qualifies for FUNDAE funding, so the company can cover part of the cost with the training credit it already has and hardly ever spends in full. The company handles it from its own FUNDAE platform, and it has to be filed before the programme starts. If you need the paperwork to process it, ask me and I'll send it over.",
     teamsHeading: 'For several managers at once',
     teamsBody: 'If you want this for more than one person on your team, write to me and we shape it to your case.',
     whoHeading: 'Who delivers it',
