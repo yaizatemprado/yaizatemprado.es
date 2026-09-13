@@ -184,6 +184,14 @@ export default async function ProgramPage({ params: { locale, slug } }: Props) {
           >
             {dict.programs.companyCta} →
           </Link>
+          {dict.programs.companyGuideCta && (
+            <Link
+              href={`/${locale}/recursos/que-lo-pague-tu-empresa`}
+              className="text-[0.9rem] font-semibold text-rose hover:text-anchor no-underline transition-colors duration-200"
+            >
+              {dict.programs.companyGuideCta} →
+            </Link>
+          )}
         </aside>
       </article>
 

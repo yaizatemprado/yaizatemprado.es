@@ -141,6 +141,14 @@ export default async function CompaniesPage({ params: { locale } }: Props) {
               {c.ctaSecondary}
             </a>
           </div>
+          {c.askGuide && (
+            <p className="text-[0.92rem] text-slate">
+              {c.askGuide.text}{' '}
+              <Link href={`/${locale}/recursos/que-lo-pague-tu-empresa`} className={linkClass}>
+                {c.askGuide.cta} →
+              </Link>
+            </p>
+          )}
         </header>
 
         <section className="grid gap-3">

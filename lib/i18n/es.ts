@@ -122,6 +122,7 @@ const es: Dictionary = {
     companyBody:
       'Muchas empresas cubren este programa como formación. Si lo paga la empresa son 1.200 € + IVA, con factura a su nombre, un arranque a tres con tu responsable y un resumen de cierre. Tienes una página pensada para enviársela a quien lo aprueba.',
     companyCta: 'Ver la página para empresas',
+    companyGuideCta: 'Cómo pedírselo a tu empresa',
     items: [
       {
         slug: 'primeros-90-dias',
@@ -291,6 +292,10 @@ const es: Dictionary = {
     ctaPrimary: 'Reservar el diagnóstico gratis',
     ctaSecondary: 'Escríbeme',
     ctaMailSubject: 'Mentoría pagada por la empresa',
+    askGuide: {
+      text: '¿Eres quien quiere hacer el programa y no sabes cómo pedirlo?',
+      cta: 'Así se lo planteas a tu empresa',
+    },
   },
   resources: {
     eyebrow: 'Recursos',

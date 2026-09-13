@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getDictionary, locales } from '@/lib/i18n'
 import { alternates, openGraph } from '@/lib/seo'
+import { articlesFor } from '@/lib/articles'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 
@@ -28,6 +29,10 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
 
 export default async function ResourcesPage({ params: { locale } }: Props) {
   const dict = await getDictionary(locale)
+  const cards = [
+    ...dict.resources.items.map((i) => ({ slug: i.slug, tag: i.tag, title: i.title, summary: i.summary, cta: dict.resources.cardCta })),
+    ...articlesFor(locale).map((a) => ({ slug: a.slug, tag: a.tag, title: a.title, summary: a.description, cta: a.cardCta })),
+  ]
 
   return (
     <main className="max-w-[1200px] mx-auto px-5 sm:px-6 pt-20 pb-20 sm:pt-24 sm:pb-[120px]" id="main">
@@ -50,7 +55,7 @@ export default async function ResourcesPage({ params: { locale } }: Props) {
         </header>
 
         <ul className="grid gap-5 list-none p-0 m-0 sm:grid-cols-2">
-          {dict.resources.items.map((item) => (
+          {cards.map((item) => (
             <li key={item.slug}>
               <Link
                 href={`/${locale}/recursos/${item.slug}`}
@@ -65,7 +70,7 @@ export default async function ResourcesPage({ params: { locale } }: Props) {
                 </h2>
                 <p className="text-slate leading-[1.6] text-[0.92rem]">{item.summary}</p>
                 <span className="mt-1 text-[0.85rem] font-semibold text-rose group-hover:text-anchor transition-colors duration-200">
-                  {dict.resources.cardCta} →
+                  {item.cta} →
                 </span>
               </Link>
             </li>

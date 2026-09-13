@@ -62,6 +62,8 @@ export type Dictionary = {
     companyHeading: string
     companyBody: string
     companyCta: string
+    // Link to the article on asking the company to pay. Spanish only, so optional.
+    companyGuideCta?: string
     items: Array<{
       slug: string
       tag: string
@@ -105,6 +107,8 @@ export type Dictionary = {
     ctaPrimary: string
     ctaSecondary: string
     ctaMailSubject: string
+    // For the other reader of /empresas: whoever wants the programme and has to ask for it.
+    askGuide?: { text: string; cta: string }
   }
   resources: {
     eyebrow: string

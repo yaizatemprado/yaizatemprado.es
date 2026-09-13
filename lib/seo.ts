@@ -16,12 +16,19 @@ export const SAME_AS = [
  * no slashes at the ends: '' for the home, 'empresas', 'programas/<slug>'.
  * x-default points at Spanish: it is the default locale and the one the bare
  * domain resolves to.
+ *
+ * `available` narrows the locales for pages written in one language only (the
+ * Spanish articles), so no hreflang points at a page that does not exist.
  */
-export function alternates(locale: string, path = ''): Metadata['alternates'] {
+export function alternates(
+  locale: string,
+  path = '',
+  available: readonly string[] = locales,
+): Metadata['alternates'] {
   const tail = path ? `${path}/` : ''
   const languages: Record<string, string> = {}
-  for (const l of locales) languages[l] = `/${l}/${tail}`
-  languages['x-default'] = `/${defaultLocale}/${tail}`
+  for (const l of available) languages[l] = `/${l}/${tail}`
+  languages['x-default'] = `/${available.includes(defaultLocale) ? defaultLocale : available[0]}/${tail}`
   return { canonical: `/${locale}/${tail}`, languages }
 }
 
