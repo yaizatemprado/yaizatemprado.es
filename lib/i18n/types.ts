@@ -115,6 +115,9 @@ export type Dictionary = {
     heading: string
     lead: string
     cardCta: string
+    // Card labels on the /recursos hub, by format (the item's own tag is for its page)
+    guideLabel: string
+    articleLabel: string
     backLabel: string
     insideHeading: string
     forWhoLabel: string

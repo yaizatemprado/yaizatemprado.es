@@ -299,9 +299,11 @@ const es: Dictionary = {
   },
   resources: {
     eyebrow: 'Recursos',
-    heading: 'Guías para descargar',
-    lead: 'Guías prácticas sobre liderazgo, comunicación y reuniones. Te las quedas y las usas cuando las necesites.',
+    heading: 'Artículos y guías',
+    lead: 'Sobre liderazgo, comunicación y cómo crecer dentro de tu empresa. Los artículos se leen aquí. Las guías te las mando al email.',
     cardCta: 'Ver guía',
+    guideLabel: 'Guía gratis',
+    articleLabel: 'Artículo',
     backLabel: '← Volver a recursos',
     insideHeading: 'Qué hay dentro',
     forWhoLabel: 'Para quién',

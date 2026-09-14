@@ -300,9 +300,11 @@ const en: Dictionary = {
   },
   resources: {
     eyebrow: 'Resources',
-    heading: 'Guides to download',
-    lead: "Practical guides on leadership, communication, and meetings. Yours to keep and use whenever you need them. For now, they're available in Spanish.",
+    heading: 'Articles and guides',
+    lead: "On leadership, communication and growing inside your company. Articles you read here. Guides I send to your inbox, and for now they're in Spanish.",
     cardCta: 'View guide',
+    guideLabel: 'Free guide',
+    articleLabel: 'Article',
     backLabel: '← Back to resources',
     insideHeading: "What's inside",
     forWhoLabel: "Who it's for",

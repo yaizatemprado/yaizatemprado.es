@@ -30,8 +30,8 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
 export default async function ResourcesPage({ params: { locale } }: Props) {
   const dict = await getDictionary(locale)
   const cards = [
-    ...dict.resources.items.map((i) => ({ slug: i.slug, tag: i.tag, title: i.title, summary: i.summary, cta: dict.resources.cardCta })),
-    ...articlesFor(locale).map((a) => ({ slug: a.slug, tag: a.tag, title: a.title, summary: a.description, cta: a.cardCta })),
+    ...dict.resources.items.map((i) => ({ slug: i.slug, tag: dict.resources.guideLabel, title: i.title, summary: i.summary, cta: dict.resources.cardCta })),
+    ...articlesFor(locale).map((a) => ({ slug: a.slug, tag: dict.resources.articleLabel, title: a.title, summary: a.description, cta: a.cardCta })),
   ]
 
   return (
