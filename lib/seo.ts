@@ -42,6 +42,7 @@ export function openGraph(
   title: string,
   description: string,
   path = '',
+  image: { src: string; width: number; height: number } = { src: '/assets/yaiza-og.png', width: 1200, height: 630 },
 ): Metadata['openGraph'] {
   const tail = path ? `${path}/` : ''
   return {
@@ -52,9 +53,9 @@ export function openGraph(
     locale: locale === 'en' ? 'en_GB' : 'es_ES',
     images: [
       {
-        url: '/assets/yaiza-og.png',
-        width: 1200,
-        height: 630,
+        url: image.src,
+        width: image.width,
+        height: image.height,
         alt: title,
       },
     ],

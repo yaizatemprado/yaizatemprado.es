@@ -1,11 +1,12 @@
 import type { Article, Paragraph } from './types'
 import queLoPagueTuEmpresaEs from './que-lo-pague-tu-empresa.es'
 import queLoPagueTuEmpresaEn from './que-lo-pague-tu-empresa.en'
+import presenciaEjecutivaEs from './presencia-ejecutiva.es'
 
-export type { Article, ArticleSection, Paragraph, Run } from './types'
+export type { Article, ArticleSection, Block, Paragraph, Run } from './types'
 
 // One entry per slug per locale. A slug can exist in one language or in both.
-export const articles: Article[] = [queLoPagueTuEmpresaEs, queLoPagueTuEmpresaEn]
+export const articles: Article[] = [queLoPagueTuEmpresaEs, queLoPagueTuEmpresaEn, presenciaEjecutivaEs]
 
 export function articlesFor(locale: string): Article[] {
   return articles.filter((a) => a.locale === locale)

@@ -1,7 +1,7 @@
 import type { Article } from '@/lib/articles'
 import type { Dictionary } from '@/lib/i18n/types'
 import SubscribeForm from '@/components/newsletter/SubscribeForm'
-import Prose from './Prose'
+import Prose, { Runs } from './Prose'
 
 const h2Class = 'font-serif text-anchor leading-[1.2] text-[1.5rem] sm:text-[1.8rem]'
 const bodyClass = 'text-slate leading-[1.75] text-[1rem] sm:text-[1.05rem]'
@@ -28,16 +28,68 @@ export default function ArticleView({ article, newsletter }: Props) {
         </div>
       </header>
 
-      {article.sections.map((section) =>
+      {article.sections.map((section, i) =>
         section.kind === 'text' ? (
-          <section key={section.heading} className="grid gap-4">
+          <section key={i} className="grid gap-4">
             {section.heading && <h2 className={h2Class}>{section.heading}</h2>}
             {section.paragraphs.map((p, i) => (
               <Prose key={i} paragraph={p} className={bodyClass} />
             ))}
           </section>
+        ) : section.kind === 'blocks' ? (
+          <section key={i} className="grid gap-4">
+            <h2 className={h2Class}>{section.heading}</h2>
+            {section.blocks.map((block, i) =>
+              block.kind === 'p' ? (
+                <Prose key={i} paragraph={block.text} className={bodyClass} />
+              ) : block.kind === 'list' ? (
+                <ul key={i} className={`${bodyClass} list-disc pl-6 grid gap-2 m-0`}>
+                  {block.items.map((item, j) => (
+                    <li key={j}>
+                      <Runs paragraph={item} />
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  key={i}
+                  src={block.src}
+                  alt={block.alt}
+                  width={block.width}
+                  height={block.height}
+                  loading="lazy"
+                  className="w-full h-auto rounded-[14px] border border-line my-2"
+                />
+              ),
+            )}
+          </section>
+        ) : section.kind === 'contrast' ? (
+          <section key={i} className="grid gap-5">
+            <h2 className={h2Class}>{section.heading}</h2>
+            <Prose paragraph={section.intro} className={bodyClass} />
+            <ul className="grid gap-4 list-none p-0 m-0">
+              {section.items.map((item) => (
+                <li key={item.title} className="bg-card rounded-[14px] border border-line px-5 py-5 sm:px-6 grid gap-3">
+                  <h3 className="text-[1.05rem] font-bold text-anchor">{item.title}</h3>
+                  <p className="text-slate text-[0.95rem] leading-[1.65]">
+                    <span className="text-[0.72rem] font-extrabold tracking-[0.14em] uppercase text-rose mr-2">
+                      {section.labels.lose}
+                    </span>
+                    {item.lose}
+                  </p>
+                  <p className="text-slate text-[0.95rem] leading-[1.65]">
+                    <span className="text-[0.72rem] font-extrabold tracking-[0.14em] uppercase text-anchor mr-2">
+                      {section.labels.gain}
+                    </span>
+                    {item.gain}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </section>
         ) : (
-          <section key={section.heading} className="grid gap-5">
+          <section key={i} className="grid gap-5">
             <h2 className={h2Class}>{section.heading}</h2>
             <Prose paragraph={section.intro} className={bodyClass} />
             <ul className="grid gap-4 list-none p-0 m-0 sm:grid-cols-2">
