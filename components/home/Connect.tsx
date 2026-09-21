@@ -8,7 +8,7 @@ type Props = {
 
 const socialLinks = [
   {
-    href: 'mailto:yaiza@temprado.es',
+    href: 'mailto:hola@yaizatemprado.es',
     label: 'Email',
     icon: (
       <path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Zm0 2v.01L12 13l8-4.99V8H4Zm0 10h16V10l-8 5-8-5Z" />

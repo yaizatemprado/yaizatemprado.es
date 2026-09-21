@@ -64,7 +64,7 @@ export default async function CompaniesPage({ params: { locale } }: Props) {
   const dict = await getDictionary(locale)
   const c = dict.companies
   const diagnosticHref = DIAGNOSTIC[locale] ?? DIAGNOSTIC.es
-  const mailto = `mailto:yaiza@temprado.es?subject=${encodeURIComponent(c.ctaMailSubject)}`
+  const mailto = `mailto:hola@yaizatemprado.es?subject=${encodeURIComponent(c.ctaMailSubject)}`
   const pageUrl = `${SITE_URL}/${locale}/empresas/`
 
   const q = FAQ_QUESTIONS[locale] ?? FAQ_QUESTIONS.es
@@ -242,7 +242,7 @@ export default async function CompaniesPage({ params: { locale } }: Props) {
           <p className={bodyClass}>
             {c.teamsBody}{' '}
             <a href={mailto} className={linkClass}>
-              yaiza@temprado.es
+              hola@yaizatemprado.es
             </a>
           </p>
         </section>
