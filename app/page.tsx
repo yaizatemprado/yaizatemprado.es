@@ -1,11 +1,18 @@
-'use client'
+import type { Metadata } from 'next'
+import { RootRedirect } from '@/components/layout/RootRedirect'
 
-import { useEffect } from 'react'
+// Without a canonical, Google read / (and /index.html) as an empty duplicate.
+export const metadata: Metadata = {
+  alternates: { canonical: '/es/' },
+}
 
 export default function Root() {
-  useEffect(() => {
-    window.location.replace('/es')
-  }, [])
-
-  return null
+  return (
+    <>
+      <RootRedirect to="/es/" />
+      <p style={{ padding: 16 }}>
+        <a href="/es/">yaizatemprado.es</a>
+      </p>
+    </>
+  )
 }

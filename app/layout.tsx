@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         url: '/assets/yaiza-og.png',
         width: 1200,
         height: 630,
-        alt: 'Yaiza Temprado — Comunicación, influencia y liderazgo en tech',
+        alt: 'Yaiza Temprado — Comunicación, influencia y liderazgo',
       },
     ],
   },
