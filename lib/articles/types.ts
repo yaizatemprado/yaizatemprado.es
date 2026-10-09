@@ -1,6 +1,10 @@
 // An inline run of text, optionally a link. Paragraphs are arrays of these so
 // the copy can carry links without the page parsing markup.
-export type Run = string | { text: string; href: string; strong?: boolean } | { text: string; em: true }
+export type Run =
+  | string
+  | { text: string; href: string; strong?: boolean }
+  | { text: string; em: true }
+  | { text: string; strong: true }
 
 export type Paragraph = Run[]
 
@@ -19,7 +23,8 @@ export type ArticleSection =
       heading: string
       intro: Paragraph
       labels: { lose: string; gain: string }
-      items: Array<{ title: string; lose: string; gain: string }>
+      // link: the page that develops this item, shown under it.
+      items: Array<{ title: string; lose: string; gain: string; link?: { text: string; href: string } }>
     }
   | {
       kind: 'cards'
@@ -45,5 +50,7 @@ export type Article = {
   intro: Paragraph[]
   sections: ArticleSection[]
   faqHeading: string
-  faq: Array<{ question: string; answer: Paragraph[] }>
+  // blocks: lists or images that follow the answer's paragraphs.
+  faq: Array<{ question: string; answer: Paragraph[]; blocks?: Block[] }>
+  guide?: string // slug of a dictionary guide, shown as a card before the newsletter
 }

@@ -1,4 +1,5 @@
-import type { Article } from '@/lib/articles'
+import Link from 'next/link'
+import type { Article, Block } from '@/lib/articles'
 import type { Dictionary } from '@/lib/i18n/types'
 import SubscribeForm from '@/components/newsletter/SubscribeForm'
 import Prose, { Runs } from './Prose'
@@ -6,9 +7,37 @@ import Prose, { Runs } from './Prose'
 const h2Class = 'font-serif text-anchor leading-[1.2] text-[1.5rem] sm:text-[1.8rem]'
 const bodyClass = 'text-slate leading-[1.75] text-[1rem] sm:text-[1.05rem]'
 
-type Props = { article: Article; newsletter: Dictionary['newsletter'] }
+/** A guide from the dictionary, as the page resolved it for article.guide. */
+type GuideCard = { href: string; tag: string; title: string; summary: string; cta: string }
 
-export default function ArticleView({ article, newsletter }: Props) {
+type Props = { article: Article; newsletter: Dictionary['newsletter']; guide?: GuideCard }
+
+function BlockView({ block }: { block: Block }) {
+  if (block.kind === 'p') return <Prose paragraph={block.text} className={bodyClass} />
+  if (block.kind === 'list')
+    return (
+      <ul className={`${bodyClass} list-disc pl-6 grid gap-2 m-0`}>
+        {block.items.map((item, j) => (
+          <li key={j}>
+            <Runs paragraph={item} />
+          </li>
+        ))}
+      </ul>
+    )
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={block.src}
+      alt={block.alt}
+      width={block.width}
+      height={block.height}
+      loading="lazy"
+      className="w-full h-auto rounded-[14px] border border-line my-2"
+    />
+  )
+}
+
+export default function ArticleView({ article, newsletter, guide }: Props) {
   return (
     <article className="max-w-[720px] mx-auto py-12 grid gap-12">
       <header className="grid gap-5">
@@ -39,30 +68,9 @@ export default function ArticleView({ article, newsletter }: Props) {
         ) : section.kind === 'blocks' ? (
           <section key={i} className="grid gap-4">
             <h2 className={h2Class}>{section.heading}</h2>
-            {section.blocks.map((block, i) =>
-              block.kind === 'p' ? (
-                <Prose key={i} paragraph={block.text} className={bodyClass} />
-              ) : block.kind === 'list' ? (
-                <ul key={i} className={`${bodyClass} list-disc pl-6 grid gap-2 m-0`}>
-                  {block.items.map((item, j) => (
-                    <li key={j}>
-                      <Runs paragraph={item} />
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  key={i}
-                  src={block.src}
-                  alt={block.alt}
-                  width={block.width}
-                  height={block.height}
-                  loading="lazy"
-                  className="w-full h-auto rounded-[14px] border border-line my-2"
-                />
-              ),
-            )}
+            {section.blocks.map((block, i) => (
+              <BlockView key={i} block={block} />
+            ))}
           </section>
         ) : section.kind === 'contrast' ? (
           <section key={i} className="grid gap-5">
@@ -84,6 +92,14 @@ export default function ArticleView({ article, newsletter }: Props) {
                     </span>
                     {item.gain}
                   </p>
+                  {item.link && (
+                    <Link
+                      href={item.link.href}
+                      className="text-[0.88rem] font-semibold text-rose hover:text-anchor transition-colors duration-200"
+                    >
+                      {item.link.text} →
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -114,11 +130,31 @@ export default function ArticleView({ article, newsletter }: Props) {
                 {item.answer.map((p, i) => (
                   <Prose key={i} paragraph={p} className={bodyClass} />
                 ))}
+                {item.blocks?.map((block, i) => (
+                  <BlockView key={i} block={block} />
+                ))}
               </dd>
             </div>
           ))}
         </dl>
       </section>
+
+      {guide && (
+        <Link
+          href={guide.href}
+          className="group grid gap-3 bg-card rounded-[14px] px-6 py-7 border border-line no-underline transition-transform duration-200 hover:-translate-y-px"
+          style={{ boxShadow: '0 8px 16px rgba(60, 40, 42, 0.05)' }}
+        >
+          <span className="text-[0.72rem] font-bold tracking-[0.15em] uppercase text-rose bg-stone rounded-full px-3 py-1 self-start">
+            {guide.tag}
+          </span>
+          <h2 className="font-serif text-[1.3rem] text-anchor leading-[1.2]">{guide.title}</h2>
+          <p className="text-slate leading-[1.6] text-[0.92rem]">{guide.summary}</p>
+          <span className="mt-1 text-[0.85rem] font-semibold text-rose group-hover:text-anchor transition-colors duration-200">
+            {guide.cta} →
+          </span>
+        </Link>
+      )}
 
       <section className="grid gap-4 justify-items-center text-center bg-stone rounded-[14px] border border-line px-6 py-10">
         <span className="text-[0.78rem] font-extrabold tracking-[0.22em] uppercase text-rose">

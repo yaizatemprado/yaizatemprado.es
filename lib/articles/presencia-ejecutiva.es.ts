@@ -3,7 +3,7 @@ import type { Article } from './types'
 const DIAGNOSTICO = 'https://cal.com/yaiza-temprado/diagnostico'
 
 // Copy approved by Yaiza on 18-sep-2026. The text she edits lives in the vault,
-// initiatives/website-revamp/2026-09-17-borrador-presencia-ejecutiva.md.
+// proyectos/optimizacion-seo/paginas/2026-09-17-borrador-presencia-ejecutiva.md.
 // Words are hers: edit here only with her OK.
 const article: Article = {
   slug: 'presencia-ejecutiva',
@@ -107,6 +107,7 @@ const article: Article = {
           title: 'Pasarle la pregunta a quien tiene más rango',
           lose: 'Te preguntan a ti y dejas que conteste tu jefe, o la persona con el cargo más alto de la sala. Tú lo vives como respeto. Lo que se lee es que ahí no pintas nada, y la siguiente pregunta ya no te la hacen a ti.',
           gain: 'Contestas tú. Aunque sea con un «esto lo miro y mañana te digo algo».',
+          link: { text: 'Cómo hablar en reuniones de trabajo', href: '/es/recursos/como-hablar-en-reuniones-de-trabajo/' },
         },
         {
           title: 'Explicar lo que nadie te ha preguntado',

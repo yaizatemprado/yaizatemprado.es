@@ -3,7 +3,7 @@ import type { Article } from './types'
 const DIAGNOSTICO = 'https://cal.com/yaiza-temprado/diagnostico'
 
 // Copy approved by Yaiza on 13-sep-2026 (v7 of the draft in the vault,
-// initiatives/website-revamp/2026-09-13-borrador-que-lo-pague-tu-empresa.html).
+// proyectos/optimizacion-seo/paginas/2026-09-13-borrador-que-lo-pague-tu-empresa.html).
 // Words are hers: edit here only with her OK.
 const article: Article = {
   slug: 'que-lo-pague-tu-empresa',

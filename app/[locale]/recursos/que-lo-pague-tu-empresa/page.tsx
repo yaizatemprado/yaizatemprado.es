@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getDictionary } from '@/lib/i18n'
-import { getArticle, localesOf, plainText } from '@/lib/articles'
+import { faqText, getArticle, localesOf } from '@/lib/articles'
 import { alternates, openGraph, SITE_URL } from '@/lib/seo'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -58,7 +58,7 @@ export default async function ArticlePage({ params: { locale } }: Props) {
       mainEntity: article.faq.map((item) => ({
         '@type': 'Question',
         name: item.question,
-        acceptedAnswer: { '@type': 'Answer', text: plainText(item.answer) },
+        acceptedAnswer: { '@type': 'Answer', text: faqText(item) },
       })),
     },
   ]
