@@ -8,10 +8,13 @@ export type Run =
 
 export type Paragraph = Run[]
 
+/** A bullet: one paragraph, or one paragraph with a nested list under it. */
+export type ListItem = Paragraph | { text: Paragraph; items: Paragraph[] }
+
 /** A piece of a 'blocks' section: prose, a bulleted list or an image. */
 export type Block =
   | { kind: 'p'; text: Paragraph }
-  | { kind: 'list'; items: Paragraph[] }
+  | { kind: 'list'; items: ListItem[] }
   | { kind: 'image'; src: string; alt: string; width: number; height: number }
 
 export type ArticleSection =

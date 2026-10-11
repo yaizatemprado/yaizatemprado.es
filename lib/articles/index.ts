@@ -3,8 +3,9 @@ import queLoPagueTuEmpresaEs from './que-lo-pague-tu-empresa.es'
 import queLoPagueTuEmpresaEn from './que-lo-pague-tu-empresa.en'
 import presenciaEjecutivaEs from './presencia-ejecutiva.es'
 import comoHablarEnReunionesEs from './como-hablar-en-reuniones-de-trabajo.es'
+import comoHablarConTuJefeEs from './como-hablar-con-tu-jefe-de-un-problema.es'
 
-export type { Article, ArticleSection, Block, Paragraph, Run } from './types'
+export type { Article, ArticleSection, Block, ListItem, Paragraph, Run } from './types'
 
 // One entry per slug per locale. A slug can exist in one language or in both.
 export const articles: Article[] = [
@@ -12,6 +13,7 @@ export const articles: Article[] = [
   queLoPagueTuEmpresaEn,
   presenciaEjecutivaEs,
   comoHablarEnReunionesEs,
+  comoHablarConTuJefeEs,
 ]
 
 export function articlesFor(locale: string): Article[] {
@@ -41,6 +43,12 @@ export function plainText(paragraphs: Paragraph[]): string {
 
 /** Plain text of a FAQ answer, list items included, for the FAQPage schema. */
 export function faqText(item: Article['faq'][number]): string {
-  const listItems = (item.blocks ?? []).flatMap((b) => (b.kind === 'list' ? b.items : b.kind === 'p' ? [b.text] : []))
+  const listItems = (item.blocks ?? []).flatMap((b) =>
+    b.kind === 'list'
+      ? b.items.flatMap((li) => (Array.isArray(li) ? [li] : [li.text, ...li.items]))
+      : b.kind === 'p'
+        ? [b.text]
+        : [],
+  )
   return plainText([...item.answer, ...listItems])
 }

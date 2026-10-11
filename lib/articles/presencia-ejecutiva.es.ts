@@ -118,6 +118,7 @@ const article: Article = {
           title: 'Subir problemas sin propuesta, o subirlos todos',
           lose: 'Le llevas a tu jefe un problema y esperas a que decida él. O le llevas todos, aunque sea con solución. En los dos casos, lo que le llega es que todavía no distingues qué merece su tiempo.',
           gain: 'Discernimiento. Resuelves lo que es tuyo, y lo que subes llega con una recomendación.',
+          link: { text: 'Cómo hablar con tu jefe de un problema', href: '/es/recursos/como-hablar-con-tu-jefe-de-un-problema/' },
         },
         {
           title: 'Reaccionar a todo con mucha emoción',

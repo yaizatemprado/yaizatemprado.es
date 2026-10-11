@@ -17,11 +17,24 @@ function BlockView({ block }: { block: Block }) {
   if (block.kind === 'list')
     return (
       <ul className={`${bodyClass} list-disc pl-6 grid gap-2 m-0`}>
-        {block.items.map((item, j) => (
-          <li key={j}>
-            <Runs paragraph={item} />
-          </li>
-        ))}
+        {block.items.map((item, j) =>
+          Array.isArray(item) ? (
+            <li key={j}>
+              <Runs paragraph={item} />
+            </li>
+          ) : (
+            <li key={j}>
+              <Runs paragraph={item.text} />
+              <ul className="list-[circle] pl-6 grid gap-1 mt-2">
+                {item.items.map((sub, k) => (
+                  <li key={k}>
+                    <Runs paragraph={sub} />
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ),
+        )}
       </ul>
     )
   return (
