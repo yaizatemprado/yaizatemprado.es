@@ -5,6 +5,7 @@ import presenciaEjecutivaEs from './presencia-ejecutiva.es'
 import comoHablarEnReunionesEs from './como-hablar-en-reuniones-de-trabajo.es'
 import comoHablarConTuJefeEs from './como-hablar-con-tu-jefe-de-un-problema.es'
 import comoGestionarLasEmocionesEs from './como-gestionar-las-emociones-en-el-trabajo.es'
+import comoTenerAutoridadEs from './como-tener-autoridad-en-el-trabajo.es'
 
 export type { Article, ArticleSection, Block, ListItem, Paragraph, Run } from './types'
 
@@ -16,6 +17,7 @@ export const articles: Article[] = [
   comoHablarEnReunionesEs,
   comoHablarConTuJefeEs,
   comoGestionarLasEmocionesEs,
+  comoTenerAutoridadEs,
 ]
 
 export function articlesFor(locale: string): Article[] {

@@ -113,6 +113,7 @@ const article: Article = {
           title: 'Explicar lo que nadie te ha preguntado',
           lose: 'Das una respuesta y detrás van tres motivos que nadie te ha pedido. Parece que te justificas, y cada justificación le quita peso a lo que acabas de decir.',
           gain: 'Dices la respuesta y te callas. ¡No rellenes! Si quieren saber por qué, ya te lo preguntarán.',
+          link: { text: 'Cómo tener autoridad en el trabajo', href: '/es/recursos/como-tener-autoridad-en-el-trabajo/' },
         },
         {
           title: 'Subir problemas sin propuesta, o subirlos todos',
