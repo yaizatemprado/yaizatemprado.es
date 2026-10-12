@@ -124,6 +124,7 @@ const article: Article = {
           title: 'Reaccionar a todo con mucha emoción',
           lose: 'Una mala noticia te descoloca y se te nota. Una buena te dispara igual. Quien reacciona fuerte a todo transmite que las cosas le pueden.',
           gain: 'Templanza. Te tomas las cosas en serio, lo bueno y lo malo, pero con calma. Gestionar tus emociones es lo que te permite gestionar las de los demás.',
+          link: { text: 'Cómo gestionar las emociones en el trabajo', href: '/es/recursos/como-gestionar-las-emociones-en-el-trabajo/' },
         },
         {
           title: 'Contar tu trabajo en tareas',
