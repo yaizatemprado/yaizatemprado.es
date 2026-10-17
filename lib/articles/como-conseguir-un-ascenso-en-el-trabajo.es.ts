@@ -113,6 +113,10 @@ const article: Article = {
           title: "De pedir permiso a declarar",
           lose: "«¿Tú crees que debería ir a esta reunión?». «¿Cuál es exactamente mi rol aquí?». Pones la decisión en manos de otra persona.",
           gain: "«Quiero llevar esto así. ¿Le ves algún problema?». Declaras, y pides objeciones.",
+          link: {
+            text: "Me prometieron un ascenso y no me lo dieron",
+            href: "/es/recursos/me-prometieron-un-ascenso-y-no-me-lo-dieron/",
+          },
         },
         {
           title: "De demostrar lo que sabes a no tener que demostrarlo",
@@ -242,6 +246,14 @@ const article: Article = {
       answer: [
         [
           "Pasa muchísimo. Lo primero es nombrar el desajuste, sin acusar: «Me dijiste que este ciclo tocaba, y no ha pasado. ¿Qué ha cambiado?».",
+        ],
+        [
+          "Lo cuento con más detalle en ",
+          {
+            text: "me prometieron un ascenso y no me lo dieron",
+            href: "/es/recursos/me-prometieron-un-ascenso-y-no-me-lo-dieron/",
+          },
+          ".",
         ],
       ],
     },
