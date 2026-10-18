@@ -108,6 +108,10 @@ const article: Article = {
           title: "De resolver a decidir sin tener toda la información",
           lose: "Esperas a tenerlo todo claro antes de decidir. Mientras, la decisión la toma otro, o no la toma nadie.",
           gain: "Decides con la información que tienes, aunque sea imperfecta. Mejor un plan malo que ningún plan: un plan se puede corregir.",
+          link: {
+            text: "Miedo a equivocarme en el trabajo",
+            href: "/es/recursos/miedo-a-equivocarme-en-el-trabajo/",
+          },
         },
         {
           title: "De tu equipo a tu jefe",

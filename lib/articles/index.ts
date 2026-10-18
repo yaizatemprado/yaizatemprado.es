@@ -9,6 +9,7 @@ import comoTenerAutoridadEs from './como-tener-autoridad-en-el-trabajo.es'
 import comoConseguirUnAscensoEs from './como-conseguir-un-ascenso-en-el-trabajo.es'
 import mePrometieronUnAscensoEs from './me-prometieron-un-ascenso-y-no-me-lo-dieron.es'
 import noMeValoranEs from './no-me-valoran-en-el-trabajo.es'
+import miedoAEquivocarmeEs from './miedo-a-equivocarme-en-el-trabajo.es'
 
 export type { Article, ArticleSection, Block, ListItem, Paragraph, Run } from './types'
 
@@ -24,6 +25,7 @@ export const articles: Article[] = [
   comoConseguirUnAscensoEs,
   mePrometieronUnAscensoEs,
   noMeValoranEs,
+  miedoAEquivocarmeEs,
 ]
 
 export function articlesFor(locale: string): Article[] {
