@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import type { Dictionary } from '@/lib/i18n/types'
 
@@ -15,6 +16,9 @@ export default function Header({ locale, dict }: Props) {
   const [activeHash, setActiveHash] = useState('#about')
   const [menuOpen, setMenuOpen] = useState(false)
   const observerRef = useRef<IntersectionObserver | null>(null)
+  const pathname = usePathname() ?? ''
+  // Hash links only mean something on the home page; elsewhere the active link is the page's section.
+  const isHome = pathname.replace(/\/$/, '') === `/${locale}`
 
   // The root layout is shared by both locales, so the <html lang> is set here
   // once the page is on the client. Static HTML ships lang="es" (the default).
@@ -55,7 +59,11 @@ export default function Header({ locale, dict }: Props) {
   ]
 
   const linkClass = (href: string) => {
-    const isActive = href.includes(activeHash)
+    // Program pages are reached from the services section, so they light up «Servicios».
+    const onProgram = pathname.startsWith(`/${locale}/programas`)
+    const isActive = href.endsWith('#services') && onProgram
+      ? true
+      : href.includes('#') ? isHome && href.endsWith(activeHash) : pathname.startsWith(href)
     return [
       'no-underline font-medium transition-colors duration-200 relative pb-1.5',
       isActive
