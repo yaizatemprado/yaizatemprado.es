@@ -13,7 +13,7 @@ const PATH = `recursos/${SLUG}`
 
 type Props = { params: { locale: string } }
 
-// Published in whichever locales have a copy (Spanish only for now).
+// Spanish only: the English copy lives at how-to-manage-emotions-at-work.
 export async function generateStaticParams() {
   return localesOf(SLUG).map((locale) => ({ locale }))
 }

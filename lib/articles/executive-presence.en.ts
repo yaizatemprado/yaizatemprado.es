@@ -4,8 +4,8 @@ const DIAGNOSTIC = 'https://cal.com/yaiza-temprado/diagnostic-session'
 
 // English copy of presencia-ejecutiva, approved by Yaiza on 18-oct-2026. The
 // text lives in the vault, proyectos/optimizacion-seo/paginas/
-// 2026-10-18-borrador-executive-presence.md. Each drop links to its child page
-// once that page has an English copy. Edit with her OK.
+// 2026-10-18-borrador-executive-presence.md. The drops link to their child
+// pages like the Spanish copy (the fifth one doesn't, there either). Edit with her OK.
 const article: Article = {
   slug: 'executive-presence',
   translationOf: 'presencia-ejecutiva',
@@ -107,21 +107,25 @@ const article: Article = {
           title: 'Handing the question to the most senior person',
           lose: "Someone asks you, and you let your manager answer, or the person with the biggest title in the room. To you it feels like respect. What everyone else sees is that you don't count in that room, and the next question goes straight past you.",
           gain: 'You answer. Even if it\'s "Let me look into it and get back to you tomorrow."',
+          link: { text: 'How to speak up in meetings', href: '/en/recursos/how-to-speak-up-in-meetings/' },
         },
         {
           title: 'Explaining what nobody asked',
           lose: "You give an answer and then three reasons nobody asked for. It looks like you're justifying yourself, and every justification takes weight away from what you've just said.",
           gain: "You give the answer and stop. Don't fill the silence! If they want to know why, they'll ask.",
+          link: { text: 'How to have authority at work', href: '/en/recursos/how-to-have-authority-at-work/' },
         },
         {
           title: 'Taking problems up with no proposal, or taking them all up',
           lose: "You bring your manager a problem and wait for them to decide. Or you bring them every problem, even with a solution. Either way, what they take from it is that you can't yet tell what deserves their time.",
           gain: "Judgement. You solve what's yours, and what you take up comes with a recommendation.",
+          link: { text: 'How to talk to your boss about a problem', href: '/en/recursos/how-to-talk-to-your-boss-about-a-problem/' },
         },
         {
           title: 'Reacting to everything with a lot of emotion',
           lose: 'Bad news knocks you off balance and it shows. Good news sets you off just the same. If you react strongly to everything, it looks like things get the better of you.',
           gain: "Composure. You take things seriously, good and bad, but you stay calm. Managing your own emotions is what lets you manage other people's.",
+          link: { text: 'How to manage emotions at work', href: '/en/recursos/how-to-manage-emotions-at-work/' },
         },
         {
           title: 'Talking about your work in tasks',

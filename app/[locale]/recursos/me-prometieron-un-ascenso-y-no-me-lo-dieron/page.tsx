@@ -13,7 +13,7 @@ const PATH = `recursos/${SLUG}`
 
 type Props = { params: { locale: string } }
 
-// Published in whichever locales have a copy (Spanish only for now).
+// Spanish only: the English copy lives at promised-a-promotion-and-didnt-get-it.
 export async function generateStaticParams() {
   return localesOf(SLUG).map((locale) => ({ locale }))
 }
