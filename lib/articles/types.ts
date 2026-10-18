@@ -38,10 +38,11 @@ export type ArticleSection =
 
 /**
  * A long-form page under /recursos that is read, not downloaded: no Kit form of
- * its own, unlike the guides in the dictionary. Written for one locale only.
+ * its own, unlike the guides in the dictionary. One object per locale.
  */
 export type Article = {
-  slug: string
+  slug: string // per locale: the English copy gets an English slug
+  translationOf?: string // Spanish slug this copy translates, which pairs them for hreflang
   locale: string
   published: string // ISO date, for the Article schema
   tag: string

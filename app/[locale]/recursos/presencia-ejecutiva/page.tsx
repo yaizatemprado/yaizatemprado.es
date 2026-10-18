@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getDictionary } from '@/lib/i18n'
-import { faqText, getArticle, localesOf } from '@/lib/articles'
-import { alternates, openGraph, SITE_URL } from '@/lib/seo'
+import { articlePaths, faqText, getArticle, localesOf } from '@/lib/articles'
+import { localizedAlternates, openGraph, SITE_URL } from '@/lib/seo'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import JsonLd from '@/components/seo/JsonLd'
@@ -13,7 +13,7 @@ const PATH = `recursos/${SLUG}`
 
 type Props = { params: { locale: string } }
 
-// Published in whichever locales have a copy (Spanish only for now).
+// Spanish only: the English copy lives at executive-presence.
 export async function generateStaticParams() {
   return localesOf(SLUG).map((locale) => ({ locale }))
 }
@@ -26,7 +26,7 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
   return {
     title,
     description: article.description,
-    alternates: alternates(locale, PATH, localesOf(SLUG)),
+    alternates: localizedAlternates(locale, articlePaths(SLUG)),
     openGraph: { ...openGraph(locale, title, article.description, PATH, article.socialImage), type: 'article' },
   }
 }

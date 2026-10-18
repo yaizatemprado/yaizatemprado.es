@@ -5,7 +5,8 @@ const DIAGNOSTIC = 'https://cal.com/yaiza-temprado/diagnostic-session'
 // English version of the Spanish article approved on 13-sep-2026. Same copy
 // minus the FUNDAE question, which only applies in Spain. Edit with Yaiza's OK.
 const article: Article = {
-  slug: 'que-lo-pague-tu-empresa',
+  slug: 'how-to-ask-your-company-to-pay-for-mentoring',
+  translationOf: 'que-lo-pague-tu-empresa',
   locale: 'en',
   published: '2026-09-13',
   tag: 'Companies',

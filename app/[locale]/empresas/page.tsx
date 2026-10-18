@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getDictionary, locales } from '@/lib/i18n'
 import { alternates, openGraph, SITE_URL } from '@/lib/seo'
+import { articleHref } from '@/lib/articles'
 import JsonLd from '@/components/seo/JsonLd'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -144,7 +145,7 @@ export default async function CompaniesPage({ params: { locale } }: Props) {
           {c.askGuide && (
             <p className="text-[0.92rem] text-slate">
               {c.askGuide.text}{' '}
-              <Link href={`/${locale}/recursos/que-lo-pague-tu-empresa`} className={linkClass}>
+              <Link href={articleHref('que-lo-pague-tu-empresa', locale)} className={linkClass}>
                 {c.askGuide.cta} →
               </Link>
             </p>

@@ -25,11 +25,21 @@ export function alternates(
   path = '',
   available: readonly string[] = locales,
 ): Metadata['alternates'] {
-  const tail = path ? `${path}/` : ''
+  return localizedAlternates(locale, Object.fromEntries(available.map((l) => [l, path])))
+}
+
+/**
+ * Canonical + hreflang when each locale has its own path (the articles, whose
+ * English copies carry English slugs). `paths` maps locale → path, same shape
+ * as `path` above.
+ */
+export function localizedAlternates(locale: string, paths: Record<string, string>): Metadata['alternates'] {
+  const href = (l: string) => `/${l}/${paths[l] ? `${paths[l]}/` : ''}`
+  const available = Object.keys(paths)
   const languages: Record<string, string> = {}
-  for (const l of available) languages[l] = `/${l}/${tail}`
-  languages['x-default'] = `/${available.includes(defaultLocale) ? defaultLocale : available[0]}/${tail}`
-  return { canonical: `/${locale}/${tail}`, languages }
+  for (const l of available) languages[l] = href(l)
+  languages['x-default'] = href(available.includes(defaultLocale) ? defaultLocale : available[0])
+  return { canonical: href(locale), languages }
 }
 
 /**

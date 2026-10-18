@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getDictionary, locales } from '@/lib/i18n'
 import { alternates, euroAmount, openGraph, SITE_URL } from '@/lib/seo'
+import { articleHref } from '@/lib/articles'
 import JsonLd from '@/components/seo/JsonLd'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -186,7 +187,7 @@ export default async function ProgramPage({ params: { locale, slug } }: Props) {
           </Link>
           {dict.programs.companyGuideCta && (
             <Link
-              href={`/${locale}/recursos/que-lo-pague-tu-empresa`}
+              href={articleHref('que-lo-pague-tu-empresa', locale)}
               className="text-[0.9rem] font-semibold text-rose hover:text-anchor no-underline transition-colors duration-200"
             >
               {dict.programs.companyGuideCta} →

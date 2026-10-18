@@ -2,13 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getDictionary, locales } from '@/lib/i18n'
 import { alternates, openGraph } from '@/lib/seo'
-import { articlesFor } from '@/lib/articles'
+import { articlesFor, keyOf } from '@/lib/articles'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 
 type Props = { params: { locale: string } }
 
-type Card = { slug: string; tag: string; title: string; summary: string; cta: string }
+// key: the Spanish slug, which places an article in the hub in every locale.
+type Card = { slug: string; key: string; tag: string; title: string; summary: string; cta: string }
 
 // The pillar pages open the hub: every other article hangs from one of them.
 const PILLARS = ['presencia-ejecutiva', 'como-conseguir-un-ascenso-en-el-trabajo']
@@ -36,11 +37,11 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
 
 export default async function ResourcesPage({ params: { locale } }: Props) {
   const dict = await getDictionary(locale)
-  const guides: Card[] = dict.resources.items.map((i) => ({ slug: i.slug, tag: dict.resources.guideLabel, title: i.title, summary: i.summary, cta: dict.resources.cardCta }))
-  const articles: Card[] = articlesFor(locale).map((a) => ({ slug: a.slug, tag: dict.resources.articleLabel, title: a.title, summary: a.description, cta: a.cardCta }))
-  const pillars = PILLARS.flatMap((slug) => articles.filter((a) => a.slug === slug))
-  const rest = [...guides, ...articles.filter((a) => !PILLARS.includes(a.slug) && a.slug !== COMPANY)]
-  const company = articles.some((a) => a.slug === COMPANY)
+  const guides: Card[] = dict.resources.items.map((i) => ({ slug: i.slug, key: i.slug, tag: dict.resources.guideLabel, title: i.title, summary: i.summary, cta: dict.resources.cardCta }))
+  const articles: Card[] = articlesFor(locale).map((a) => ({ slug: a.slug, key: keyOf(a), tag: dict.resources.articleLabel, title: a.title, summary: a.description, cta: a.cardCta }))
+  const pillars = PILLARS.flatMap((key) => articles.filter((a) => a.key === key))
+  const rest = [...guides, ...articles.filter((a) => !PILLARS.includes(a.key) && a.key !== COMPANY)]
+  const company = articles.find((a) => a.key === COMPANY)
 
   return (
     <main className="max-w-[1200px] mx-auto px-5 sm:px-6 pt-20 pb-20 sm:pt-24 sm:pb-[120px]" id="main">
@@ -81,7 +82,7 @@ export default async function ResourcesPage({ params: { locale } }: Props) {
             <h2 className="text-[1.1rem] font-bold text-anchor">{dict.resources.companyHeading}</h2>
             <p className="text-slate leading-[1.65] text-[0.95rem]">{dict.resources.companyBody}</p>
             <Link
-              href={`/${locale}/recursos/${COMPANY}`}
+              href={`/${locale}/recursos/${company.slug}`}
               className="text-[0.9rem] font-semibold text-rose hover:text-anchor no-underline transition-colors duration-200"
             >
               {dict.resources.companyCta} →

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { defaultLocale, getDictionary, locales } from '@/lib/i18n'
 import { SITE_URL } from '@/lib/seo'
-import { articleSlugs, localesOf } from '@/lib/articles'
+import { articlePaths, articles } from '@/lib/articles'
 
 export const dynamic = 'force-static'
 
@@ -11,7 +11,7 @@ export const dynamic = 'force-static'
  * enough to enumerate them.
  *
  * Articles can exist in one locale or both, so each lists only the languages
- * it really has.
+ * it really has, and an English copy has its own slug.
  *
  * Deliberately out: /detector (a closed campaign landing living in public/) and
  * the deja-de-pedir-permiso stubs, which are noindex redirects to the renamed
@@ -20,7 +20,8 @@ export const dynamic = 'force-static'
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const dict = await getDictionary(defaultLocale)
 
-  const pages: Array<{ path: string; priority: number; only?: string[] }> = [
+  // path: shared by every locale; paths: one per locale, for the articles.
+  const pages: Array<{ path: string; priority: number; only?: string[]; paths?: Record<string, string> }> = [
     { path: '', priority: 1 },
     { path: 'empresas', priority: 0.9 },
     ...dict.programs.items.map((i) => ({
@@ -31,7 +32,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       path: `recursos/${i.slug}`,
       priority: 0.7,
     })),
-    ...articleSlugs().map((slug) => ({ path: `recursos/${slug}`, priority: 0.7, only: localesOf(slug) })),
+    ...articles
+      .filter((a) => !a.translationOf)
+      .map((a) => {
+        const paths = articlePaths(a.slug)
+        return { path: `recursos/${a.slug}`, priority: 0.7, only: Object.keys(paths), paths }
+      }),
     { path: 'recursos', priority: 0.6 },
     { path: 'newsletter', priority: 0.5 },
   ]
@@ -41,17 +47,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const lastModified = new Date()
 
-  return pages.flatMap(({ path, priority, only }) => {
+  return pages.flatMap(({ path, priority, only, paths }) => {
     const langs = only ?? [...locales]
+    const at = (l: string) => url(l, paths?.[l] ?? path)
     return langs.map((locale) => ({
-      url: url(locale, path),
+      url: at(locale),
       lastModified,
       changeFrequency: 'monthly' as const,
       priority,
       alternates: {
         languages: {
-          ...Object.fromEntries(langs.map((l) => [l, url(l, path)])),
-          'x-default': url(langs.includes(defaultLocale) ? defaultLocale : langs[0], path),
+          ...Object.fromEntries(langs.map((l) => [l, at(l)])),
+          'x-default': at(langs.includes(defaultLocale) ? defaultLocale : langs[0]),
         },
       },
     }))
