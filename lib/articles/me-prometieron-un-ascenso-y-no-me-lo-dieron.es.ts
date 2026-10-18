@@ -305,6 +305,11 @@ const article: Article = {
         [
           "Casi siempre, porque lo que te ha hecho buena en tu puesto no es lo que te hace falta en el siguiente, y nadie te lo ha explicado. Lo cuento en ",
           { text: "cómo conseguir un ascenso en el trabajo", href: PILAR },
+          ". Y si sientes que trabajas muchísimo y no se te ve, lo cuento en ",
+          {
+            text: "no me valoran en el trabajo",
+            href: "/es/recursos/no-me-valoran-en-el-trabajo/",
+          },
           ".",
         ],
       ],

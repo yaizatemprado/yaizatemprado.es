@@ -8,6 +8,7 @@ import comoGestionarLasEmocionesEs from './como-gestionar-las-emociones-en-el-tr
 import comoTenerAutoridadEs from './como-tener-autoridad-en-el-trabajo.es'
 import comoConseguirUnAscensoEs from './como-conseguir-un-ascenso-en-el-trabajo.es'
 import mePrometieronUnAscensoEs from './me-prometieron-un-ascenso-y-no-me-lo-dieron.es'
+import noMeValoranEs from './no-me-valoran-en-el-trabajo.es'
 
 export type { Article, ArticleSection, Block, ListItem, Paragraph, Run } from './types'
 
@@ -22,6 +23,7 @@ export const articles: Article[] = [
   comoTenerAutoridadEs,
   comoConseguirUnAscensoEs,
   mePrometieronUnAscensoEs,
+  noMeValoranEs,
 ]
 
 export function articlesFor(locale: string): Article[] {

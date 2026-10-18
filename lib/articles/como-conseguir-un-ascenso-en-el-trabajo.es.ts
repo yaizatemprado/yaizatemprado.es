@@ -81,7 +81,12 @@ const article: Article = {
         {
           kind: "p",
           text: [
-            "La de la viñeta es lo que yo llamo el caballo de batalla. Su jefe confía en ella: sabe que lo va a sacar todo. Pero le cuesta mucho esfuerzo, porque tiene que estar diciéndole cada semana qué es lo importante. Y como siempre cumple, nadie la mueve de donde está.",
+            "La de la viñeta es lo que yo llamo la Cenicienta. Su jefe confía en ella: sabe que lo va a sacar todo. Pero como siempre cumple y no molesta, nadie la mueve de donde está. Lo cuento entero en ",
+            {
+              text: "no me valoran en el trabajo",
+              href: "/es/recursos/no-me-valoran-en-el-trabajo/",
+            },
+            ".",
           ],
         },
       ],
