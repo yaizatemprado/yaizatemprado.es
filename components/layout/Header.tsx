@@ -77,7 +77,7 @@ export default function Header({ locale, dict }: Props) {
       <button
         type="button"
         onClick={() => setMenuOpen(!menuOpen)}
-        className="md:hidden p-2 text-anchor"
+        className="lg:hidden p-2 text-anchor"
         aria-label={menuOpen ? 'Close menu' : 'Open menu'}
         aria-expanded={menuOpen}
       >
@@ -91,7 +91,7 @@ export default function Header({ locale, dict }: Props) {
       </button>
 
       {/* Desktop nav */}
-      <nav aria-label="Primary" className="hidden md:flex items-center gap-7 text-[0.9rem]">
+      <nav aria-label="Primary" className="hidden lg:flex items-center gap-7 text-[0.9rem]">
         {navLinks.map(({ href, label }) => (
           <a key={href} href={href} className={linkClass(href)}>
             {label}
@@ -104,7 +104,7 @@ export default function Header({ locale, dict }: Props) {
       {menuOpen && (
         <nav
           aria-label="Primary"
-          className="absolute top-full mt-3 left-0 right-0 z-50 bg-cream border border-line rounded-2xl shadow-lg px-6 py-6 flex flex-col gap-5 text-[1rem] md:hidden"
+          className="absolute top-full mt-3 left-0 right-0 z-50 bg-cream border border-line rounded-2xl shadow-lg px-6 py-6 flex flex-col gap-5 text-[1rem] lg:hidden"
         >
           {navLinks.map(({ href, label }) => (
             <a

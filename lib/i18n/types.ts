@@ -118,6 +118,12 @@ export type Dictionary = {
     // Card labels on the /recursos hub, by format (the item's own tag is for its page)
     guideLabel: string
     articleLabel: string
+    // Hub layout: the pillar pages first, then everything else, then the company box
+    startHeading: string
+    moreHeading: string
+    companyHeading: string
+    companyBody: string
+    companyCta: string
     backLabel: string
     insideHeading: string
     forWhoLabel: string
