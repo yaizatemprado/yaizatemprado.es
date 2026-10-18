@@ -154,6 +154,12 @@ const article: Article = {
       ],
     },
   ],
+  booking: {
+    text: 'Si te lo acaban de decir y no sabes por dónde empezar, tengo 15 minutos para mirarlo contigo.',
+    cta: 'Reservar el diagnóstico gratis',
+    href: DIAGNOSTICO,
+    newsletterLine: '¿Todavía no? Te escribo 2-3 emails al mes (no más) sobre estas cosas.',
+  },
   faqHeading: 'Preguntas frecuentes',
   faq: [
     {

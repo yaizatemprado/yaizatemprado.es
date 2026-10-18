@@ -57,4 +57,7 @@ export type Article = {
   // blocks: lists or images that follow the answer's paragraphs.
   faq: Array<{ question: string; answer: Paragraph[]; blocks?: Block[] }>
   guide?: string // slug of a dictionary guide, shown as a card before the newsletter
+  // For pages read by someone with the problem on them this week: the call to the
+  // free diagnostic becomes the main block and the newsletter shrinks to one line.
+  booking?: { text: string; cta: string; href: string; newsletterLine: string }
 }

@@ -169,16 +169,40 @@ export default function ArticleView({ article, newsletter, guide }: Props) {
         </Link>
       )}
 
-      <section className="grid gap-4 justify-items-center text-center bg-stone rounded-[14px] border border-line px-6 py-10">
-        <span className="text-[0.78rem] font-extrabold tracking-[0.22em] uppercase text-rose">
-          {newsletter.eyebrow}
-        </span>
-        <h2 className={h2Class}>{newsletter.heading}</h2>
-        <p className="text-slate leading-[1.7] text-[0.98rem] max-w-[540px]">{newsletter.body}</p>
-        <div className="w-full max-w-[480px]">
-          <SubscribeForm dict={newsletter} />
+      {article.booking ? (
+        <div className="grid gap-6">
+          <section className="grid gap-5 justify-items-center text-center bg-stone rounded-[14px] border border-line px-6 py-10">
+            <p className="font-serif text-anchor leading-[1.3] text-[1.3rem] sm:text-[1.5rem] max-w-[540px]">
+              {article.booking.text}
+            </p>
+            <a
+              href={article.booking.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary px-[26px] py-3 text-[0.95rem]"
+            >
+              {article.booking.cta}
+            </a>
+          </section>
+          <div className="grid gap-3 justify-items-center text-center">
+            <p className="text-slate leading-[1.6] text-[0.95rem]">{article.booking.newsletterLine}</p>
+            <div className="w-full max-w-[480px]">
+              <SubscribeForm dict={newsletter} quiet />
+            </div>
+          </div>
         </div>
-      </section>
+      ) : (
+        <section className="grid gap-4 justify-items-center text-center bg-stone rounded-[14px] border border-line px-6 py-10">
+          <span className="text-[0.78rem] font-extrabold tracking-[0.22em] uppercase text-rose">
+            {newsletter.eyebrow}
+          </span>
+          <h2 className={h2Class}>{newsletter.heading}</h2>
+          <p className="text-slate leading-[1.7] text-[0.98rem] max-w-[540px]">{newsletter.body}</p>
+          <div className="w-full max-w-[480px]">
+            <SubscribeForm dict={newsletter} />
+          </div>
+        </section>
+      )}
     </article>
   )
 }

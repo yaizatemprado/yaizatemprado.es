@@ -5,13 +5,15 @@ import type { Dictionary } from '@/lib/i18n/types'
 
 type Props = {
   dict: Dictionary['newsletter']
+  // quiet: secondary button, for when another call to action leads the block.
+  quiet?: boolean
 }
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
 const KIT_FORM_URL = 'https://app.kit.com/forms/9195993/subscriptions'
 
-export default function SubscribeForm({ dict }: Props) {
+export default function SubscribeForm({ dict, quiet }: Props) {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<Status>('idle')
 
@@ -50,11 +52,12 @@ export default function SubscribeForm({ dict }: Props) {
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="rounded-xl px-8 py-3 text-[0.95rem] font-semibold text-white no-underline transition-transform duration-200 hover:-translate-y-px disabled:opacity-60 disabled:cursor-not-allowed"
-          style={{
-            background: '#cc6c4e',
-            boxShadow: '0 6px 14px rgba(46, 35, 36, 0.12)',
-          }}
+          className={
+            quiet
+              ? 'btn-secondary px-8 py-3 text-[0.95rem] disabled:opacity-60 disabled:cursor-not-allowed'
+              : 'rounded-xl px-8 py-3 text-[0.95rem] font-semibold text-white no-underline transition-transform duration-200 hover:-translate-y-px disabled:opacity-60 disabled:cursor-not-allowed'
+          }
+          style={quiet ? undefined : { background: '#cc6c4e', boxShadow: '0 6px 14px rgba(46, 35, 36, 0.12)' }}
         >
           {status === 'loading' ? '...' : dict.submit}
         </button>

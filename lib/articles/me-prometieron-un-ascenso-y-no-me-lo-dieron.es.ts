@@ -297,6 +297,12 @@ const article: Article = {
       ],
     },
   ],
+  booking: {
+    text: "Si la conversación con tu jefe es esta semana, tengo 15 minutos para prepararla contigo.",
+    cta: "Reservar el diagnóstico gratis",
+    href: DIAGNOSTICO,
+    newsletterLine: "¿Todavía no? Te escribo 2-3 emails al mes (no más) sobre estas cosas.",
+  },
   faqHeading: "Preguntas frecuentes",
   faq: [
     {
