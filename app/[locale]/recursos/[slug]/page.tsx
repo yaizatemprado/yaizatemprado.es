@@ -204,7 +204,7 @@ export default async function ResourcePage({ params: { locale, slug } }: Props) 
                       rel="noopener noreferrer"
                       className="w-full text-center rounded-xl px-6 py-3 text-[0.95rem] font-semibold text-white no-underline transition-transform duration-200 hover:-translate-y-px"
                       style={{
-                        background: '#cc6c4e',
+                        background: '#af5033',
                         boxShadow: '0 6px 14px rgba(46, 35, 36, 0.12)',
                       }}
                     >

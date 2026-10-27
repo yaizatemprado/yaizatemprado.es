@@ -18,8 +18,8 @@ const config: Config = {
         anchor: '#2e2324',
         plum: '#3a2b2c',
         rose: {
-          DEFAULT: '#cc6c4e',
-          dark: '#b45b41',
+          DEFAULT: '#af5033',
+          dark: '#9a462c',
         },
         slate: '#5e4b4c',
         card: '#ffffff',
