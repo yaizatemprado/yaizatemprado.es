@@ -24,6 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const pages: Array<{ path: string; priority: number; only?: string[]; paths?: Record<string, string> }> = [
     { path: '', priority: 1 },
     { path: 'empresas', priority: 0.9 },
+    { path: 'clubpericia', priority: 0.9, only: ['es'] },
     ...dict.programs.items.map((i) => ({
       path: `programas/${i.slug}`,
       priority: 0.8,
