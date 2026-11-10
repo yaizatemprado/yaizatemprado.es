@@ -4,7 +4,7 @@ const es: Dictionary = {
   meta: {
     title: 'Yaiza Temprado — Comunicación, influencia y liderazgo',
     description:
-      'Fundadora del Club Pericia y mentora de liderazgo. 20 años en corporate, siete empresas de sectores distintos y toda la cadena de mando recorrida. Mentoría 1:1 para managers y directivos de entornos técnicos: comunicar con peso, hacerse escuchar, sacar reuniones que decidan y ganar presencia donde se decide. También pagada por la empresa.',
+      'Fundadora del Club Pericia y mentora de liderazgo. 20 años en corporate, siete empresas de sectores distintos y toda la cadena de mando recorrida. Mentoría individual para managers y directivos de entornos técnicos: comunicar con peso, hacerse escuchar, sacar reuniones que decidan y ganar presencia donde se decide. También pagada por la empresa.',
   },
   nav: {
     about: 'Sobre mí',
@@ -18,7 +18,7 @@ const es: Dictionary = {
   hero: {
     eyebrow: 'Mentoría y formación en liderazgo · Fundadora del Club Pericia',
     heading: 'Liderar y que de verdad te escuchen.',
-    lead: 'Las reuniones que no deciden nada, las ideas buenas que no salen adelante, las salas donde cuesta que te tomen en serio. Las conozco porque han sido las mías: 20 años en corporate, de ingeniera a Directora Senior. Te ayudo a cambiarlo en 1:1, en grupo en el Club Pericia o con tu equipo.',
+    lead: 'Las reuniones que no deciden nada, las ideas buenas que no salen adelante, las salas donde cuesta que te tomen en serio. Las conozco porque han sido las mías: 20 años en corporate, de ingeniera a Directora Senior. Te ayudo a cambiarlo en mentoría individual, en grupo en el Club Pericia o con tu equipo.',
     ctaPrimary: 'Reserva tu diagnóstico de 15 min',
     ctaSecondary: 'Conoce el Club Pericia',
     ctaPrimaryHref: 'https://cal.com/yaiza-temprado/diagnostico?canal=web-home',
@@ -218,7 +218,7 @@ const es: Dictionary = {
   },
   companies: {
     eyebrow: 'Para empresas',
-    heading: 'Mentoría 1:1 para managers y directivos, pagada por la empresa',
+    heading: 'Mentoría individual para managers y directivos, pagada por la empresa',
     lead: 'Esta página es para dos personas: quien quiere hacer el programa y quien lo aprueba. Si apruebas tú, en dos minutos sabes qué es, qué gana tu equipo y cuánto cuesta.',
     whatHeading: 'Qué es',
     whatBody:

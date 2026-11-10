@@ -39,7 +39,7 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
 // page's own copy, which is the rule: schema has to match what a reader sees.
 const FAQ_QUESTIONS: Record<string, string[]> = {
   es: [
-    '¿Qué es exactamente el programa de mentoría 1:1?',
+    '¿Qué es exactamente el programa de mentoría individual?',
     '¿Qué gana la empresa que lo paga?',
     '¿Cómo funciona y cuánto dura?',
     '¿Cuánto cuesta y cómo se factura?',
