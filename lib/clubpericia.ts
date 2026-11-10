@@ -22,7 +22,8 @@ export const club = {
   title: 'Club Pericia — Liderazgo con IA | Yaiza Temprado',
   description:
     'Para quien propone, le dicen que sí y no pasa nada. Cuatro semanas en grupo para que tus ideas salgan adelante, con la IA que ya usas en el trabajo.',
-  eyebrow: 'Club Pericia · Liderazgo con IA',
+  // The hero shows «CLUB», Ali's wordmark and this line next to its triangle (no second «Pericia»).
+  eyebrow: 'Liderazgo con IA',
   heading: 'Propones algo con sentido. Todos asienten. Y no pasa nada.',
   lead:
     'Mientras, oyes que gente en puestos como el tuyo usa la IA para todo, y no terminas de ver a qué se refieren. El Club Pericia son cuatro semanas en grupo para que tus ideas salgan adelante y se sepa que son tuyas, con la IA que ya tienes en el trabajo haciendo el trabajo pesado.',

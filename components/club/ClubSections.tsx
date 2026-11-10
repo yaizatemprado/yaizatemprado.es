@@ -5,6 +5,12 @@ import { club, BRAND, PRIMARY, DIAGNOSTIC_URL } from '@/lib/clubpericia'
 const h2 = 'font-sans font-extrabold text-[1.5rem] sm:text-[1.85rem] leading-[1.2] tracking-[-0.01em]'
 const body = 'leading-[1.7] text-[0.98rem] sm:text-[1.02rem]'
 const card = 'rounded-[14px] px-5 py-5 border'
+// «CLUB» and «LIDERAZGO CON IA» around the wordmark, eyebrow size. With leading-none the baseline sits
+// 0.117 em above the box bottom (Manrope), hence the translate to rest the tagline on the triangle's base.
+// The tagline's tracking stretches it to end where the white bar ends (Yaiza, 10/11): its glyphs are 9.28 em
+// wide, so 15 gaps fill 141 px on mobile (170 px wordmark, 12.5 px type) and 174 px on desktop (210 px, 15 px type,
+// bigger so the letters don't drift apart).
+const lockup = 'text-[0.78rem] font-extrabold tracking-[0.2em] uppercase leading-none'
 
 export function Ctas({ onDark = false, primaryOnly = false }: { onDark?: boolean; primaryOnly?: boolean }) {
   return (
@@ -36,18 +42,28 @@ export function Ctas({ onDark = false, primaryOnly = false }: { onDark?: boolean
 export function Hero() {
   return (
     <header className="grid gap-5 rounded-[20px] px-6 py-10 sm:px-12 sm:py-14" style={{ background: BRAND.night, color: BRAND.cream }}>
-      {/* Ali's horizontal logo already sits on night blue, so it blends into the hero. */}
-      <img
-        src="/assets/pericia-logo-500.png"
-        srcSet="/assets/pericia-logo-500.png 1x, /assets/pericia-logo-1000.png 2x"
-        alt="Pericia"
-        width={500}
-        height={259}
-        className="w-[150px] sm:w-[180px] h-auto -ml-2"
-      />
-      <span className="text-[0.78rem] font-extrabold tracking-[0.2em] uppercase" style={{ color: BRAND.terracotta }}>
-        {club.eyebrow}
-      </span>
+      {/* Lockup drawn by Yaiza (10/11): «CLUB» above Ali's wordmark, and «LIDERAZGO CON IA» running out from
+          the triangle, both terracotta. The wordmark is pericia-wordmark-*.png (navy box cropped off), so its
+          left edge is the «p» stem; the triangle sits at 79-100 % of its height and ends at ~14 % of its width. */}
+      <div className="grid">
+        <span className={`${lockup} block !text-[20px] -mb-[1.7px]`} style={{ color: BRAND.terracotta }}>Club</span>
+        <div className="relative w-[170px] sm:w-[210px] mb-5 sm:mb-6">
+          <img
+            src="/assets/pericia-wordmark-400.png"
+            srcSet="/assets/pericia-wordmark-400.png 1x, /assets/pericia-wordmark-800.png 2x"
+            alt="Pericia"
+            width={400}
+            height={189}
+            className="block w-full h-auto"
+          />
+          <span
+            className={`${lockup} !tracking-[0.135em] sm:!text-[15px] sm:!tracking-[0.156em] absolute left-[17%] bottom-[0.3%] translate-y-[0.117em] whitespace-nowrap`}
+            style={{ color: BRAND.terracotta }}
+          >
+            {club.eyebrow}
+          </span>
+        </div>
+      </div>
       <h1 className="font-sans font-extrabold leading-[1.12] tracking-[-0.02em]" style={{ fontSize: 'clamp(1.9rem, 5vw, 3.1rem)' }}>
         {club.heading}
       </h1>
