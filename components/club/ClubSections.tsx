@@ -36,6 +36,15 @@ export function Ctas({ onDark = false, primaryOnly = false }: { onDark?: boolean
 export function Hero() {
   return (
     <header className="grid gap-5 rounded-[20px] px-6 py-10 sm:px-12 sm:py-14" style={{ background: BRAND.night, color: BRAND.cream }}>
+      {/* Ali's horizontal logo already sits on night blue, so it blends into the hero. */}
+      <img
+        src="/assets/pericia-logo-500.png"
+        srcSet="/assets/pericia-logo-500.png 1x, /assets/pericia-logo-1000.png 2x"
+        alt="Pericia"
+        width={500}
+        height={259}
+        className="w-[150px] sm:w-[180px] h-auto -ml-2"
+      />
       <span className="text-[0.78rem] font-extrabold tracking-[0.2em] uppercase" style={{ color: BRAND.terracotta }}>
         {club.eyebrow}
       </span>
