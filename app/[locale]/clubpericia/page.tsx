@@ -6,7 +6,7 @@ import JsonLd from '@/components/seo/JsonLd'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { Hero, Scenes, Outcomes, Numbered } from '@/components/club/ClubSections'
-import { Edition, Who, Testimonials, Faq, Closing } from '@/components/club/ClubDetails'
+import { Edition, Who, Faq, Closing } from '@/components/club/ClubDetails'
 
 type Props = { params: { locale: string } }
 
@@ -54,7 +54,6 @@ export default async function ClubPericiaPage({ params: { locale } }: Props) {
         <Numbered heading={club.howHeading} items={club.steps} />
         <Edition />
         <Who />
-        <Testimonials />
         <Faq />
         <Closing />
       </article>

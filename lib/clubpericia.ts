@@ -70,17 +70,6 @@ export const club = {
   whoBody:
     'Soy Yaiza Temprado. Fundé el Club Pericia después de 20 años en corporate, en siete empresas y pasando por toda la cadena de mando, de ingeniera a Senior Director. Casi nada de esto me salió natural: lo tuve que aprender. Por eso sé que se puede enseñar.',
 
-  // Only literal quotes from the pilot with written permission, shown the way each person chose
-  // (testimonial form «Testimonios piloto Club Pericia», hola@ Drive).
-  testimonialsHeading: 'Lo que dicen del piloto',
-  testimonials: [
-    {
-      quote:
-        'Este curso de IA y liderazgo me ha proporcionado herramientas clave para trabajar en el día a día: me ayudan a empezar el día, a organizar mi trabajo, a comunicar mejor y a terminar la jornada con la sensación de haber avanzado en lo importante. Un antes y un después en mi forma de trabajar. ¡Muy recomendable!',
-      name: 'Vicky',
-    },
-  ],
-
   faqHeading: 'Preguntas',
   faq: [
     {
