@@ -28,6 +28,22 @@ export function Who() {
   )
 }
 
+export function Testimonials() {
+  return (
+    <section className="grid gap-4">
+      <h2 className={h2} style={{ color: BRAND.night }}>{club.testimonialsHeading}</h2>
+      {club.testimonials.map((t) => (
+        <figure key={t.name} className="m-0 rounded-[14px] border bg-white px-6 py-6 grid gap-3" style={{ borderColor: '#EADFD8' }}>
+          <blockquote className="m-0 text-[1.02rem] leading-[1.7]" style={{ color: BRAND.night }}>
+            «{t.quote}»
+          </blockquote>
+          <figcaption className="text-[0.9rem] font-bold" style={{ color: BRAND.terracotta }}>{t.name}</figcaption>
+        </figure>
+      ))}
+    </section>
+  )
+}
+
 export function Faq() {
   return (
     <section className="grid gap-3">
