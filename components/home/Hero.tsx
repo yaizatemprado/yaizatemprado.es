@@ -12,8 +12,11 @@ export default function Hero({ dict }: Props) {
       }}
     >
       <div className="flex flex-col gap-5 max-w-[640px]">
-        <span className="text-[0.78rem] font-extrabold tracking-[0.22em] uppercase text-rose">
-          {dict.eyebrow}
+        {/* An eyebrow with " · " shows each part on its own line instead of wrapping mid-phrase. */}
+        <span className="flex flex-col gap-1 text-[0.78rem] font-extrabold tracking-[0.22em] uppercase text-rose">
+          {dict.eyebrow.split(' · ').map((part) => (
+            <span key={part}>{part}</span>
+          ))}
         </span>
 
         <h1
