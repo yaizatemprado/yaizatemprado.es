@@ -27,11 +27,12 @@ export default function Hero({ dict }: Props) {
           {dict.lead}
         </p>
 
+
         <div className="flex flex-wrap gap-4">
-          <a href="#services" className="btn-primary px-[26px] py-3 text-[0.95rem]">
+          <a href={dict.ctaPrimaryHref ?? '#services'} className="btn-primary px-[26px] py-3 text-[0.95rem]">
             {dict.ctaPrimary}
           </a>
-          <a href="#contact" className="btn-secondary px-[26px] py-3 text-[0.95rem]">
+          <a href={dict.ctaSecondaryHref ?? '#contact'} className="btn-secondary px-[26px] py-3 text-[0.95rem]">
             {dict.ctaSecondary}
           </a>
         </div>

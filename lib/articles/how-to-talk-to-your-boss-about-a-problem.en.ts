@@ -1,6 +1,6 @@
 import type { Article } from './types'
 
-const DIAGNOSTIC = 'https://cal.com/yaiza-temprado/diagnostic-session'
+const DIAGNOSTIC = 'https://cal.com/yaiza-temprado/diagnostic-session?canal=web-articulo'
 
 // English copy of como-hablar-con-tu-jefe-de-un-problema, approved by Yaiza on
 // 18-oct-2026 (she asked for it published without reviewing the English). Edit

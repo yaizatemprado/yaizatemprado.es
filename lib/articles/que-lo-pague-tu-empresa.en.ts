@@ -1,6 +1,6 @@
 import type { Article } from './types'
 
-const DIAGNOSTIC = 'https://cal.com/yaiza-temprado/diagnostic-session'
+const DIAGNOSTIC = 'https://cal.com/yaiza-temprado/diagnostic-session?canal=web-articulo'
 
 // English version of the Spanish article approved on 13-sep-2026. Same copy
 // minus the FUNDAE question, which only applies in Spain. Edit with Yaiza's OK.

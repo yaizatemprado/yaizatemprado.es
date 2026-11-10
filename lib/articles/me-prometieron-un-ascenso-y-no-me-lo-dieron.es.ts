@@ -1,6 +1,6 @@
 import type { Article } from "./types";
 
-const DIAGNOSTICO = "https://cal.com/yaiza-temprado/diagnostico";
+const DIAGNOSTICO = "https://cal.com/yaiza-temprado/diagnostico?canal=web-articulo";
 const PILAR = "/es/recursos/como-conseguir-un-ascenso-en-el-trabajo/";
 
 // Child page 1 of pillar #9. Copy approved by Yaiza on 17-oct-2026. The text she edits lives in the vault,

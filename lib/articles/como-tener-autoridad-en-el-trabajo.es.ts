@@ -1,6 +1,6 @@
 import type { Article } from './types'
 
-const DIAGNOSTICO = 'https://cal.com/yaiza-temprado/diagnostico'
+const DIAGNOSTICO = 'https://cal.com/yaiza-temprado/diagnostico?canal=web-articulo'
 
 // Copy approved by Yaiza on 12-oct-2026. The text she edits lives in the vault,
 // proyectos/optimizacion-seo/paginas/2026-10-12-borrador-como-tener-autoridad-en-el-trabajo.md.

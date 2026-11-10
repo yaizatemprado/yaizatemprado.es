@@ -10,6 +10,8 @@ export type Dictionary = {
     companies: string
     resources: string
     contact: string
+    // Spanish only: the club runs in Spanish.
+    club?: string
   }
   hero: {
     eyebrow: string
@@ -17,6 +19,9 @@ export type Dictionary = {
     lead: string
     ctaPrimary: string
     ctaSecondary: string
+    // Optional overrides for where the two hero buttons go (default: #services and #contact).
+    ctaPrimaryHref?: string
+    ctaSecondaryHref?: string
   }
   about: {
     eyebrow: string

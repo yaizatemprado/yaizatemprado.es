@@ -1,6 +1,6 @@
 import type { Article, Block } from './types'
 
-const DIAGNOSTIC = 'https://cal.com/yaiza-temprado/diagnostic-session'
+const DIAGNOSTIC = 'https://cal.com/yaiza-temprado/diagnostic-session?canal=web-articulo'
 
 /** A bold lead-in followed by its paragraph, as in "**1. Title.** Text". */
 const point = (title: string, text: string): Block => ({

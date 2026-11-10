@@ -81,7 +81,7 @@ const en: Dictionary = {
         title: 'Diagnostic session',
         description: "Tell me what you're dealing with and I'll give you my honest read. No strings attached.",
         detail: '15 min',
-        href: 'https://cal.com/yaiza-temprado/diagnostic-session',
+        href: 'https://cal.com/yaiza-temprado/diagnostic-session?canal=web-servicios',
         external: true,
         cta: 'Book free session',
       },

@@ -11,8 +11,8 @@ type Props = { params: { locale: string } }
 
 // The diagnostic is a different Cal.com event per language.
 const DIAGNOSTIC: Record<string, string> = {
-  es: 'https://cal.com/yaiza-temprado/diagnostico',
-  en: 'https://cal.com/yaiza-temprado/diagnostic-session',
+  es: 'https://cal.com/yaiza-temprado/diagnostico?canal=web-empresas',
+  en: 'https://cal.com/yaiza-temprado/diagnostic-session?canal=web-empresas',
 }
 
 export async function generateStaticParams() {

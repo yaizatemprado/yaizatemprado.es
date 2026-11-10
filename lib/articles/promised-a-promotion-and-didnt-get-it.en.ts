@@ -1,6 +1,6 @@
 import type { Article } from './types'
 
-const DIAGNOSTIC = 'https://cal.com/yaiza-temprado/diagnostic-session'
+const DIAGNOSTIC = 'https://cal.com/yaiza-temprado/diagnostic-session?canal=web-articulo'
 const PILLAR = '/en/recursos/how-to-get-promoted-to-director/'
 
 // English copy of me-prometieron-un-ascenso-y-no-me-lo-dieron, approved by Yaiza

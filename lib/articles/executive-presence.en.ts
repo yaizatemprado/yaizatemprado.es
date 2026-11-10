@@ -1,6 +1,6 @@
 import type { Article } from './types'
 
-const DIAGNOSTIC = 'https://cal.com/yaiza-temprado/diagnostic-session'
+const DIAGNOSTIC = 'https://cal.com/yaiza-temprado/diagnostic-session?canal=web-articulo'
 
 // English copy of presencia-ejecutiva, approved by Yaiza on 18-oct-2026. The
 // text lives in the vault, proyectos/optimizacion-seo/paginas/

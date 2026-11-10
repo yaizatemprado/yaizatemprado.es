@@ -2,9 +2,9 @@ import type { Dictionary } from './types'
 
 const es: Dictionary = {
   meta: {
-    title: 'Yaiza Temprado — Comunicación, influencia y liderazgo en tech',
+    title: 'Yaiza Temprado — Comunicación, influencia y liderazgo',
     description:
-      'Directora Senior de Ingeniería. 20 años en corporate, siete empresas de sectores distintos y toda la cadena de mando recorrida. Mentoría 1:1 para managers y directivos de entornos técnicos: comunicar con peso, hacerse escuchar, sacar reuniones que decidan y ganar presencia donde se decide. También pagada por la empresa.',
+      'Fundadora del Club Pericia y mentora de liderazgo. 20 años en corporate, siete empresas de sectores distintos y toda la cadena de mando recorrida. Mentoría 1:1 para managers y directivos de entornos técnicos: comunicar con peso, hacerse escuchar, sacar reuniones que decidan y ganar presencia donde se decide. También pagada por la empresa.',
   },
   nav: {
     about: 'Sobre mí',
@@ -13,13 +13,16 @@ const es: Dictionary = {
     companies: 'Empresas',
     resources: 'Artículos y guías',
     contact: 'Newsletter',
+    club: 'Club Pericia',
   },
   hero: {
-    eyebrow: 'Directora Senior de Ingeniería',
-    heading: 'Liderar en tech y que de verdad te escuchen.',
-    lead: 'Llevo 20 años en corporate, en todo tipo de empresas y sectores, y he pasado por toda la cadena de mando: de ingeniera a Directora Senior. Las reuniones que no deciden nada, las ideas buenas que no salen adelante, las salas donde cuesta que te tomen en serio: las conozco porque han sido las mías. Te doy los marcos concretos para cambiarlo.',
-    ctaPrimary: 'Trabaja conmigo',
-    ctaSecondary: 'Suscríbete',
+    eyebrow: 'Mentoría y formación en liderazgo · Fundadora del Club Pericia',
+    heading: 'Liderar y que de verdad te escuchen.',
+    lead: 'Las reuniones que no deciden nada, las ideas buenas que no salen adelante, las salas donde cuesta que te tomen en serio. Las conozco porque han sido las mías: 20 años en corporate, de ingeniera a Directora Senior. Te ayudo a cambiarlo en 1:1, en grupo en el Club Pericia o con tu equipo.',
+    ctaPrimary: 'Reserva tu diagnóstico de 15 min',
+    ctaSecondary: 'Conoce el Club Pericia',
+    ctaPrimaryHref: 'https://cal.com/yaiza-temprado/diagnostico?canal=web-home',
+    ctaSecondaryHref: '/es/clubpericia/',
   },
   about: {
     eyebrow: 'Sobre mí',
@@ -81,7 +84,7 @@ const es: Dictionary = {
         title: 'Sesión de diagnóstico',
         description: 'Me cuentas qué tienes encima y te doy mi lectura honesta. Sin compromiso.',
         detail: '15 min',
-        href: 'https://cal.com/yaiza-temprado/diagnostico',
+        href: 'https://cal.com/yaiza-temprado/diagnostico?canal=web-servicios',
         external: true,
         cta: 'Reservar sesión gratis',
       },

@@ -4,7 +4,7 @@
 // changes in one place between editions.
 
 export const CLUB_URL = 'https://club-pericia.circle.so'
-export const DIAGNOSTIC_URL = 'https://cal.com/yaiza-temprado/diagnostico'
+export const DIAGNOSTIC_URL = 'https://cal.com/yaiza-temprado/diagnostico?canal=web-club'
 // Kit landing "PERICIA · Lista de espera Club" (form 10169707). It does not tag: the waitlist is this form plus the waitlist_pericia tag (ManyChat).
 export const WAITLIST_URL = 'https://yaizatemprado.kit.com/pericia'
 

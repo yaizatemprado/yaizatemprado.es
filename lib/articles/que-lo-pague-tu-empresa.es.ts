@@ -1,6 +1,6 @@
 import type { Article } from './types'
 
-const DIAGNOSTICO = 'https://cal.com/yaiza-temprado/diagnostico'
+const DIAGNOSTICO = 'https://cal.com/yaiza-temprado/diagnostico?canal=web-articulo'
 
 // Copy approved by Yaiza on 13-sep-2026 (v7 of the draft in the vault,
 // proyectos/optimizacion-seo/paginas/2026-09-13-borrador-que-lo-pague-tu-empresa.html).
