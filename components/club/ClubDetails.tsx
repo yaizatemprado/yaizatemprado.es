@@ -6,7 +6,7 @@ const body = 'text-slate leading-[1.7] text-[0.98rem] sm:text-[1.02rem]'
 
 export function Edition() {
   return (
-    <section className="grid gap-4 rounded-[14px] px-6 py-6 border" style={{ background: BRAND.cream, borderColor: '#EADFD8' }}>
+    <section id="lista" className="grid gap-4 rounded-[14px] px-6 py-6 border scroll-mt-24" style={{ background: BRAND.cream, borderColor: '#EADFD8' }}>
       <h2 className={h2} style={{ color: BRAND.night }}>{club.editionHeading}</h2>
       <ul className="grid gap-1.5 list-disc pl-5 text-slate text-[0.94rem] leading-[1.6]">
         {club.editionBullets.map((b) => (
@@ -48,7 +48,7 @@ export function Closing() {
   return (
     <div className="grid gap-5 justify-items-center text-center rounded-[20px] px-6 py-10" style={{ background: BRAND.night, color: BRAND.cream }}>
       <p className="text-[1.15rem] font-extrabold max-w-[520px]">{club.closing}</p>
-      <Ctas onDark />
+      <Ctas onDark toForm />
     </div>
   )
 }

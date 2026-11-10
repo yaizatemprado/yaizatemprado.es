@@ -1,4 +1,4 @@
-import { club, BRAND, PRIMARY, DIAGNOSTIC_URL } from '@/lib/clubpericia'
+import { club, BRAND, PRIMARY, DIAGNOSTIC_URL, SALES_OPEN, WAITLIST_FORM_ACTION } from '@/lib/clubpericia'
 
 // Pericia look: night blue, terracotta and cream, Manrope throughout (no Playfair),
 // so the club reads as its own brand inside the personal site.
@@ -12,36 +12,80 @@ const card = 'rounded-[14px] px-5 py-5 border'
 // bigger so the letters don't drift apart).
 const lockup = 'text-[0.78rem] font-extrabold tracking-[0.2em] uppercase leading-none'
 
-export function Ctas({ onDark = false, primaryOnly = false }: { onDark?: boolean; primaryOnly?: boolean }) {
+const pill = 'px-6 py-3 rounded-full text-[0.92rem] font-bold no-underline transition-opacity'
+
+// Before sales open the main action is an email box posting straight to the Kit form, so people join the
+// waitlist without leaving the page. `toForm` (the closing box) links down to the form in «Primera edición»
+// instead of repeating it.
+export function WaitlistForm({ onDark = false }: { onDark?: boolean }) {
   return (
-    <div className="flex flex-wrap gap-3">
+    <form action={WAITLIST_FORM_ACTION} method="post" className="grid gap-2 w-full max-w-[460px]">
+      <div className="flex flex-col sm:flex-row gap-2">
+        <label htmlFor={onDark ? 'waitlist-email-top' : 'waitlist-email'} className="sr-only">Email</label>
+        <input
+          id={onDark ? 'waitlist-email-top' : 'waitlist-email'}
+          type="email"
+          name="email_address"
+          required
+          autoComplete="email"
+          placeholder={club.waitlistPlaceholder}
+          className="flex-1 min-w-0 px-5 py-3 rounded-full text-[0.95rem] outline-none border focus:ring-2"
+          style={{ background: onDark ? BRAND.cream : '#fff', color: BRAND.night, borderColor: onDark ? BRAND.cream : '#EADFD8' }}
+        />
+        <button
+          type="submit"
+          className={`${pill} hover:opacity-90 whitespace-nowrap`}
+          style={{ background: BRAND.terracotta, color: BRAND.cream }}
+        >
+          {PRIMARY.label}
+        </button>
+      </div>
+      <p className={`text-[0.75rem] leading-[1.5] ${onDark ? 'opacity-70' : 'text-slate'}`}>{club.waitlistNote}</p>
+    </form>
+  )
+}
+
+export function Ctas({ onDark = false, primaryOnly = false, toForm = false }: { onDark?: boolean; primaryOnly?: boolean; toForm?: boolean }) {
+  const secondary = !primaryOnly && (
+    <a
+      href={DIAGNOSTIC_URL}
+      target="_blank"
+      rel="noreferrer"
+      className={`${pill} border hover:opacity-80`}
+      style={{ borderColor: onDark ? BRAND.cream : BRAND.night, color: onDark ? BRAND.cream : BRAND.night }}
+    >
+      {club.ctaSecondary}
+    </a>
+  )
+
+  if (!SALES_OPEN && !toForm) {
+    return (
+      <div className="grid gap-4">
+        <WaitlistForm onDark={onDark} />
+        {secondary && <div className="flex flex-wrap gap-3">{secondary}</div>}
+      </div>
+    )
+  }
+
+  const primaryHref = SALES_OPEN ? PRIMARY.href : '#lista'
+  return (
+    <div className="flex flex-wrap gap-3 justify-center">
       <a
-        href={PRIMARY.href}
-        target="_blank"
-        rel="noreferrer"
-        className="px-6 py-3 rounded-full text-[0.92rem] font-bold no-underline transition-opacity hover:opacity-90"
+        href={primaryHref}
+        {...(SALES_OPEN ? { target: '_blank', rel: 'noreferrer' } : {})}
+        className={`${pill} hover:opacity-90`}
         style={{ background: BRAND.terracotta, color: BRAND.cream }}
       >
         {PRIMARY.label}
       </a>
-      {!primaryOnly && (
-      <a
-        href={DIAGNOSTIC_URL}
-        target="_blank"
-        rel="noreferrer"
-        className="px-6 py-3 rounded-full text-[0.92rem] font-bold no-underline border transition-opacity hover:opacity-80"
-        style={{ borderColor: onDark ? BRAND.cream : BRAND.night, color: onDark ? BRAND.cream : BRAND.night }}
-      >
-        {club.ctaSecondary}
-      </a>
-      )}
+      {secondary}
     </div>
   )
 }
 
-export function Hero() {
+export function ClubLockup() {
   return (
-    <header className="grid gap-5 rounded-[20px] px-6 py-10 sm:px-12 sm:py-14" style={{ background: BRAND.night, color: BRAND.cream }}>
+    <>
       {/* Lockup drawn by Yaiza (10/11): «CLUB» above Ali's wordmark, and «LIDERAZGO CON IA» running out from
           the triangle, both terracotta. The wordmark is pericia-wordmark-*.png (navy box cropped off), so its
           left edge is the «p» stem; the triangle sits at 79-100 % of its height and ends at ~14 % of its width. */}
@@ -64,6 +108,14 @@ export function Hero() {
           </span>
         </div>
       </div>
+    </>
+  )
+}
+
+export function Hero() {
+  return (
+    <header className="grid gap-5 rounded-[20px] px-6 py-10 sm:px-12 sm:py-14" style={{ background: BRAND.night, color: BRAND.cream }}>
+      <ClubLockup />
       <h1 className="font-sans font-extrabold leading-[1.12] tracking-[-0.02em]" style={{ fontSize: 'clamp(1.9rem, 5vw, 3.1rem)' }}>
         {club.heading}
       </h1>

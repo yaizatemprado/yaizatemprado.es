@@ -5,8 +5,13 @@
 
 export const CLUB_URL = 'https://club-pericia.circle.so'
 export const DIAGNOSTIC_URL = 'https://cal.com/yaiza-temprado/diagnostico?canal=web-club'
-// Kit landing "PERICIA · Lista de espera Club" (form 10169707). It does not tag: the waitlist is this form plus the waitlist_pericia tag (ManyChat).
+// Kit form 10169707 ("PERICIA · Lista de espera Club"). The page posts to it directly (the email box on this page),
+// so nobody has to leave the site; the Kit landing yaizatemprado.kit.com/pericia still works for old links. It does
+// not tag: the waitlist is this form plus the waitlist_pericia tag (ManyChat). Sign-ups also join the newsletter
+// (Kit's "any form" automation, accepted by Yaiza 10/11). After subscribing Kit redirects to WAITLIST_THANKS.
 export const WAITLIST_URL = 'https://yaizatemprado.kit.com/pericia'
+export const WAITLIST_FORM_ACTION = 'https://app.kit.com/forms/10169707/subscriptions'
+export const WAITLIST_THANKS = '/es/clubpericia/gracias/'
 
 // Until sales open (Mon 23 Nov) the main button joins the waitlist; flip this on the day
 // and it becomes "Quiero entrar" to the Circle checkout everywhere on the page.
@@ -101,4 +106,14 @@ export const club = {
   ],
 
   closing: '¿No sabes si es para ti? Cuéntame tu caso en 15 minutos y te lo digo.',
+  waitlistPlaceholder: 'Tu email',
+  waitlistNote:
+    'Te escribo el día que abran las plazas. Al apuntarte entras también en mi newsletter; si no la quieres, te das de baja con un clic desde cualquier email.',
+  thanks: {
+    title: 'Estás en la lista — Club Pericia',
+    heading: 'Estás en la lista.',
+    body: 'Te escribo el lunes 23 de noviembre, el día que abren las plazas de la primera edición. Si no ves mi email, mira en promociones o en spam.',
+    diagnosticLead: 'Si mientras quieres contarme tu caso, tienes 15 minutos conmigo.',
+    back: 'Volver al Club Pericia',
+  },
 }
