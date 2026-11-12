@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Yaiza Temprado//Club Pericia//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:masterclass-club-pericia-20261123@yaizatemprado.es
+DTSTAMP:20261112T090000Z
+DTSTART:20261123T173000Z
+DTEND:20261123T184500Z
+SUMMARY:Masterclass Club Pericia · Yaiza Temprado
+DESCRIPTION:Por qué tu idea no salió adelante (y qué hacer la próxima vez). En directo por Zoom: https://us06web.zoom.us/j/86026888903?pwd=2UfMqYF0ghYjfh7zyJTD6bkPJaKMum.1
+LOCATION:https://us06web.zoom.us/j/86026888903?pwd=2UfMqYF0ghYjfh7zyJTD6bkPJaKMum.1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:La masterclass empieza en 15 minutos
+END:VALARM
+END:VEVENT
+END:VCALENDAR
