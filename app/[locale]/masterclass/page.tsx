@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { getDictionary } from '@/lib/i18n'
 import { alternates, openGraph } from '@/lib/seo'
 import { BRAND } from '@/lib/clubpericia'
-import { masterclass as m, MASTERCLASS_FORM_ACTION } from '@/lib/masterclass'
+import { masterclass as m, MASTERCLASS_FORM_ACTION, CHECKOUT_URL } from '@/lib/masterclass'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { ClubLockup } from '@/components/club/ClubSections'
@@ -43,6 +43,9 @@ function SignupForm({ onDark = false, id }: { onDark?: boolean; id: string }) {
         {m.cta}
       </button>
       <p className={`text-[0.75rem] leading-[1.5] ${onDark ? 'opacity-70' : 'text-slate'}`}>{m.formNote}</p>
+      <a href={CHECKOUT_URL} className={`text-[0.85rem] font-semibold underline underline-offset-2 ${onDark ? '' : ''}`} style={{ color: onDark ? BRAND.cream : BRAND.night }}>
+        {m.buyLead} →
+      </a>
     </form>
   )
 }
@@ -77,6 +80,18 @@ export default async function MasterclassPage({ params: { locale } }: Props) {
         <section className="grid gap-4">
           <h2 className={h2} style={{ color: BRAND.night }}>{m.takeHeading}</h2>
           <Bullets items={m.take} />
+        </section>
+
+        <section className="grid gap-4">
+          <h2 className={h2} style={{ color: BRAND.night }}>{m.proofHeading}</h2>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {m.proof.map((t) => (
+              <figure key={t.who} className="grid gap-3 rounded-[14px] px-5 py-5 border bg-white m-0" style={{ borderColor: '#EADFD8' }}>
+                <blockquote className="m-0 text-[0.95rem] leading-[1.6]" style={{ color: BRAND.night }}>«{t.quote}»</blockquote>
+                <figcaption className="text-[0.8rem] font-bold" style={{ color: BRAND.terracotta }}>{t.who}</figcaption>
+              </figure>
+            ))}
+          </div>
         </section>
 
         <section className="grid gap-4 rounded-[14px] px-6 py-6 border" style={{ background: BRAND.cream, borderColor: '#EADFD8' }}>

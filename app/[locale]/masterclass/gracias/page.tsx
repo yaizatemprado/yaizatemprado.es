@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { getDictionary } from '@/lib/i18n'
 import { BRAND } from '@/lib/clubpericia'
-import { masterclass, googleCalendarUrl, ICS_URL, ZOOM_URL } from '@/lib/masterclass'
+import { masterclass, googleCalendarUrl, ICS_URL, ZOOM_URL, CHECKOUT_URL } from '@/lib/masterclass'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { ClubLockup } from '@/components/club/ClubSections'
@@ -41,6 +41,9 @@ export default async function MasterclassGraciasPage({ params: { locale } }: Pro
           </p>
           <p className="leading-[1.7] text-[1.02rem] opacity-90 max-w-[600px]">{t.calendarLead}</p>
           <p className="leading-[1.7] text-[1.02rem] font-bold">{t.seeYou}</p>
+          <a href={CHECKOUT_URL} className="text-[0.9rem] font-semibold underline underline-offset-2" style={{ color: BRAND.cream }}>
+            {t.buyLead} →
+          </a>
         </div>
       </article>
       <Footer dict={dict.footer} nav={dict.nav} locale={locale} />

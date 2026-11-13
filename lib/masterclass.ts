@@ -29,6 +29,10 @@ export const googleCalendarUrl = () =>
 // Outlook and Apple: the .ics in public/ (regenerate it if the date or the Zoom link change).
 export const ICS_URL = '/masterclass-club-pericia.ics'
 
+// Circle paywall «Club Pericia · Primera edición» (287 € IVA incluido, published 13/11). For whoever already
+// wants in: a discreet link under the form and on the thanks page, never competing with the main button.
+export const CHECKOUT_URL = 'https://club-pericia.circle.so/checkout/primera-edicion'
+
 export const masterclass = {
   title: 'Masterclass gratis: por qué tu idea no salió adelante | Club Pericia',
   description:
@@ -41,7 +45,7 @@ export const masterclass = {
   take: [
     'Sabrás en qué punto se murió tu última idea. Y no fue mala suerte.',
     'Un movimiento completo para la próxima vez: cómo preparar la conversación con quien tiene que decirte que sí, con IA.',
-    'Y al final, un regalo: el agente que hace de tu jefe, para ensayar con él antes de la reunión de verdad. Quédate hasta el final.',
+    'Y al final, un regalo: el prompt que te ayuda a preparar este tipo de conversaciones, para que no te vuelva a pasar. Quédate hasta el final.',
   ],
   logisticsHeading: 'Cuándo y dónde',
   logistics: [
@@ -51,12 +55,20 @@ export const masterclass = {
   ],
   whoHeading: 'Quién la da',
   whoBody:
-    'Soy Yaiza Temprado, fundadora del Club Pericia. Llevo 20 años en corporate, en siete empresas y pasando por toda la cadena de mando, de ingeniera a Senior Director. Casi nada de esto me salió natural: lo tuve que aprender. Por eso sé que se puede enseñar.',
+    'Soy Yaiza Temprado, fundadora de Pericia y del Club Pericia, mi programa de liderazgo potenciado por IA. Llevo 20 años en corporate, en siete empresas y pasando por toda la cadena de mando, de ingeniera a Senior Director. Casi nada de esto me salió natural: lo tuve que aprender. Por eso sé que se puede enseñar.',
   cta: 'Quiero mi plaza',
   namePlaceholder: 'Tu nombre',
   emailPlaceholder: 'Tu email',
   formNote:
-    'Te mando el enlace de Zoom por email, con un botón para guardarlo en tu calendario. Al apuntarte entras también en mi newsletter; te das de baja con un clic desde cualquier email.',
+    'Al apuntarte ves el enlace de Zoom y lo guardas en tu calendario con un clic. Estos días te escribo con lo que vamos a ver. Entras también en mi newsletter; te das de baja con un clic desde cualquier email.',
+  buyLead: '¿Ya lo tienes claro? Puedes entrar ya en la primera edición del Club Pericia',
+  // From proyectos/club-pericia/testimonios-piloto.md: literal fragments, signed as each one chose (13/11).
+  proofHeading: 'Lo que dicen las del piloto del Club',
+  proof: [
+    { quote: 'Un antes y un después en mi forma de trabajar.', who: 'Vicky' },
+    { quote: 'Ahora, cuando preparo una propuesta, intento entender mejor a quién se la voy a presentar, qué necesita esa persona y desde qué perspectiva va a valorarla.', who: 'Henar, Ingeniera informática' },
+    { quote: 'Da igual la posición en tu trabajo, le encontrarán la aplicabilidad en cualquier caso.', who: 'Pilar, Responsable Sostenibilidad Ambiental' },
+  ],
   thanks: {
     title: 'Tienes tu plaza — Masterclass Club Pericia',
     heading: 'Tienes tu plaza.',
@@ -66,5 +78,6 @@ export const masterclass = {
     google: 'Google Calendar',
     ics: 'Outlook o Apple',
     seeYou: 'Nos vemos el lunes 23 a las 18:30.',
+    buyLead: '¿Ya lo tienes claro? Puedes entrar ya en la primera edición del Club Pericia',
   },
 }
