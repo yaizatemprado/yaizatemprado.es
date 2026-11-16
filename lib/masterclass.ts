@@ -29,9 +29,9 @@ export const googleCalendarUrl = () =>
 // Outlook and Apple: the .ics in public/ (regenerate it if the date or the Zoom link change).
 export const ICS_URL = '/masterclass-club-pericia.ics'
 
-// Circle paywall «Club Pericia · Primera edición» (287 € IVA incluido, published 13/11). For whoever already
-// wants in: a discreet link under the form and on the thanks page, never competing with the main button.
-export const CHECKOUT_URL = 'https://club-pericia.circle.so/checkout/primera-edicion'
+// The masterclass page only sells the masterclass; whoever wants the Club goes to its page (testimonials, price,
+// checkout). Decided by Yaiza 16/11.
+export const CLUB_PAGE = '/es/clubpericia/'
 
 export const masterclass = {
   title: 'Masterclass gratis: por qué tu idea no salió adelante | Club Pericia',
@@ -61,14 +61,7 @@ export const masterclass = {
   emailPlaceholder: 'Tu email',
   formNote:
     'Al apuntarte ves el enlace de Zoom y lo guardas en tu calendario con un clic. Estos días te escribo con lo que vamos a ver. Entras también en mi newsletter; te das de baja con un clic desde cualquier email.',
-  buyLead: '¿Ya lo tienes claro? Puedes entrar ya en la primera edición del Club Pericia',
-  // From proyectos/club-pericia/testimonios-piloto.md: literal fragments, signed as each one chose (13/11).
-  proofHeading: 'Lo que dicen las del piloto del Club',
-  proof: [
-    { quote: 'Un antes y un después en mi forma de trabajar.', who: 'Vicky' },
-    { quote: 'Ahora, cuando preparo una propuesta, intento entender mejor a quién se la voy a presentar, qué necesita esa persona y desde qué perspectiva va a valorarla.', who: 'Henar, Ingeniera informática' },
-    { quote: 'Da igual la posición en tu trabajo, le encontrarán la aplicabilidad en cualquier caso.', who: 'Pilar, Responsable Sostenibilidad Ambiental' },
-  ],
+  buyLead: '¿Qué es el Club Pericia? Míralo aquí',
   thanks: {
     title: 'Tienes tu plaza — Masterclass Club Pericia',
     heading: 'Tienes tu plaza.',
@@ -78,6 +71,6 @@ export const masterclass = {
     google: 'Google Calendar',
     ics: 'Outlook o Apple',
     seeYou: 'Nos vemos el lunes 23 a las 18:30.',
-    buyLead: '¿Ya lo tienes claro? Puedes entrar ya en la primera edición del Club Pericia',
+    buyLead: '¿Qué es el Club Pericia? Míralo aquí',
   },
 }
