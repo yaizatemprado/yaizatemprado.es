@@ -31,7 +31,7 @@ const input = 'flex-1 min-w-0 px-5 py-3 rounded-full text-[0.95rem] outline-none
 function SignupForm({ onDark = false, id }: { onDark?: boolean; id: string }) {
   const field = { background: onDark ? BRAND.cream : '#fff', color: BRAND.night, borderColor: onDark ? BRAND.cream : '#EADFD8' }
   return (
-    <form action={MASTERCLASS_FORM_ACTION} method="post" className="grid gap-2 w-full max-w-[520px]">
+    <form action={MASTERCLASS_FORM_ACTION} method="post" className={`grid gap-2 w-full max-w-[520px] ${onDark ? 'mx-auto text-center' : ''}`}>
       <div className="flex flex-col sm:flex-row gap-2">
         <label htmlFor={`${id}-name`} className="sr-only">Nombre</label>
         <input id={`${id}-name`} type="text" name="fields[first_name]" autoComplete="given-name" placeholder={m.namePlaceholder} className={`${input} sm:max-w-[170px]`} style={field} />
@@ -68,12 +68,12 @@ export default async function MasterclassPage({ params: { locale } }: Props) {
     <main className="max-w-[1200px] mx-auto px-5 sm:px-6 pt-20 pb-20 sm:pt-24 sm:pb-[120px]" id="main">
       <Header locale={locale} dict={dict.nav} />
       <article className="max-w-[860px] mx-auto py-10 grid gap-14 font-sans">
-        <header className="grid gap-5 rounded-[20px] px-6 py-10 sm:px-12 sm:py-14" style={{ background: BRAND.night, color: BRAND.cream }}>
+        <header className="grid gap-5 justify-items-center text-center rounded-[20px] px-6 py-10 sm:px-12 sm:py-14" style={{ background: BRAND.night, color: BRAND.cream }}>
           <ClubLockup />
           <p className="text-[0.85rem] font-extrabold tracking-[0.08em] uppercase" style={{ color: BRAND.terracotta }}>{m.eyebrow}</p>
           <h1 className="font-extrabold leading-[1.12] tracking-[-0.02em]" style={{ fontSize: 'clamp(1.9rem, 5vw, 3.1rem)' }}>{m.heading}</h1>
-          <p className={`${body} opacity-90 max-w-[640px]`}>{m.lead}</p>
-          <div className="mt-2"><SignupForm onDark id="top" /></div>
+          <p className={`${body} opacity-90 max-w-[640px] mx-auto`}>{m.lead}</p>
+          <div className="mt-2 w-full"><SignupForm onDark id="top" /></div>
         </header>
 
         <section className="grid gap-4">
