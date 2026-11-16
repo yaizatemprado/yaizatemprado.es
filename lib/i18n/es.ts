@@ -93,7 +93,6 @@ const es: Dictionary = {
         title: 'Los primeros 90 días liderando',
         description: 'Para ti si acabas de aterrizar en tu primer rol de liderazgo y nadie te ha dado el manual.',
         detail: '6 sesiones · 790 € (IVA incluido)',
-        companyDetail: 'Empresa: 1.200 € + IVA',
         href: '/es/programas/primeros-90-dias',
         cta: 'Saber más',
       },
@@ -102,7 +101,6 @@ const es: Dictionary = {
         title: 'Presencia ejecutiva',
         description: 'Para ti si llevas años liderando y donde se decide tu voz no pesa lo que debería. Comunicación, posicionamiento, navegación política.',
         detail: '6 sesiones · 790 € (IVA incluido)',
-        companyDetail: 'Empresa: 1.200 € + IVA',
         href: '/es/programas/presencia-ejecutiva',
         cta: 'Saber más',
       },
@@ -123,7 +121,7 @@ const es: Dictionary = {
     backToServices: '← Volver a servicios',
     companyHeading: '¿Te lo paga tu empresa?',
     companyBody:
-      'Muchas empresas cubren este programa como formación. Si lo paga la empresa son 1.200 € + IVA, con factura a su nombre, un arranque a tres con tu responsable y un resumen de cierre. Tienes una página pensada para enviársela a quien lo aprueba.',
+      'Muchas empresas cubren este programa como formación. El precio es el mismo, con la factura a nombre de la empresa, un arranque a tres con tu responsable y un resumen de cierre. Tienes una página pensada para enviársela a quien lo aprueba.',
     companyCta: 'Ver la página para empresas',
     companyGuideCta: 'Cómo pedírselo a tu empresa',
     items: [
@@ -135,7 +133,6 @@ const es: Dictionary = {
         forWho:
           'Para ti si acabas de ascender a tu primer rol de liderazgo (o llevas menos de 6 meses y ya vas con el agua al cuello).',
         detail: '6 sesiones · 790 € (IVA incluido)',
-        companyDetail: 'Si lo paga tu empresa: 1.200 € + IVA',
         cadence: 'Cadencia quincenal (3 meses)',
         sessions: [
           {
@@ -178,7 +175,6 @@ const es: Dictionary = {
         forWho:
           'Para ti si llevas años liderando (un equipo, un área, un proyecto que defiendes en comité) y notas que donde se decide tu voz no pesa lo que debería: te cuestionan más de la cuenta, te enteras tarde de lo que importa, haces el trabajo de liderar sin la autoridad real, o para el siguiente escalón llevas tiempo oyendo «todavía no».',
         detail: '6 sesiones · 790 € (IVA incluido)',
-        companyDetail: 'Si lo paga tu empresa: 1.200 € + IVA',
         cadence: 'Cadencia quincenal o mensual',
         sessions: [
           {
@@ -275,14 +271,14 @@ const es: Dictionary = {
       },
     ],
     priceHeading: 'Precio y factura',
-    priceValue: '1.200 € + IVA',
+    priceValue: '790 € (IVA incluido)',
     priceNote: 'por programa de 6 sesiones, con el arranque a tres y el resumen de cierre incluidos',
     priceBullets: [
       'Factura a nombre de la empresa, con el IVA desglosado.',
       'Concepto: «Mentoría ejecutiva: liderazgo y comunicación».',
       'Pago por transferencia al arrancar. Si hace falta en dos plazos, se puede.',
     ],
-    selfPayNote: '¿Lo pagas tú? Son 790 € con IVA incluido.',
+    selfPayNote: '¿Lo pagas tú? Es el mismo precio.',
     selfPayCta: 'Ver los programas',
     fundaeHeading: '¿Es bonificable por FUNDAE?',
     fundaeBody:

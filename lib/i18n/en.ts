@@ -90,7 +90,6 @@ const en: Dictionary = {
         title: 'Your first 90 days leading',
         description: "For you if you've just landed your first leadership role and nobody gave you the manual.",
         detail: '6 sessions · €790 (VAT included)',
-        companyDetail: 'Company: €1,200 + VAT',
         href: '/en/programas/primeros-90-dias',
         cta: 'Learn more',
       },
@@ -99,7 +98,6 @@ const en: Dictionary = {
         title: 'Executive presence',
         description: "For you if you've been leading for years and your voice doesn't carry the weight it should where decisions get made. Communication, positioning, political navigation.",
         detail: '6 sessions · €790 (VAT included)',
-        companyDetail: 'Company: €1,200 + VAT',
         href: '/en/programas/presencia-ejecutiva',
         cta: 'Learn more',
       },
@@ -120,7 +118,7 @@ const en: Dictionary = {
     backToServices: '← Back to services',
     companyHeading: 'Could your company pay for it?',
     companyBody:
-      'Many companies cover this programme as training. When the company pays it is €1,200 + VAT, invoiced to the company, with a three-way kickoff with your manager and a closing summary. There is a page written for whoever approves it.',
+      'Many companies cover this programme as training. The price is the same, invoiced to the company, with a three-way kickoff with your manager and a closing summary. There is a page written for whoever approves it.',
     companyCta: 'See the page for companies',
     companyGuideCta: 'How to ask your company',
     items: [
@@ -132,7 +130,6 @@ const en: Dictionary = {
         forWho:
           "For you if you've just stepped into your first leadership role (or you're less than 6 months in and already drowning).",
         detail: '6 sessions · €790 (VAT included)',
-        companyDetail: 'If your company pays: €1,200 + VAT',
         cadence: 'Every two weeks (3 months)',
         sessions: [
           {
@@ -176,7 +173,6 @@ const en: Dictionary = {
         forWho:
           "For you if you've been leading for years (a team, an area, a project you defend in front of a committee) and you notice that where decisions get made your voice doesn't carry the weight it should: you get questioned more than you should, you hear about what matters late, you do the work of leading without the real authority, or for the next rung you keep hearing “not yet”.",
         detail: '6 sessions · €790 (VAT included)',
-        companyDetail: 'If your company pays: €1,200 + VAT',
         cadence: 'Every two weeks or monthly',
         sessions: [
           {
@@ -273,14 +269,14 @@ const en: Dictionary = {
       },
     ],
     priceHeading: 'Price and invoice',
-    priceValue: '€1,200 + VAT',
+    priceValue: '€790 (VAT included)',
     priceNote: 'per 6-session programme, three-way kickoff and closing summary included',
     priceBullets: [
       'Invoiced to the company, with VAT itemised.',
       'Line item: “Executive mentoring: leadership and communication”.',
       'Paid by bank transfer at the start. Two instalments if needed.',
     ],
-    selfPayNote: 'Paying yourself? It is €790, VAT included.',
+    selfPayNote: 'Paying yourself? Same price.',
     selfPayCta: 'See the programmes',
     fundaeHeading: 'Can it be funded through FUNDAE?',
     fundaeBody:

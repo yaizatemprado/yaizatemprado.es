@@ -105,9 +105,9 @@ export default async function CompaniesPage({ params: { locale } }: Props) {
       availability: 'https://schema.org/InStock',
       priceSpecification: {
         '@type': 'PriceSpecification',
-        price: '1200',
+        price: '790',
         priceCurrency: 'EUR',
-        valueAddedTaxIncluded: false,
+        valueAddedTaxIncluded: true,
       },
     },
   }
