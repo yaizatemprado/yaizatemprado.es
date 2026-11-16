@@ -25,7 +25,6 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
 
 const h2 = 'font-sans font-extrabold text-[1.5rem] sm:text-[1.85rem] leading-[1.2] tracking-[-0.01em]'
 const body = 'leading-[1.7] text-[0.98rem] sm:text-[1.02rem]'
-const pill = 'px-6 py-3 rounded-full text-[0.92rem] font-bold no-underline transition-opacity'
 const input = 'flex-1 min-w-0 px-5 py-3 rounded-full text-[0.95rem] outline-none border focus:ring-2'
 
 // Posts straight to the Kit form (same pattern as the club waitlist); Kit redirects to MASTERCLASS_THANKS.
@@ -39,8 +38,8 @@ function SignupForm({ onDark = false, id }: { onDark?: boolean; id: string }) {
         <label htmlFor={`${id}-email`} className="sr-only">Email</label>
         <input id={`${id}-email`} type="email" name="email_address" required autoComplete="email" placeholder={m.emailPlaceholder} className={input} style={field} />
       </div>
-      <button type="submit" className={`${pill} hover:opacity-90 justify-self-start`} style={{ background: BRAND.terracotta, color: BRAND.cream }}>
-        {m.cta}
+      <button type="submit" className="justify-self-center mt-3 mb-1 px-10 py-3.5 rounded-full text-[1rem] font-extrabold tracking-[0.01em] transition-transform hover:-translate-y-0.5 shadow-[0_6px_18px_rgba(192,104,72,0.45)]" style={{ background: BRAND.terracotta, color: BRAND.cream }}>
+        {m.cta} →
       </button>
       <p className={`text-[0.75rem] leading-[1.5] ${onDark ? 'opacity-70' : 'text-slate'}`}>{m.formNote}</p>
       <a href={CHECKOUT_URL} className={`text-[0.85rem] font-semibold underline underline-offset-2 ${onDark ? '' : ''}`} style={{ color: onDark ? BRAND.cream : BRAND.night }}>
