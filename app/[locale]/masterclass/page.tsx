@@ -25,22 +25,19 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
 
 const h2 = 'font-sans font-extrabold text-[1.5rem] sm:text-[1.85rem] leading-[1.2] tracking-[-0.01em]'
 const body = 'leading-[1.7] text-[0.98rem] sm:text-[1.02rem]'
-const input = 'flex-1 min-w-0 px-5 py-3 rounded-full text-[0.95rem] outline-none border focus:ring-2'
 
 // Posts straight to the Kit form (same pattern as the club waitlist); Kit redirects to MASTERCLASS_THANKS.
 function SignupForm({ onDark = false, id }: { onDark?: boolean; id: string }) {
-  const field = { background: onDark ? BRAND.cream : '#fff', color: BRAND.night, borderColor: onDark ? BRAND.cream : '#EADFD8' }
+  const field = { background: '#fff', color: BRAND.night, borderColor: '#EADFD8' }
   return (
     <form action={MASTERCLASS_FORM_ACTION} method="post" className={`grid gap-2 w-full max-w-[520px] ${onDark ? 'mx-auto text-center' : ''}`}>
-      <div className="flex flex-col sm:flex-row gap-2">
-        <label htmlFor={`${id}-name`} className="sr-only">Nombre</label>
-        <input id={`${id}-name`} type="text" name="fields[first_name]" autoComplete="given-name" placeholder={m.namePlaceholder} className={`${input} sm:max-w-[170px]`} style={field} />
+      <div className="flex flex-col sm:flex-row gap-3 mb-1">
         <label htmlFor={`${id}-email`} className="sr-only">Email</label>
-        <input id={`${id}-email`} type="email" name="email_address" required autoComplete="email" placeholder={m.emailPlaceholder} className={input} style={field} />
+        <input id={`${id}-email`} type="email" name="email_address" required autoComplete="email" placeholder={m.emailPlaceholder} className="flex-1 min-w-0 rounded-xl px-5 py-3 text-[0.95rem] border outline-none transition-colors duration-200 focus:border-[#af5033]" style={field} />
+        <button type="submit" className="rounded-xl px-8 py-3 text-[0.95rem] font-semibold text-white whitespace-nowrap transition-transform duration-200 hover:-translate-y-px" style={{ background: '#af5033', boxShadow: '0 6px 14px rgba(46, 35, 36, 0.12)' }}>
+          {m.cta}
+        </button>
       </div>
-      <button type="submit" className="justify-self-center mt-3 mb-1 px-10 py-3.5 rounded-full text-[1rem] font-extrabold tracking-[0.01em] transition-transform hover:-translate-y-0.5 shadow-[0_6px_18px_rgba(192,104,72,0.45)]" style={{ background: BRAND.terracotta, color: BRAND.cream }}>
-        {m.cta} →
-      </button>
       <p className={`text-[0.75rem] leading-[1.5] ${onDark ? 'opacity-70' : 'text-slate'}`}>{m.formNote}</p>
       <a href={CHECKOUT_URL} className={`text-[0.85rem] font-semibold underline underline-offset-2 ${onDark ? '' : ''}`} style={{ color: onDark ? BRAND.cream : BRAND.night }}>
         {m.buyLead} →
