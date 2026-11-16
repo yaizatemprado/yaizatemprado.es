@@ -71,7 +71,7 @@ export default async function MasterclassPage({ params: { locale } }: Props) {
         <header className="grid gap-5 justify-items-center text-center rounded-[20px] px-6 py-10 sm:px-12 sm:py-14" style={{ background: BRAND.night, color: BRAND.cream }}>
           <ClubLockup />
           <p className="text-[0.85rem] font-extrabold tracking-[0.08em] uppercase" style={{ color: BRAND.terracotta }}>{m.eyebrow}</p>
-          <h1 className="font-extrabold leading-[1.12] tracking-[-0.02em]" style={{ fontSize: 'clamp(1.9rem, 5vw, 3.1rem)' }}>{m.heading}</h1>
+          <h1 className="font-extrabold leading-[1.12] tracking-[-0.02em]" style={{ fontSize: 'clamp(1.9rem, 5vw, 3.1rem)' }}>{m.heading.split('¿')[0].trim()}<br /><span className="sm:whitespace-nowrap">¿{m.heading.split('¿')[1]}</span></h1>
           <p className={`${body} opacity-90 max-w-[640px] mx-auto`}>{m.lead}</p>
           <div className="mt-2 w-full"><SignupForm onDark id="top" /></div>
         </header>
