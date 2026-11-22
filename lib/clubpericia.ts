@@ -80,7 +80,7 @@ export const club = {
     'Directos los lunes 14 y 21 de diciembre y 11 y 18 de enero, a las 18:00 (hora de Madrid).',
     'Todos los directos se quedan grabados.',
     'Los módulos se abren uno por semana, para que te dé tiempo a hacerlo fuera.',
-    'Regalo para las 10 primeras: una sesión 1:1 conmigo, de 60 minutos, para usarla antes del 31 de enero. Por orden de pago.',
+    'Regalo para las 10 primeras: una mentoría individual conmigo, de 60 minutos, para usarla antes del 31 de enero. Por orden de pago.',
   ],
   editionNote: 'Precio de primera edición: 287 €, IVA incluido.',
 
