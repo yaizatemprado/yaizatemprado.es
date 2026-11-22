@@ -13,11 +13,14 @@ export const WAITLIST_URL = 'https://yaizatemprado.kit.com/pericia'
 export const WAITLIST_FORM_ACTION = 'https://app.kit.com/forms/10169707/subscriptions'
 export const WAITLIST_THANKS = '/es/clubpericia/gracias/'
 
-// Until sales open (Mon 23 Nov) the main button joins the waitlist; flip this on the day
-// and it becomes "Quiero entrar" to the Circle checkout everywhere on the page.
-export const SALES_OPEN = false
+// With SALES_OPEN false the main button joins the waitlist; true makes it "Quiero entrar" to the Circle
+// checkout everywhere on the page. Opened on 22/11, the day before the masterclass (Yaiza: «la masterclass es
+// mañana, cambiémosla ya»). Circle paywall «Club Pericia · Primera edición», 287 € IVA incluido; sale closes 4/12.
+// The masterclass page sends here, and this page is the one that sells.
+export const CHECKOUT_URL = 'https://club-pericia.circle.so/checkout/primera-edicion'
+export const SALES_OPEN = true
 export const PRIMARY = SALES_OPEN
-  ? { label: 'Quiero entrar', href: CLUB_URL }
+  ? { label: 'Quiero entrar', href: CHECKOUT_URL }
   : { label: 'Avísame cuando abra', href: WAITLIST_URL }
 
 // Pericia brand palette (proyectos/marca-pericia/index.md), not the personal-brand one.
@@ -56,6 +59,14 @@ export const club = {
     'Tienes tu IA del trabajo montada con tu contexto, y ves con tus propios casos cómo sacarle toda su potencia.',
   ],
 
+  // From proyectos/club-pericia/testimonios-piloto.md: literal fragments, signed as each one chose (13/11).
+  proofHeading: 'Lo que dicen las del piloto',
+  proof: [
+    { quote: 'Un antes y un después en mi forma de trabajar.', who: 'Vicky' },
+    { quote: 'Ahora, cuando preparo una propuesta, intento entender mejor a quién se la voy a presentar, qué necesita esa persona y desde qué perspectiva va a valorarla.', who: 'Henar, Ingeniera informática' },
+    { quote: 'Da igual la posición en tu trabajo, le encontrarán la aplicabilidad en cualquier caso.', who: 'Pilar, Responsable de Sostenibilidad Ambiental' },
+  ],
+
   howHeading: 'Cómo funciona',
   steps: [
     { title: 'Un módulo por semana', body: 'Cada módulo trabaja una parte del liderazgo y cómo llevarla a la práctica con IA. Tiene varios vídeos cortos, de 10 a 15 minutos, y cada vídeo, su ejercicio con tu caso real, no con uno inventado.' },
@@ -69,8 +80,9 @@ export const club = {
     'Directos los lunes 14 y 21 de diciembre y 11 y 18 de enero, a las 18:00 (hora de Madrid).',
     'Todos los directos se quedan grabados.',
     'Los módulos se abren uno por semana, para que te dé tiempo a hacerlo fuera.',
+    'Regalo para las 10 primeras: una sesión 1:1 conmigo, de 60 minutos, para usarla antes del 31 de enero. Por orden de pago.',
   ],
-  editionNote: 'Las plazas abren el lunes 23 de noviembre.',
+  editionNote: 'Precio de primera edición: 287 €, IVA incluido.',
 
   whoHeading: 'Quién lo imparte',
   whoBody:

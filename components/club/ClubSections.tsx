@@ -160,6 +160,22 @@ export function Outcomes() {
   )
 }
 
+export function Proof() {
+  return (
+    <section className="grid gap-4">
+      <h2 className={h2} style={{ color: BRAND.night }}>{club.proofHeading}</h2>
+      <div className="grid gap-4 sm:grid-cols-3">
+        {club.proof.map((t) => (
+          <figure key={t.who} className="grid gap-3 content-between rounded-[14px] px-5 py-5 border bg-white m-0" style={{ borderColor: '#EADFD8' }}>
+            <blockquote className="m-0 text-[0.95rem] leading-[1.6]" style={{ color: BRAND.night }}>«{t.quote}»</blockquote>
+            <figcaption className="text-[0.8rem] font-bold" style={{ color: BRAND.terracotta }}>{t.who}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  )
+}
+
 export function Numbered({ heading, items }: { heading: string; items: { title: string; body: string }[] }) {
   return (
     <section className="grid gap-4">
