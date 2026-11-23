@@ -15,7 +15,7 @@ export const WAITLIST_THANKS = '/es/clubpericia/gracias/'
 
 // With SALES_OPEN false the main button joins the waitlist; true makes it "Quiero entrar" to the Circle
 // checkout everywhere on the page. Opened on 22/11, the day before the masterclass (Yaiza: «la masterclass es
-// mañana, cambiémosla ya»). Circle paywall «Club Pericia · Primera edición», 287 € IVA incluido; sale closes 4/12.
+// mañana, cambiémosla ya»). Circle paywall «Club Pericia · Primera edición», 287 € IVA incluido; no closing date for sales (Yaiza, 23/11: no artificial urgency). Course starts Mon 11/1.
 // The masterclass page sends here, and this page is the one that sells.
 export const CHECKOUT_URL = 'https://club-pericia.circle.so/checkout/primera-edicion'
 export const SALES_OPEN = true
@@ -77,10 +77,10 @@ export const club = {
 
   editionHeading: 'Primera edición',
   editionBullets: [
-    'Directos los lunes 14 y 21 de diciembre y 11 y 18 de enero, a las 18:00 (hora de Madrid).',
+    'Empezamos el lunes 11 de enero. Directos los lunes 11, 18 y 25 de enero y 1 de febrero, a las 18:00 (hora de Madrid).',
     'Todos los directos se quedan grabados.',
     'Los módulos se abren uno por semana, para que te dé tiempo a hacerlo fuera.',
-    'Regalo para las 10 primeras: una mentoría individual conmigo, de 60 minutos, para usarla antes del 31 de enero. Por orden de pago.',
+    'Regalo para las 10 primeras: una mentoría individual conmigo, de 60 minutos, en diciembre, antes de que empiece el curso. Por orden de pago.',
   ],
   editionNote: 'Precio de primera edición: 287 €, IVA incluido.',
 
