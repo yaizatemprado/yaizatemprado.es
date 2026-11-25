@@ -20,7 +20,11 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
     title: club.title,
     description: club.description,
     alternates: alternates(locale, 'clubpericia', ['es']),
-    openGraph: openGraph(locale, club.title, club.description, 'clubpericia'),
+    openGraph: openGraph(locale, club.title, club.description, 'clubpericia', {
+      src: '/assets/club-pericia-og.png',
+      width: 1200,
+      height: 630,
+    }),
   }
 }
 
