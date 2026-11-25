@@ -35,3 +35,7 @@ supabase/.temp
 
 # Claude Code local settings
 .claude/settings.local.json
+
+# Claude Code: screenshots and local preview config from working sessions
+.claude/capturas-*/
+.claude/launch.json

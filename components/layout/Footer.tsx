@@ -8,7 +8,9 @@ type Props = {
 
 export default function Footer({ dict, nav, locale }: Props) {
   const links = [
+    ...(nav.club ? [{ href: `/${locale}/clubpericia/`, label: nav.club }] : []),
     { href: `/${locale}#about`, label: nav.about },
+    { href: `/${locale}#expertise`, label: nav.expertise },
     { href: `/${locale}#services`, label: nav.services },
     { href: `/${locale}/empresas`, label: nav.companies },
     { href: `/${locale}/recursos`, label: nav.resources },

@@ -13,7 +13,8 @@ type Props = {
 const NAV_SECTIONS = ['about', 'expertise', 'services', 'contact'] as const
 
 export default function Header({ locale, dict }: Props) {
-  const [activeHash, setActiveHash] = useState('#about')
+  // Nothing is active until a section scrolls into view (the hero is not in the menu).
+  const [activeHash, setActiveHash] = useState('')
   const [menuOpen, setMenuOpen] = useState(false)
   const observerRef = useRef<IntersectionObserver | null>(null)
   const pathname = usePathname() ?? ''
@@ -50,21 +51,22 @@ export default function Header({ locale, dict }: Props) {
   }, [])
 
   const navLinks = [
+    // The Club goes first: it is what the site sells until the January edition starts.
+    ...(dict.club ? [{ href: `/${locale}/clubpericia/`, label: dict.club }] : []),
     { href: `/${locale}#about`, label: dict.about },
     { href: `/${locale}#expertise`, label: dict.expertise },
     { href: `/${locale}#services`, label: dict.services },
-    ...(dict.club ? [{ href: `/${locale}/clubpericia/`, label: dict.club }] : []),
     { href: `/${locale}/empresas`, label: dict.companies },
     { href: `/${locale}/recursos`, label: dict.resources },
     { href: `/${locale}#contact`, label: dict.contact },
   ]
 
   const linkClass = (href: string) => {
-    // Program pages are reached from the services section, so they light up «Servicios».
+    // Program pages are reached from the services section, so they light up «Trabaja conmigo».
     const onProgram = pathname.startsWith(`/${locale}/programas`)
     const isActive = href.endsWith('#services') && onProgram
       ? true
-      : href.includes('#') ? isHome && href.endsWith(activeHash) : pathname.startsWith(href)
+      : href.includes('#') ? isHome && activeHash !== '' && href.endsWith(activeHash) : pathname.startsWith(href)
     return [
       'no-underline font-medium transition-colors duration-200 relative pb-1.5',
       isActive
@@ -86,7 +88,7 @@ export default function Header({ locale, dict }: Props) {
       <button
         type="button"
         onClick={() => setMenuOpen(!menuOpen)}
-        className="lg:hidden p-2 text-anchor"
+        className="xl:hidden p-2 text-anchor"
         aria-label={menuOpen ? 'Close menu' : 'Open menu'}
         aria-expanded={menuOpen}
       >
@@ -100,7 +102,7 @@ export default function Header({ locale, dict }: Props) {
       </button>
 
       {/* Desktop nav */}
-      <nav aria-label="Primary" className="hidden lg:flex items-center gap-7 text-[0.9rem]">
+      <nav aria-label="Primary" className="hidden xl:flex items-center gap-7 whitespace-nowrap text-[0.9rem]">
         {navLinks.map(({ href, label }) => (
           <a key={href} href={href} className={linkClass(href)}>
             {label}
@@ -113,7 +115,7 @@ export default function Header({ locale, dict }: Props) {
       {menuOpen && (
         <nav
           aria-label="Primary"
-          className="absolute top-full mt-3 left-0 right-0 z-50 bg-cream border border-line rounded-2xl shadow-lg px-6 py-6 flex flex-col gap-5 text-[1rem] lg:hidden"
+          className="absolute top-full mt-3 left-0 right-0 z-50 bg-cream border border-line rounded-2xl shadow-lg px-6 py-6 flex flex-col gap-5 text-[1rem] xl:hidden"
         >
           {navLinks.map(({ href, label }) => (
             <a

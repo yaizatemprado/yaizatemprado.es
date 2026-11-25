@@ -1,3 +1,4 @@
+import Button from '@/components/ui/Button'
 import Link from 'next/link'
 import type { Article, Block } from '@/lib/articles'
 import type { Dictionary } from '@/lib/i18n/types'
@@ -6,6 +7,8 @@ import Prose, { Runs } from './Prose'
 
 const h2Class = 'font-serif text-anchor leading-[1.2] text-[1.5rem] sm:text-[1.8rem]'
 const bodyClass = 'text-slate leading-[1.75] text-[1rem] sm:text-[1.05rem]'
+// Row title with the terracotta bar, as in components/ui/Section (ListRow).
+const rowTitle = 'border-l-[3px] border-rose pl-3.5 text-[1.1rem] sm:text-[1.2rem] font-bold text-anchor leading-[1.35]'
 
 /** A guide from the dictionary, as the page resolved it for article.guide. */
 type GuideCard = { href: string; tag: string; title: string; summary: string; cta: string }
@@ -89,10 +92,10 @@ export default function ArticleView({ article, newsletter, guide }: Props) {
           <section key={i} className="grid gap-5">
             <h2 className={h2Class}>{section.heading}</h2>
             <Prose paragraph={section.intro} className={bodyClass} />
-            <ul className="grid gap-4 list-none p-0 m-0">
+            <ul className="grid list-none p-0 m-0 border-b border-line">
               {section.items.map((item) => (
-                <li key={item.title} className="bg-card rounded-[14px] border border-line px-5 py-5 sm:px-6 grid gap-3">
-                  <h3 className="text-[1.05rem] font-bold text-anchor">{item.title}</h3>
+                <li key={item.title} className="grid gap-3 py-5 border-t border-line">
+                  <h3 className={rowTitle}>{item.title}</h3>
                   <p className="text-slate text-[0.95rem] leading-[1.65]">
                     <span className="text-[0.72rem] font-extrabold tracking-[0.14em] uppercase text-rose mr-2">
                       {section.labels.lose}
@@ -121,11 +124,11 @@ export default function ArticleView({ article, newsletter, guide }: Props) {
           <section key={i} className="grid gap-5">
             <h2 className={h2Class}>{section.heading}</h2>
             <Prose paragraph={section.intro} className={bodyClass} />
-            <ul className="grid gap-4 list-none p-0 m-0 sm:grid-cols-2">
+            <ul className="grid list-none p-0 m-0 border-b border-line">
               {section.cards.map((card) => (
-                <li key={card.title} className="bg-card rounded-[14px] border border-line px-5 py-5 grid gap-2 content-start">
-                  <h3 className="text-[1rem] font-bold text-anchor">{card.title}</h3>
-                  <p className="text-slate text-[0.92rem] leading-[1.6]">{card.body}</p>
+                <li key={card.title} className="grid gap-2 py-5 border-t border-line">
+                  <h3 className={rowTitle}>{card.title}</h3>
+                  <p className={bodyClass}>{card.body}</p>
                 </li>
               ))}
             </ul>
@@ -153,36 +156,25 @@ export default function ArticleView({ article, newsletter, guide }: Props) {
       </section>
 
       {guide && (
-        <Link
-          href={guide.href}
-          className="group grid gap-3 bg-card rounded-[14px] px-6 py-7 border border-line no-underline transition-transform duration-200 hover:-translate-y-px"
-          style={{ boxShadow: '0 8px 16px rgba(60, 40, 42, 0.05)' }}
-        >
-          <span className="text-[0.72rem] font-bold tracking-[0.15em] uppercase text-rose bg-stone rounded-full px-3 py-1 self-start">
-            {guide.tag}
-          </span>
-          <h2 className="font-serif text-[1.3rem] text-anchor leading-[1.2]">{guide.title}</h2>
-          <p className="text-slate leading-[1.6] text-[0.92rem]">{guide.summary}</p>
-          <span className="mt-1 text-[0.85rem] font-semibold text-rose group-hover:text-anchor transition-colors duration-200">
-            {guide.cta} →
-          </span>
-        </Link>
+        <section className="grid gap-3 py-6 border-y border-line">
+          <span className="text-[0.72rem] font-extrabold tracking-[0.14em] uppercase text-rose">{guide.tag}</span>
+          <h2 className={rowTitle}>{guide.title}</h2>
+          <p className={bodyClass}>{guide.summary}</p>
+          <div>
+            <Button href={guide.href}>{guide.cta} →</Button>
+          </div>
+        </section>
       )}
 
       {article.booking ? (
         <div className="grid gap-6">
-          <section className="grid gap-5 justify-items-center text-center bg-stone rounded-[14px] border border-line px-6 py-10">
-            <p className="font-serif text-anchor leading-[1.3] text-[1.3rem] sm:text-[1.5rem] max-w-[540px]">
+          <section className="grid gap-5 justify-items-start rounded-[24px] bg-anchor px-6 py-10 sm:px-10">
+            <p className="font-serif text-cream leading-[1.3] text-[1.3rem] sm:text-[1.5rem] max-w-[560px]">
               {article.booking.text}
             </p>
-            <a
-              href={article.booking.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary px-[26px] py-3 text-[0.95rem]"
-            >
+            <Button href={article.booking.href} external>
               {article.booking.cta}
-            </a>
+            </Button>
           </section>
           <div className="grid gap-3 justify-items-center text-center">
             <p className="text-slate leading-[1.6] text-[0.95rem]">{article.booking.newsletterLine}</p>
@@ -192,13 +184,11 @@ export default function ArticleView({ article, newsletter, guide }: Props) {
           </div>
         </div>
       ) : (
-        <section className="grid gap-4 justify-items-center text-center bg-stone rounded-[14px] border border-line px-6 py-10">
-          <span className="text-[0.78rem] font-extrabold tracking-[0.22em] uppercase text-rose">
-            {newsletter.eyebrow}
-          </span>
-          <h2 className={h2Class}>{newsletter.heading}</h2>
-          <p className="text-slate leading-[1.7] text-[0.98rem] max-w-[540px]">{newsletter.body}</p>
-          <div className="w-full max-w-[480px]">
+        <section className="grid gap-4 rounded-[24px] bg-anchor text-cream px-6 py-10 sm:px-10">
+          <span className="text-[0.78rem] font-extrabold tracking-[0.22em] uppercase text-peach">{newsletter.eyebrow}</span>
+          <h2 className="font-serif text-cream leading-[1.2] text-[1.6rem] sm:text-[2rem]">{newsletter.heading}</h2>
+          <p className="text-cream/85 leading-[1.7] text-[0.98rem] max-w-[560px]">{newsletter.body}</p>
+          <div className="w-full max-w-[520px]">
             <SubscribeForm dict={newsletter} />
           </div>
         </section>

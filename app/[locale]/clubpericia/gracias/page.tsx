@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Button from '@/components/ui/Button'
 import { getDictionary } from '@/lib/i18n'
 import { club, BRAND } from '@/lib/clubpericia'
 import Header from '@/components/layout/Header'
@@ -31,13 +32,9 @@ export default async function ClubGraciasPage({ params: { locale } }: Props) {
           </h1>
           <p className="leading-[1.7] text-[1.02rem] opacity-90 max-w-[600px]">{t.body}</p>
           <div className="flex flex-wrap gap-3 mt-1">
-            <a
-              href="/es/clubpericia/"
-              className="px-6 py-3 rounded-full text-[0.92rem] font-bold no-underline border hover:opacity-80"
-              style={{ borderColor: BRAND.cream, color: BRAND.cream }}
-            >
+            <Button href="/es/clubpericia/" variant="onDark">
               {t.back}
-            </a>
+            </Button>
           </div>
         </div>
       </article>

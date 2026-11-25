@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import Button from '@/components/ui/Button'
+import { List, ListRow, SectionHeader } from '@/components/ui/Section'
 import { Fragment } from 'react'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
@@ -82,16 +84,7 @@ export default async function ResourcePage({ params: { locale, slug } }: Props) 
         </Link>
 
         <header className="grid gap-4">
-          <span className="text-[0.72rem] font-bold tracking-[0.15em] uppercase text-rose bg-stone rounded-full px-3 py-1 self-start">
-            {item.tag}
-          </span>
-          <h1
-            className="font-serif text-anchor leading-[1.15] sm:leading-[1.1] tracking-[-0.005em]"
-            style={{ fontSize: 'clamp(1.8rem, 5vw, 3rem)' }}
-          >
-            {item.title}
-          </h1>
-          <p className="text-slate leading-[1.7] text-[0.98rem] sm:text-[1.05rem]">{item.summary}</p>
+          <SectionHeader as="h1" eyebrow={item.tag} title={item.title} lead={item.summary} />
           <p className="text-slate leading-[1.7] text-[0.98rem] sm:text-[1.05rem]">
             <span className="font-semibold text-anchor">{dict.resources.forWhoLabel}: </span>
             {item.forWho}
@@ -101,9 +94,7 @@ export default async function ResourcePage({ params: { locale, slug } }: Props) 
         {item.paid ? (
           <>
             <section className="grid grid-cols-1 gap-5">
-              <h2 className="text-[1.15rem] font-bold text-anchor">
-                {dict.resources.chooseHeading}
-              </h2>
+              <SectionHeader title={dict.resources.chooseHeading} />
 
               {/* Comparison table: chapters listed once, two tick columns */}
               <div className="min-w-0 rounded-[14px] border border-line overflow-hidden bg-card grid grid-cols-[minmax(0,1fr)_3rem_3.75rem] sm:grid-cols-[minmax(0,1fr)_6.5rem_7.5rem]">
@@ -198,18 +189,9 @@ export default async function ResourcePage({ params: { locale, slug } }: Props) 
                     </p>
                   </div>
                   <div className="mt-auto grid gap-2">
-                    <a
-                      href={item.paid.buyHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full text-center rounded-xl px-6 py-3 text-[0.95rem] font-semibold text-white no-underline transition-transform duration-200 hover:-translate-y-px"
-                      style={{
-                        background: '#af5033',
-                        boxShadow: '0 6px 14px rgba(46, 35, 36, 0.12)',
-                      }}
-                    >
+                    <Button href={item.paid.buyHref} external className="w-full">
                       {dict.resources.paidCta} · {item.paid.price} →
-                    </a>
+                    </Button>
                     <p className="text-[0.78rem] text-slate/70 text-center">
                       {dict.resources.paidReassurance}
                     </p>
@@ -220,22 +202,15 @@ export default async function ResourcePage({ params: { locale, slug } }: Props) 
           </>
         ) : (
           <>
-            <section className="grid gap-4">
-              <h2 className="text-[1.15rem] font-bold text-anchor">
-                {dict.resources.insideHeading}
-              </h2>
-              <ul className="grid gap-3 list-none p-0 m-0">
+            <section className="grid gap-6">
+              <SectionHeader title={dict.resources.insideHeading} />
+              <List>
                 {item.highlights.map((h) => (
-                  <li
-                    key={h.title}
-                    className="bg-card rounded-[12px] px-5 py-4 border border-line grid gap-1"
-                    style={{ boxShadow: '0 8px 16px rgba(60, 40, 42, 0.05)' }}
-                  >
-                    <h3 className="text-[1rem] font-bold text-anchor">{h.title}</h3>
-                    <p className="text-slate leading-[1.6] text-[0.92rem]">{h.description}</p>
-                  </li>
+                  <ListRow key={h.title} title={h.title}>
+                    <p>{h.description}</p>
+                  </ListRow>
                 ))}
-              </ul>
+              </List>
             </section>
 
             <ResourceForm dict={dict.resources} kitFormId={item.kitFormId} />

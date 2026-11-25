@@ -38,37 +38,35 @@ const socialLinks = [
 ]
 
 const iconClass =
-  'w-10 h-10 rounded-full bg-stone border border-line grid place-items-center text-plum transition-transform duration-200 hover:-translate-y-px hover:bg-white hover:border-rose'
+  'w-10 h-10 rounded-full bg-white/10 border border-white/15 grid place-items-center text-cream transition-transform duration-200 hover:-translate-y-px hover:bg-white/20 hover:border-peach'
 
+// A wide band: the pitch on the left, the form and the social links on the right (Yaiza, 25/11: the old centred
+// column looked tiny). On phones everything stacks.
 export default function Connect({ dict, newsletterDict }: Props) {
   return (
     <section
       id="contact"
-      className="grid gap-10 justify-items-center text-center pb-6 max-w-[560px] mx-auto"
+      className="max-w-[1080px] mx-auto w-full bg-anchor text-cream rounded-[24px] px-6 py-10 sm:px-12 sm:py-14 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16 items-center"
     >
-      {/* Newsletter — primary action */}
-      <div className="grid gap-4 justify-items-center w-full">
-        <span className="text-[0.78rem] font-extrabold tracking-[0.22em] uppercase text-rose">
+      <div className="grid gap-4">
+        <span className="text-[0.78rem] font-extrabold tracking-[0.22em] uppercase text-peach">
           {dict.eyebrow}
         </span>
         <h2
-          className="font-serif text-anchor leading-[1.15] sm:leading-[1.1] tracking-[-0.005em]"
-          style={{ fontSize: 'clamp(1.7rem, 5.5vw, 3.35rem)' }}
+          className="font-serif text-cream leading-[1.15] sm:leading-[1.1] tracking-[-0.005em]"
+          style={{ fontSize: 'clamp(1.7rem, 4.2vw, 2.9rem)' }}
         >
           {dict.heading}
         </h2>
-        <p className="text-slate max-w-[480px] leading-[1.7] text-[1rem]">
-          {newsletterDict.body}
-        </p>
-        <div className="w-full max-w-[480px] mt-1">
-          <SubscribeForm dict={newsletterDict} />
-        </div>
+        <p className="text-cream/85 leading-[1.7] text-[0.98rem] sm:text-[1.05rem]">{dict.body}</p>
       </div>
 
-      {/* Social — secondary */}
-      <div className="grid gap-3 justify-items-center">
-        <p className="text-slate text-[0.85rem]">{dict.lead}</p>
-        <div className="flex flex-wrap justify-center gap-3">
+      <div className="grid gap-3">
+        <SubscribeForm dict={newsletterDict} />
+        <p className="text-cream/75 text-[0.82rem]">{dict.note}</p>
+
+        <div className="mt-5 pt-5 border-t border-white/15 flex flex-wrap items-center gap-3">
+          <p className="w-full sm:w-auto text-cream/75 text-[0.88rem] mr-1">{dict.lead}</p>
           {socialLinks.map(({ href, label, icon }) => (
             <a
               key={label}

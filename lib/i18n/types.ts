@@ -22,6 +22,8 @@ export type Dictionary = {
     // Optional overrides for where the two hero buttons go (default: #services and #contact).
     ctaPrimaryHref?: string
     ctaSecondaryHref?: string
+    // Words inside the lead that link somewhere (the first time they appear), e.g. «Club Pericia» → its page.
+    leadLink?: { text: string; href: string }
   }
   about: {
     eyebrow: string
@@ -44,20 +46,18 @@ export type Dictionary = {
     eyebrow: string
     heading: string
     lead: string
-    // Banner under the cards: the company-paid route, one line + link to /empresas.
-    companyNote: string
-    companyCta: string
+    // The ways to work with Pericia, in the order of the messaging guide (Club · Mentoría individual · Empresas),
+    // shown as a list: one row each, with its own text links.
     cards: Array<{
-      tag: string
       title: string
+      // Small line under the title (group or individual, edition date…).
+      tag: string
       description: string
-      detail: string
-      // Optional second price line: what it costs when the company pays.
-      companyDetail?: string
-      href: string
-      cta: string
-      external?: boolean
+      // A card with several links shows them as a menu, one row each with its `detail`.
+      links: Array<{ label: string; href: string; external?: boolean; detail?: string }>
     }>
+    // One line under the list for whoever doesn't know which fits.
+    note: { text: string; cta: string; href: string; external?: boolean }
   }
   programs: {
     forWhoLabel: string
@@ -75,6 +75,8 @@ export type Dictionary = {
       title: string
       subtitle?: string
       forWho: string
+      // Short text for Google (~155 characters); the page falls back to forWho.
+      seoDescription?: string
       detail: string
       companyDetail?: string
       cadence: string
@@ -83,37 +85,40 @@ export type Dictionary = {
       cta: string
     }>
   }
-  // /empresas — the page written for the person who approves the budget.
+  // /empresas — Método Pericia para empresas: the group programme for a team of managers.
+  // No prices here: only what is in business/tarifas-2026.md gets published.
   companies: {
+    // Short text for Google (~155 characters).
+    seoDescription: string
     eyebrow: string
     heading: string
     lead: string
-    whatHeading: string
-    whatBody: string
-    programsHeading: string
-    programs: Array<{ title: string; forWho: string; href: string }>
-    gainsHeading: string
-    gains: Array<{ title: string; body: string }>
+    problemHeading: string
+    problemQuote: string
+    problemBody: string
+    whyHeading: string
+    whyLead: string
+    why: Array<{ title: string; body: string; source: string }>
     howHeading: string
+    howLead: string
     steps: Array<{ title: string; body: string }>
-    priceHeading: string
-    priceValue: string
-    priceNote: string
-    priceBullets: string[]
-    selfPayNote: string
-    selfPayCta: string
+    measureHeading: string
+    measureLead: string
+    measures: Array<{ title: string; body: string }>
+    whoHeading: string
+    whoBody: string
+    // Where she led teams, under the bio (Yaiza, 25/11, from her LinkedIn).
+    whoCompanies: { label: string; names: string[]; countriesLabel: string; countries: string[] }
     // FUNDAE: la primera pregunta de quien tiene que aprobar la factura.
     fundaeHeading: string
     fundaeBody: string
-    teamsHeading: string
-    teamsBody: string
-    whoHeading: string
-    whoBody: string
+    ctaHeading: string
+    ctaBody: string
     ctaPrimary: string
     ctaSecondary: string
     ctaMailSubject: string
-    // For the other reader of /empresas: whoever wants the programme and has to ask for it.
-    askGuide?: { text: string; cta: string }
+    // For whoever lands here looking for individual mentoring for one person.
+    individual: { text: string; cta: string }
   }
   resources: {
     eyebrow: string
@@ -172,9 +177,15 @@ export type Dictionary = {
   connect: {
     eyebrow: string
     heading: string
+    // The home's newsletter pitch (the articles keep newsletter.body).
+    body: string
+    // Small reassurance under the form.
+    note: string
     lead: string
   }
   newsletter: {
+    // Short text for Google (~155 characters).
+    seoDescription: string
     eyebrow: string
     heading: string
     body: string

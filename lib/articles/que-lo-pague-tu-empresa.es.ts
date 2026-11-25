@@ -12,7 +12,7 @@ const article: Article = {
   tag: 'Empresas',
   title: 'Cómo pedirle a tu empresa que pague tu mentoría',
   description:
-    'Pedirla como desarrollo personal es la forma más rápida de que te digan que no. Cómo plantearlo, qué gana tu empresa, facturas y FUNDAE.',
+    'Pedirla como desarrollo personal es la forma más rápida de que te digan que no. Cómo plantearlo, qué gana tu empresa y cómo se factura.',
   cardCta: 'Leer',
   intro: [
     [
@@ -86,9 +86,16 @@ const article: Article = {
           'Así que ojo: no estás pidiendo un favor. Estás levantando la mano por un dinero que ya está presupuestado.',
         ],
         [
-          'Y cuando se lo plantees, mándale esto: ',
-          { text: 'la página para empresas', href: '/es/empresas/' },
-          '. Ahí tiene en dos minutos qué es, qué gana su equipo y cuánto cuesta.',
+          'Y cuando se lo plantees, mándale la página del programa: ',
+          { text: 'Los primeros 90 días liderando', href: '/es/programas/primeros-90-dias/' },
+          ' o ',
+          { text: 'Presencia ejecutiva', href: '/es/programas/presencia-ejecutiva/' },
+          '. Ahí tiene en dos minutos qué es, qué recibe la empresa y cuánto cuesta.',
+        ],
+        [
+          '¿Y si en tu empresa lo quieren para un equipo de managers? Para eso está el ',
+          { text: 'Método Pericia para empresas', href: '/es/empresas/' },
+          '.',
         ],
       ],
     },
@@ -112,14 +119,6 @@ const article: Article = {
       question: '¿Puedes emitir facturas a nombre de la empresa?',
       answer: [
         ['Sí. Con el IVA desglosado y el concepto «Mentoría ejecutiva: liderazgo y comunicación».'],
-      ],
-    },
-    {
-      question: '¿Es bonificable por FUNDAE?',
-      answer: [
-        [
-          'Sí. Lo tramita la empresa desde su plataforma de FUNDAE, con el crédito de formación que ya tiene, y hay que comunicarlo antes de empezar.',
-        ],
       ],
     },
     {

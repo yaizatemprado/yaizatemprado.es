@@ -6,7 +6,7 @@ import JsonLd from '@/components/seo/JsonLd'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { Hero, Scenes, Outcomes, Proof, Numbered } from '@/components/club/ClubSections'
-import { Edition, Who, Faq, Closing } from '@/components/club/ClubDetails'
+import { Edition, Faq } from '@/components/club/ClubDetails'
 
 type Props = { params: { locale: string } }
 
@@ -21,7 +21,7 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
     description: club.description,
     alternates: alternates(locale, 'clubpericia', ['es']),
     openGraph: openGraph(locale, club.title, club.description, 'clubpericia', {
-      src: '/assets/club-pericia-og.png',
+      src: '/assets/club-pericia-og-nov26.png',
       width: 1200,
       height: 630,
     }),
@@ -51,16 +51,14 @@ export default async function ClubPericiaPage({ params: { locale } }: Props) {
       <JsonLd data={[faq]} />
       <Header locale={locale} dict={dict.nav} />
 
-      <article className="max-w-[860px] mx-auto py-10 grid gap-14 font-sans">
+      <article className="max-w-[1080px] mx-auto py-6 grid gap-16 font-sans">
         <Hero />
+        <Edition />
         <Scenes />
         <Outcomes />
         <Proof />
         <Numbered heading={club.howHeading} items={club.steps} />
-        <Edition />
-        <Who />
         <Faq />
-        <Closing />
       </article>
 
       <Footer dict={dict.footer} nav={dict.nav} locale={locale} />

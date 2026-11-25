@@ -1,10 +1,11 @@
 import { club, BRAND, PRIMARY, SALES_OPEN, WAITLIST_FORM_ACTION } from '@/lib/clubpericia'
+import ProofCarousel from './ProofCarousel'
+import Button from '@/components/ui/Button'
 
 // Pericia look: night blue, terracotta and cream, Manrope throughout (no Playfair),
 // so the club reads as its own brand inside the personal site.
 const h2 = 'font-sans font-extrabold text-[1.5rem] sm:text-[1.85rem] leading-[1.2] tracking-[-0.01em]'
 const body = 'leading-[1.7] text-[0.98rem] sm:text-[1.02rem]'
-const card = 'rounded-[14px] px-5 py-5 border'
 // «CLUB» and «LIDERAZGO CON IA» around the wordmark, eyebrow size. With leading-none the baseline sits
 // 0.117 em above the box bottom (Manrope), hence the translate to rest the tagline on the triangle's base.
 // The tagline's tracking stretches it to end where the white bar ends (Yaiza, 10/11): its glyphs are 9.28 em
@@ -12,7 +13,6 @@ const card = 'rounded-[14px] px-5 py-5 border'
 // bigger so the letters don't drift apart).
 const lockup = 'text-[0.78rem] font-extrabold tracking-[0.2em] uppercase leading-none'
 
-const pill = 'px-6 py-3 rounded-full text-[0.92rem] font-bold no-underline transition-opacity'
 
 // Before sales open the main action is an email box posting straight to the Kit form, so people join the
 // waitlist without leaving the page. `toForm` (the closing box) links down to the form in «Primera edición»
@@ -32,11 +32,7 @@ export function WaitlistForm({ onDark = false }: { onDark?: boolean }) {
           className="flex-1 min-w-0 px-5 py-3 rounded-full text-[0.95rem] outline-none border focus:ring-2"
           style={{ background: onDark ? BRAND.cream : '#fff', color: BRAND.night, borderColor: onDark ? BRAND.cream : '#EADFD8' }}
         />
-        <button
-          type="submit"
-          className={`${pill} hover:opacity-90 whitespace-nowrap`}
-          style={{ background: BRAND.terracotta, color: BRAND.cream }}
-        >
+        <button type="submit" className="btn-primary whitespace-nowrap">
           {PRIMARY.label}
         </button>
       </div>
@@ -45,7 +41,7 @@ export function WaitlistForm({ onDark = false }: { onDark?: boolean }) {
   )
 }
 
-export function Ctas({ onDark = false, primaryOnly = false, toForm = false }: { onDark?: boolean; primaryOnly?: boolean; toForm?: boolean }) {
+export function Ctas({ onDark = false, primaryOnly = false, toForm = false, center = false }: { onDark?: boolean; primaryOnly?: boolean; toForm?: boolean; center?: boolean }) {
   // Sin botón secundario desde el 25/11/2026: el diagnóstico de 15 min sale de todos los CTA del Club (Yaiza).
   const secondary = null
 
@@ -60,15 +56,10 @@ export function Ctas({ onDark = false, primaryOnly = false, toForm = false }: { 
 
   const primaryHref = SALES_OPEN ? PRIMARY.href : '#lista'
   return (
-    <div className="flex flex-wrap gap-3 justify-center">
-      <a
-        href={primaryHref}
-        {...(SALES_OPEN ? { target: '_blank', rel: 'noreferrer' } : {})}
-        className={`${pill} hover:opacity-90`}
-        style={{ background: BRAND.terracotta, color: BRAND.cream }}
-      >
+    <div className={`flex flex-wrap gap-3 ${center ? 'justify-center' : ''}`}>
+      <Button href={primaryHref} external={SALES_OPEN}>
         {PRIMARY.label}
-      </a>
+      </Button>
       {secondary}
     </div>
   )
@@ -103,43 +94,73 @@ export function ClubLockup() {
   )
 }
 
+// Look aligned with the home (Yaiza, 25/11): same 1080 px column as the menu, lists between thin lines instead of
+// boxes, terracotta bars. Pericia colours and Manrope stay, so the club still reads as its own brand.
+export const line = '#EADFD8'
+
+export function SectionTitle({ children }: { children: React.ReactNode }) {
+  return <h2 className={h2} style={{ color: BRAND.night }}>{children}</h2>
+}
+
 export function Hero() {
   return (
-    <header className="grid gap-5 rounded-[20px] px-6 py-10 sm:px-12 sm:py-14" style={{ background: BRAND.night, color: BRAND.cream }}>
-      <ClubLockup />
-      <h1 className="font-sans font-extrabold leading-[1.12] tracking-[-0.02em]" style={{ fontSize: 'clamp(1.9rem, 5vw, 3.1rem)' }}>
-        {club.heading}
-      </h1>
-      <p className={`${body} opacity-90 max-w-[640px]`}>{club.lead}</p>
-      <div className="mt-2">
-        <Ctas onDark />
+    <header
+      className="grid lg:grid-cols-[minmax(0,1fr)_400px] rounded-[20px] overflow-hidden"
+      style={{ background: BRAND.night, color: BRAND.cream }}
+    >
+      <div className="grid gap-5 content-center px-6 py-10 sm:px-12 sm:py-14 order-2 lg:order-1">
+        <ClubLockup />
+        <h1 className="font-sans font-extrabold leading-[1.12] tracking-[-0.02em]" style={{ fontSize: 'clamp(1.9rem, 4.4vw, 3.1rem)' }}>
+          {club.heading}
+        </h1>
+        <p className={`${body} opacity-90 max-w-[600px]`}>{club.lead}</p>
+        <div className="mt-2">
+          <Ctas onDark />
+        </div>
       </div>
+      {/* Laura's photo 29 (Nov 2026), blue wall: it sits on the night blue and fills its column edge to edge. */}
+      <img
+        src="/assets/yaiza-29.webp"
+        alt="Yaiza Temprado"
+        width={1000}
+        height={1500}
+        className="order-1 lg:order-2 w-full h-[80vw] max-h-[480px] lg:max-h-none lg:h-full object-cover object-[50%_30%]"
+      />
     </header>
+  )
+}
+
+// Two-column row: title with a terracotta bar on the left, text on the right. Same as the home's lists.
+export function Row({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="grid gap-3 md:gap-12 md:grid-cols-[minmax(0,340px)_minmax(0,1fr)] py-6 border-t" style={{ borderColor: line }}>
+      <h3 className="self-start border-l-[3px] pl-3.5 text-[1.15rem] sm:text-[1.25rem] font-bold leading-[1.35]" style={{ borderColor: BRAND.terracotta, color: BRAND.night }}>
+        {title}
+      </h3>
+      <div className="text-slate text-[0.98rem] leading-[1.7]">{children}</div>
+    </div>
   )
 }
 
 export function Scenes() {
   return (
-    <section className="grid gap-4">
-      <h2 className={h2} style={{ color: BRAND.night }}>{club.scenesHeading}</h2>
-      <div className="grid gap-4 sm:grid-cols-2">
+    <section className="grid gap-6">
+      <SectionTitle>{club.scenesHeading}</SectionTitle>
+      <div className="border-b" style={{ borderColor: line }}>
         {club.scenes.map((s) => (
-          <div key={s.title} className={`${card} grid gap-2 bg-white`} style={{ borderColor: '#EADFD8' }}>
-            <h3 className="text-[1.05rem] font-bold" style={{ color: BRAND.night }}>{s.title}</h3>
-            <p className="text-slate text-[0.95rem] leading-[1.65]">{s.body}</p>
-          </div>
+          <Row key={s.title} title={s.title}>{s.body}</Row>
         ))}
       </div>
-      <p className={`${body} font-semibold`} style={{ color: BRAND.night }}>{club.scenesClose}</p>
+      <p className={`${body} font-semibold max-w-[760px]`} style={{ color: BRAND.night }}>{club.scenesClose}</p>
     </section>
   )
 }
 
 export function Outcomes() {
   return (
-    <section className="grid gap-4">
-      <h2 className={h2} style={{ color: BRAND.night }}>{club.outcomesHeading}</h2>
-      <ul className="grid gap-3 list-none p-0 m-0">
+    <section className="grid gap-6">
+      <SectionTitle>{club.outcomesHeading}</SectionTitle>
+      <ul className="grid gap-x-12 gap-y-4 md:grid-cols-2 list-none p-0 m-0">
         {club.outcomes.map((o) => (
           <li key={o} className="flex gap-3 items-start text-slate text-[0.98rem] leading-[1.6]">
             <span className="shrink-0 mt-[0.45rem] w-2.5 h-2.5 rotate-45" style={{ background: BRAND.terracotta }} />
@@ -153,40 +174,22 @@ export function Outcomes() {
 
 export function Proof() {
   return (
-    <section className="grid gap-4">
-      <h2 className={h2} style={{ color: BRAND.night }}>{club.proofHeading}</h2>
-      <div className="grid gap-4 sm:grid-cols-3">
-        {club.proof.map((t) => (
-          <figure key={t.who} className="grid gap-3 content-between rounded-[14px] px-5 py-5 border bg-white m-0" style={{ borderColor: '#EADFD8' }}>
-            <blockquote className="m-0 text-[0.95rem] leading-[1.6]" style={{ color: BRAND.night }}>«{t.quote}»</blockquote>
-            <figcaption className="text-[0.8rem] font-bold" style={{ color: BRAND.terracotta }}>{t.who}</figcaption>
-          </figure>
-        ))}
-      </div>
+    <section className="grid gap-6">
+      <SectionTitle>{club.proofHeading}</SectionTitle>
+      <ProofCarousel items={club.proof} />
     </section>
   )
 }
 
 export function Numbered({ heading, items }: { heading: string; items: { title: string; body: string }[] }) {
   return (
-    <section className="grid gap-4">
-      <h2 className={h2} style={{ color: BRAND.night }}>{heading}</h2>
-      <ol className="grid gap-3 list-none p-0 m-0">
-        {items.map((m, i) => (
-          <li key={m.title} className={`${card} flex gap-4 items-start bg-white`} style={{ borderColor: '#EADFD8' }}>
-            <span
-              className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-[0.9rem] font-extrabold"
-              style={{ background: BRAND.night, color: BRAND.cream }}
-            >
-              {i + 1}
-            </span>
-            <div className="grid gap-1">
-              <h3 className="text-[1rem] font-bold" style={{ color: BRAND.night }}>{m.title}</h3>
-              <p className="text-slate text-[0.93rem] leading-[1.6]">{m.body}</p>
-            </div>
-          </li>
+    <section className="grid gap-6">
+      <SectionTitle>{heading}</SectionTitle>
+      <div className="border-b" style={{ borderColor: line }}>
+        {items.map((m) => (
+          <Row key={m.title} title={m.title}>{m.body}</Row>
         ))}
-      </ol>
+      </div>
     </section>
   )
 }

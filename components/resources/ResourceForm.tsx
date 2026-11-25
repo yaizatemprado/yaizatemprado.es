@@ -72,13 +72,7 @@ export default function ResourceForm({ dict, kitFormId, compact = false }: Props
         <button
           type="submit"
           disabled={status === 'loading'}
-          className={`${
-            compact ? 'w-full px-6' : 'flex-none px-8'
-          } rounded-xl py-3 text-[0.95rem] font-semibold text-white no-underline transition-transform duration-200 hover:-translate-y-px disabled:opacity-60 disabled:cursor-not-allowed`}
-          style={{
-            background: '#af5033',
-            boxShadow: '0 6px 14px rgba(46, 35, 36, 0.12)',
-          }}
+          className={`btn-primary ${compact ? 'w-full' : 'flex-none'}`}
         >
           {status === 'loading' ? dict.sending : dict.submit}
         </button>

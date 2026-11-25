@@ -52,12 +52,7 @@ export default function SubscribeForm({ dict, quiet }: Props) {
         <button
           type="submit"
           disabled={status === 'loading'}
-          className={
-            quiet
-              ? 'btn-secondary px-8 py-3 text-[0.95rem] disabled:opacity-60 disabled:cursor-not-allowed'
-              : 'rounded-xl px-8 py-3 text-[0.95rem] font-semibold text-white no-underline transition-transform duration-200 hover:-translate-y-px disabled:opacity-60 disabled:cursor-not-allowed'
-          }
-          style={quiet ? undefined : { background: '#af5033', boxShadow: '0 6px 14px rgba(46, 35, 36, 0.12)' }}
+          className={quiet ? 'btn-secondary whitespace-nowrap' : 'btn-primary whitespace-nowrap'}
         >
           {status === 'loading' ? '...' : dict.submit}
         </button>

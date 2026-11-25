@@ -7,7 +7,6 @@ import Footer from '@/components/layout/Footer'
 import Hero from '@/components/home/Hero'
 import About from '@/components/home/About'
 import Expertise from '@/components/home/Expertise'
-import Resources from '@/components/home/Resources'
 import Services from '@/components/home/Services'
 import Connect from '@/components/home/Connect'
 
@@ -45,10 +44,11 @@ export default async function LocalePage({ params: { locale } }: Props) {
     '@type': 'Person',
     '@id': `${SITE_URL}/#yaiza`,
     name: 'Yaiza Temprado',
-    jobTitle: dict.hero.eyebrow,
+    // The role alone: the last part of the hero eyebrow («Fundadora de Pericia» / «Founder of Pericia»).
+    jobTitle: dict.hero.eyebrow.split(' · ').pop(),
     description: dict.meta.description,
     url: `${SITE_URL}/${locale}/`,
-    image: `${SITE_URL}/assets/yaiza.webp`,
+    image: `${SITE_URL}/assets/yaiza-47.webp`,
     knowsLanguage: ['es', 'en'],
     sameAs: SAME_AS,
   }
@@ -81,9 +81,7 @@ export default async function LocalePage({ params: { locale } }: Props) {
         <Divider />
         <Expertise dict={dict.expertise} />
         <Divider />
-        <Resources dict={dict.resources} locale={locale} />
-        <Divider />
-        <Services dict={dict.services} locale={locale} />
+        <Services dict={dict.services} />
         <Divider />
         <Connect dict={dict.connect} newsletterDict={dict.newsletter} />
         <Footer dict={dict.footer} nav={dict.nav} locale={locale} />

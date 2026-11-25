@@ -1,54 +1,43 @@
 import { club, BRAND } from '@/lib/clubpericia'
-import { Ctas } from './ClubSections'
+import { Ctas, SectionTitle, line } from './ClubSections'
 
-const h2 = 'font-sans font-extrabold text-[1.5rem] sm:text-[1.85rem] leading-[1.2] tracking-[-0.01em]'
-const body = 'text-slate leading-[1.7] text-[0.98rem] sm:text-[1.02rem]'
-
+// Right under the hero (Yaiza, 25/11): the facts someone checks before buying, in one row between lines, and the button.
 export function Edition() {
   return (
-    <section id="lista" className="grid gap-4 rounded-[14px] px-6 py-6 border scroll-mt-24" style={{ background: BRAND.cream, borderColor: '#EADFD8' }}>
-      <h2 className={h2} style={{ color: BRAND.night }}>{club.editionHeading}</h2>
-      <ul className="grid gap-1.5 list-disc pl-5 text-slate text-[0.94rem] leading-[1.6]">
-        {club.editionBullets.map((b) => (
-          <li key={b}>{b}</li>
-        ))}
-      </ul>
-      <p className="text-[1rem] font-extrabold" style={{ color: BRAND.terracotta }}>{club.editionNote}</p>
-      <Ctas primaryOnly />
-    </section>
-  )
-}
-
-export function Who() {
-  return (
-    <section className="grid gap-2">
-      <h2 className={h2} style={{ color: BRAND.night }}>{club.whoHeading}</h2>
-      <p className={body}>{club.whoBody}</p>
+    <section id="lista" className="grid gap-5 scroll-mt-24">
+      <p className="text-[0.78rem] font-extrabold tracking-[0.22em] uppercase" style={{ color: BRAND.terracotta }}>
+        {club.editionHeading}
+      </p>
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center border-y py-6" style={{ borderColor: line }}>
+        <dl className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 m-0">
+          {club.editionFacts.map((f) => (
+            <div key={f.label} className="grid gap-1 content-start">
+              <dt className="text-[0.72rem] font-extrabold tracking-[0.14em] uppercase" style={{ color: BRAND.terracotta }}>{f.label}</dt>
+              <dd className="m-0 text-[0.96rem] font-semibold leading-[1.45]" style={{ color: BRAND.night }}>{f.value}</dd>
+            </div>
+          ))}
+        </dl>
+        <Ctas primaryOnly />
+      </div>
     </section>
   )
 }
 
 export function Faq() {
   return (
-    <section className="grid gap-3">
-      <h2 className={h2} style={{ color: BRAND.night }}>{club.faqHeading}</h2>
-      <div className="grid gap-2">
+    <section className="grid gap-6 md:grid-cols-[minmax(0,340px)_minmax(0,1fr)] md:gap-12">
+      <SectionTitle>{club.faqHeading}</SectionTitle>
+      <div className="border-b" style={{ borderColor: line }}>
         {club.faq.map((f) => (
-          <details key={f.q} className="rounded-[12px] border bg-white px-5 py-4" style={{ borderColor: '#EADFD8' }}>
-            <summary className="cursor-pointer font-bold text-[0.98rem]" style={{ color: BRAND.night }}>{f.q}</summary>
-            <p className="mt-2 text-slate text-[0.94rem] leading-[1.6]">{f.a}</p>
+          <details key={f.q} className="group border-t py-4" style={{ borderColor: line }}>
+            <summary className="cursor-pointer list-none flex items-center justify-between gap-4 font-bold text-[0.98rem]" style={{ color: BRAND.night }}>
+              {f.q}
+              <span aria-hidden="true" className="shrink-0 text-[1.3rem] leading-none transition-transform duration-200 group-open:rotate-45" style={{ color: BRAND.terracotta }}>+</span>
+            </summary>
+            <p className="mt-2 text-slate text-[0.95rem] leading-[1.65] pr-8">{f.a}</p>
           </details>
         ))}
       </div>
     </section>
-  )
-}
-
-export function Closing() {
-  return (
-    <div className="grid gap-5 justify-items-center text-center rounded-[20px] px-6 py-10" style={{ background: BRAND.night, color: BRAND.cream }}>
-      <p className="text-[1.15rem] font-extrabold max-w-[520px]">{club.closing}</p>
-      <Ctas onDark toForm />
-    </div>
   )
 }

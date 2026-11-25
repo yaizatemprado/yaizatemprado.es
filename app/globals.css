@@ -29,20 +29,32 @@ body {
   min-height: 100vh;
 }
 
-/* Botones: un solo color plano, sombra neutra. Sin degradados ni halos de color. */
+/* Botones: el ÚNICO estilo de botón de la web (Yaiza, 25/11: «deben ser componentes reutilizables»).
+   Mismo tamaño, forma y color en todas las páginas, incluido el Club. Úsalos con <Button> (components/ui/Button.tsx)
+   o, en un <button> de formulario, con estas clases tal cual, sin añadir tamaños ni colores. */
 @layer components {
+  .btn {
+    @apply inline-flex flex-col items-center justify-center rounded-xl px-6 py-3 min-h-[50px] text-[0.95rem] font-semibold leading-tight no-underline text-center transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed;
+  }
   .btn-primary {
-    @apply inline-block rounded-xl font-semibold text-white no-underline text-center bg-rose transition-colors duration-200;
+    @apply btn text-white bg-rose;
     box-shadow: 0 6px 14px rgba(46, 35, 36, 0.12);
   }
   .btn-primary:hover {
     @apply bg-rose-dark;
   }
   .btn-secondary {
-    @apply inline-block rounded-xl font-semibold text-plum bg-white border border-line no-underline text-center transition-colors duration-200;
+    @apply btn text-plum bg-white border border-line;
   }
   .btn-secondary:hover {
     @apply border-rose text-anchor;
+  }
+  /* Secundario sobre fondo oscuro (bloques azul noche del Club, newsletter). */
+  .btn-on-dark {
+    @apply btn text-cream border border-cream/70 bg-transparent;
+  }
+  .btn-on-dark:hover {
+    @apply bg-white/10 border-cream;
   }
 }
 
@@ -60,5 +72,22 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Home hero photo: fades into the page (bottom on phones, left and bottom on large screens). The gradients are
+   set as custom properties on the element in components/home/Hero.tsx. */
+.hero-photo {
+  -webkit-mask-image: var(--fade-mobile);
+  -webkit-mask-composite: source-in;
+  mask-image: var(--fade-mobile);
+  mask-composite: intersect;
+}
+@media (min-width: 1024px) {
+  .hero-photo {
+    -webkit-mask-image: var(--fade-desktop);
+    -webkit-mask-composite: source-in;
+    mask-image: var(--fade-desktop);
+    mask-composite: intersect;
   }
 }

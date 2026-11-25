@@ -2,31 +2,31 @@ import type { Dictionary } from './types'
 
 const en: Dictionary = {
   meta: {
-    title: 'Yaiza Temprado — Communication, influence and leadership in tech',
+    title: 'Yaiza Temprado — Communication, influence and leadership',
     description:
-      'Senior Director of Engineering. 20 years in corporate, seven companies across sectors, every rung of the chain of command. 1:1 mentoring for managers and directors in technical organisations: communicate with weight, get heard, run meetings that decide, and earn presence where the decisions get made. Company-funded too.',
+      'Founder of Pericia. 20 years in corporate, from junior engineer to Senior Director. Leadership and communication to get your ideas through.',
   },
   nav: {
     about: 'About',
     expertise: 'Expertise',
-    services: 'Services',
+    services: 'Work with me',
     companies: 'Companies',
     resources: 'Articles and guides',
     contact: 'Newsletter',
   },
   hero: {
-    eyebrow: 'Senior Director of Engineering',
-    heading: 'Lead in tech and actually get heard.',
-    lead: "I've spent 20 years in corporate, across all kinds of companies and sectors, and climbed every rung of the chain of command: from engineer to Senior Director. Meetings that decide nothing, good ideas that go nowhere, rooms where it's hard to be taken seriously: I know them because they were mine. I give you the concrete frameworks to change that.",
+    eyebrow: 'Leadership mentoring · Founder of Pericia',
+    heading: 'Lead and actually get heard.',
+    lead: "I spent 20 years in corporate, in seven companies and two countries, and climbed every rung of the chain of command: from junior engineer to Senior Director. Meetings that decide nothing, good ideas that go nowhere, rooms where it's hard to be taken seriously: I know them because they were mine. I give you the concrete frameworks to change that.",
     ctaPrimary: 'Work with me',
     ctaSecondary: 'Subscribe',
   },
   about: {
     eyebrow: 'About',
     heading: "I've climbed every rung of the chain of command",
-    p1: "I'm not telling you this second-hand. I've spent more than 20 years in corporate, in seven companies of different sectors and sizes, and I've held every rung: engineer, manager, director, Senior Director of Engineering. What I tell you about meetings, influence or presence isn't theory from a book: it's the rooms I've sat in and the rooms I've run.",
-    p2: "And there's something almost nobody's telling you: how AI is changing what's expected of anyone who leads. I've seen it in my teams and in my own decisions: what now makes a manager valuable and what no longer does. It's not a prediction, it's already happening.",
-    p3: "One more thing, because it explains how I work. For 20 years I've been one of the few women in the room. I know what it's like to walk in where you don't quite fit, get questioned more than you should, and earn your seat anyway. That serves anyone who feels outside the conversation: because you come from the technical side, because you're the new or the youngest person, or simply because nobody taught you how that game is played.",
+    p1: "I'm not telling you this second-hand. I spent 20 years in corporate, in seven companies and two countries, and I held every rung: from junior engineer to manager, director and Senior Director. What I tell you about meetings, influence or presence isn't theory from a book: it's the rooms I've sat in and the rooms I've run.",
+    p2: "And there's something almost nobody's telling you: how AI is changing what's expected of anyone who leads. I saw it in my teams and in my own decisions: what now makes a manager valuable and what no longer does. It's not a prediction, it's already happening.",
+    p3: "One more thing, because it explains how I work. For 20 years I was one of the few women in the room. I know what it's like to walk in where you don't quite fit, get questioned more than you should, and earn your seat anyway. That serves anyone who feels outside the conversation: because you come from the technical side, because you're the new or the youngest person, or simply because nobody taught you how that game is played.",
   },
   expertise: {
     eyebrow: 'Expertise',
@@ -45,7 +45,7 @@ const en: Dictionary = {
         body: "You delegate and then redo it because it didn't come out the way you would have, and holding the pace between one reorg and the next wears you down. We look at how to truly let go and deliver without depending on whoever holds out the longest.",
       },
       {
-        title: 'Lead when AI moves everything',
+        title: 'Lead when AI changes everything',
         body: "Your team already works with AI and you're not entirely sure what's expected of you now. I help you get your bearings: which parts of your work gain value, which lose it, and how not to fall behind your own people.",
       },
     ],
@@ -60,7 +60,7 @@ const en: Dictionary = {
       },
       {
         label: 'Mentoring',
-        body: "What I see in my teams I cross with what the people I mentor tell me: the same blocks, the same meetings, the same fears. That's why what I give you isn't theory. They're patterns that repeat.",
+        body: "What I saw in my teams I cross with what the people I mentor tell me: the same blocks, the same meetings, the same fears. That's why what I give you isn't theory. They're patterns that repeat.",
       },
       {
         label: 'Both sides',
@@ -71,59 +71,45 @@ const en: Dictionary = {
   services: {
     eyebrow: 'Services',
     heading: 'Work with me',
-    lead: 'Direct mentoring for people who lead in tech, or are about to. Real situations, concrete plans, honest feedback.',
-    companyNote:
-      'Could your company pay for it? Many companies cover these programmes as training. There is a page written for whoever approves it.',
-    companyCta: 'See how it works',
+    lead: 'Two ways to work with Pericia. We work on real situations from this week, not theory.',
     cards: [
       {
-        tag: 'Free',
-        title: 'Diagnostic session',
-        description: "Tell me what you're dealing with and I'll give you my honest read. No strings attached.",
-        detail: '15 min',
-        href: 'https://cal.com/yaiza-temprado/diagnostic-session?canal=web-servicios',
-        external: true,
-        cta: 'Book free session',
+        title: 'Individual mentoring',
+        tag: 'Tailored to you',
+        description: 'Real situations, concrete plans, honest feedback. Two six-session packs, depending on where you are, or a working session.',
+        links: [
+          { label: 'Your first 90 days leading', detail: "If you've just started leading", href: '/en/programas/primeros-90-dias' },
+          { label: 'Executive presence', detail: "If you've led for years and your voice doesn't carry the weight it should", href: '/en/programas/presencia-ejecutiva' },
+          { label: 'Working session', detail: 'One real problem, one hour', href: 'https://cal.com/yaiza-temprado/working-session', external: true },
+        ],
       },
       {
-        tag: 'Programme · New managers',
-        title: 'Your first 90 days leading',
-        description: "For you if you've just landed your first leadership role and nobody gave you the manual.",
-        detail: '6 sessions · €790 (VAT included)',
-        href: '/en/programas/primeros-90-dias',
-        cta: 'Learn more',
-      },
-      {
-        tag: 'Programme · Senior leaders',
-        title: 'Executive presence',
-        description: "For you if you've been leading for years and your voice doesn't carry the weight it should where decisions get made. Communication, positioning, political navigation.",
-        detail: '6 sessions · €790 (VAT included)',
-        href: '/en/programas/presencia-ejecutiva',
-        cta: 'Learn more',
-      },
-      {
-        tag: 'Session',
-        title: 'Working session',
-        description: 'One real problem. One hour. You leave with concrete actions to execute the next day.',
-        detail: '60 min · €180 (VAT included)',
-        href: 'https://cal.com/yaiza-temprado/working-session',
-        external: true,
-        cta: 'Book a session',
+        title: 'For companies',
+        tag: 'For a team',
+        description: 'The same method inside your company, for a team.',
+        links: [{ label: 'Método Pericia for companies', href: '/en/empresas' }],
       },
     ],
+    note: {
+      text: 'Not sure which one fits?',
+      cta: "Let's talk for 15 minutes",
+      href: 'https://cal.com/yaiza-temprado/diagnostic-session?canal=web-servicios',
+      external: true,
+    },
   },
   programs: {
     forWhoLabel: "Who it's for",
     sessionsHeading: 'Sessions included',
-    backToServices: '← Back to services',
+    backToServices: '← Work with me',
     companyHeading: 'Could your company pay for it?',
     companyBody:
-      'Many companies cover this programme as training. The price is the same, invoiced to the company, with a three-way kickoff with your manager and a closing summary. There is a page written for whoever approves it.',
-    companyCta: 'See the page for companies',
+      'Many companies cover this programme as training. The price is the same, invoiced to the company, with a three-way kickoff with your manager and a closing summary.',
+    companyCta: 'For a team of managers? Método Pericia for companies',
     companyGuideCta: 'How to ask your company',
     items: [
       {
         slug: 'primeros-90-dias',
+        seoDescription: 'From doing the work to your team doing it. Six individual mentoring sessions for your first leadership role: expectations, first conflict and managing up.',
         tag: 'Programme · New managers',
         title: 'Your first 90 days leading',
         subtitle: 'From doing the work to the team doing it.',
@@ -144,7 +130,7 @@ const en: Dictionary = {
           {
             title: 'Foundational conversations',
             description:
-              'The first 1:1s, how to set expectations, how to listen without promising.',
+              'The first one-to-one meetings with your team, how to set expectations, how to listen without promising.',
           },
           {
             title: 'Your first conflict',
@@ -167,6 +153,7 @@ const en: Dictionary = {
       },
       {
         slug: 'presencia-ejecutiva',
+        seoDescription: 'So your voice carries weight where decisions get made. Six individual mentoring sessions for experienced leaders: authority, positioning and influence.',
         tag: 'Programme · Directors and senior managers',
         title: 'Executive presence',
         subtitle: 'Make your voice carry where decisions get made.',
@@ -211,87 +198,94 @@ const en: Dictionary = {
     ],
   },
   companies: {
+    seoDescription: 'Pericia\'s method inside your company, for a team of managers: real cases, their own managers involved from the start and a way to measure the change.',
     eyebrow: 'For companies',
-    heading: '1:1 mentoring for managers and directors, paid by the company',
-    lead: "This page is for two people: the one who wants to do the programme and the one who approves it. If you're the approver, in two minutes you know what it is, what your team gets and what it costs.",
-    whatHeading: 'What it is',
-    whatBody:
-      "Six one-hour sessions, one on one with me, online, spread over three to six months. Each session works on a real situation from that week (a meeting, a decision, a pending conversation) and ends with one concrete action for the next. I deliver it myself: Senior Director of Engineering, 20 years in corporate and every rung of the chain of command, from engineer to leadership.",
-    programsHeading: 'Two programmes, depending on the moment',
-    programs: [
+    heading: 'Método Pericia for companies',
+    lead: 'The same method inside your company, for a team. A group of managers works over several months on their own real cases, with their own managers involved from the start and a way to measure whether anything has changed.',
+    problemHeading: "The trouble with the usual course",
+    problemQuote:
+      "A standard management course isn't bad. You watch it, you find it interesting, and then you go back to your desk and at most you take away three ideas. 95% of how you manage stays the same.",
+    problemBody:
+      "That's why management training gets measured on attendance and satisfaction figures, and almost never on evidence of change. Meanwhile, managers keep taking to HR what they should be able to handle themselves: the performance conversation, the conflict in the team, the hard feedback.",
+    whyHeading: 'What makes it stick',
+    whyLead: "The tool takes an afternoon to learn. Whether it gets used depends on three things a course doesn't touch.",
+    why: [
       {
-        title: 'Your first 90 days leading',
-        forWho: 'For someone who has just stepped into their first leadership role. Expectations, first 1:1s, first conflict, managing up.',
-        href: '/en/programas/primeros-90-dias',
+        title: "The manager's own manager",
+        body: 'What best predicts whether training gets used on the job is where the person goes back to: support from their own manager and a team that welcomes the change.',
+        source: 'Blume et al., 2010: 89 studies.',
       },
       {
-        title: 'Executive presence',
-        forWho: "For experienced managers and directors whose voice doesn't carry the weight it should where decisions get made. Authority, positioning, political navigation, committee.",
-        href: '/en/programas/presencia-ejecutiva',
-      },
-    ],
-    gainsHeading: 'What the company gets',
-    gains: [
-      {
-        title: 'Meetings that decide',
-        body: 'The person walks into the room with a position, steers the conversation to the point and leaves with a decision, owners and a date. You notice it by the second week.',
+        title: 'Real cases, not more sessions',
+        body: "Coaching works, but the number of sessions doesn't predict the result. What does is working on your own goals between one session and the next.",
+        source: 'Jones, Woods & Guillaume, 2016: 17 studies.',
       },
       {
-        title: 'Less noise upward',
-        body: 'Status in three lines, escalations in time, fewer surprises for their manager. What a director usually asks for and almost never gets.',
-      },
-      {
-        title: "A team that doesn't hang on one person",
-        body: "Real delegation and a sustainable pace, so delivery doesn't depend on whoever holds out the longest. The opposite of burning out someone you've already invested in.",
-      },
-      {
-        title: 'Applied the following week',
-        body: 'No theory to file in a drawer. Every session ends with an action on a real problem at work, and in the next one we look at what happened.',
+        title: 'Observation and feedback',
+        body: 'With theory and demonstration, 5-10% of people apply the new skill at work. Add observation and feedback on the job, and 80-90% do.',
+        source: 'Joyce & Showers, from teacher-training research.',
       },
     ],
     howHeading: 'How it works',
+    howLead: 'For small, closed groups of managers, with one session a month.',
     steps: [
       {
-        title: 'Free 15-minute diagnostic',
-        body: 'With the person who will do the programme. I name the problem and tell them whether I can help, and with which programme.',
+        title: 'Design session',
+        body: "With HR and the managers' own managers. We agree what a good result looks like, how we'll measure it and what each of them does before, during and after the sessions. Without them on board, nothing changes.",
       },
       {
-        title: 'A one-page proposal',
-        body: 'Goals, calendar and price, so the approver has it in writing. No forty-slide deck.',
+        title: 'Monthly sessions',
+        body: "4, 6 or 8 sessions of 90 minutes, one a month. Each one on a real case from the group's teams: a performance conversation, hard feedback, delegating, running a team with AI in the mix. Between sessions there's an open thread, so what happens in week two gets an answer in week two.",
       },
       {
-        title: 'Three-way kickoff',
-        body: "Half an hour with the person and their manager to set two or three goals. Optional, but it's what makes the programme count for the company.",
+        title: 'Observation, optional',
+        body: "I sit in on two of each manager's real meetings (one with someone from their team and one with the whole team), give feedback the same day and leave a short written note. It's booked per person, so you can give it to whoever needs it most.",
       },
       {
-        title: 'Six sessions and a closing summary',
-        body: 'At the end, the company receives a summary with the goals and the progress. What is said inside the sessions is confidential: it stays between the person and me.',
+        title: 'Closing report',
+        body: 'At the end, against the measures we agreed in the design session.',
       },
     ],
-    priceHeading: 'Price and invoice',
-    priceValue: '€790 (VAT included)',
-    priceNote: 'per 6-session programme, three-way kickoff and closing summary included',
-    priceBullets: [
-      'Invoiced to the company, with VAT itemised.',
-      'Line item: “Executive mentoring: leadership and communication”.',
-      'Paid by bank transfer at the start. Two instalments if needed.',
+    measureHeading: "How it's measured",
+    measureLead: "The measures are settled in the design session. Here's my starting proposal.",
+    measures: [
+      {
+        title: 'Escalations to HR',
+        body: 'How many basic management questions reach HR from each manager in the group, before and during. Every month.',
+      },
+      {
+        title: 'Four pulse questions',
+        body: "Only for the group's teams, at the start and at the end: “My manager gives me feedback that helps me improve”, “Disagreements in our team are handled constructively”, “I know what's expected of me and how my work is evaluated”, “My manager supports my development”.",
+      },
+      {
+        title: 'One real conversation',
+        body: 'Each manager runs one hard conversation from their own team during the programme, prepared in the group and reviewed afterwards.',
+      },
+      {
+        title: 'Departures that hurt',
+        body: "At 12 months: how many people you didn't want to lose have left the group's teams, compared with the rest.",
+      },
     ],
-    selfPayNote: 'Paying yourself? Same price.',
-    selfPayCta: 'See the programmes',
+    whoHeading: "Who's behind it",
+    whoBody:
+      "Yaiza Temprado, founder of Pericia. I started out teaching Machine Learning at Universidad Europea, then spent 20 years in corporate, in seven companies, from junior engineer to Senior Director, with more than 100 people reporting to me over my career. That's how the managers in my organisation grew: working on their real cases with me, their manager. In October I left my role and founded Pericia.",
+    whoCompanies: {
+      label: 'Has led teams at',
+      names: ['Amadeus', 'Telefónica I+D', 'SICPA', 'Busuu'],
+      countriesLabel: 'With teams in',
+      countries: ['Spain', 'Germany', 'India', 'the US', 'Australia'],
+    },
     fundaeHeading: 'Can it be funded through FUNDAE?',
     fundaeBody:
-      "Yes. The programme qualifies for FUNDAE funding, so the company can cover part of the cost with the training credit it already has and hardly ever spends in full. The company handles it from its own FUNDAE platform, and it has to be filed before the programme starts. If you need the paperwork to process it, ask me and I'll send it over.",
-    teamsHeading: 'For several managers at once',
-    teamsBody: 'If you want this for more than one person on your team, write to me and we shape it to your case.',
-    whoHeading: 'Who delivers it',
-    whoBody:
-      "Yaiza Temprado. Senior Director of Engineering. More than 20 years in corporate across seven companies of different sectors and sizes, every rung of the chain of command (engineer, manager, director, senior leadership) and more than 100 people led over my career. What I teach, I've used in my own rooms.",
-    ctaPrimary: 'Book the free diagnostic',
-    ctaSecondary: 'Write to me',
-    ctaMailSubject: 'Company-funded mentoring',
-    askGuide: {
-      text: 'Are you the one who wants the programme and not sure how to ask for it?',
-      cta: "Here's how to put it to your company",
+      "It may apply if the Spanish entity of the company is the one contracting. The company handles it from its own FUNDAE platform, and it has to be filed before the programme starts. I'll bring the paperwork.",
+    ctaHeading: 'Shall we look at it for your company?',
+    ctaBody: "Tell me how many managers there are and what worries you about them, and I'll send you a proposal.",
+    ctaPrimary: 'Ask me for a proposal',
+    ctaSecondary: 'Book a call',
+    ctaMailSubject: 'Método Pericia for companies',
+    individual: {
+      text: 'Looking for something else? Individual mentoring for one person, paid by the company:',
+      cta: 'See the packs',
     },
   },
   resources: {
@@ -446,14 +440,17 @@ const en: Dictionary = {
     ],
   },
   connect: {
-    eyebrow: 'Stay in touch',
-    heading: "Don't miss what's next",
+    eyebrow: 'Newsletter',
+    heading: 'What works, told from the inside',
+    body: "I write about what has worked for me in 20 years of meetings: getting your ideas through, preparing a difficult conversation, showing what you bring and asking for what you want. And how to let AI do the heavy lifting. The newsletter is in Spanish.",
+    note: 'Unsubscribe whenever you like, in one click.',
     lead: 'Or find me on social media',
   },
   newsletter: {
+    seoDescription: 'Two or three emails a month on what has worked for me in 20 years of meetings: getting your ideas through and letting AI do the heavy lifting.',
     eyebrow: 'Newsletter',
-    heading: "Don't miss what's coming",
-    body: "I write about communication, influence, meetings, presence and how to lead in the age of AI: getting heard without leaving yourself behind. I send 2-3 emails a month, no more, so when one lands it's worth your time. The newsletter is in Spanish.",
+    heading: 'What works, told from the inside',
+    body: "I write about what has worked for me in 20 years of meetings: getting your ideas through, preparing a difficult conversation, showing what you bring and asking for what you want. And how to let AI do the heavy lifting. I send 2 or 3 emails a month, no more, so when one lands it's worth your time. The newsletter is in Spanish.",
     placeholder: 'Your email',
     submit: 'Subscribe',
     success: "You're in. I'll be in touch.",

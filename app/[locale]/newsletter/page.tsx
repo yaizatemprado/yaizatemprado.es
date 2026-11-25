@@ -15,12 +15,12 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
   const dict = await getDictionary(locale)
   return {
     title: `${dict.newsletter.heading} — Yaiza Temprado`,
-    description: dict.newsletter.body.split('\n')[0],
+    description: dict.newsletter.seoDescription,
     alternates: alternates(locale, 'newsletter'),
     openGraph: openGraph(
       locale,
       `${dict.newsletter.heading} — Yaiza Temprado`,
-      dict.newsletter.body.split('\n')[0],
+      dict.newsletter.seoDescription,
       'newsletter',
     ),
   }

@@ -59,12 +59,30 @@ export const club = {
     'Tienes tu IA del trabajo montada con tu contexto, y ves con tus propios casos cómo sacarle toda su potencia.',
   ],
 
-  // From proyectos/club-pericia/testimonios-piloto.md: literal fragments, signed as each one chose (13/11).
-  proofHeading: 'Lo que dicen las del piloto',
+  // From proyectos/club-pericia/testimonios-piloto.md: literal fragments ([…] marks a cut), signed as each one chose
+  // (13/11). Alicia signed as she chose; Yaiza decided on 25/11 not to add the family link.
+  proofHeading: 'Lo que dicen las que han pasado por el Club',
   proof: [
-    { quote: 'Un antes y un después en mi forma de trabajar.', who: 'Vicky' },
-    { quote: 'Ahora, cuando preparo una propuesta, intento entender mejor a quién se la voy a presentar, qué necesita esa persona y desde qué perspectiva va a valorarla.', who: 'Henar, Ingeniera informática' },
-    { quote: 'Da igual la posición en tu trabajo, le encontrarán la aplicabilidad en cualquier caso.', who: 'Pilar, Responsable de Sostenibilidad Ambiental' },
+    {
+      quote: 'Me ha proporcionado herramientas clave para trabajar en el día a día: me ayudan a empezar el día, a organizar mi trabajo, a comunicar mejor y a terminar la jornada con la sensación de haber avanzado en lo importante. Un antes y un después en mi forma de trabajar.',
+      who: 'Vicky',
+    },
+    {
+      quote: 'Ahora, cuando preparo una propuesta, intento entender mejor a quién se la voy a presentar, qué necesita esa persona y desde qué perspectiva va a valorarla. Esto me ayuda a estructurar mejor mis ideas y a detectar puntos débiles que antes podían pasarme desapercibidos.',
+      who: 'Henar, Ingeniera informática',
+    },
+    {
+      quote: 'Uso la IA cada día: me organiza la jornada, me dice qué “rana” toca comerse primero y me ayuda a mantener el foco en los objetivos estratégicos para no quedarme atrapada en lo operativo.',
+      who: 'Yolanda',
+    },
+    {
+      quote: 'El curso con Yaiza me ha ayudado, no sólo a saber manejar la IA y a hacer nuevas cosas con ella, si no a hacerlo con un enfoque de liderazgo. […] Da igual la posición en tu trabajo, le encontrarán la aplicabilidad en cualquier caso.',
+      who: 'Pilar, Responsable de Sostenibilidad Ambiental',
+    },
+    {
+      quote: 'Me ha hecho ganar un montón de tiempo en tareas repetitivas, y de cara al resto de mis compañeros siento que estoy mucho más avanzada que ellos en cuanto al uso de la IA.',
+      who: 'Alicia, Account Manager',
+    },
   ],
 
   howHeading: 'Cómo funciona',
@@ -76,6 +94,13 @@ export const club = {
 
 
   editionHeading: 'Primera edición',
+  // The strip under the hero: the four facts someone checks before buying.
+  editionFacts: [
+    { label: 'Empieza', value: 'Lunes 11 de enero' },
+    { label: 'Directos', value: 'Lunes 11, 18 y 25 de enero y 1 de febrero, a las 18:00 (hora de Madrid). Se quedan grabados' },
+    { label: 'Precio', value: '287 €, IVA incluido' },
+    { label: 'Regalo', value: 'Para las 10 primeras, por orden de pago: una mentoría individual de 60 minutos conmigo, en diciembre' },
+  ],
   editionBullets: [
     'Empezamos el lunes 11 de enero. Directos los lunes 11, 18 y 25 de enero y 1 de febrero, a las 18:00 (hora de Madrid).',
     'Todos los directos se quedan grabados.',
@@ -84,12 +109,13 @@ export const club = {
   ],
   editionNote: 'Precio de primera edición: 287 €, IVA incluido.',
 
-  whoHeading: 'Quién lo imparte',
-  whoBody:
-    'Soy Yaiza Temprado. Fundé el Club Pericia después de 20 años en corporate, en siete empresas y pasando por toda la cadena de mando, de ingeniera a Senior Director. Casi nada de esto me salió natural: lo tuve que aprender. Por eso sé que se puede enseñar.',
 
   faqHeading: 'Preguntas',
   faq: [
+    {
+      q: '¿Quién lo imparte?',
+      a: 'Yo, Yaiza Temprado. Fundé Pericia después de 20 años en corporate, en siete empresas y pasando por toda la cadena de mando, de ingeniera junior a Senior Director. Casi nada de esto me salió natural: lo tuve que aprender. Por eso sé que se puede enseñar.',
+    },
     {
       q: '¿Es un curso de IA?',
       a: 'No exactamente. Es un curso de liderazgo en el que la IA es tu herramienta. Vas a aprender muchísimo sobre cómo usarla, siempre ligada a los objetivos de tus proyectos.',
@@ -117,14 +143,13 @@ export const club = {
     },
   ],
 
-  closing: '¿No sabes si es para ti? Escríbeme a hola@yaizatemprado.es y te contesto yo.',
   waitlistPlaceholder: 'Tu email',
   waitlistNote:
     'Te escribo el día que abran las plazas. Al apuntarte entras también en mi newsletter; si no la quieres, te das de baja con un clic desde cualquier email.',
   thanks: {
     title: 'Estás en la lista — Club Pericia',
     heading: 'Estás en la lista.',
-    body: 'Te escribo el lunes 23 de noviembre, el día que abren las plazas de la primera edición. Si no ves mi email, mira en promociones o en spam.',
+    body: 'Las plazas de la primera edición ya están abiertas: empezamos el lunes 11 de enero. Si no ves mi email, mira en promociones o en spam.',
     back: 'Volver al Club Pericia',
   },
 }

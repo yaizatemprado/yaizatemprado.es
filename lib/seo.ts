@@ -52,7 +52,7 @@ export function openGraph(
   title: string,
   description: string,
   path = '',
-  image: { src: string; width: number; height: number } = { src: '/assets/pericia-og.png', width: 1200, height: 630 },
+  image: { src: string; width: number; height: number } = { src: '/assets/pericia-og-nov26.png', width: 1200, height: 630 },
 ): Metadata['openGraph'] {
   const tail = path ? `${path}/` : ''
   return {

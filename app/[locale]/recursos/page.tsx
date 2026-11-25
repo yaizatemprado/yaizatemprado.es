@@ -5,6 +5,7 @@ import { alternates, openGraph } from '@/lib/seo'
 import { articlesFor, keyOf } from '@/lib/articles'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import { List, ListRow, SectionHeader, pageColumn } from '@/components/ui/Section'
 
 type Props = { params: { locale: string } }
 
@@ -47,47 +48,30 @@ export default async function ResourcesPage({ params: { locale } }: Props) {
     <main className="max-w-[1200px] mx-auto px-5 sm:px-6 pt-20 pb-20 sm:pt-24 sm:pb-[120px]" id="main">
       <Header locale={locale} dict={dict.nav} />
 
-      <section className="max-w-[820px] mx-auto py-12 grid gap-10">
-        <header className="grid gap-4 text-center justify-items-center">
-          <span className="text-[0.78rem] font-extrabold tracking-[0.22em] uppercase text-rose">
-            {dict.resources.eyebrow}
-          </span>
-          <h1
-            className="font-serif text-anchor leading-[1.15] sm:leading-[1.1] tracking-[-0.005em]"
-            style={{ fontSize: 'clamp(1.8rem, 5vw, 3rem)' }}
-          >
-            {dict.resources.heading}
-          </h1>
-          <p className="text-slate leading-[1.7] text-[0.98rem] sm:text-[1.05rem] max-w-[620px]">
-            {dict.resources.lead}
-          </p>
-        </header>
+      <section className={`${pageColumn} py-6 grid gap-14`}>
+        <SectionHeader as="h1" eyebrow={dict.resources.eyebrow} title={dict.resources.heading} lead={dict.resources.lead} />
 
         {pillars.length > 0 && (
-          <div className="grid gap-5">
-            <h2 className="font-serif text-[1.5rem] text-anchor text-center">{dict.resources.startHeading}</h2>
-            <CardGrid cards={pillars} locale={locale} large />
+          <div className="grid gap-6">
+            <SectionHeader title={dict.resources.startHeading} />
+            <ItemList cards={pillars} locale={locale} />
           </div>
         )}
 
-        <div className="grid gap-5">
-          {pillars.length > 0 && (
-            <h2 className="font-serif text-[1.5rem] text-anchor text-center">{dict.resources.moreHeading}</h2>
-          )}
-          <CardGrid cards={rest} locale={locale} />
+        <div className="grid gap-6">
+          {pillars.length > 0 && <SectionHeader title={dict.resources.moreHeading} />}
+          <ItemList cards={rest} locale={locale} />
         </div>
 
         {company && (
-          <aside className="bg-stone rounded-[14px] border border-line px-6 py-6 grid gap-3">
-            <h2 className="text-[1.1rem] font-bold text-anchor">{dict.resources.companyHeading}</h2>
-            <p className="text-slate leading-[1.65] text-[0.95rem]">{dict.resources.companyBody}</p>
-            <Link
-              href={`/${locale}/recursos/${company.slug}`}
-              className="text-[0.9rem] font-semibold text-rose hover:text-anchor no-underline transition-colors duration-200"
-            >
-              {dict.resources.companyCta} →
-            </Link>
-          </aside>
+          <List>
+            <ListRow title={dict.resources.companyHeading}>
+              <p>{dict.resources.companyBody}</p>
+              <Link href={`/${locale}/recursos/${company.slug}`} className={readLink}>
+                {dict.resources.companyCta} →
+              </Link>
+            </ListRow>
+          </List>
         )}
       </section>
 
@@ -96,29 +80,28 @@ export default async function ResourcesPage({ params: { locale } }: Props) {
   )
 }
 
-function CardGrid({ cards, locale, large = false }: { cards: Card[]; locale: string; large?: boolean }) {
+const readLink = 'text-[0.95rem] font-semibold text-rose hover:text-anchor no-underline transition-colors duration-200'
+
+// Same list as the home: title and type on the left, summary and link on the right.
+function ItemList({ cards, locale }: { cards: Card[]; locale: string }) {
   return (
-    <ul className="grid gap-5 list-none p-0 m-0 sm:grid-cols-2">
+    <List>
       {cards.map((item) => (
-        <li key={item.slug}>
-          <Link
-            href={`/${locale}/recursos/${item.slug}`}
-            className={`group grid gap-3 h-full bg-card rounded-[14px] border border-line no-underline transition-transform duration-200 hover:-translate-y-px ${large ? 'px-7 py-8' : 'px-6 py-7'}`}
-            style={{ boxShadow: '0 8px 16px rgba(60, 40, 42, 0.05)' }}
-          >
-            <span className="text-[0.72rem] font-bold tracking-[0.15em] uppercase text-rose bg-stone rounded-full px-3 py-1 self-start">
-              {item.tag}
-            </span>
-            <h3 className={`font-serif text-anchor leading-[1.2] ${large ? 'text-[1.55rem]' : 'text-[1.3rem]'}`}>
+        <ListRow
+          key={item.slug}
+          title={
+            <Link href={`/${locale}/recursos/${item.slug}`} className="no-underline text-anchor hover:text-rose transition-colors duration-200">
               {item.title}
-            </h3>
-            <p className="text-slate leading-[1.6] text-[0.92rem]">{item.summary}</p>
-            <span className="mt-1 text-[0.85rem] font-semibold text-rose group-hover:text-anchor transition-colors duration-200">
-              {item.cta} →
-            </span>
+            </Link>
+          }
+          tag={item.tag}
+        >
+          <p>{item.summary}</p>
+          <Link href={`/${locale}/recursos/${item.slug}`} className={readLink}>
+            {item.cta} →
           </Link>
-        </li>
+        </ListRow>
       ))}
-    </ul>
+    </List>
   )
 }
