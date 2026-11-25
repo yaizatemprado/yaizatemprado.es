@@ -48,7 +48,7 @@ export default async function LocalePage({ params: { locale } }: Props) {
     jobTitle: dict.hero.eyebrow.split(' · ').pop(),
     description: dict.meta.description,
     url: `${SITE_URL}/${locale}/`,
-    image: `${SITE_URL}/assets/yaiza-47.webp`,
+    image: `${SITE_URL}/assets/yaiza-19-hero.webp`,
     knowsLanguage: ['es', 'en'],
     sameAs: SAME_AS,
   }

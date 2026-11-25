@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/assets/pericia-og-nov26.png',
+        url: '/assets/pericia-og-19.png',
         width: 1200,
         height: 630,
         alt: 'Yaiza Temprado — Comunicación, influencia y liderazgo',
