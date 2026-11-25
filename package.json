@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node scripts/set-html-lang.mjs",
     "start": "next start",
     "test": "echo \"No tests configured\""
   },

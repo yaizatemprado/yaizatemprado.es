@@ -122,8 +122,8 @@ export function Hero() {
       <img
         src="/assets/yaiza-29.webp"
         alt="Yaiza Temprado"
-        width={1000}
-        height={1500}
+        width={800}
+        height={1200}
         className="order-1 lg:order-2 w-full h-[80vw] max-h-[480px] lg:max-h-none lg:h-full object-cover object-[50%_30%]"
       />
     </header>
