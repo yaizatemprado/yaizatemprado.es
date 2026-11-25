@@ -117,7 +117,7 @@ export const club = {
     },
   ],
 
-  closing: '¿No sabes si es para ti? Cuéntame tu caso en 15 minutos y te lo digo.',
+  closing: '¿No sabes si es para ti? Escríbeme a hola@yaizatemprado.es y te contesto yo.',
   waitlistPlaceholder: 'Tu email',
   waitlistNote:
     'Te escribo el día que abran las plazas. Al apuntarte entras también en mi newsletter; si no la quieres, te das de baja con un clic desde cualquier email.',
@@ -125,7 +125,6 @@ export const club = {
     title: 'Estás en la lista — Club Pericia',
     heading: 'Estás en la lista.',
     body: 'Te escribo el lunes 23 de noviembre, el día que abren las plazas de la primera edición. Si no ves mi email, mira en promociones o en spam.',
-    diagnosticLead: 'Si mientras quieres contarme tu caso, tienes 15 minutos conmigo.',
     back: 'Volver al Club Pericia',
   },
 }

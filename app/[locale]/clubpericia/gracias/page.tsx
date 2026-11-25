@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getDictionary } from '@/lib/i18n'
-import { club, BRAND, DIAGNOSTIC_URL } from '@/lib/clubpericia'
+import { club, BRAND } from '@/lib/clubpericia'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { ClubLockup } from '@/components/club/ClubSections'
@@ -30,17 +30,7 @@ export default async function ClubGraciasPage({ params: { locale } }: Props) {
             {t.heading}
           </h1>
           <p className="leading-[1.7] text-[1.02rem] opacity-90 max-w-[600px]">{t.body}</p>
-          <p className="leading-[1.7] text-[1.02rem] opacity-90 max-w-[600px]">{t.diagnosticLead}</p>
           <div className="flex flex-wrap gap-3 mt-1">
-            <a
-              href={DIAGNOSTIC_URL.replace('canal=web-club', 'canal=web-club-gracias')}
-              target="_blank"
-              rel="noreferrer"
-              className="px-6 py-3 rounded-full text-[0.92rem] font-bold no-underline hover:opacity-90"
-              style={{ background: BRAND.terracotta, color: BRAND.cream }}
-            >
-              {club.ctaSecondary}
-            </a>
             <a
               href="/es/clubpericia/"
               className="px-6 py-3 rounded-full text-[0.92rem] font-bold no-underline border hover:opacity-80"

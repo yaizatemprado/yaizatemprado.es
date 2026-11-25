@@ -1,4 +1,4 @@
-import { club, BRAND, PRIMARY, DIAGNOSTIC_URL, SALES_OPEN, WAITLIST_FORM_ACTION } from '@/lib/clubpericia'
+import { club, BRAND, PRIMARY, SALES_OPEN, WAITLIST_FORM_ACTION } from '@/lib/clubpericia'
 
 // Pericia look: night blue, terracotta and cream, Manrope throughout (no Playfair),
 // so the club reads as its own brand inside the personal site.
@@ -46,17 +46,8 @@ export function WaitlistForm({ onDark = false }: { onDark?: boolean }) {
 }
 
 export function Ctas({ onDark = false, primaryOnly = false, toForm = false }: { onDark?: boolean; primaryOnly?: boolean; toForm?: boolean }) {
-  const secondary = !primaryOnly && (
-    <a
-      href={DIAGNOSTIC_URL}
-      target="_blank"
-      rel="noreferrer"
-      className={`${pill} border hover:opacity-80`}
-      style={{ borderColor: onDark ? BRAND.cream : BRAND.night, color: onDark ? BRAND.cream : BRAND.night }}
-    >
-      {club.ctaSecondary}
-    </a>
-  )
+  // Sin botón secundario desde el 25/11/2026: el diagnóstico de 15 min sale de todos los CTA del Club (Yaiza).
+  const secondary = null
 
   if (!SALES_OPEN && !toForm) {
     return (
