@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Yaiza Temprado//Pericia//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:masterclass-3-dic@yaizatemprado.es
+DTSTAMP:20261126T184028Z
+DTSTART:20261203T123000Z
+DTEND:20261203T133000Z
+SUMMARY:Masterclass Club Pericia · Yaiza Temprado
+DESCRIPTION:Por qué tus ideas no salen adelante. Trae esa idea que no hay manera de sacar adelante (y los espaguetis).\n\nEnlace para entrar (Zoom): https://us06web.zoom.us/j/85428274713?pwd=QPkEXpdeXeAK5aHJuzT4NO4evc2CuT.1
+LOCATION:https://us06web.zoom.us/j/85428274713?pwd=QPkEXpdeXeAK5aHJuzT4NO4evc2CuT.1
+URL:https://us06web.zoom.us/j/85428274713?pwd=QPkEXpdeXeAK5aHJuzT4NO4evc2CuT.1
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Empezamos en 15 minutos
+END:VALARM
+END:VEVENT
+END:VCALENDAR
