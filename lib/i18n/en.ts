@@ -17,14 +17,14 @@ const en: Dictionary = {
   hero: {
     eyebrow: 'Leadership mentoring · Founder of Pericia',
     heading: 'Lead and actually get heard.',
-    lead: "I spent 20 years in corporate, in seven companies and two countries, and climbed every rung of the chain of command: from junior engineer to Senior Director. Meetings that decide nothing, good ideas that go nowhere, rooms where it's hard to be taken seriously: I know them because they were mine. I give you the concrete frameworks to change that.",
+    lead: "I spent 20 years in corporate, in seven companies and five countries, and climbed every rung of the chain of command: from junior engineer to Senior Director. Meetings that decide nothing, good ideas that go nowhere, rooms where it's hard to be taken seriously: I know them because they were mine. I give you the concrete frameworks to change that.",
     ctaPrimary: 'Work with me',
     ctaSecondary: 'Subscribe',
   },
   about: {
     eyebrow: 'About',
     heading: "I've climbed every rung of the chain of command",
-    p1: "I'm not telling you this second-hand. I spent 20 years in corporate, in seven companies and two countries, and I held every rung: from junior engineer to manager, director and Senior Director. What I tell you about meetings, influence or presence isn't theory from a book: it's the rooms I've sat in and the rooms I've run.",
+    p1: "I'm not telling you this second-hand. I spent 20 years in corporate, in seven companies and five countries, and I held every rung: from junior engineer to manager, director and Senior Director. What I tell you about meetings, influence or presence isn't theory from a book: it's the rooms I've sat in and the rooms I've run.",
     p2: "And there's something almost nobody's telling you: how AI is changing what's expected of anyone who leads. I saw it in my teams and in my own decisions: what now makes a manager valuable and what no longer does. It's not a prediction, it's already happening.",
     p3: "One more thing, because it explains how I work. For 20 years I was one of the few women in the room. I know what it's like to walk in where you don't quite fit, get questioned more than you should, and earn your seat anyway. That serves anyone who feels outside the conversation: because you come from the technical side, because you're the new or the youngest person, or simply because nobody taught you how that game is played.",
   },
